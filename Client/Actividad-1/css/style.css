@@ -38,6 +38,11 @@ a
     background-color: red;
 }
 
+.red2
+{
+    color: red;
+}
+
 .big
 {
     margin-left: 150px;
@@ -51,4 +56,34 @@ a
     text-align: center;
     margin-top: 25px;
     height: 120px;
+}
+
+.position
+{
+    position: relative;
+    top: -680px;
+    left: 50%;
+    width: 30%;
+    background-color: lightgray;
+}
+
+.position2
+{
+    position: relative;
+    top: -600px;
+    left: 50%;
+    width: 30%;
+    background-color: lightgray;
+}
+
+.font
+{
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+}
+
+.gray
+{
+    background-color: lightgray;
 }
