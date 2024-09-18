@@ -1,0 +1,59 @@
+/*
+Theme Name: CentralNews
+Theme URI:  https://afthemes.com/products/centralnews/
+Author:     AF themes
+Author URI: https://afthemes.com/
+Description: CentralNews is a user-friendly WordPress theme designed for news, blog, and magazine websites. It lets you quickly set up your site with one-click demo imports and easily manage content using 9+ custom widgets. The theme offers stylish options like various banners, light/dark mode, and is customizable via the live customizer. Supporting RTL languages and compatible with Elementor, Gutenberg blocks, and WooCommerce, it even allows for seamless integration of an online store. CentralNews is optimized for search engines and comes with dedicated support. Explore demos and documentation at https://afthemes.com/products/centralnews/.
+Template: morenews
+Version: 1.0.0
+Requires PHP: 5.6
+Tested up to: 6.6
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: centralnews
+Tags: news, blog, entertainment, one-column, two-columns, grid-layout, block-styles, left-sidebar, right-sidebar, custom-header, flexible-header, custom-background, custom-menu, featured-images, full-width-template, post-formats, rtl-language-support, footer-widgets, translation-ready, theme-options, threaded-comments
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+CentralNews WordPress Theme, Copyright 2022 AF themes
+CentralNews is distributed under the terms of the GNU GPL v2 or later.
+*/
+
+div#main-navigation-bar {
+    background: #BF0A30;
+}
+
+.exclusive-posts .exclusive-now{
+    background-color: #002868;
+}
+
+.main-navigation .menu-description{
+    background-color: #002868;
+}
+
+.main-navigation .menu-description:after{
+    border-top: 5px solid #002868;
+}
+
+div.custom-menu-link > a {
+    background: #002868;
+}
+
+.af-cat-widget-carousel a.morenews-categories.category-color-1{
+    background-color: #002868;
+
+}
+
+a.morenews-categories.category-color-1{
+    color: #002868;
+}
+
+.af-cat-widget-carousel a.morenews-categories.category-color-2 {
+    background-color: #BF0A30;
+    
+}
+
+a.morenews-categories.category-color-2 {
+    color: #BF0A30;
+}
