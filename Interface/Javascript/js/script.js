@@ -33,7 +33,7 @@ function pruebaDoWhile()
 
 function pruebaContinue()
 {
-    document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaContinue excepto el Nivel 4.</h1>");
+    document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaContinue<span style='color: red;'> excepto el Nivel 4.</span></h1>");
     const MAX_NIVEL=6;
     for (let i=1;i<=MAX_NIVEL;i++) {
         if (i == 4)
@@ -49,7 +49,7 @@ function pruebaContinue()
 
 function pruebaBreak()
 {
-    document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaBreak Hasta el Nivel 4.</h1>");
+    document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaBreak<span style='color: red;'> Hasta el Nivel 4.</span></h1>");
     const MAX_NIVEL=6;
     for (let i=1;i<=MAX_NIVEL;i++) {
         if (i > 4)
