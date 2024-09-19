@@ -59,3 +59,11 @@ function pruebaBreak()
         document.write("<H" + i + ">Encabezado de nivel " + i + "</H" + i + ">") 
     }
 }
+
+function pruebaBucles(...pruebas)
+{
+    for (let i = 0; i < pruebas.length; i++)
+    {
+        pruebas[i]();
+    }
+}
