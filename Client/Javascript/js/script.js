@@ -1,7 +1,8 @@
+const MAX_NIVEL = 6;
+
 function pruebaFor()
 {
     document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaFor</h1>");
-    const MAX_NIVEL=6;
     for (let i = 1; i <= MAX_NIVEL; i++)
     { 
         document.write("<H" + i + ">Encabezado de nivel " + i + "</H" + i + ">") 
@@ -11,7 +12,6 @@ function pruebaFor()
 function pruebaWhile()
 {
     document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaWhile</h1>");
-    const MAX_NIVEL=6;
     let i = 1;
     while (i <= MAX_NIVEL)
     {
@@ -23,7 +23,6 @@ function pruebaWhile()
 function pruebaDoWhile()
 {
     document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaDoWhile</h1>");
-    const MAX_NIVEL=6;
     let i = 1;
     do {
         document.write("<H" + i + ">Encabezado de nivel " + i + "</H" + i + ">") 
@@ -34,8 +33,8 @@ function pruebaDoWhile()
 function pruebaContinue()
 {
     document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaContinue<span style='color: red;'> excepto el Nivel 4.</span></h1>");
-    const MAX_NIVEL=6;
-    for (let i=1;i<=MAX_NIVEL;i++) {
+    for (let i = 1; i <= MAX_NIVEL; i++)
+    {
         if (i == 4)
         {
             continue;
@@ -50,8 +49,8 @@ function pruebaContinue()
 function pruebaBreak()
 {
     document.write("<h1 style='font-size: 48px; color: blue;'>Función pruebaBreak<span style='color: red;'> Hasta el Nivel 4.</span></h1>");
-    const MAX_NIVEL=6;
-    for (let i=1;i<=MAX_NIVEL;i++) {
+    for (let i = 1; i <= MAX_NIVEL; i++)
+    {
         if (i > 4)
         {
             break;
@@ -60,10 +59,43 @@ function pruebaBreak()
     }
 }
 
-function pruebaBucles(...pruebas)
+function pruebaBucles(...pruebas) // Parametros rest, espera entre 1 y n parametros y los trata como un array de datos.
 {
     for (let i = 0; i < pruebas.length; i++)
     {
         pruebas[i]();
     }
+}
+
+function operacionesAritmeticas(operador, ...number)
+{
+    operacion = number[0];
+    switch (operador)
+    {
+        case "+":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion += number[i];
+            }
+            break;
+        case "-":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion -= number[i];
+            }
+            break;
+        case "*":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion *= number[i];
+            }
+            break;
+        case "/":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion /= number[i];
+            }
+            break;
+    }
+    return operacion;
 }
