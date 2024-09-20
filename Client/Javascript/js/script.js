@@ -99,3 +99,58 @@ function operacionesAritmeticas(operador, ...number)
     }
     return operacion;
 }
+
+function getNombreMes(mes) {
+    mes = mes - 1; // Ajustar el número de mes al índice del array (1 = Ene, 12 = Dic)
+    var meses = new Array("Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre",
+    );
+    try{
+        document.body.innerHTML += meses[mes];
+    // Código para utilizar el mes obtenido
+  }
+  catch (error){
+    console.log("Tiene que pasar por acá.");
+    alert(error.message); // Interfaz de usuario
+  }
+  }
+
+  function operacionesAritmeticas(operador, ...number)
+{
+    operacion = number[0];
+    switch (operador)
+    {
+        case "+":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion += number[i];
+                if (operacion == NaN)
+                {
+                    throw("Error: Habras intentado sumar una string?");
+                }
+            }
+            break;
+        case "-":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion -= number[i];
+            }
+            break;
+        case "*":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion *= number[i];
+            }
+            break;
+        case "/":
+            for (let i = 1; i < number.length; i++)
+            {
+                operacion /= number[i];
+                if (operacion == "Infinity")
+                {
+                    throw("Intentaste Dividir por 0?");
+                }
+            }
+            break;
+    }
+    return operacion;
+}
