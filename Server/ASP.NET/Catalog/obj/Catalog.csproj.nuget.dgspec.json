@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj": {}
+    "C:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj": {}
   },
   "projects": {
-    "c:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj": {
+    "C:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj",
+        "projectUniqueName": "C:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj",
         "projectName": "Catalog",
-        "projectPath": "c:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj",
+        "projectPath": "C:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj",
         "packagesPath": "C:\\Users\\Orion\\.nuget\\packages\\",
-        "outputPath": "c:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\obj\\",
+        "outputPath": "C:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Orion\\AppData\\Roaming\\NuGet\\NuGet.Config",

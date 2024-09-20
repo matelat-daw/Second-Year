@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "wAzmy7d5VB0=",
+  "dgSpecHash": "IC6mxQxhPfo=",
   "success": true,
-  "projectFilePath": "c:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj",
+  "projectFilePath": "C:\\Server\\www\\DAW\\Server\\ASP.NET\\Catalog\\Catalog.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Orion\\.nuget\\packages\\microsoft.aspnetcore.openapi\\8.0.8\\microsoft.aspnetcore.openapi.8.0.8.nupkg.sha512",
     "C:\\Users\\Orion\\.nuget\\packages\\microsoft.extensions.apidescription.server\\6.0.5\\microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
