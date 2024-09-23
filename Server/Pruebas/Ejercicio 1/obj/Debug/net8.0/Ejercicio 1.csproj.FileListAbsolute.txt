@@ -1,0 +1,31 @@
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\appsettings.Development.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\appsettings.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\Ejercicio 1.staticwebassets.runtime.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\Ejercicio 1.exe
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\Ejercicio 1.deps.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\Ejercicio 1.runtimeconfig.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\Ejercicio 1.dll
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\bin\Debug\net8.0\Ejercicio 1.pdb
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.GeneratedMSBuildEditorConfig.editorconfig
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.AssemblyInfoInputs.cache
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.AssemblyInfo.cs
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.csproj.CoreCompileInputs.cache
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.MvcApplicationPartsAssemblyInfo.cache
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.RazorAssemblyInfo.cache
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.RazorAssemblyInfo.cs
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.sourcelink.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\staticwebassets.build.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\staticwebassets.development.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\staticwebassets\msbuild.Ejercicio 1.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\staticwebassets\msbuild.build.Ejercicio 1.props
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.Ejercicio 1.props
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.Ejercicio 1.props
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\scopedcss\bundle\Ejercicio 1.styles.css
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\scopedcss\projectbundle\Ejercicio 1.bundle.scp.css
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.dll
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\refint\Ejercicio 1.dll
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.pdb
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\Ejercicio 1.genruntimeconfig.cache
+C:\Server\www\DAW\Server\Pruebas\Ejercicio 1\obj\Debug\net8.0\ref\Ejercicio 1.dll
