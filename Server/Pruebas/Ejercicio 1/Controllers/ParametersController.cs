@@ -1,5 +1,4 @@
-﻿using Ejercicio_1.Models;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 
 namespace Ejercicio_1.Controllers
 {
