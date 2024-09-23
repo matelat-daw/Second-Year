@@ -1,3 +1,8 @@
+*
+{
+    text-align: center;
+}
+
 .flex
 {
     display: flex;
@@ -40,7 +45,6 @@
 .big
 {
     height: 200px;
-    align-items: center;
 }
 
 .big2
@@ -61,4 +65,20 @@
 .height2
 {
     height: 200px;
+}
+
+.pos
+{
+    position: relative;
+    top: 25%
+}
+
+.right
+{
+    justify-content: end;
+}
+
+.left
+{
+    justify-content: start;
 }
