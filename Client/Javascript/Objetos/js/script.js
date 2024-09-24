@@ -164,33 +164,32 @@ function coleccionPorCodigo()
     musicos.push(musico10);
 
     object.innerHTML = "";
-    musicos.forEach(musico => object.innerHTML += musico.name + "<br>");
+    musicos.forEach(musico => object.innerHTML += musico.name + " " + musico.surname + " <span class='color_blue'>Integrante de</span> <span class='color_yellow'>" + musico.group + "</span><br>");
 
     console.log(musicos);
 }
 
-function obtenerJSON(string)
+function obtenerJSON(string) // Devuelve el array de objetos.
 {
-    console.log(string);
-    let data = JSON.parse(string);
-    console.log(data);
-    return string;
+    console.log(string); // Muestra en la consola lo que se para por parametro, es una string.
+    let data = JSON.parse(string); // Asigna a data el JSON.parse de la string.
+    console.log(data); // Muestra data en la consola, es el array de objetos.
+    return string; // Retorna la cadena de texto.
 }
 
-function persist()
+function persist() // Alamacena los datos en LocalStorage.
 {
-    localStorage.setItem("Musicos", JSON.stringify(musicos));
+    localStorage.setItem("Musicos", JSON.stringify(musicos)); // Para Almacenar en LocalStorage un Array de Objetos hay que pasarlo a string primero con JSON.stringify(name).
     hide.style.display = "block";
 }
 
 function show(group)
 {
-    let datos = "";
-    let objecto = JSON.parse(localStorage.getItem("Musicos"));
+    let objeto = JSON.parse(localStorage.getItem("Musicos")); // Para Obtener los datos como un array de Objetos hay que usar la función JSON.parse("Name").
 
-    objecto.forEach(musico => { if(group == musico.group)
+    objeto.forEach(musico => { if(group == musico.group) // Se recorre todo el Objeto y si el Grupo del Objeto es el seleccionado en el selector por el Usuario.
     {
-        result.innerHTML += musico.name + " " + musico.surname + "<br>";
+        result.innerHTML += musico.name + " " + musico.surname + "<br>"; // Se muestran en pantalla el nombre y apellido de los músicos de ese grupo.
     }});
     hide.style.display = "none";
 }

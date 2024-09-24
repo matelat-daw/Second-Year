@@ -10,16 +10,15 @@
 <body>
     <h1>Trabajando con Objetos en JavaScript</h1>
     <br><br>
-    <h3 id="object"></h3>
+    <h3 id="object"></h3> <!-- Aquí se concatenan los nombres de los músicos, el grupo del que forman parte y la string que contiene el array de objetos. -->
     <!-- <script>coleccionHardcodeada();</script> -->
      <script>coleccionPorCodigo();</script>
      <script>let data = obtenerJSON(JSON.stringify(musicos));
-            object.innerHTML += data;
+            object.innerHTML += data; // Muestra por pantalla la string data que contiene el array de objetos convertido a string.
      </script>
      <br><br>
      <button class="color_red" onclick="persist();">Guarda los Datos en Local Storage</button>
      <br><br>
-     <!-- <button id="hide" onclick='show("Simon & Garfunkel")'>Muestra los Datos del Grupo Queen</button> -->
      <select id="hide" onchange="show(this.value)">
         <option value="">Selecciona un Grupo para ver los Integrantes: </option>
         <option value="The Beatles">The Beatles</option>
@@ -27,6 +26,6 @@
         <option value="Simon & Garfunkel">Simon & Garfunkel</option>
      </select>
      <br><br>
-     <h3 id="result"></h3>
+     <h3 id="result"></h3> <!-- Aquí se muestran los resultados de la selección del grupo, muestra el nombre y apellido de los músicos del grupo, que están almacenados en LocalStorage. -->
 </body>
 </html>

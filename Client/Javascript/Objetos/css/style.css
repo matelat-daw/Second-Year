@@ -11,3 +11,14 @@
     width: 120px;
     height: 64px;
 }
+
+.color_blue
+{
+    background-color: blue;
+    color: white;
+}
+
+.color_yellow
+{
+    background-color: yellow;
+}
