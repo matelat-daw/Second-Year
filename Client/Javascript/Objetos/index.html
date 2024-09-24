@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js"></script>
+    <title>Objetos en JavaScript</title>
+</head>
+<body>
+    <h1>Trabajando con Objetos en JavaScript</h1>
+    <br><br>
+    <h3 id="object"></h3>
+    <!-- <script>coleccionHardcodeada();</script> -->
+     <script>coleccionPorCodigo();</script>
+     <script>let data = obtenerJSON(JSON.stringify(musicos));
+            object.innerHTML += data;
+     </script>
+     <br><br>
+     <button class="color_red" onclick="persist();">Guarda los Datos en Local Storage</button>
+     <br><br>
+     <!-- <button id="hide" onclick='show("Simon & Garfunkel")'>Muestra los Datos del Grupo Queen</button> -->
+     <select id="hide" onchange="show(this.value)">
+        <option value="">Selecciona un Grupo para ver los Integrantes: </option>
+        <option value="The Beatles">The Beatles</option>
+        <option value="Queen">Queen</option>
+        <option value="Simon & Garfunkel">Simon & Garfunkel</option>
+     </select>
+     <br><br>
+     <h3 id="result"></h3>
+</body>
+</html>

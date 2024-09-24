@@ -1,0 +1,13 @@
+#hide
+{
+    display: none;
+}
+
+.color_red
+{
+    border-radius: 25px;
+    color: white;
+    background-color: red;
+    width: 120px;
+    height: 64px;
+}
