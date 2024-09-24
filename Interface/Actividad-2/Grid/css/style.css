@@ -1,0 +1,12 @@
+.grid
+{
+    display: grid;
+    height: 102px;
+    border: 1px solid blue;
+}
+
+.end
+{
+    grid-template-columns: max-content;
+    
+}

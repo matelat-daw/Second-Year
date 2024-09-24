@@ -1,0 +1,46 @@
+.flex
+{
+    display: flex;
+    border: 1px solid blue;
+    height: 102px;
+}
+
+.div
+{
+    flex-direction: column;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    border: 1px solid green;
+}
+
+.end
+{
+    justify-content: flex-end;
+}
+
+.middle
+{
+    justify-content: center;
+}
+
+.space-around
+{
+    justify-content: space-around;
+}
+
+.space-between
+{
+    justify-content: space-between;
+}
+
+.center
+{
+    margin: 40%;
+}
+
+.wrap
+{
+    width: 408px;
+    flex-wrap: wrap;
+}
