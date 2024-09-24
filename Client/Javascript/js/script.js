@@ -67,38 +67,38 @@ function pruebaBucles(...pruebas) // Parametros rest, espera entre 1 y n paramet
     }
 }
 
-function operacionesAritmeticas(operador, ...number)
-{
-    operacion = number[0];
-    switch (operador)
-    {
-        case "+":
-            for (let i = 1; i < number.length; i++)
-            {
-                operacion += number[i];
-            }
-            break;
-        case "-":
-            for (let i = 1; i < number.length; i++)
-            {
-                operacion -= number[i];
-            }
-            break;
-        case "*":
-            for (let i = 1; i < number.length; i++)
-            {
-                operacion *= number[i];
-            }
-            break;
-        case "/":
-            for (let i = 1; i < number.length; i++)
-            {
-                operacion /= number[i];
-            }
-            break;
-    }
-    return operacion;
-}
+// function operacionesAritmeticas(operador, ...number)
+// {
+//     operacion = number[0];
+//     switch (operador)
+//     {
+//         case "+":
+//             for (let i = 1; i < number.length; i++)
+//             {
+//                 operacion += number[i];
+//             }
+//             break;
+//         case "-":
+//             for (let i = 1; i < number.length; i++)
+//             {
+//                 operacion -= number[i];
+//             }
+//             break;
+//         case "*":
+//             for (let i = 1; i < number.length; i++)
+//             {
+//                 operacion *= number[i];
+//             }
+//             break;
+//         case "/":
+//             for (let i = 1; i < number.length; i++)
+//             {
+//                 operacion /= number[i];
+//             }
+//             break;
+//     }
+//     return operacion;
+// }
 
 function getNombreMes(mes) {
     mes = mes - 1; // Ajustar el número de mes al índice del array (1 = Ene, 12 = Dic)
@@ -114,19 +114,23 @@ function getNombreMes(mes) {
   }
   }
 
-  function operacionesAritmeticas(operador, ...number)
+function operacionesAritmeticas(operador, ...number)
 {
     operacion = number[0];
+    if (isNaN(number[0]))
+    {
+        throw("Error: Habras intentado sumar una string?");
+    }
     switch (operador)
     {
         case "+":
             for (let i = 1; i < number.length; i++)
             {
-                operacion += number[i];
-                if (operacion == NaN)
+                if (isNaN(number[i]))
                 {
                     throw("Error: Habras intentado sumar una string?");
                 }
+                operacion += number[i];
             }
             break;
         case "-":

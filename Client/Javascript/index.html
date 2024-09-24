@@ -32,11 +32,15 @@
         //     console.log("El Resultado es: " + result2);
         //     document.body.innerHTML = "<h1>El Resutado es: " + result2 + "</h1>";
         // }
-        let result3 = operacionesAritmeticas("+", 2, "hola", 0, 8);
-        if (result3 != "undefined")
+        try
         {
+            let result3 = operacionesAritmeticas("+", 4, 2, 0, 8);
             console.log("El Resultado es: " + result3);
             document.body.innerHTML = "<h1>El Resutado es: " + result3 + "</h1>";
+        }
+        catch (error)
+        {
+            document.body.innerHTML = "<h1>El Resutado es: " + error + "</h1>";
         }
     </script>
 </body>
