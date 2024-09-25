@@ -1,11 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Parametros por VIEW()";
     var name = ViewBag.name;
     var age = ViewBag.age;
-    var ID = ViewBag.ID;
+    var id = ViewBag.ID;
+    // https://localhost:7178/Parameters/Index/18?name=C%C3%A9sar&age=56 Para Obtener la ID del segmento y los datos por GET(Query String).
 }
 
 <div class="text-center">
-    <h1 class="display-4">Paso de Parametros, por la URL: @name de @age Años Dice Hola con ID = @ID</h1>
+    <h1 class="display-4">Paso de Parametros, por la URL: @name de @age Años Dice Hola con ID = @id</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>

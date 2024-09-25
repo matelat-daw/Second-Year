@@ -6,9 +6,10 @@ namespace Ejercicio_1.Controllers
     {
         public IActionResult Index(string name, int age, int ID)
         {
-            ViewBag.ID = ID;
             ViewBag.name = name;
             ViewBag.age = age;
+            ViewBag.ID = ID;
+            // ViewBag Pasa todos los parámetros a la Action Index.cshtml y se pueden recibir tanto por Query String como Convinando Segmento y Query.
             return View();
         }
     }
