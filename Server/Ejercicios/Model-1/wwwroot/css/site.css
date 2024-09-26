@@ -20,3 +20,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.border-blue
+{
+    border: 1px solid blue;
+    width: 380px;
+}
+
+.border-red {
+    position: relative;
+    top: 8px;
+    width: 240px;
+    border: 1px solid red;
+}

@@ -25,15 +25,15 @@ namespace Model_1.Controllers
 
         public IActionResult Person()
         {
-            Person persona_1 = new Person
+            Person persona = new Person
             {
-                Id = 1,
+                ID = 1,
                 Name = "César",
                 Age = 56,
                 Email = "matelat@gmail.com"
             };
 
-            return View(persona_1);
+            return View(persona);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

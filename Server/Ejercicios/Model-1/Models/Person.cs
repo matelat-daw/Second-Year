@@ -4,12 +4,12 @@ namespace Model_1.Models
 {
     public class Person
     {
-        public int Id { get; set; }
+        public int ID { get; set; }
         [DisplayName("Nombre")]
-        public string Name { get; set; }
+        public required string Name { get; set; }
         [DisplayName("Edad")]
         public int Age { get; set; }
         [DisplayName("E-mail")]
-        public string Email { get; set; }
+        public string? Email { get; set; }
     }
 }
