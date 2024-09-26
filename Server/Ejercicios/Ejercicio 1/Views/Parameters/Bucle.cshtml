@@ -1,0 +1,19 @@
+﻿@{
+    ViewData["Title"] = "Parametros por VIEWBag con Bucle";
+    var name = ViewBag.name;
+    var age = ViewBag.age;
+    var ID = ViewBag.ID;
+    // https://localhost:7178/Parameters/Bucle/16?name=C%C3%A9sar&age=5 Para Obtener la ID del segmento y los datos por GET(Query String).
+}
+
+<div>
+    <h1 class="display-4">Hoy el Usuario con ID: @ID Cumple: @age Años</h1>
+    <ul>
+    @for(int i = 0; i < @age; i++)
+    {
+        <li>
+            <h2><a asp-controller="Home" asp-action="Index">Hola @name Vuelve al Inicio</a></h2>
+        </li>
+    }
+    </ul>
+</div>
