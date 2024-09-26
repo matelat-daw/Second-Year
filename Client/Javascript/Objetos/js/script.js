@@ -2,16 +2,16 @@ let musicos = [];
 
 function coleccionHardcodeada()
 {
-    let musico1 = {name: "John", surname: "Lennon", group: "The Beatles", age: 40, bday: 1940, instruments: {first: "Guitarra", second: "Voz", third: "", place: 1}};
-    let musico2 = {name: "Paul", surname: "McCartney", group: "The Beatles", age: 38, bday: 1942, instruments: {first: "Bajo", second: "Voz", third: "", place: 2}};
-    let musico3 = {name: "George", surname: "Harrison", group: "The Beatles", age: 37, bday: 1943, instruments: {first: "Guitarra", second: "Voz", third: "Coros", place: 3}};
-    let musico4 = {name: "Ringo", surname: "Start", group: "The Beatles", age: 40, bday: 1940, instruments: {first: "Batería", second: "Voz", third: "Coros", place: 4}};
-    let musico5 = {name: "Freddie", surname: "Mercury", group: "Queen", age: 34, bday: 1946, instruments: {first: "Piano", second: "Voz", third: "", place: 1}};
-    let musico6 = {name: "Brian", surname: "May", group: "Queen", age: 33, bday: 1947, instruments: {first: "Guitarra", second: "Voz", third: "", place: 2}};
-    let musico7 = {name: "Roger", surname: "Taylor", group: "Queen", age: 31, bday: 1949, instruments: {first: "Batería", second: "Coros", third: "", place: 3}};
-    let musico8 = {name: "John", surname: "Deacon", group: "Queen", age: 29, bday: 1951, instruments: {first: "Bajo", second: "Coros", third: "", place: 4}};
-    let musico9 = {name: "Paul", surname: "Simon", group: "Simon & Garfunkel", age: 39, bday: 1941, instruments: {first: "Guitarra", second: "Piano", third: "Voz", place: 1}};
-    let musico10 = {name: "Arthur", surname: "Garfunkel", group: "Simon & Garfunkel", age: 39, bday: 1941, instruments: {first: "Guitarra", second: "Piano", third: "Voz", place: 1}};
+    let musico1 = {name: "John", surname: "Lennon", group: "The Beatles", age: 40, bday: 1940, instruments: {first: "Guitarra", second: "Voz", third: "", place: 1}, mostrar: mostrarGrupos};
+    let musico2 = {name: "Paul", surname: "McCartney", group: "The Beatles", age: 38, bday: 1942, instruments: {first: "Bajo", second: "Voz", third: "", place: 2}, mostrar: mostrarGrupos};
+    let musico3 = {name: "George", surname: "Harrison", group: "The Beatles", age: 37, bday: 1943, instruments: {first: "Guitarra", second: "Voz", third: "Coros", place: 3}, mostrar: mostrarGrupos};
+    let musico4 = {name: "Ringo", surname: "Start", group: "The Beatles", age: 40, bday: 1940, instruments: {first: "Batería", second: "Voz", third: "Coros", place: 4}, mostrar: mostrarGrupos};
+    let musico5 = {name: "Freddie", surname: "Mercury", group: "Queen", age: 34, bday: 1946, instruments: {first: "Piano", second: "Voz", third: "", place: 1}, mostrar: mostrarGrupos};
+    let musico6 = {name: "Brian", surname: "May", group: "Queen", age: 33, bday: 1947, instruments: {first: "Guitarra", second: "Voz", third: "", place: 2}, mostrar: mostrarGrupos};
+    let musico7 = {name: "Roger", surname: "Taylor", group: "Queen", age: 31, bday: 1949, instruments: {first: "Batería", second: "Coros", third: "", place: 3}, mostrar: mostrarGrupos};
+    let musico8 = {name: "John", surname: "Deacon", group: "Queen", age: 29, bday: 1951, instruments: {first: "Bajo", second: "Coros", third: "", place: 4}, mostrar: mostrarGrupos};
+    let musico9 = {name: "Paul", surname: "Simon", group: "Simon & Garfunkel", age: 39, bday: 1941, instruments: {first: "Guitarra", second: "Piano", third: "Voz", place: 1}, mostrar: mostrarGrupos};
+    let musico10 = {name: "Arthur", surname: "Garfunkel", group: "Simon & Garfunkel", age: 39, bday: 1941, instruments: {first: "Guitarra", second: "Piano", third: "Voz", place: 1}, mostrar: mostrarGrupos};
 
     musicos.push(musico1);
     musicos.push(musico2);
@@ -164,7 +164,7 @@ function coleccionPorCodigo()
     musicos.push(musico10);
 
     object.innerHTML = "";
-    musicos.forEach(musico => object.innerHTML += musico.name + " " + musico.surname + " <span class='color_blue'>Integrante de</span> <span class='color_yellow'>" + musico.group + "</span><br>");
+    musicos.forEach(musico => object.innerHTML += "<h3>" + musico.name + " " + musico.surname + " <span class='color_blue'>Integrante de</span> <span class='color_yellow'>" + musico.group + "</span></h3>");
 
     console.log(musicos);
 }
@@ -190,7 +190,14 @@ function show(group)
 
     objeto.forEach(musico => { if(group == musico.group) // Se recorre todo el Objeto y si el Grupo del Objeto es el seleccionado en el selector por el Usuario.
     {
-        result.innerHTML += musico.name + " " + musico.surname + "<br>"; // Se muestran en pantalla el nombre y apellido de los músicos de ese grupo.
+        result.innerHTML += "<h3>" + musico.name + " " + musico.surname + "</h3>"; // Se muestran en pantalla el nombre y apellido de los músicos de ese grupo.
     }});
     hide.style.display = "none";
 }
+
+function mostrarGrupos()
+{
+    console.log(this.group);
+}
+
+musicos.forEach(musico => {musico.mostrar()});
