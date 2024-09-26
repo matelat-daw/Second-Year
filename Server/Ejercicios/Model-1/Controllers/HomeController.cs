@@ -25,10 +25,11 @@ namespace Model_1.Controllers
 
         public IActionResult Person()
         {
+            @model Model-1.Models.Person
             Person persona_1 = new Person
             {
                 Id = 1,
-                Name = "César",
+                Name = "CÃ©sar",
                 Age = 56,
                 Email = "matelat@gmail.com"
             };
