@@ -24,10 +24,10 @@ function coleccionHardcodeada()
     musicos.push(musico9);
     musicos.push(musico10);
 
-    object.innerHTML = "";
-    musicos.forEach(musico => object.innerHTML += musico.name + "<br>");
+    // object.innerHTML = "";
+    // musicos.forEach(musico => object.innerHTML = "<h3>" + musico.name + "</h3>");
 
-    console.log(musicos);
+    // console.log(musicos);
 }
 
 function coleccionPorCodigo()
@@ -163,8 +163,8 @@ function coleccionPorCodigo()
     musicos.push(musico9);
     musicos.push(musico10);
 
-    object.innerHTML = "";
-    musicos.forEach(musico => object.innerHTML += "<h3>" + musico.name + " " + musico.surname + " <span class='color_blue'>Integrante de</span> <span class='color_yellow'>" + musico.group + "</span></h3>");
+    // object.innerHTML = "";
+    musicos.forEach(musico => object.innerHTML = "<h3>" + musico.name + " " + musico.surname + " <span class='color_blue'>Integrante de</span> <span class='color_yellow'>" + musico.group + "</span></h3>");
 
     console.log(musicos);
 }
@@ -195,9 +195,15 @@ function show(group)
     hide.style.display = "none";
 }
 
+let last_group = ""; // Variable temporal que tiene el nombre de los grupos al cambiar, de entrada es una string vacia.
+// result.innerHTML = "";
+
 function mostrarGrupos()
 {
-    console.log(this.group);
+    if (last_group != this.group) // Si el Grupo que llega del objeto es distinto al último grupo.
+    {
+        console.log(this.group); // Muestra por consola el grupo.
+        document.body.innerHTML += "<h3>" + this.group + "</h3>";
+        last_group = this.group; // Asigna a last_group en grupo del contexto.
+    }
 }
-
-musicos.forEach(musico => {musico.mostrar()});
