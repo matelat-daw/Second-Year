@@ -1,8 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Datos de la Persona";
+    @model Model_1.Models.Person
 }
 
 <div class="text-center">
-    <h1 class="display-4">Usuario @Html.DisplayFor(model => model.ID)</h1>
-    <h2>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h2>
+    <h1 class="display-4">Usuario @Html.DisplayFor(persona_1 => persona_1.ID)</h1>
+    <h2>@Html.DisplayNameFor(persona_1 => persona_1.Name): @Html.DisplayFor(persona_1 => persona_1.Name)</h2>
 </div>

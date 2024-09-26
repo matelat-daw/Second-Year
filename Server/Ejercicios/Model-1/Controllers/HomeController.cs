@@ -25,7 +25,6 @@ namespace Model_1.Controllers
 
         public IActionResult Person()
         {
-            @model Model-1.Models.Person
             Person persona_1 = new Person
             {
                 Id = 1,
