@@ -2,7 +2,7 @@
 cd C:\Nginx-Server
 
 REM taskkill /f /im nginx.exe Mata el proceso del Servidor Nginx.
-REM sc.exe create Ngunx binPath= "C:\Nginx-Server\nginx.exe"
+REM sc.exe create Nginx binPath= "C:\Nginx-Server\nginx.exe"
 
 
 IF "%1" == "stop" (
@@ -39,6 +39,7 @@ IF "%ERRORLEVEL%"=="0" (
 	echo NGINX is already running.
 )else (
 	nginx
+	REM net start nginx
 	echo NGINX is now running.
 )
 
