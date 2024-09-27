@@ -1,0 +1,117 @@
+body
+{
+    font-size: 1.2rem;
+}
+
+.grid
+{
+    display: grid;
+}
+
+.row
+{
+    display: flex;
+    flex-wrap:wrap;
+    margin-right:-15px;
+    margin-left: 25px
+}
+
+.col-1
+{
+    grid-template-columns: 1fr;
+    max-width: 8.33%;
+}
+
+.col-10
+{
+    text-align:center;
+    grid-template-columns: 1fr 10 fr 1fr;
+    min-height: 1px;
+    padding-right: 15px;
+}
+
+.col-3
+{
+    grid-template-columns: 3fr 9fr;
+    align-items: flex-start;
+    min-height: 1px;
+    padding-right: 15px;
+}
+
+.header-margin
+{
+    margin-left: 25px;
+}
+
+.header-align
+{
+    vertical-align: middle;
+}
+
+.header-right
+{
+    align-items: flex-end;
+}
+
+.flex
+{
+    display: flex;
+    align-items:center;
+}
+
+.flex2
+{
+    display: flex;
+    width: 30%;
+}
+
+/* Estilos del NAV */
+
+.nav-border
+{
+    border: 1px solid lightgray;
+    border-radius: 12px;
+}
+
+.nav-margin
+{
+    margin-right: 50px;
+}
+
+.nav-button
+{
+    border: 1px solid gray;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+.nav-blue
+{
+    color: white;
+    background-color: blue;
+}
+
+.nav-lightblue
+{
+    background-color: lightblue;
+}
+
+.nav-green
+{
+    background-color: rgb(63, 194, 63);
+}
+
+.nav-lightgreen
+{
+    background-color: lightgreen;
+}
+
+.nav-lightrose
+{
+    background-color: lightpink;
+}
+
+.vertical
+{
+    flex-direction: column;
+}
