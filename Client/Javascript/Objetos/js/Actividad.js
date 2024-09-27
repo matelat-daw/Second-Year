@@ -45,7 +45,7 @@ function coleccionPorCodigo()
     musico1.instruments.second = "Voz";
     musico1.instruments.third = "";
     musico1.instruments.place = 1;
-    musico1.mostrar = mostrarTodo;
+    musico1.mostrar = mostrar;
 
     let musico2 = {};
     musico2.name = "Paul";
@@ -58,7 +58,7 @@ function coleccionPorCodigo()
     musico2.instruments.second = "Voz";
     musico2.instruments.third = "";
     musico2.instruments.place = 2;
-    musico2.mostrar = mostrarTodo;
+    musico2.mostrar = mostrar;
 
     let musico5 = {};
     musico5.name = "Freddie";
@@ -71,7 +71,7 @@ function coleccionPorCodigo()
     musico5.instruments.second = "Voz";
     musico5.instruments.third = "";
     musico5.instruments.place = 1;
-    musico5.mostrar = mostrarTodo;
+    musico5.mostrar = mostrar;
 
     let musico6 = {};
     musico6.name = "Brian";
@@ -84,7 +84,7 @@ function coleccionPorCodigo()
     musico6.instruments.second = "Voz";
     musico6.instruments.third = "";
     musico6.instruments.place = 2;
-    musico6.mostrar = mostrarTodo;
+    musico6.mostrar = mostrar;
 
     let musico3 = {};
     musico3["name"] = "George";
@@ -97,7 +97,7 @@ function coleccionPorCodigo()
     musico3["instruments"]["second"] = "Voz";
     musico3["instruments"]["third"] = "Coros";
     musico3["instruments"]["place"] = 3;
-    musico3["mostrar"] = mostrarTodo;
+    musico3["mostrar"] = mostrar;
 
     let musico4 = {};
     musico4["name"] = "Ringo";
@@ -110,7 +110,7 @@ function coleccionPorCodigo()
     musico4["instruments"]["second"] = "Voz";
     musico4["instruments"]["third"] = "Coros";
     musico4["instruments"]["place"] = 4;
-    musico4["mostrar"] = mostrarTodo;
+    musico4["mostrar"] = mostrar;
 
     let musico7 = {};
     musico7["name"] = "Roger";
@@ -123,7 +123,7 @@ function coleccionPorCodigo()
     musico7["instruments"]["second"] = "Voz";
     musico7["instruments"]["third"] = "Coros";
     musico7["instruments"]["place"] = 3;
-    musico7["mostrar"] = mostrarTodo;
+    musico7["mostrar"] = mostrar;
 
     let musico8 = {};
     musico8["name"] = "John";
@@ -136,7 +136,7 @@ function coleccionPorCodigo()
     musico8["instruments"]["second"] = "Voz";
     musico8["instruments"]["third"] = "Coros";
     musico8["instruments"]["place"] = 4;
-    musico8["mostrar"] = mostrarTodo;
+    musico8["mostrar"] = mostrar;
 
     let musico9 = {};
     musico9.name = "Paul";
@@ -149,7 +149,7 @@ function coleccionPorCodigo()
     musico9.instruments.second = "Piano";
     musico9.instruments.third = "Voz";
     musico9.instruments.place = 1;
-    musico9.mostrar = mostrarTodo;
+    musico9.mostrar = mostrar;
 
     let musico10 = {};
     musico10["name"] = "Arthur";
@@ -162,7 +162,7 @@ function coleccionPorCodigo()
     musico10["instruments"]["second"] = "Piano";
     musico10["instruments"]["third"] = "Voz";
     musico10["instruments"]["place"] = 1;
-    musico10["mostrar"] = mostrarTodo;
+    musico10["mostrar"] = mostrar;
 
     musicos.push(musico1);
     musicos.push(musico2);
@@ -175,50 +175,21 @@ function coleccionPorCodigo()
     musicos.push(musico9);
     musicos.push(musico10);
 
-    // object.innerHTML = "";
-    // musicos.forEach(musico => object.innerHTML = "<h3>" + musico.name + " " + musico.surname + " <span class='color_blue'>Integrante de</span> <span class='color_yellow'>" + musico.group + "</span></h3>");
-
-    // console.log(musicos);
     return musicos;
 }
-
-// function obtenerJSON(string) // Devuelve el array de objetos.
-// {
-//     console.log(string); // Muestra en la consola lo que se para por parametro, es una string.
-//     let data = JSON.parse(string); // Asigna a data el JSON.parse de la string.
-//     console.log(data); // Muestra data en la consola, es el array de objetos.
-//     return string; // Retorna la cadena de texto.
-// }
 
 function guardaEnLocalStorage(clave, coleccion) // Alamacena los datos en LocalStorage.
 {
     localStorage.setItem(clave, JSON.stringify(coleccion)); // Para Almacenar en LocalStorage un Array de Objetos hay que pasarlo a string primero con JSON.stringify(name).
-    // hide.style.display = "block";
 }
 
-function mostrarMusico(group)
+function mostrar()
 {
-    let objeto = JSON.parse(localStorage.getItem("Musicos")); // Para Obtener los datos como un array de Objetos hay que usar la función JSON.parse("Name").
-    result.innerHTML = "";
-
-    objeto.forEach(musico => { if(group == musico.group) // Se recorre todo el Objeto y si el Grupo del Objeto es el seleccionado en el selector por el Usuario.
-    {
-        result.innerHTML += "<h3>" + musico.name + " " + musico.surname + "</h3>"; // Se muestran en pantalla el nombre y apellido de los músicos de ese grupo.
-    }});
-    hide.style.display = "none";
+    musicos.forEach(coleccion => {coleccion.mostrarTodo(coleccion)});
 }
-
-// let last_group = ""; // Variable temporal que tiene el nombre de los grupos al cambiar, de entrada es una string vacia.
-// result.innerHTML = "";
-
-musicos.forEach(group => {group.mostrar()});
 
 function mostrarTodo(coleccion)
 {
-    // if (last_group != this.group) // Si el Grupo que llega del objeto es distinto al último grupo.
-    // {
-        console.log(this.group); // Muestra por consola el grupo.
-        document.body.innerHTML += "<h3>" + this.group + "</h3>"; // Muestra los Grupos en el body.
-        // last_group = this.group; // Asigna a last_group en grupo del contexto.
-    // }
+    console.log(this.coleccion.join(" - ")); // Muestra por consola el grupo.
+    document.body.innerHTML += "<h3>" + this.coleccion + "</h3>"; // Muestra los Grupos en el body.
 }
