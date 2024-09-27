@@ -26,7 +26,7 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Person">Perfil Personal</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Perfil">Perfil Personal</a>
                         </li>
                     </ul>
                 </div>
@@ -39,9 +39,12 @@
         </main>
     </div>
 
-    <footer class="border-top footer text-muted fixed-bottom">
-        <div class="container">
+    <footer class="border-top footer text-muted sticky-bottom">
+        <div class="container height">
             &copy; 2024 - Model_1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            <br /><a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            <br /><a asp-area="" asp-controller="Home" asp-action="Perfil">Person</a>
+            <small>Proyecto de César</small>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
