@@ -24,11 +24,6 @@ function coleccionHardcodeada()
     musicos.push(musico9);
     musicos.push(musico10);
 
-    // object.innerHTML = "";
-    // musicos.forEach(musico => object.innerHTML = "<h3>" + musico.name + "</h3>");
-
-    // console.log(musicos);
-
     return musicos;
 }
 
@@ -183,13 +178,16 @@ function guardaEnLocalStorage(clave, coleccion) // Alamacena los datos en LocalS
     localStorage.setItem(clave, JSON.stringify(coleccion)); // Para Almacenar en LocalStorage un Array de Objetos hay que pasarlo a string primero con JSON.stringify(name).
 }
 
+
 function mostrar()
 {
-    musicos.forEach(coleccion => {coleccion.mostrarTodo(coleccion)});
+    console.log(this.name + " - " + this.surname + " - " + this.group);
+    
+    const result = Object.keys(this).map((key) => [this[key]]);
+    console.log(result.join(" - "));
 }
 
 function mostrarTodo(coleccion)
 {
-    console.log(this.coleccion.join(" - ")); // Muestra por consola el grupo.
-    document.body.innerHTML += "<h3>" + this.coleccion + "</h3>"; // Muestra los Grupos en el body.
+    coleccion.forEach(musico => musico.mostrar());
 }

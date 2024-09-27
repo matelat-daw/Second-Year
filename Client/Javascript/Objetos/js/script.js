@@ -213,7 +213,7 @@ function mostrarMusico(group)
 
 musicos.forEach(group => {group.mostrar()});
 
-function mostrarTodo(coleccion)
+function mostrar()
 {
     // if (last_group != this.group) // Si el Grupo que llega del objeto es distinto al último grupo.
     // {
