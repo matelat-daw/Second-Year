@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\List of Objects.props" />
+</Project>

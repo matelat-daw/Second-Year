@@ -1,0 +1,31 @@
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\appsettings.Development.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\appsettings.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\List of Objects.staticwebassets.runtime.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\List of Objects.exe
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\List of Objects.deps.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\List of Objects.runtimeconfig.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\List of Objects.dll
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\List of Objects.pdb
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.GeneratedMSBuildEditorConfig.editorconfig
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.AssemblyInfoInputs.cache
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.AssemblyInfo.cs
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.csproj.CoreCompileInputs.cache
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.MvcApplicationPartsAssemblyInfo.cache
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.RazorAssemblyInfo.cache
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.RazorAssemblyInfo.cs
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.sourcelink.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets.build.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets.development.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets\msbuild.List of Objects.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets\msbuild.build.List of Objects.props
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.List of Objects.props
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.List of Objects.props
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\scopedcss\bundle\List of Objects.styles.css
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\scopedcss\projectbundle\List of Objects.bundle.scp.css
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.dll
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\refint\List of Objects.dll
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.pdb
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.genruntimeconfig.cache
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\ref\List of Objects.dll
