@@ -61,7 +61,15 @@
         }
         else
         {
-            <p>Aun no hay Ningún Contacto.</p>
+            <h3>Aun no hay Ningún Contacto.</h3>
+            <br><br>
+            <div class="row">
+                <div class="offset-9 col-3 mb-3">
+                    <a asp-action="Create" asp-controller="Home" asp-route-id="@ID" class="btn btn-primary btn-lg d-block mx-auto">
+                        <i class="bi bi-file-plus-fill"></i>Crea el Primer Personaje
+                    </a>
+                </div>
+            </div>
         }
     </div>
 </div>

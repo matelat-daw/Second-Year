@@ -38,9 +38,10 @@ namespace List_of_Objects.Controllers
             return View();
         }
 
-        [HttpPost, ActionName("Create")]
+        // [HttpPost, ActionName("Create")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult CreateIt()
+        public IActionResult Create()
         {
             int ID = int.Parse(Request.Form["ID"]);
             string Name = Request.Form["Name"];
@@ -91,9 +92,10 @@ namespace List_of_Objects.Controllers
             return View(characterID);
         }
 
-        [HttpPost, ActionName("Delete")]
+        // [HttpPost, ActionName("Delete")] // Se pone aquí la Acción a llamar y en el método se puede usar un alias.
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult DeleteIt()
+        public IActionResult Delete()
         {
             int ID = int.Parse(Request.Form["ID"]);
 
