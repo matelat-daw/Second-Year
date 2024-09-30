@@ -17,7 +17,7 @@ namespace List_of_Objects.Controllers
                new() { ID = 1, Name = "Homer", Age = 50, Job = "Planta Nuclear" },
                new() { ID = 2, Name = "March", Age = 45, Job = "Ama de Casa" }
             ];
-            AutoID = characters.Count;
+            AutoID = characters.Count();
             AutoID++;
         }
 
@@ -41,18 +41,34 @@ namespace List_of_Objects.Controllers
             return View();
         }
 
-        // [HttpPost, ActionName("Create")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create()
+        public IActionResult Create(CharacterModel character)
         {
-            string Name = Request.Form["Name"];
-            int Age = int.Parse(Request.Form["Age"]);
-            string Job = Request.Form["Job"];
+            character.ID = int.Parse(Request.Form["ID"]);
+            character.Name = Request.Form["Name"];
+            character.Age = int.Parse(Request.Form["Age"]);
+            character.Job = Request.Form["Job"];
 
-            characters.Add( new() { ID = AutoID, Name = Name, Age = Age, Job = Job });
-            AutoID++;
-            return RedirectToAction("Index");
+            if (!ModelState.IsValid)
+            {
+                var errors = ModelState.SelectMany(m => m.Value.Errors.Select(s => new { m.Key, s.ErrorMessage }));
+
+                Debug.WriteLine("El Error es: " + errors);
+
+                Debug.WriteLine("La ID es: " + Request.Form["ID"]);
+                Debug.WriteLine("El Nombre es: " + Request.Form["Name"]);
+                Debug.WriteLine("La Edad es: " + Request.Form["Age"]);
+                Debug.WriteLine("La Ocupación es: " + Request.Form["Job"]);
+            }
+
+            if (ModelState.IsValid)
+            {
+                characters.Add(character);
+                AutoID++;
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         [HttpGet]
@@ -64,19 +80,20 @@ namespace List_of_Objects.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Update()
+        public IActionResult Update(CharacterModel character)
         {
-            int? ID = int.Parse(Request.Form["ID"]);
-            int index = characters.FindIndex(character => character.ID == ID); // Para Modificar un Item hay que saber su índice en la List.
-            string Name = Request.Form["Name"];
-            int Age = int.Parse(Request.Form["Age"]);
-            string Job = Request.Form["Job"];
+            if (ModelState.IsValid)
+            {
+                int ID = int.Parse(Request.Form["ID"]);
+                int index = characters.FindIndex(character => character.ID == ID); // Para Modificar un Item hay que saber su índice en la List.
 
-            characters[index].Name = Name;
-            characters[index].Age = Age;
-            characters[index].Job = Job;
+                characters[index].Name = Request.Form["Name"];
+                characters[index].Age = int.Parse(Request.Form["Age"]);
+                characters[index].Job = Request.Form["Job"];
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+            return View();
         }
 
         [HttpGet]

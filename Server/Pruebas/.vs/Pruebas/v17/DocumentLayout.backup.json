@@ -3,12 +3,8 @@
   "WorkspaceRootPath": "C:\\Server\\www\\DAW\\Server\\Pruebas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\views\\home\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\views\\home\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -19,16 +15,20 @@
       "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\read.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\views\\home\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\server\\www\\daw\\server\\pruebas\\list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -86,46 +86,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 0,
               "Title": "Update.cshtml",
               "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Update.cshtml",
               "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Update.cshtml",
               "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Update.cshtml",
               "RelativeToolTip": "List of Objects\\Views\\Home\\Update.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-30T11:49:46.367Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "Read.cshtml",
               "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Read.cshtml",
               "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Read.cshtml",
               "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Read.cshtml",
               "RelativeToolTip": "List of Objects\\Views\\Home\\Read.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-30T11:49:44.791Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Delete.cshtml",
               "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Delete.cshtml",
               "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Delete.cshtml",
               "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Delete.cshtml",
               "RelativeToolTip": "List of Objects\\Views\\Home\\Delete.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABCAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-30T11:49:42.553Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 3,
               "Title": "Create.cshtml",
               "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Create.cshtml",
               "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Create.cshtml",
@@ -138,39 +138,39 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "CharacterModel.cs",
               "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Models\\CharacterModel.cs",
               "RelativeDocumentMoniker": "List of Objects\\Models\\CharacterModel.cs",
               "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Models\\CharacterModel.cs",
               "RelativeToolTip": "List of Objects\\Models\\CharacterModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-30T11:26:27.832Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
               "Title": "Index.cshtml",
               "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "List of Objects\\Views\\Home\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEEAAABlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-09-29T14:50:04.751Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "List of Objects\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\List of Objects\\Controllers\\HomeController.cs",
               "RelativeToolTip": "List of Objects\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAADUAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC8AAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-29T14:38:04.477Z",
               "EditorCaption": ""
