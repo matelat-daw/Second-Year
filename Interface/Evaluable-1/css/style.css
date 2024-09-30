@@ -1,31 +1,45 @@
 /* General */
 body
 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 50px;
 }
 
-/* Estilos del Header. */
-
-.col-2
+span
 {
-    display: flex;
-    flex-wrap: nowrap
+    font-size: .80em;
 }
 
-.col-10
+p
+{
+    padding: 10px;
+}
+
+li
+{
+    margin: -40px 0;
+}
+
+header div a
+{
+    text-decoration: none;
+}
+
+footer div ul li a
+{
+    font-size: .66em;
+}
+
+/* Estilos del Header. */
+
+.header
 {
     height: 128px;
     border: 1px solid lightgray;
     border-radius: 12px;
-}
-
-.col-3 a
-{
-    height: 24px;
-    width: 210px;
 }
 
 .header-right
@@ -55,14 +69,10 @@ body
     border-radius: 20px;
 }
 
-header div a
+.header-flex
 {
-    text-decoration: none;
-}
-
-span
-{
-    font-size: .80em;
+    display: flex;
+    align-items:center;
 }
 
 .big
@@ -85,61 +95,68 @@ span
     color: blue;
 }
 
-.flex
+.header-link a
 {
-    display: flex;
-    align-items:center;
+    height: 40px;
+    width: 180px;
+    text-align: center;
 }
 
-.flex2
+.header nav a
 {
-    display: flex;
-    width: 30%;
+    display: inline-block;
 }
+
+/* Estilos del Aside. */
+
+.aside a
+{
+    height: 40px;
+    width: 210px;
+    text-align: center;
+}
+
+/* Estilo del contenedor principal */
 
 .grid
 {
-    display: grid;
-    position: relative;
-    top: -258px;
-    left: 180px;
-    width: 1024px;
+    top: -335px;
     grid-template-columns: auto auto;
-    gap: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
 }
 
 .grid > div
 {
-    border: 1px solid black;
-    border-radius: 20px;
     width: 500px;
-    height: 500px;
 }
 
 .grid2
 {
+    top: -315px;
+    grid-template-columns: auto auto auto;
+}
+
+.grid2 > div
+{
+    width: 316px;
+}
+
+.common
+{
     display: grid;
     position: relative;
-    top: -250px;
     left: 180px;
     width: 1024px;
-    grid-template-columns: auto auto auto;
     gap: 50px;
     margin-left: 50px;
     margin-right: 50px;
 }
 
-.grid2 > div
+.common > div
 {
     border: 1px solid black;
     border-radius: 20px;
-    width: 316px;
     height: 500px;
 }
-
-/* Estilo del contenedor principal */
 
 .section-main-margin
 {
@@ -147,16 +164,25 @@ span
     margin-top: 25px;
 }
 
-.section-secondary-margin
+.section-secondary
 {
+    width: 300px;
+    height: 320px;
     margin-left: 8px;
     margin-top: 8px;
 }
 
-/* Estilos del NAV */
+/* Estilos de los NAV. */
+
+.nav-flex
+{
+    display: flex;
+    width: 30%;
+}
 
 .nav-margin
 {
+    margin-top: 25px;
     margin-right: 50px;
 }
 
@@ -194,7 +220,7 @@ span
     background-color: lightpink;
 }
 
-.vertical
+.nav-vertical
 {
     flex-direction: column;
 }
@@ -206,9 +232,9 @@ span
     display: flex;
     flex-wrap: wrap;
     background-color: DodgerBlue;
-    width: 100%;
     border: 1px solid blue;
     border-radius: 20px;
+    margin-top: -300px;
 }
   
 .footer > div
@@ -217,16 +243,54 @@ span
     width: 30%;
     margin: 15px;
     text-align: justify;
-    line-height: 75px;
-    font-size: 30px;
+    line-height: 55px;
 }
 
-footer div ul li a
+/* Estilos del Slider */
+
+.slider-frame
 {
-    font-size: .75em;
+	overflow: hidden;
 }
 
-li
+.slider-frame ul
 {
-    margin: -40px 0;
+	display: flex;
+	padding: 20px;
+	width: 600%;
+	
+	animation: slide 20s infinite ease-in;
+}
+
+.slider-frame li
+{
+	width: 100%;
+	list-style: none;
+}
+
+.slider-frame img
+{
+	width: 460px;
+    height: 320px;
+}
+
+@keyframes slide
+{
+	0% {margin-left: 0;}
+	15% {margin-left: 0;}
+	
+	17% {margin-left: -100%;}
+	32% {margin-left: -100%;}
+	
+	34% {margin-left: -200%;}
+	49% {margin-left: -200%;}
+	
+	51% {margin-left: -300%;}
+	66% {margin-left: -300%;}
+
+    68% {margin-left: -400%;}
+	83% {margin-left: -400%;}
+	
+	85% {margin-left: -500%;}
+	100% {margin-left: -500%;}
 }
