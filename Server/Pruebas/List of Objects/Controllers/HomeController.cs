@@ -7,7 +7,7 @@ namespace List_of_Objects.Controllers
     public class HomeController : Controller
     {
         public static List<CharacterModel>? characters;
-        public static int ID = 2;
+        public static int AutoID;
         private readonly ILogger<HomeController> _logger;
 
         public void LoadCharacters()
@@ -17,6 +17,8 @@ namespace List_of_Objects.Controllers
                new() { ID = 1, Name = "Homer", Age = 50, Job = "Planta Nuclear" },
                new() { ID = 2, Name = "March", Age = 45, Job = "Ama de Casa" }
             ];
+            AutoID = characters.Count;
+            AutoID++;
         }
 
         public HomeController(ILogger<HomeController> logger)
@@ -44,12 +46,12 @@ namespace List_of_Objects.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create()
         {
-            int ID = int.Parse(Request.Form["ID"]);
             string Name = Request.Form["Name"];
             int Age = int.Parse(Request.Form["Age"]);
             string Job = Request.Form["Job"];
 
-            characters.Add( new() { ID = ID, Name = Name, Age = Age, Job = Job });
+            characters.Add( new() { ID = AutoID, Name = Name, Age = Age, Job = Job });
+            AutoID++;
             return RedirectToAction("Index");
         }
 

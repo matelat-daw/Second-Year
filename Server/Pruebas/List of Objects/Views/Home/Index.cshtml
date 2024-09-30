@@ -1,7 +1,7 @@
-﻿@{
-    @model IEnumerable<List_of_Objects.Models.CharacterModel>;
+﻿@using List_of_Objects.Controllers
+@model IEnumerable<List_of_Objects.Models.CharacterModel>;
+@{
     ViewData["Title"] = "Pagina Principal";
-    var ID = 0;
 }
 
 <div class="center">
@@ -45,14 +45,13 @@
                                 </td>
                             </tr>
                         }
-                        ID++;
                     }
                 </tbody>
             </table>
             <br /><br />
             <div class="row">
                 <div class="offset-9 col-3 mb-3">
-                    <a asp-action="Create" asp-controller="Home" asp-route-id="@ID" class="btn btn-primary btn-lg d-block mx-auto">
+                    <a asp-action="Create" asp-controller="Home" asp-route-id="@HomeController.AutoID" class="btn btn-primary btn-lg d-block mx-auto">
                         <i class="bi bi-file-plus-fill"></i>Nuevo Personaje
                     </a>
                 </div>
@@ -64,7 +63,7 @@
             <br><br>
             <div class="row">
                 <div class="offset-9 col-3 mb-3">
-                    <a asp-action="Create" asp-controller="Home" asp-route-id="@ID" class="btn btn-primary btn-lg d-block mx-auto">
+                    <a asp-action="Create" asp-controller="Home" asp-route-id="@HomeController.AutoID" class="btn btn-primary btn-lg d-block mx-auto">
                         <i class="bi bi-file-plus-fill"></i>Crea el Primer Personaje
                     </a>
                 </div>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tKYuKf8rOMc=",
+  "dgSpecHash": "ZCcsB9zpTFQ=",
   "success": true,
-  "projectFilePath": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\Tests\\Tests.csproj",
+  "projectFilePath": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Tests\\Tests.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
