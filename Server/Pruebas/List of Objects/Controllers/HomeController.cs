@@ -7,9 +7,10 @@ namespace List_of_Objects.Controllers
     public class HomeController : Controller
     {
         public static List<CharacterModel>? characters;
+        public static int ID = 2;
         private readonly ILogger<HomeController> _logger;
 
-        public void loadCharacters()
+        public void LoadCharacters()
         {
             characters =
             [
@@ -27,7 +28,7 @@ namespace List_of_Objects.Controllers
         {
             if (characters == null)
             {
-                loadCharacters();
+                LoadCharacters();
             }
             return View(characters);
         }
@@ -63,7 +64,7 @@ namespace List_of_Objects.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Update()
         {
-            int ID = int.Parse(Request.Form["ID"]);
+            int? ID = int.Parse(Request.Form["ID"]);
             int index = characters.FindIndex(character => character.ID == ID); // Para Modificar un Item hay que saber su índice en la List.
             string Name = Request.Form["Name"];
             int Age = int.Parse(Request.Form["Age"]);
@@ -92,7 +93,7 @@ namespace List_of_Objects.Controllers
             return View(characterID);
         }
 
-        // [HttpPost, ActionName("Delete")] // Se pone aquí la Acción a llamar y en el método se puede usar un alias.
+        // [HttpPost, ActionName("Delete")] // Se pone aquí la Acción a llamar y en el método se puede usar un alias, esto es si el get y el post tienen los mismos parámetros.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Delete()

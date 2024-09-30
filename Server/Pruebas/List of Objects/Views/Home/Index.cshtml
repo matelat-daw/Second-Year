@@ -13,10 +13,10 @@
             <table class="table table-bordered" id="tblContact" width="100%" cellspacing="0">
                 <thead>
                     <tr>
-                        <th>ID</th>
-                        <th>Nombre</th>
-                        <th>Edad</th>
-                        <th>Ocupación</th>
+                        <th>@Html.DisplayNameFor(model => model.ID)</th>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Age)</th>
+                        <th>@Html.DisplayNameFor(model => model.Job)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -44,7 +44,6 @@
                                     </a>
                                 </td>
                             </tr>
-                            ID = @character.ID;
                         }
                         ID++;
                     }
@@ -61,7 +60,7 @@
         }
         else
         {
-            <h3>Aun no hay Ningún Contacto.</h3>
+            <h3>Aun no hay Ningún Persoanje.</h3>
             <br><br>
             <div class="row">
                 <div class="offset-9 col-3 mb-3">

@@ -11,15 +11,15 @@
         <div class="card border">
             <div class="card-header bg-dark">
                 <h3 class="text-white">
-                    <strong>Detalle del Personaje</strong>
+                    <strong>Detalle del Personaje @Model.ID:</strong>
                 </h3>
             </div>
             <div class="card-body">
                 <ul class="list-grooup">
-                    <li class="list-group-item"><strong>ID: </strong>@Html.DisplayFor(character => character.ID)</li>
-                    <li class="list-group-item"><strong>Nombre: </strong>@Html.DisplayFor(character => character.Name)</li>
-                    <li class="list-group-item"><strong>Edad: </strong>@Html.DisplayFor(character => character.Age)</li>
-                    <li class="list-group-item"><strong>Ocupación: </strong>@Html.DisplayFor(character => character.Job)</li>
+                    <li class="list-group-item"><strong>@Html.DisplayNameFor(character => character.ID): </strong>@Html.DisplayFor(character => character.ID)</li>
+                    <li class="list-group-item"><strong>@Html.DisplayNameFor(character => character.Name): </strong>@Html.DisplayFor(character => character.Name)</li>
+                    <li class="list-group-item"><strong>@Html.DisplayNameFor(character => character.Age): </strong>@Html.DisplayFor(character => character.Age)</li>
+                    <li class="list-group-item"><strong>@Html.DisplayNameFor(character => character.Job): </strong>@Html.DisplayFor(character => character.Job)</li>
                 </ul>
                 <br><br>
                 <a asp-asp-controller="Inicio" asp-action="Index">Vuelvo a Inicio</a>
