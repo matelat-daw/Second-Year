@@ -152,7 +152,7 @@ function coleccionPorCodigo()
     musico10["group"] = "Simon & Garfunkel";
     musico10["age"] = 39;
     musico10["bday"] = 1941;
-    musico10["instruments"] = {};
+    musico10["instruments"] = [];
     musico10["instruments"]["first"] = "Guitarra";
     musico10["instruments"]["second"] = "Piano";
     musico10["instruments"]["third"] = "Voz";
@@ -179,9 +179,10 @@ function guardaEnLocalStorage(clave, coleccion) // Alamacena los datos en LocalS
 }
 
 
-function mostrar()
+function mostrar(musico)
 {
-    console.log(this.name + " - " + this.surname + " - " + this.group);
+    musico.join(" - ");
+    console.log(this.instruments);
     
     const result = Object.keys(this).map((key) => [this[key]]);
     console.log(result.join(" - "));
@@ -189,5 +190,5 @@ function mostrar()
 
 function mostrarTodo(coleccion)
 {
-    coleccion.forEach(musico => musico.mostrar());
+    coleccion.forEach(musico => musico.mostrar(musico));
 }
