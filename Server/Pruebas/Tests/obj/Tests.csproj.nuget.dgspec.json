@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Server\\www\\DAW\\Server\\Pruebas\\Tests\\Tests.csproj": {}
+    "C:\\DAW2\\Second-Year\\Server\\Pruebas\\Tests\\Tests.csproj": {}
   },
   "projects": {
-    "C:\\Server\\www\\DAW\\Server\\Pruebas\\Tests\\Tests.csproj": {
+    "C:\\DAW2\\Second-Year\\Server\\Pruebas\\Tests\\Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Tests\\Tests.csproj",
+        "projectUniqueName": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\Tests\\Tests.csproj",
         "projectName": "Tests",
-        "projectPath": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Tests\\Tests.csproj",
+        "projectPath": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\Tests\\Tests.csproj",
         "packagesPath": "C:\\Users\\Orion\\.nuget\\packages\\",
-        "outputPath": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Tests\\obj\\",
+        "outputPath": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\Tests\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
           "C:\\Users\\Orion\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
