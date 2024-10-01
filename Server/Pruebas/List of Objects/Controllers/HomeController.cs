@@ -45,23 +45,6 @@ namespace List_of_Objects.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Create(CharacterModel character)
         {
-            character.ID = int.Parse(Request.Form["ID"]);
-            character.Name = Request.Form["Name"];
-            character.Age = int.Parse(Request.Form["Age"]);
-            character.Job = Request.Form["Job"];
-
-            if (!ModelState.IsValid)
-            {
-                var errors = ModelState.SelectMany(m => m.Value.Errors.Select(s => new { m.Key, s.ErrorMessage }));
-
-                Debug.WriteLine("El Error es: " + errors);
-
-                Debug.WriteLine("La ID es: " + Request.Form["ID"]);
-                Debug.WriteLine("El Nombre es: " + Request.Form["Name"]);
-                Debug.WriteLine("La Edad es: " + Request.Form["Age"]);
-                Debug.WriteLine("La Ocupación es: " + Request.Form["Job"]);
-            }
-
             if (ModelState.IsValid)
             {
                 characters.Add(character);
@@ -87,9 +70,9 @@ namespace List_of_Objects.Controllers
                 int ID = int.Parse(Request.Form["ID"]);
                 int index = characters.FindIndex(character => character.ID == ID); // Para Modificar un Item hay que saber su índice en la List.
 
-                characters[index].Name = Request.Form["Name"];
-                characters[index].Age = int.Parse(Request.Form["Age"]);
-                characters[index].Job = Request.Form["Job"];
+                characters[index].Name = character.Name;
+                characters[index].Age = character.Age;
+                characters[index].Job = character.Job;
 
                 return RedirectToAction("Index");
             }
