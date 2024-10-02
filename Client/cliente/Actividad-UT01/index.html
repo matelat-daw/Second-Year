@@ -21,7 +21,7 @@
   </fieldset> 
   <fieldset>
     <legend>Mi colección de objetos</legend>
-    <table id="tabla-coleccion"><tr><th>Mi texto</th><th>Mi numero</th></tr>
+    <table id="tabla-coleccion"><tr><th>Nombre del Cantante</th><th>Posición</th><th>Primer Instrumento</th><th>Segundo</th><th>Tercero</th></tr>
     </table>
     <br>
     <span>Id: </span>
@@ -40,11 +40,11 @@
       <input type="number" id="mi-numero" min="1" max="100">   
      
       <div>
-        <label for="mi-coleccion">Seleccionar al menos una .... (completa texto)</label>
-        <select id="mi-coleccion" multiple size="5" required>
-          <option value="valor1">Valor1</option>
+        <label for="mi_coleccion">Seleccionar al menos un Instrumento</label>
+        <select id="mi_coleccion" multiple size="5" required>
+          <!-- <option value="valor1">Valor1</option>
           <option value="valor2">Valor2</option>
-          <option value="valor3">Valor3</option>
+          <option value="valor3">Valor3</option> -->
         </select>
       </div>
       <input type="submit" value="Guardar datos">
@@ -53,6 +53,6 @@
       
   </form>
   <script  src="./script.js"></script>
-
+<script>populateCollection()</script>
 </body>
 </html>
