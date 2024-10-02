@@ -67,8 +67,8 @@ namespace List_of_Objects.Controllers
         {
             if (ModelState.IsValid)
             {
-                int ID = int.Parse(Request.Form["ID"]);
-                int index = characters.FindIndex(character => character.ID == ID); // Para Modificar un Item hay que saber su índice en la List.
+                int ID = int.Parse(Request.Form["ID"]); // SeAsigna a ID el Valor que Llega del Formulario del Campo ID.
+                int index = characters.FindIndex(character => character.ID == ID); // Se Obtiene el Índice, Para Modificar un Item hay que saber su índice en la List.
 
                 characters[index].Name = character.Name;
                 characters[index].Age = character.Age;

@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\views\\home\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
@@ -38,7 +38,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 17,
           "Children": [
             {
               "$type": "Bookmark",
@@ -134,7 +134,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "CharacterModel.cs",
               "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Models\\CharacterModel.cs",
               "RelativeDocumentMoniker": "List of Objects\\Models\\CharacterModel.cs",
@@ -159,15 +159,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "List of Objects\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Controllers\\HomeController.cs",
               "RelativeToolTip": "List of Objects\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAE0AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAEYAAABrAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-29T14:38:04.477Z"
+              "WhenOpened": "2024-09-29T14:38:04.477Z",
+              "EditorCaption": ""
             }
           ]
         },
