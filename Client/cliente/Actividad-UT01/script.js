@@ -2,8 +2,9 @@
 const DOM = {
   miFormulario: document.getElementById("mi_formulario"),
   idioma: document.getElementById("idioma"),
-  miTexto: document.getElementById("mi_texto"),
-  miNumero: document.getElementById("mi_numero"),
+  group: document.getElementById("group"),
+  staff: document.getElementById("staff"),
+  bday: document.getElementById("bday"),
   miColeccion: document.getElementById("mi_coleccion"),
   tabla: document.getElementById("tabla_coleccion"),
   date: document.getElementById("date"),
@@ -42,16 +43,16 @@ function guardarObjeto(e)
 
     if (musicos.length == 0)
     {
-        let musico1 = new Musico(1, "John", "Lennon", "The Beatles", 40, 1940, "Guitarra", "Voz",  "", showData);
-        let musico2 = new Musico(2, "Paul", "McCartney", "The Beatles", 38, 1942, "Bajo", "Voz", "", showData);
-        let musico3 = new Musico(3, "George", "Harrison", "The Beatles", 37, 1943, "Guitarra", "Voz", "Coros", showData);
-        let musico4 = new Musico(4, "Ringo", "Start", "The Beatles", 40, 1940, "Batería", "Voz", "Coros", showData);
-        let musico5 = new Musico(5, "Freddie", "Mercury", "Queen", 34, 1946, "Piano", "Voz", "", showData);
-        let musico6 = new Musico(6, "Brian", "May", "Queen", 33, 1947, "Guitarra", "Voz", "", showData);
-        let musico7 = new Musico(7, "Roger", "Taylor", "Queen", 31, 1949, "Batería", "Coros", "", showData);
-        let musico8 = new Musico(8, "John", "Deacon", "Queen", 29, 1951, "Bajo", "Coros", "", showData);
-        let musico9 = new Musico(9, "Paul", "Simon", "Simon & Garfunkel", 39, 1941, "Guitarra", "Piano", "Voz", showData);
-        let musico10 = new Musico(10, "Arthur", "Garfunkel", "Simon & Garfunkel", 39, 1941, "Guitarra", "Piano", "Voz", showData);
+        let musico1 = new Musico(1, "John Lennon", "The Beatles", 40, 1940, "Guitarra", "Voz",  "");
+        let musico2 = new Musico(2, "Paul McCartney", "The Beatles", 38, 1942, "Bajo", "Voz", "");
+        let musico3 = new Musico(3, "George Harrison", "The Beatles", 37, 1943, "Guitarra", "Voz", "Coros");
+        let musico4 = new Musico(4, "Ringo Start", "The Beatles", 40, 1940, "Batería", "Voz", "Coros");
+        let musico5 = new Musico(5, "Freddie Mercury", "Queen", 34, 1946, "Piano", "Voz", "");
+        let musico6 = new Musico(6, "Brian May", "Queen", 33, 1947, "Guitarra", "Voz", "");
+        let musico7 = new Musico(7, "Roger Taylor", "Queen", 31, 1949, "Batería", "Coros", "");
+        let musico8 = new Musico(8, "John Deacon", "Queen", 29, 1951, "Bajo", "Coros", "");
+        let musico9 = new Musico(9, "Paul Simon", "Simon & Garfunkel", 39, 1941, "Guitarra", "Piano", "Voz");
+        let musico10 = new Musico(10, "Arthur Garfunkel", "Simon & Garfunkel", 39, 1941, "Guitarra", "Piano", "Voz");
 
         // AQUI - Hacer push en la colección.
 
@@ -76,7 +77,6 @@ function guardarObjeto(e)
     len = options.length,
     data = [],
     i = 0;
-    console.log("El tamaño del array es: " + len);
     while (i < len)
     {
         if (options[i].selected)
@@ -84,7 +84,13 @@ function guardarObjeto(e)
         i++;
     }
 
-    mostrarObjetoEnTabla(DOM.miTexto.value, DOM.miNumero.value, data[0], data[1], data[2]);
+    let id = 1;
+    let now = new Date().getFullYear();
+    let staff = (DOM.bday.value).getFullYear();
+
+    let yearsOld = now - staff;
+
+    mostrarObjetoEnTabla(id, DOM.group.value, DOM.staff.value, DOM.bday.value, yearsOld, data[0], data[1], data[2]);
     e.preventDefault(); // Para evitar el envío del formulario
 }
 
@@ -136,25 +142,25 @@ function showData()
     console.log(Musicos[0]);
 }
 
-function populateCollection()
-{
-    let option;
+// function populateCollection()
+// {
+//     let option;
 
-    option = document.createElement("option");
-    option.value = "Voz";
-    option.innerHTML = "Voz";
-    mi_coleccion.appendChild(option);
+//     option = document.createElement("option");
+//     option.value = "Voz";
+//     option.innerHTML = "Voz";
+//     mi_coleccion.appendChild(option);
 
-    option = document.createElement("option");
-    option.value = "Guitarra";
-    option.innerHTML = "Guitarra";
-    mi_coleccion.appendChild(option);
+//     option = document.createElement("option");
+//     option.value = "Guitarra";
+//     option.innerHTML = "Guitarra";
+//     mi_coleccion.appendChild(option);
 
-    option = document.createElement("option");
-    option.value = "Coros";
-    option.innerHTML = "Coros";
-    mi_coleccion.appendChild(option);
-}
+//     option = document.createElement("option");
+//     option.value = "Coros";
+//     option.innerHTML = "Coros";
+//     mi_coleccion.appendChild(option);
+// }
 
 function showDate(country)
 {
