@@ -13,12 +13,16 @@
     <section class="margin">
   <fieldset>
     <legend>Perfil de usuario</legend>
-    <p>Aquí va la fecha (con el formato visto en clase) según el idioma del perfil de usuario</p>
+    <div class="flex"><h3 id="date">Aquí va la fecha (con el formato visto en clase) según el idioma del perfil de usuario</h3><h3 id="time"></h3></div>
     <div>
       <label for="idioma">Perfil de usuario - Elige un idioma</label>
-      <select name="idioma" id="idioma" required>
+      <select name="idioma" id="idioma" onchange="showDate(this.value)" required>
         <option disabled value="" selected>Selecciona tu idioma</option>
-        <option value="es">España</option>
+        <option value="es-ES">Español</option>
+        <option value="en-GB">English</option>
+        <option value="de-DE">Deutsche</option>
+        <option value="zh-CN">中國人</option>
+        <option value="ar-SA">عربي</option>
       </select>
     </div>
   </fieldset>
@@ -26,7 +30,7 @@
 <section class="margin">
   <fieldset class="margin">
     <legend>Mi colección de objetos</legend>
-    <table id="tabla-coleccion"><tr><th>Mi texto</th><th>Mi numero</th><th>Dato 1</th><th>Dato 2</th><th>Dato 3</th></tr>
+    <table id="tabla_coleccion"><tr><th>Mi texto</th><th>Mi numero</th><th>Dato 1</th><th>Dato 2</th><th>Dato 3</th></tr>
     </table>
     <br>
     <span>Id: </span>
@@ -34,23 +38,20 @@
     <button onclick="borrarObjeto(document.getElementById('id').value)">Borrar</button>  
   </fieldset>  
 </section>
-  <form  id="mi-formulario">
+  <form  id="mi_formulario">
     <fieldset>
       <legend>Mi colección de objetos - Añadir</legend>      
       <div>
-          <label for="mi-texto">Mi texto:</label>
-          <input type="text" id="mi-texto" name="mi-texto" required minlength="2" maxlength="20"/>
+          <label for="mi_texto">Mi texto:</label>
+          <input type="text" id="mi_texto" name="mi_texto" required minlength="2" maxlength="20"/>
       </div>
       <br>
       <span>Mi número: </span>
-      <input type="number" id="mi-numero" min="1" max="100">   
+      <input type="number" id="mi_numero" min="1" max="100">   
      
       <div>
-        <label for="mi-coleccion">Seleccionar al menos una .... (completa texto)</label>
-        <select id="mi-coleccion" multiple size="5" required>
-          <option value="valor1">Valor1</option>
-          <option value="valor2">Valor2</option>
-          <option value="valor3">Valor3</option>
+        <label for="mi_coleccion">Seleccionar al menos una .... (completa texto)</label>
+        <select id="mi_coleccion" multiple size="5" required>
         </select>
       </div>
       <input type="submit" value="Guardar datos">
@@ -65,6 +66,6 @@
   </footer>
 </section>
   <script  src="./script.js"></script>
-
+<script>populateCollection()</script>
 </body>
 </html>

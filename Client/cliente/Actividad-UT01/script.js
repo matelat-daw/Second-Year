@@ -1,11 +1,13 @@
 //DOM static selector
 const DOM = {
-  miFormulario: document.getElementById("mi-formulario"),
+  miFormulario: document.getElementById("mi_formulario"),
   idioma: document.getElementById("idioma"),
-  miTexto: document.getElementById("mi-texto"),
-  miNumero: document.getElementById("mi-numero"),
+  miTexto: document.getElementById("mi_texto"),
+  miNumero: document.getElementById("mi_numero"),
   miColeccion: document.getElementById("mi_coleccion"),
-  tabla: document.getElementById("tabla-coleccion")
+  tabla: document.getElementById("tabla_coleccion"),
+  date: document.getElementById("date"),
+  time: document.getElementById("time")
 };
 
 function Musico(id, name, surname, group, age, bday, first, second, third, showData)
@@ -70,10 +72,11 @@ function guardarObjeto(e)
     }    
 
     // let select = document.getElementById('mi_coleccion'),
-    options = mi_coleccion.options,
+    options = DOM.miColeccion.options,
     len = options.length,
     data = [],
     i = 0;
+    console.log("El tamaño del array es: " + len);
     while (i < len)
     {
         if (options[i].selected)
@@ -151,4 +154,31 @@ function populateCollection()
     option.value = "Coros";
     option.innerHTML = "Coros";
     mi_coleccion.appendChild(option);
+}
+
+function showDate(country)
+{
+  let localDate = new Intl.DateTimeFormat(country, {
+    weekday: "long",
+    day: "2-digit",
+    month: "long",
+    year: "numeric"
+    }).format(new Date());
+
+    DOM.date.innerHTML = "La Fecha es: " + localDate;
+    updateTime();
+    setInterval(updateTime, 1000);
+}
+
+function updateTime()
+{
+  const now = new Date();
+  const hours = now.getHours();
+  const minutes = now.getMinutes();
+  const seconds = now.getSeconds();
+
+  // Format the string with leading zeroes
+  const clockStr = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+  DOM.time.innerHTML = clockStr;
 }
