@@ -1,16 +1,11 @@
 /* General */
 body
 {
-    font-size: 1.1rem; /* Agranda la fuente predeterinada un 10% */
+    font-size: 1.1rem; /* Agranda la fuente predeterinada un 10%. se puede usar PT */
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 50px;
-}
-
-h6
-{
-    margin: 0;
 }
 
 section div img
@@ -258,6 +253,12 @@ footer div ul li a
     width: 33%;
     margin: 10px;
     line-height: 60px;
+}
+
+.bold
+{
+    margin: 0;
+    font-weight: bold;
 }
 
 /* Estilos del Slider */

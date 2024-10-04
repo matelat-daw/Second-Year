@@ -79,7 +79,7 @@ function guardarObjeto(e)
 
 function borrarObjeto(id){
   //AQUI - Borrar el objeto de la colección
-    alert("Programa esta función para borrar el objeto con id " + id)
+    // alert("Programa esta función para borrar el objeto con id " + id)
     const index = musicos.indexOf(id);
     musicos.splice(index, 1);
 
