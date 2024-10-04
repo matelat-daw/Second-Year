@@ -11,7 +11,8 @@ const DOM = {
     time: document.getElementById("time"),
     alerta: document.getElementById("alerta"), // La ID del botón del dialogo.
     title: document.getElementById("title"), // Asigno a la variable title el h4 con id title del Diálogo.
-    message: document.getElementById("message") // Asigno a la variable message el h5 con id message del Díalogo;
+    message: document.getElementById("message"), // Asigno a la variable message el h5 con id message del Díalogo;
+    delete: document.getElementById("delete")
 };
 
 function Musico(id, name, group, age, bday, data)
@@ -39,9 +40,10 @@ function userProfile()
 let musicos = [];
 let musicoIndex = 1;
 
-function guardarObjeto(e, action)
+function guardarObjeto(e)
 {
-    if (action == "delete")
+    console.log("El Evento es: " + e)
+    if (e.delete)
     {
         musicos = JSON.parse(localStorage.getItem("Musicos"));
     }
@@ -104,7 +106,7 @@ function borrarObjeto(id, e)
     localStorage.setItem("Musicos", JSON.stringify(musicos));
 
   //AQUI - Redibujar la tabla HTML
-    guardarObjeto(e, "delete");
+    guardarObjeto(e);
 }
 
 function mostrarObjetoEnTabla(id, mName, group, yearsOld, year, data)
