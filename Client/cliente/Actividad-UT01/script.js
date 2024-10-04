@@ -37,50 +37,66 @@ function userProfile()
 }
 
 let musicos = [];
+let musicoIndex = 1;
 
-function guardarObjeto(e)
+function guardarObjeto(e, action)
 {
-    let options = DOM.miColeccion.options,
-    len = options.length;
-    data = [],
-    i = 0;
-    let j = 0; // J contiene el tamaño del selector
-    while (j < len && i < 4)
+    if (action == "delete")
     {
-        if (options[j].selected) // Si está seleccionado
-        {
-            data[i] = options[j].value;
-            i++;
-        }
-        j++;
+        musicos = JSON.parse(localStorage.getItem("Musicos"));
     }
+    else
+    {
+        let options = DOM.miColeccion.options,
+        len = options.length;
+        data = [],
+        i = 0;
+        let j = 0; // J contiene el tamaño del selector
+        while (j < len && i < 4)
+        {
+            if (options[j].selected) // Si está seleccionado
+            {
+                data[i] = options[j].value;
+                i++;
+            }
+            j++;
+        }
 
-    console.log("La Data es: " + data[0] + " - " + data[1] + " - " + data[2]);
+        let id = musicoIndex;
+        musicoIndex++;
+        let mName = DOM.staff.value;
+        let group = DOM.group.value;
+        let bday = DOM.bday.value;
+        let now = new Date().getFullYear();
+        let yearsOld = now - bday;
 
-    let id = musicos.length + 1;
-    let mName = DOM.staff.value;
-    let group = DOM.group.value;
-    let bday = DOM.bday.value;
-    let now = new Date().getFullYear();
-    let yearsOld = now - bday;
+        console.log("El Músico pasado es: " + mName);
 
-    console.log("El Músico pasado es: " + mName);
-
-    let musico = new Musico(id, mName, group, yearsOld, bday, data);
-    musicos.push(musico);
+        let musico = new Musico(id, mName, group, yearsOld, bday, data);
+        musicos.push(musico);
+    }
     // AQUI - Actualizar la colección en el localStorage.
     localStorage.setItem("Musicos", JSON.stringify(musicos));
     // }
 
     // mostrarObjetoEnTabla(id, DOM.staff.value, DOM.group.value, yearsOld, DOM.bday.value, data[0], data[1], data[2]);
     mostrarObjetoEnTabla(id, DOM.staff.value, DOM.group.value, yearsOld, DOM.bday.value, data);
+
+    DOM.group.value = "";
+    DOM.staff.value = "";
+    DOM.bday.value = "";
+    DOM.miColeccion.value = "";
+    yearsOld = 0;
+
     e.preventDefault(); // Para evitar el envío del formulario
 }
 
-function borrarObjeto(id){
+function borrarObjeto(id, e)
+{
   //AQUI - Borrar el objeto de la colección
     // alert("Programa esta función para borrar el objeto con id " + id)
-    const index = musicos.indexOf(id);
+    // const index = musicos.indexOf(id);
+    const index = musicos.findIndex(item => item.id == id);
     musicos.splice(index, 1);
 
   //AQUI - Actualizar la colección en el localStorage
@@ -88,7 +104,7 @@ function borrarObjeto(id){
     localStorage.setItem("Musicos", JSON.stringify(musicos));
 
   //AQUI - Redibujar la tabla HTML
-    guardarObjeto(null);
+    guardarObjeto(e, "delete");
 }
 
 function mostrarObjetoEnTabla(id, mName, group, yearsOld, year, data)
