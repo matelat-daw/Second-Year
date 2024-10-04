@@ -14,18 +14,16 @@ const DOM = {
     message: document.getElementById("message") // Asigno a la variable message el h5 con id message del Díalogo;
 };
 
-function Musico(id, name, group, age, bday, [first, second, third])
+function Musico(id, name, group, age, bday, data)
 {
     this.id = id;
     this.name = name;
-    this.surname = surname;
     this.group = group;
     this.age = age;
     this.bday = bday;
-    this.first = first;
-    this.second = second;
-    this.third = third;
-    this.showData = showData;
+    this.first = data[0];
+    this.second = data[1];
+    this.third = data[2];
 }
 
 (function(){
@@ -42,45 +40,19 @@ let musicos = [];
 
 function guardarObjeto(e)
 {
-    // AQUI - Llamar a la función constructora del objeto.
-
-    // if (musicos.length == 0)
-    // {
-    //     let musico1 = new Musico(1, "John Lennon", "The Beatles", 40, 1940, ["Guitarra", "Voz",  ""]);
-    //     let musico2 = new Musico(2, "Paul McCartney", "The Beatles", 38, 1942, ["Bajo", "Voz", ""]);
-    //     let musico3 = new Musico(3, "George Harrison", "The Beatles", 37, 1943, ["Guitarra", "Voz", "Coros"]);
-    //     let musico4 = new Musico(4, "Ringo Start", "The Beatles", 40, 1940, ["Batería", "Voz", "Coros"]);
-    //     let musico5 = new Musico(5, "Freddie Mercury", "Queen", 34, 1946, ["Piano", "Voz", ""]);
-    //     let musico6 = new Musico(6, "Brian May", "Queen", 33, 1947, ["Guitarra", "Voz", ""]);
-    //     let musico7 = new Musico(7, "Roger Taylor", "Queen", 31, 1949, ["Batería", "Coros", ""]);
-    //     let musico8 = new Musico(8, "John Deacon", "Queen", 29, 1951, ["Bajo", "Coros", ""]);
-    //     let musico9 = new Musico(9, "Paul Simon", "Simon & Garfunkel", 39, 1941, ["Guitarra", "Piano", "Voz"]);
-    //     let musico10 = new Musico(10, "Arthur Garfunkel", "Simon & Garfunkel", 39, 1941, ["Guitarra", "Piano", "Voz"]);
-
-    //     // AQUI - Hacer push en la colección.
-
-    //     musicos.push(musico1);
-    //     musicos.push(musico2);
-    //     musicos.push(musico3);
-    //     musicos.push(musico4);
-    //     musicos.push(musico5);
-    //     musicos.push(musico6);
-    //     musicos.push(musico7);
-    //     musicos.push(musico8);
-    //     musicos.push(musico9);
-    //     musicos.push(musico10);
-    // }
-    // else
-    // {
     let options = DOM.miColeccion.options,
-    len = options.length,
+    len = options.length;
     data = [],
     i = 0;
-    while (i < len)
+    let j = 0; // J contiene el tamaño del selector
+    while (j < len && i < 4)
     {
-        if (options[i].selected)
-            data[i] = options[i].value;
-        i++;
+        if (options[j].selected) // Si está seleccionado
+        {
+            data[i] = options[j].value;
+            i++;
+        }
+        j++;
     }
 
     console.log("La Data es: " + data[0] + " - " + data[1] + " - " + data[2]);
@@ -92,26 +64,27 @@ function guardarObjeto(e)
     let now = new Date().getFullYear();
     let yearsOld = now - bday;
 
-    console.log("El Músico pasado es: " + mNane);
+    console.log("El Músico pasado es: " + mName);
 
-    let musico = new Musico(id, mName, group, age, bday, data);
+    let musico = new Musico(id, mName, group, yearsOld, bday, data);
     musicos.push(musico);
     // AQUI - Actualizar la colección en el localStorage.
     localStorage.setItem("Musicos", JSON.stringify(musicos));
     // }
 
-    mostrarObjetoEnTabla(id, DOM.staff.value, DOM.group.value, yearsOld, DOM.bday.value, data[0], data[1], data[2]);
+    // mostrarObjetoEnTabla(id, DOM.staff.value, DOM.group.value, yearsOld, DOM.bday.value, data[0], data[1], data[2]);
+    mostrarObjetoEnTabla(id, DOM.staff.value, DOM.group.value, yearsOld, DOM.bday.value, data);
     e.preventDefault(); // Para evitar el envío del formulario
 }
 
 function borrarObjeto(id){
   //AQUI - Borrar el objeto de la colección
     alert("Programa esta función para borrar el objeto con id " + id)
-    const index = array.indexOf(id);
-    array.splice(index, 1);
+    const index = musicos.indexOf(id);
+    musicos.splice(index, 1);
 
   //AQUI - Actualizar la colección en el localStorage
-    localStorage.removeItem("Musicos");
+    // localStorage.removeItem("Musicos");
     localStorage.setItem("Musicos", JSON.stringify(musicos));
 
   //AQUI - Redibujar la tabla HTML
@@ -165,17 +138,24 @@ function showData()
     console.log(Musicos[0]);
 }
 
-function checkQtty(options) // Función que verifica la cantidad de fotos que se subieron para un evento, máximo 3, recibe el array files, el nombre del input.
+function checkQtty() // Función que verifica la cantidad de fotos que se subieron para un evento, máximo 3, recibe el array files, el nombre del input.
 {
-    if(options.length > 3) // Si la cantidad de archivos agregados es mayor que 3.
+    let options = DOM.miColeccion.options,
+    len = options.length;
+    data = [],
+    i = 0;
+    let j = 0; // J contiene el tamalo del selector
+    while (j < len)
     {
-        toast(1, "Se ha Superado el Limite", "Has Selecionado Archivos de Más; Se Limitará la Subida Automáticamente a 3 fotos Ordenadas por Nombre o por Número Ascendentemente.");
-        // Muestro un diálogo que solo se aceptarán 3 fotos y serán las tres primeras por orden alfabetico o numérico, ascendente.
-        let list = []; // Creo una lista nueva del tipo DataTransfer.
-        for(let i = 0; i < 3; i++) // Hago un bucle de 0 a 2.
-           list.push(options[i])  // Agrego a la lista los 3 primeros Items selecionados.
-
-        DOM.miColeccion = list.options // Pongo en el select, que tiene la ID miColeccion, la lista con los tres archivos.
+        if (options[j].selected) // Si está seleccionado
+        {
+            i++;
+        }
+        j++;
+    }
+    if(i > 3) // Si la cantidad items seleccionados es mayor que 3.
+    {
+        toast(1, "Se ha Superado el Limite", "Has Selecionado Más de Tres Opciones; Se Limitará la Subida Automáticamente a 3 las 3 Primeras.");
     }       
 }
 
