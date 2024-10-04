@@ -6,7 +6,7 @@ const DOM = {
     staff: document.getElementById("staff"),
     bday: document.getElementById("bday"),
     miColeccion: document.getElementById("mi_coleccion"),
-    tabla: document.getElementById("tabla_coleccion"),
+    tbody: document.getElementById("tabla_coleccion"),
     date: document.getElementById("date"),
     time: document.getElementById("time"),
     alerta: document.getElementById("alerta"), // La ID del botón del dialogo.
@@ -32,50 +32,43 @@ function Musico(id, name, group, age, bday, data)
   DOM.miFormulario.addEventListener("submit", guardarObjeto);
 })()
 
-function userProfile()
-{
-
-}
-
-let musicos = [];
-let musicoIndex = 1;
+let musicos = []; // Array que contiene los Músicos.
+let musicoIndex = 1; // Índice del Primer Músico Agregado al Array de Músicos.
 
 function guardarObjeto(e)
 {
-    let options = DOM.miColeccion.options,
-    len = options.length;
-    data = [],
-    i = 0;
-    let j = 0; // J contiene el tamaño del selector
-    while (j < len && i < 4)
+    let options = DOM.miColeccion.options; // Asigna a la Variable options Todas las Opciones del Selector.
+    let len = options.length; // Obtiene la Cantidad de opciones(options es un array y tiene tamaño length).
+    let data = []; // El Array data Contendrá los Atributos Instrumentos de los Músicos.
+    let i = 0; // Será el Índice del Array de Datos.
+    let j = 0; // J Cuenta Hasta la cantidad de Options del Selector.
+    while (j < len && i < 4) // Mientras j sea Menor que la cantidad de opciones e i sea Menor que 4
     {
-        if (options[j].selected) // Si está seleccionado
+        if (options[j].selected) // Si Está Seleccionada la Opción.
         {
-            data[i] = options[j].value;
-            i++;
+            data[i] = options[j].value; // Agrega el Valor de la Opción al Array data en la Posición i.
+            i++; // Incrementa el Índice del Array data.
         }
-        j++;
+        j++; // Incrementa j.
     }
 
-    let id = musicoIndex;
-    musicoIndex++;
-    let mName = DOM.staff.value;
-    let group = DOM.group.value;
-    let bday = DOM.bday.value;
-    let now = new Date().getFullYear();
-    let yearsOld = now - bday;
+    let id = musicoIndex; // Asigna a id el valor de la Variable musicoIndex;
+    musicoIndex++; // Incrementa en 1 musicoIndex.
+    let mName = DOM.staff.value; // Asigna a mName el contenido del input con ID staff.
+    let group = DOM.group.value; // Asigna a group el contenido del input con ID group.
+    let bday = DOM.bday.value; // Asigna a bday el contenido del input con ID bday.
+    let now = new Date().getFullYear(); // Asigna a now El Corriente Año.
+    let yearsOld = now - bday; // Asigna a yearsOld el Resultado de Restar al Año Actual el Año de Nacimiento del Músico.
 
-    console.log("El Músico pasado es: " + mName);
+    let musico = new Musico(id, mName, group, yearsOld, bday, data); // Crea un Nuevo Músico Llamando al Constructor Musico.
+    musicos.push(musico); // Agrega el Músico al Array musicos.
 
-    let musico = new Musico(id, mName, group, yearsOld, bday, data);
-    musicos.push(musico);
-
-    mostrarObjetoEnTabla(musicos);
+    mostrarObjetoEnTabla(musicos); // Muestra en la Tabla la Lista de Músicos.
     // AQUI - Actualizar la colección en el localStorage.
-    localStorage.clear();
-    localStorage.setItem("Musicos", JSON.stringify(musicos));
 
-    DOM.group.value = "";
+    localStorage.setItem("Musicos", JSON.stringify(musicos)); // Almacena los Músicos en localStorage.
+
+    DOM.group.value = ""; // Limpio los Campos del Formulario.
     DOM.staff.value = "";
     DOM.bday.value = "";
     DOM.miColeccion.value = "";
@@ -88,27 +81,27 @@ function borrarObjeto(id, e)
 {
   //AQUI - Borrar el objeto de la colección
     // alert("Programa esta función para borrar el objeto con id " + id)
-    // const index = musicos.indexOf(id);
-    const index = musicos.findIndex(item => item.id == id);
-    musicos.splice(index, 1);
+    const index = musicos.findIndex(item => item.id == id); // Asigna a index el Índice del Objeto en el Array musicos.
+
+    if (index > -1) // Si el Índice Existe es diferente de -1.
+    {
+        musicos.splice(index, 1); // Elimina el Objeto del Array por su Índice.
+    }
 
   //AQUI - Actualizar la colección en el localStorage
-    // localStorage.removeItem("Musicos");
-    localStorage.clear();
-    localStorage.setItem("Musicos", JSON.stringify(musicos));
+
+    localStorage.setItem("Musicos", JSON.stringify(musicos)); // Almacena los Músicos en localStorage.
 
   //AQUI - Redibujar la tabla HTML
-    // guardarObjeto(e);
 
-    mostrarObjetoEnTabla(musicos)
+    mostrarObjetoEnTabla(musicos); // Muestra los Músicos en la Tabla.
 }
 
-// function mostrarObjetoEnTabla(id, mName, group, yearsOld, year, data)
 function mostrarObjetoEnTabla(musicos)
 {
   let tr;
   let td;
-  DOM.tabla.innerHTML = "";
+  DOM.tbody.innerHTML = ""; // Limpio el Contenido del body de la Tabla Donde Están las Columnas con los Datos de los Músicos.
 
   musicos.forEach(musico => {
         tr = document.createElement("tr");
@@ -145,7 +138,7 @@ function mostrarObjetoEnTabla(musicos)
         td.textContent = musico.third;
         tr.appendChild(td);
         //
-        DOM.tabla.appendChild(tr);
+        DOM.tbody.appendChild(tr);
     });
 }
 
