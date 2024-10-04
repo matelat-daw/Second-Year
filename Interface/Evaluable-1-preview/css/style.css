@@ -13,9 +13,9 @@ h6
     margin: 0;
 }
 
-section div img
+img
 {
-    width: 90%;
+    width: 600px;
     height: 330px;
 }
 
@@ -137,45 +137,44 @@ footer div ul li a
 
 /* Estilo del contenedor principal */
 
-.inline
-{
-    display: flex;
-    flex-direction: row;
-}
-
 .grid
 {
-    grid-template-columns: 1fr 1fr;
+    top: -458px;
+    grid-template-columns: auto auto;
 }
 
 .grid > div
 {
-    width: 80%;
+    width: 640px;
 }
 
 .grid2
 {
-    grid-template-columns: 1fr 1fr 1fr;
+    top: -438px;
+    grid-template-columns: auto auto auto;
 }
 
 .grid2 > div
 {
-    width: 70%;
+    width: 410px;
 }
 
 .common
 {
     display: grid;
-    gap: 25px;
+    position: relative;
+    left: 180px;
+    width: 1280px;
+    gap: 50px;
     margin-left: 50px;
     margin-right: 50px;
-    margin-bottom: 20px;
 }
 
 .common > div
 {
     border: 1px solid black;
     border-radius: 20px;
+    height: 500px;
 }
 
 .section-main-margin
@@ -186,6 +185,7 @@ footer div ul li a
 
 .section-secondary
 {
+    width: 390px;
     height: 320px;
     margin-left: 8px;
     margin-top: 8px;
@@ -252,7 +252,7 @@ footer div ul li a
     background-color: DodgerBlue;
     border: 1px solid blue;
     border-radius: 20px;
-    margin-top: 25px;
+    margin-top: -300px;
 }
   
 .footer > div
