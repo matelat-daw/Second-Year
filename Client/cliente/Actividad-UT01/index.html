@@ -14,6 +14,27 @@
 </head>
 
 <body>
+    <!-- Modal Button, Diálogo general, muestra avisos y vuelve a index.php.-->
+<button id="alerta" type="button" class="btn btn-primary" style="visibility: hidden;" data-bs-toggle="modal" data-bs-target="#alertDialog">Diálogo</button>
+
+<!-- Modal -->
+<div class="modal fade" id="alertDialog" tabindex="-1" aria-labelledby="alertDialogLabel" aria-hidden="true" data-bs-keyboard="false" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title" id="alertDialogLabel">Dialogo de Avisos</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <h4><span id="title"></span></h4>
+          <h5 id="message"></h5>
+      </div>
+      <div class="modal-footer">
+      <button type="button" id="close_dialog" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+  </div>
+  </div>
+</div>
     <div id="agenda">
         <main>
             <section class="margin">
@@ -48,10 +69,10 @@
                     <table id="tabla_coleccion">
                         <tr>
                             <th>ID</th>
-                            <th>Grupo</th>
                             <th>Músico</th>
-                            <th>Fecha de Nacimiento</th>
+                            <th>Grupo</th>
                             <th>Edad</th>
+                            <th>Año de Nacimiento</th>
                             <th>Instrumento 1</th>
                             <th>Instrumento 2</th>
                             <th>Instrumeto 3</th>
@@ -74,12 +95,12 @@
                         <input type="text" id="staff" name="staff">
                         <label for="staff">Músico</label>
                         <br><br>
-                        <input type="date" id="bday" name="bday">
+                        <input id="bday" name="bday" type="number" min="1900" max="2006" step="1">
                         <label for="bday">Año de Nacimiento</label>
                     </div>
                     <div>
                         <label for="mi_coleccion">Seleccionar al menos una .... (completa texto)</label>
-                        <select id="mi_coleccion" multiple size="5" required>
+                        <select id="mi_coleccion" name="coleccion[]" multiple size="5" onchange="checkQtty()" required>
                             <option value="">Selecciona que Instrumento Ejecuta</option>
                             <option value="Voz">Voz</option>
                             <option value="Piano">Piano</option>
@@ -91,8 +112,6 @@
                     </div>
                     <input type="submit" value="Guardar datos" class="btn btn-primary btn-lg">
                 </fieldset>
-
-
             </form>
         </main>
         <section id="footer">
