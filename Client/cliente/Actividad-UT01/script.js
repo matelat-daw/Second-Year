@@ -42,47 +42,38 @@ let musicoIndex = 1;
 
 function guardarObjeto(e)
 {
-    console.log("El Evento es: " + e)
-    if (e.delete)
+    let options = DOM.miColeccion.options,
+    len = options.length;
+    data = [],
+    i = 0;
+    let j = 0; // J contiene el tamaño del selector
+    while (j < len && i < 4)
     {
-        musicos = JSON.parse(localStorage.getItem("Musicos"));
-    }
-    else
-    {
-        let options = DOM.miColeccion.options,
-        len = options.length;
-        data = [],
-        i = 0;
-        let j = 0; // J contiene el tamaño del selector
-        while (j < len && i < 4)
+        if (options[j].selected) // Si está seleccionado
         {
-            if (options[j].selected) // Si está seleccionado
-            {
-                data[i] = options[j].value;
-                i++;
-            }
-            j++;
+            data[i] = options[j].value;
+            i++;
         }
-
-        let id = musicoIndex;
-        musicoIndex++;
-        let mName = DOM.staff.value;
-        let group = DOM.group.value;
-        let bday = DOM.bday.value;
-        let now = new Date().getFullYear();
-        let yearsOld = now - bday;
-
-        console.log("El Músico pasado es: " + mName);
-
-        let musico = new Musico(id, mName, group, yearsOld, bday, data);
-        musicos.push(musico);
+        j++;
     }
-    // AQUI - Actualizar la colección en el localStorage.
-    localStorage.setItem("Musicos", JSON.stringify(musicos));
-    // }
 
-    // mostrarObjetoEnTabla(id, DOM.staff.value, DOM.group.value, yearsOld, DOM.bday.value, data[0], data[1], data[2]);
-    mostrarObjetoEnTabla(id, DOM.staff.value, DOM.group.value, yearsOld, DOM.bday.value, data);
+    let id = musicoIndex;
+    musicoIndex++;
+    let mName = DOM.staff.value;
+    let group = DOM.group.value;
+    let bday = DOM.bday.value;
+    let now = new Date().getFullYear();
+    let yearsOld = now - bday;
+
+    console.log("El Músico pasado es: " + mName);
+
+    let musico = new Musico(id, mName, group, yearsOld, bday, data);
+    musicos.push(musico);
+
+    mostrarObjetoEnTabla(musicos);
+    // AQUI - Actualizar la colección en el localStorage.
+    localStorage.clear();
+    localStorage.setItem("Musicos", JSON.stringify(musicos));
 
     DOM.group.value = "";
     DOM.staff.value = "";
@@ -103,52 +94,59 @@ function borrarObjeto(id, e)
 
   //AQUI - Actualizar la colección en el localStorage
     // localStorage.removeItem("Musicos");
+    localStorage.clear();
     localStorage.setItem("Musicos", JSON.stringify(musicos));
 
   //AQUI - Redibujar la tabla HTML
-    guardarObjeto(e);
+    // guardarObjeto(e);
+
+    mostrarObjetoEnTabla(musicos)
 }
 
-function mostrarObjetoEnTabla(id, mName, group, yearsOld, year, data)
+// function mostrarObjetoEnTabla(id, mName, group, yearsOld, year, data)
+function mostrarObjetoEnTabla(musicos)
 {
   let tr;
   let td;
+  DOM.tabla.innerHTML = "";
 
-  tr = document.createElement("tr");
-  //
-  td = document.createElement("td");
-  td.textContent=id;
-  tr.appendChild(td);
-  //
-  td = document.createElement("td");
-  td.textContent=mName;
-  tr.appendChild(td);
-  //
-  td = document.createElement("td");
-  td.textContent=group;
-  tr.appendChild(td);
-  //
-  td = document.createElement("td");
-  td.textContent=yearsOld;
-  tr.appendChild(td);
-  //
-  td = document.createElement("td");
-  td.textContent=year;
-  tr.appendChild(td);
-  //
-  td = document.createElement("td");
-  td.textContent=data[0];
-  tr.appendChild(td);
-  //
-  td = document.createElement("td");
-  td.textContent=data[1];
-  tr.appendChild(td);
-  //
-  td = document.createElement("td");
-  td.textContent=data[2];
-  tr.appendChild(td);
-  //
-  DOM.tabla.appendChild(tr); 
+  musicos.forEach(musico => {
+        tr = document.createElement("tr");
+        //
+        td = document.createElement("td");
+        td.textContent = musico.id;
+        tr.appendChild(td);
+        //
+        td = document.createElement("td");
+        td.textContent = musico.name;
+        tr.appendChild(td);
+        //
+        td = document.createElement("td");
+        td.textContent = musico.group;
+        tr.appendChild(td);
+        //
+        td = document.createElement("td");
+        td.textContent = musico.age;
+        tr.appendChild(td);
+        //
+        td = document.createElement("td");
+        td.textContent = musico.bday;
+        tr.appendChild(td);
+        //
+        td = document.createElement("td");
+        td.textContent = musico.first;
+        tr.appendChild(td);
+        //
+        td = document.createElement("td");
+        td.textContent = musico.second;
+        tr.appendChild(td);
+        //
+        td = document.createElement("td");
+        td.textContent = musico.third;
+        tr.appendChild(td);
+        //
+        DOM.tabla.appendChild(tr);
+    });
 }
 
 function showData()

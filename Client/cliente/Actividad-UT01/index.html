@@ -50,15 +50,23 @@
                         <select name="idioma" id="idioma" onchange="showDate(this.value)" required>
                             <option disabled value="" selected>Selecciona tu idioma</option>
                             <option value="es-ES">Español</option>
+                            <option value="fr-FR">Français</option>
+                            <option value="it-IT">Italiano</option>
+                            <option value="pt-PT">Português</option>
                             <option value="en-GB">English</option>
                             <option value="de-DE">Deutsche</option>
+                            <option value="da-DK">Dansk</option>
+                            <option value="nb-NO">Norsk</option>
+                            <option value="sv-SE">Svensk</option>
+                            <option value="hr-HR">Hrvatski</option>
+                            <option value="ru-RU">Русский</option>
+                            <option value="wo-SN">Wolof</option>
                             <option value="zh-CN">中國人</option>
                             <option value="ar-SA">عربي</option>
-                            <option value="ps-AF">Afghano</option>
-                            <option value="en-GB">English</option>
-                            <option value="de-DE">Deutsche</option>
-                            <option value="zh-CN">中國人</option>
-                            <option value="ar-SA">عربي</option>
+                            <option value="ps-AF">افغان</option>
+                            <option value="he-IL">عبري</option>
+                            <option value="ja-JP">日本語</option>
+                            <option value="hi-IN">हिंदी</option>
                         </select>
                     </div>
                 </fieldset>
@@ -66,17 +74,22 @@
             <section class="margin">
                 <fieldset class="margin">
                     <legend>Mi colección de objetos</legend>
-                    <table id="tabla_coleccion">
-                        <tr>
-                            <th>ID</th>
-                            <th>Músico</th>
-                            <th>Grupo</th>
-                            <th>Edad</th>
-                            <th>Año de Nacimiento</th>
-                            <th>Instrumento 1</th>
-                            <th>Instrumento 2</th>
-                            <th>Instrumeto 3</th>
-                        </tr>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Músico</th>
+                                <th>Grupo</th>
+                                <th>Edad</th>
+                                <th>Año de Nacimiento</th>
+                                <th>Instrumento 1</th>
+                                <th>Instrumento 2</th>
+                                <th>Instrumeto 3</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tabla_coleccion">
+
+                        </tbody>
                     </table>
                     <br>
                     <span>Id: </span>
