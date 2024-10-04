@@ -1,7 +1,7 @@
 /* General */
 body
 {
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Agranda la fuente predeterinada un 10% */
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 50px;
     margin-right: 50px;
@@ -21,7 +21,7 @@ section div img
 
 span
 {
-    font-size: .80em;
+    font-size: .80em; /* Reduce el tamaño de la fuente al 80% */
 }
 
 p
@@ -48,7 +48,7 @@ aside nav a
 
 footer div ul li a
 {
-    font-size: .66em;
+    font-size: .66em; /* Reduce el tamaño de la fuente al 66% */
 }
 
 /* Estilos del Header. */
@@ -150,7 +150,7 @@ footer div ul li a
 
 .grid > div
 {
-    width: 80%;
+    width: 80%; /* Ancho dl 80% del contenedor */
 }
 
 .grid2
@@ -160,13 +160,12 @@ footer div ul li a
 
 .grid2 > div
 {
-    width: 70%;
+    width: 70%; /* Ancho del 70% del contenedor, queda en línea con el contenedor superior que contiene 2 columnas. */
 }
 
 .common
 {
     display: grid;
-    gap: 25px;
     margin-left: 50px;
     margin-right: 50px;
     margin-bottom: 20px;
@@ -186,9 +185,7 @@ footer div ul li a
 
 .section-secondary
 {
-    height: 320px;
-    margin-left: 8px;
-    margin-top: 8px;
+    margin: 8px;
 }
 
 /* Estilos de los NAV. */
@@ -276,16 +273,16 @@ footer div ul li a
 	padding: 20px;
 	width: 600%;
 	
-	animation: slide 20s infinite ease-in;
+	animation: slide 20s infinite ease-in; /* Llama a @keyframes */
 }
 
 .slider-frame li
 {
 	width: 100%;
-	list-style: none;
+	list-style: none; /* Quita el estilo predeterminado de los elementos de la lista */
 }
 
-@keyframes slide
+@keyframes slide /* Animación del slider */
 {
 	0% {margin-left: 0;}
 	15% {margin-left: 0;}
