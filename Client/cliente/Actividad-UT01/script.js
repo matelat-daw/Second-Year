@@ -68,10 +68,7 @@ function guardarObjeto(e)
 
     localStorage.setItem("Musicos", JSON.stringify(musicos)); // Almacena los Músicos en localStorage.
 
-    DOM.group.value = ""; // Limpio los Campos del Formulario.
-    DOM.staff.value = "";
-    DOM.bday.value = "";
-    DOM.miColeccion.value = "";
+    DOM.miFormulario.reset();
     yearsOld = 0;
 
     e.preventDefault(); // Para evitar el envío del formulario
@@ -142,21 +139,15 @@ function mostrarObjetoEnTabla(musicos)
     });
 }
 
-function showData()
-{
-    console.log(Musicos[0]);
-}
-
 function checkQtty() // Función que verifica la cantidad de fotos que se subieron para un evento, máximo 3, recibe el array files, el nombre del input.
 {
-    let options = DOM.miColeccion.options,
-    len = options.length;
-    data = [],
-    i = 0;
-    let j = 0; // J contiene el tamalo del selector
+    let options = DOM.miColeccion.options;
+    let len = options.length;
+    let i = 0;
+    let j = 0; // J contiene el tamaño del selector.
     while (j < len)
     {
-        if (options[j].selected) // Si está seleccionado
+        if (options[j].selected) // Si está seleccionado.
         {
             i++;
         }
@@ -164,7 +155,7 @@ function checkQtty() // Función que verifica la cantidad de fotos que se subier
     }
     if(i > 3) // Si la cantidad items seleccionados es mayor que 3.
     {
-        toast(1, "Se ha Superado el Limite", "Has Selecionado Más de Tres Opciones; Se Limitará la Subida Automáticamente a 3 las 3 Primeras.");
+        toast(1, "Se ha Superado el Limite", "Has Selecionado Más de Tres Opciones, Se Limitará la Subida Automáticamente a las 3 Primeras Opciones Seleccionadas.");
     }       
 }
 
