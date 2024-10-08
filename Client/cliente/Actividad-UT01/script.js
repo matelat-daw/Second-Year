@@ -43,8 +43,6 @@ if (lS !== null)
      let next = musicos[len - 1].id;
      musicoIndex = next;
      musicoIndex++;
-     console.log("La ID del Último Músico es: " + next);
-     console.log("El Índiece es: " + musicoIndex);
      mostrarObjetoEnTabla(musicos);
 }
 
