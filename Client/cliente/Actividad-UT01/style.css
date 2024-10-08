@@ -1,10 +1,11 @@
-body
+body  /* Un Poco de Padding al Body. */
 {
   padding-top: 3%;
   padding-left: 6%;
+  font-size: 1.2rem;
 }
 
-div
+div /* Un Poco de Paddin a los div. */
 {
   padding: 2px;
 }
@@ -13,33 +14,30 @@ table /* Personalizo la tabla con borde rojo y tamaño de la fuente también a 1
 {
     border-collapse: unset !important; /* Esta linea rompe el control del estilo de Bootstrap. */
     border: 1px solid red;
-    font-size: 1.3rem;
-    width: 100%;
+    width: 100%; /* Ancho el 100 % da la Pantalla. */
 }
 
-th
+th /* Los Títulos con Borde Verde. */
 {
     border: 2px solid green;
-    font-size: 1.3rem;
 }
 
-td /* A los títulos, filas y columnas de la tabla les doy borde de color azul y el tamaño de la fuente a 1.3 rem. */
+td /* Las Columnas de la Tabla Borde de color Azul. */
 {
     border: 1px solid blue;
-    font-size: 1.3rem;
 }
 
-fieldset, legend
+fieldset, legend /* Rompe el Estilo de Boostrap. */
 {
   all: revert !important;
 }
 
-.margin
+.margin /* Clase de las Secciones. */
 {
   margin-bottom: 50px;
 }
 
-.height
+.height /* Clase del Footer. */
 {
   background-color: antiquewhite;
   height: 80px;
@@ -48,13 +46,18 @@ fieldset, legend
   margin-right: 5%;
 }
 
-.flex
+.flex /* Contenedor de la Fecha y el Reloj. */
 {
   display: flex;
   direction: row;
 }
 
-#time
+#time /* Margen del Reloj con respecto a la Fecha. */ 
 {
   margin-left: 1%;
+}
+
+footer > a /* Margen del Enlace en el Footer. */
+{
+    margin-left: 25px;
 }

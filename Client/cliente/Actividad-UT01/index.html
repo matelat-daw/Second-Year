@@ -74,7 +74,7 @@
                 </fieldset>
             </section>
             <section class="margin">
-                <fieldset class="margin">
+                <fieldset>
                     <legend>Mi colección de objetos</legend>
                     <table>
                         <thead>
@@ -95,7 +95,7 @@
                     <br>
                     <span>Id: </span>
                     <input type="text" id="id" name="id">
-                    <button id="delete" onclick="borrarObjeto(document.getElementById('id').value, event)"
+                    <button id="delete" onclick="borrarObjeto(document.getElementById('id').value)"
                         class="btn btn-danger btn-lg">Borrar</button>
                 </fieldset>
             </section>
@@ -113,9 +113,9 @@
                         <label for="bday">Año de Nacimiento</label>
                     </div>
                     <div>
-                        <label for="mi_coleccion">Seleccionar al menos una .... (completa texto)</label>
+                        <label for="mi_coleccion">Selecciona al menos un Instrumento: </label>
                         <select id="mi_coleccion" multiple size="5" onchange="checkQtty()" required>
-                            <option value="">Selecciona que Instrumento Ejecuta</option>
+                            <option disabled value="">Selecciona que Instrumento Ejecuta</option>
                             <option value="Voz">Voz</option>
                             <option value="Piano">Piano</option>
                             <option value="Guitarra">Guitarra</option>
@@ -135,7 +135,6 @@
             </footer>
         </section>
         <script src="./script.js"></script>
-        <!-- <script>populateCollection()</script> -->
 </body>
 
 </html>
