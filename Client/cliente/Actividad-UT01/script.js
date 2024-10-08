@@ -32,8 +32,21 @@ function Musico(id, name, group, age, bday, data)
   DOM.miFormulario.addEventListener("submit", guardarObjeto);
 })()
 
-let musicos = []; // Array que contiene los Músicos.
-let musicoIndex = 1; // Índice del Primer Músico Agregado al Array de Músicos.
+let lS = localStorage.getItem("Musicos");
+let musicos = [];
+let musicoIndex = 1;
+
+if (lS !== null)
+{
+     musicos = JSON.parse(localStorage.getItem("Musicos"));
+     let len = musicos.length;
+     let next = musicos[len - 1].id;
+     musicoIndex = next;
+     musicoIndex++;
+     console.log("La ID del Último Músico es: " + next);
+     console.log("El Índiece es: " + musicoIndex);
+     mostrarObjetoEnTabla(musicos);
+}
 
 function guardarObjeto(e)
 {
