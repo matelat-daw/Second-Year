@@ -1,4 +1,11 @@
-Ejecutar en la consola de Nuget:
+Para Hacer una Migración (Crear una Tabla en la Base de Datos):
+
+add-migration nombre-de-la-migracion // Inicializa la Migración de los datos.
+
+update-database // Crea la Base de Datos y las Tablas. Hay que Hacer Estos Pasos Después de crear el Model Company, las Vistas de la Clase Company con Botón derecho sobre Controllers y Seleccionar Add -> New Scaffolded Items. El nombre de la migración es igual al nombre de la Clase: Company.
+
+
+Para DataBase First, Ejecutar en la Consola de Nuget:
 
 Scaffold-DBContext "Server=(localdb)\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Suppliers -ContextDir Data
 

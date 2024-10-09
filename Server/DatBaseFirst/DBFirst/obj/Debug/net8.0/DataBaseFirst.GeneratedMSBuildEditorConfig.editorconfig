@@ -17,79 +17,79 @@ build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = DataBaseFirst
 build_property.RootNamespace = DataBaseFirst
-build_property.ProjectDir = C:\DAW2\Second-Year\Server\DatBaseFirst\DBFirst\
+build_property.ProjectDir = C:\Server\www\DAW\Server\DatBaseFirst\DBFirst\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\DAW2\Second-Year\Server\DatBaseFirst\DBFirst
+build_property.MSBuildProjectDirectory = C:\Server\www\DAW\Server\DatBaseFirst\DBFirst
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Home/Index.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Home/Privacy.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shared/Error.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shippers/Create.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shippers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBlcnNcQ3JlYXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shippers/Delete.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shippers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBlcnNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shippers/Details.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shippers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBlcnNcRGV0YWlscy5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shippers/Edit.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shippers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBlcnNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shippers/Index.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shippers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hpcHBlcnNcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Suppliers/Create.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Suppliers/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Suppliers/Delete.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Suppliers/Delete.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXERlbGV0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Suppliers/Details.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Suppliers/Details.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXERldGFpbHMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Suppliers/Edit.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Suppliers/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEVkaXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Suppliers/Index.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Suppliers/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3VwcGxpZXJzXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/_ViewImports.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/_ViewStart.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/DAW2/Second-Year/Server/DatBaseFirst/DBFirst/Views/Shared/_Layout.cshtml]
+[C:/Server/www/DAW/Server/DatBaseFirst/DBFirst/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-8od6gylih3

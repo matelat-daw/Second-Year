@@ -1,10 +1,10 @@
 ﻿@model DataBaseFirst.Models.Shipper
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalle de los Transportistas";
 }
 
-<h1>Details</h1>
+<h1>Lee(Read)</h1>
 
 <div>
     <h4>Shipper</h4>
@@ -25,6 +25,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model?.ShipperID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model?.ShipperID" class="btn btn-warning"><i class="bi bi-pencil-fill"></i>Modifica</a> |
+    <a asp-action="Index" class="btn btn-success"><i class="bi bi-house-fill"></i>Página de Transportistas</a>
 </div>

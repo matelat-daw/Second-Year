@@ -1,12 +1,12 @@
 ﻿@model DataBaseFirst.Models.Supplier
 
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Elimina Proveedor";
 }
 
-<h1>Delete</h1>
+<h1>Elimina(Delete)</h1>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>¿Estás Seguro que Quieres Eliminar este Proveedor?</h3>
 <div>
     <h4>Supplier</h4>
     <hr />
@@ -82,6 +82,6 @@
     <form asp-action="Delete">
         <input type="hidden" asp-for="SupplierId" />
         <input type="submit" value="Delete" class="btn btn-danger" /> |
-        <a asp-action="Index" class="btn btn-success"><i class="bi bi-house-fill"></i>Página Principal</a>
+        <a asp-action="Index" class="btn btn-success"><i class="bi bi-house-fill"></i>Página de Proveedores</a>
     </form>
 </div>

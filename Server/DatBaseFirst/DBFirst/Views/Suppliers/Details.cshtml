@@ -1,10 +1,10 @@
 ﻿@model DataBaseFirst.Models.Supplier
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Detalles de los Proveedores";
 }
 
-<h1>Details</h1>
+<h1>Lee(Read)</h1>
 
 <div>
     <h4>Supplier</h4>
@@ -80,5 +80,5 @@
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.SupplierId" class="btn btn-warning"><i class="bi bi-pencil-fill"></i>Modifica</a> |
-    <a asp-action="Index" class="btn btn-success"><i class="bi bi-house-fill"></i>Página Principal</a>
+    <a asp-action="Index" class="btn btn-success"><i class="bi bi-house-fill"></i>Página de Proveedores</a>
 </div>
