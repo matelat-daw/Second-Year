@@ -15,16 +15,14 @@ const DOM = {
     delete: document.getElementById("delete") // ID del botón para Borrar un Músico.
 };
 
-function Musico(id, group, name, age, bday, data) // Función que se Usa para Crear un Objeto de la Clase Musico.
+function Musico(id, group, name, age, bday, instruments) // Función que se Usa para Crear un Objeto de la Clase Musico.
 {
     this.id = id;
     this.group = group;
     this.name = name;
     this.age = age;
     this.bday = bday;
-    this.data = data.join(" - ");
-    // this.second = data[1];
-    // this.third = data[2];
+    this.instruments = instruments;
 }
 
 let lSM = localStorage.getItem("Musicos"); // ASigna a lSM lo almacenado en localStorage Musicos.
@@ -49,14 +47,14 @@ function guardarObjeto(e) // Función que Guarda los Objetos, Recive el Evento.
 {
     let options = DOM.miColeccion.options; // Asigna a la Variable options Todas las Opciones del Selector.
     let len = options.length; // Obtiene la Cantidad de opciones(options es un array y tiene tamaño length).
-    let data = []; // El Array data Contendrá los Atributos Instrumentos de los Músicos.
+    let instruments = []; // El Array data Contendrá los Atributos Instrumentos de los Músicos.
     let i = 0; // Será el Índice del Array de Datos.
     let j = 0; // J Cuenta Hasta la cantidad de Options del Selector.
     while (j < len && i < 4) // Mientras j sea Menor que la cantidad de opciones e i sea Menor que 4
     {
         if (options[j].selected) // Si Está Seleccionada la Opción.
         {
-            data[i] = options[j].value; // Agrega el Valor de la Opción al Array data en la Posición i.
+            instruments[i] = options[j].value; // Agrega el Valor de la Opción al Array data en la Posición i.
             i++; // Incrementa el Índice del Array data.
         }
         j++; // Incrementa j.
@@ -69,7 +67,7 @@ function guardarObjeto(e) // Función que Guarda los Objetos, Recive el Evento.
     let now = new Date().getFullYear(); // Asigna a now El Corriente Año.
     let yearsOld = now - bday; // Asigna a yearsOld el Resultado de Restar al Año Actual el Año de Nacimiento del Músico.
 
-    let musico = new Musico(ID, group, mName, yearsOld, bday, data); // Crea un Nuevo Músico Llamando al Constructor de la Función Musico.
+    let musico = new Musico(ID, group, mName, yearsOld, bday, instruments); // Crea un Nuevo Músico Llamando al Constructor de la Función Musico.
     musicos.push(musico); // Agrega el Músico al Array musicos.
 
     mostrarObjetoEnTabla(musicos); // Muestra en la Tabla la Lista de Músicos.
@@ -133,16 +131,8 @@ function mostrarObjetoEnTabla(musicos) // Muestro los Músicos en el Cuerpo de l
         tr.appendChild(td);
         //
         td = document.createElement("td");
-        td.textContent = musico.data;
+        td.textContent = musico.instruments.join(" - ");
         tr.appendChild(td);
-        //
-        // td = document.createElement("td");
-        // td.textContent = musico.second;
-        // tr.appendChild(td);
-        // //
-        // td = document.createElement("td");
-        // td.textContent = musico.third;
-        // tr.appendChild(td);
         //
         DOM.tbody.appendChild(tr); // Adjunto al Cuerpo de la Tabla la Fila con todas las Columnas Creadas con Todos los Datos de los Músicos.
     });
