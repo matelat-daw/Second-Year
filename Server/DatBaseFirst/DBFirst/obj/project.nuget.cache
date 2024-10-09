@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "sLwaNJIEnq8=",
+  "dgSpecHash": "1kq6x8elXt8=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Orion\\source\\repos\\DataBaseFirst\\DataBaseFirst.csproj",
+  "projectFilePath": "C:\\DAW2\\Second-Year\\Server\\DatBaseFirst\\DBFirst\\DataBaseFirst.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Orion\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\Orion\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
