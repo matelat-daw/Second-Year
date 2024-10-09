@@ -34,8 +34,7 @@ y en appsettings.JSON:
 }
 
 O en Program.cs agregar la línea:
-builder.Services.AddDbContext<NorthwindContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")));
+builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")));
 	
 La Línea:
 builder.Services.AddDbContext<NorthwindContext>(); // Está agregada así en las diapositivas que pasó Abraham, falta ponerle entre los paréntesis: options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found."))
