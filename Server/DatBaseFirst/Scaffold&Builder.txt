@@ -9,30 +9,35 @@ Para DataBase First, Ejecutar en la Consola de Nuget:
 
 Scaffold-DBContext "Server=(localdb)\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Suppliers -ContextDir Data
 
+Al comando Scaffold-DBContext se le pasa entre comillas la String de conexión con la Base de Datos, seguido de Microsoft.EntityFrameworkCore.SqlServer - OutputDir Models(El Directorio del Model donde se creará la Clase del modelo de tabla), el modificador -Tables y el nombre de la Tabla y el modificador ContextDir y el Nombre del Directorio donde se guardará la Clase de Contexto con el Nombre de la Base de Datos Seguido de Context.
+
+
+Para Agregar una Segunda Tabla Usamos la Extensión de Visual Studio EF Core Power Tools: Se Hace Click con el Botón Derecho sobre el Nombre del Proyecto y Selecciono Reverse Engineer de la Opción EF Core Power Tools, Agrego una Conexión con la Base de Datos Poniendo: (localdb)\MSSQLLocalDB
+(OJO) si ya había una tabla creada, preguntar duda de si hay que excluirla en la clase ya creada o Cómo se hace.
+
 
 
 Agregar a Program.cs:
 
 builder.Services.AddDbContext<NorthwindContext>();
 
-En el Context, NombredelaDBContext.cs:
+En el Context, La Clase NorthwindContext.cs(En el Directorio Data):
 
 Quitar:
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
          //=> optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True");
 		 
 
-Una forma de COnectar con la base de datos es:
+Una forma de Conectar con la base de datos es:
 
-Agregar en el Método: protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-
-{
-    IConfigurationRoot configuration = new ConfigurationBuilder()
-        .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-        .AddJsonFile("appsettings.json")
-        .Build();
-    optionsBuilder.UseSqlServer(configuration.GetConnectionString("conn"));
-}
+Agregar en el Método: 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+						{
+							IConfigurationRoot configuration = new ConfigurationBuilder()
+								.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+								.AddJsonFile("appsettings.json")
+								.Build();
+							optionsBuilder.UseSqlServer(configuration.GetConnectionString("conn"));
+						}
 
 y en appsettings.JSON:
 
@@ -44,4 +49,4 @@ O en Program.cs agregar la línea:
 builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")));
 	
 La Línea:
-builder.Services.AddDbContext<NorthwindContext>(); // Está agregada así en las diapositivas que pasó Abraham, falta ponerle entre los paréntesis: options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found."))
+builder.Services.AddDbContext<NorthwindContext>(); // Está agregada así en las diapositivas, falta ponerle entre los paréntesis: options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found."))
