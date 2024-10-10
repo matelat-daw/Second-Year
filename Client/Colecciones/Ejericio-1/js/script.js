@@ -96,7 +96,7 @@ function f4()
     let result = 0;
     let temperatures = [{'TF':24}, {'GC':19}, {'FU':29}, {'LP':15}, {'GO':14}, {'LA':30}];
 
-    result += parseInt(temperatures.map(function(val){return Object.values(val)[0]}));
+    result += parseInt(temperatures.map(function(val){return parseInt(Object.values(val))}));
     console.log(result);
     result = result / temperatures.length;
     DOM.value4.innerHTML = result;
