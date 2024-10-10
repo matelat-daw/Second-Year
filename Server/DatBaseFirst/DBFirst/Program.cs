@@ -1,4 +1,5 @@
 using DataBaseFirst.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataBaseFirst
 {
@@ -10,7 +11,7 @@ namespace DataBaseFirst
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
-            builder.Services.AddDbContext<NorthwindContext>();
+            builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")));
 
             var app = builder.Build();
 

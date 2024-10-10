@@ -19,4 +19,5 @@ public partial class Shipper
 
     [StringLength(24)]
     public string Phone { get; set; }
+    public List<Company> companies { get; set; }
 }

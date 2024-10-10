@@ -7714,19 +7714,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Orion\\.nuget\\packages\\": {}
+    "C:\\Users\\Orion\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Server\\www\\DAW\\Server\\DatBaseFirst\\DBFirst\\DataBaseFirst.csproj",
+      "projectUniqueName": "C:\\DAW2\\Second-Year\\Server\\DatBaseFirst\\DBFirst\\DataBaseFirst.csproj",
       "projectName": "DataBaseFirst",
-      "projectPath": "C:\\Server\\www\\DAW\\Server\\DatBaseFirst\\DBFirst\\DataBaseFirst.csproj",
+      "projectPath": "C:\\DAW2\\Second-Year\\Server\\DatBaseFirst\\DBFirst\\DataBaseFirst.csproj",
       "packagesPath": "C:\\Users\\Orion\\.nuget\\packages\\",
-      "outputPath": "C:\\Server\\www\\DAW\\Server\\DatBaseFirst\\DBFirst\\obj\\",
+      "outputPath": "C:\\DAW2\\Second-Year\\Server\\DatBaseFirst\\DBFirst\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
         "C:\\Users\\Orion\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

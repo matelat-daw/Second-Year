@@ -2,6 +2,7 @@
 #nullable disable
 using System;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using DataBaseFirst.Models;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,37 +17,14 @@ public partial class NorthwindContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
     public virtual DbSet<Shipper> Shippers { get; set; }
+    //public DbSet<DataBaseFirst.Models.Company> Company { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<Supplier>(entity =>
-        //{
-        //    entity.HasIndex(e => e.CompanyName, "CompanyName");
+        //modelBuilder.Entity<Supplier>().ToTable("Supplier", t => t.ExcludeFromMigrations()); // Excluye la Tabla Supplier.
+        //modelBuilder.Entity<Shipper>().ToTable("Shipper", t => t.ExcludeFromMigrations()); // Excluye la Tabla Shipper.
 
-        //    entity.HasIndex(e => e.PostalCode, "PostalCode");
-
-        //    entity.Property(e => e.SupplierId).HasColumnName("SupplierID");
-        //    entity.Property(e => e.Address).HasMaxLength(60);
-        //    entity.Property(e => e.City).HasMaxLength(15);
-        //    entity.Property(e => e.CompanyName).HasMaxLength(40);
-        //    entity.Property(e => e.ContactName).HasMaxLength(30);
-        //    entity.Property(e => e.ContactTitle).HasMaxLength(30);
-        //    entity.Property(e => e.Country).HasMaxLength(15);
-        //    entity.Property(e => e.Fax).HasMaxLength(24);
-        //    entity.Property(e => e.Phone).HasMaxLength(24);
-        //    entity.Property(e => e.PostalCode).HasMaxLength(10);
-        //    entity.Property(e => e.Region).HasMaxLength(15);
-        //});
         OnModelCreatingPartial(modelBuilder);
-    }
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-        IConfigurationRoot configuration = new ConfigurationBuilder()
-            .SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
-            .AddJsonFile("appsettings.json")
-            .Build();
-        optionsBuilder.UseSqlServer(configuration.GetConnectionString("conn"));
     }
 
     partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
