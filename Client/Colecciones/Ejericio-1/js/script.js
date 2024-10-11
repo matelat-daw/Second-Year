@@ -4,7 +4,8 @@ const DOM = {
     value: document.getElementById("value"),
     value3: document.getElementById("value3"),
     value4: document.getElementById("value4"),
-    value5: document.getElementById("value5")
+    value5: document.getElementById("value5"),
+    value6: document.getElementById("value6")
 };
 
 function f1()
@@ -21,7 +22,7 @@ function f1()
     DOM.keyValue.innerHTML = fullname;
 }
 
-function f11()
+function f11() // Igual a f3, Hecho de Distinta Manera.
 {
     let fullname = "";
     let temperatures = [{'TF':24}, {'GC':19}, {'FU':29}, {'LP':15}, {'GO':14}, {'LA':30}];
@@ -31,7 +32,7 @@ function f11()
     DOM.value.innerHTML = fullname;
 }
 
-// function f2()
+// function f2() // Forma Fácil con el Array clave valor.
 // {
 //     let fullname = "";
 //     let temperatures = [{isla:'TF', temperatura: 24}, {isla:'GC', temperatura:19}, {isla:'FU', temperatura:29}, {isla:'LP', temperatura:15}, {isla:'GO', temperatura:14}, {isla:'LA', temperatura:30}];
@@ -56,7 +57,7 @@ function f2()
     DOM.keyValue1.innerHTML = result;
 }
 
-// function f3()
+// function f3() // Forma Fácil con el Array clave valor.
 // {
 //     let fullname = "";
 //     let temperatures = [{isla:'TF', temperatura: 24}, {isla:'GC', temperatura:19}, {isla:'FU', temperatura:29}, {isla:'LP', temperatura:15}, {isla:'GO', temperatura:14}, {isla:'LA', temperatura:30}];
@@ -70,11 +71,15 @@ function f2()
 
 function f3()
 {
-    let result;
+    let result = "";
     let temperatures = [{'TF':24}, {'GC':19}, {'FU':29}, {'LP':15}, {'GO':14}, {'LA':30}];
 
-    temperatures = temperatures.map(function(val){return Object.keys(val) + " - " + ++Object.values(val)[0]});
-    result = JSON.stringify(temperatures);
+    // temperatures = temperatures.map(function(val){return Object.keys(val) + " - " + ++Object.values(val)[0]});
+    // result = JSON.stringify(temperatures);
+    // DOM.value3.innerHTML = result;
+
+    result += temperatures.map(function(isla) { return Object.values(isla)[0] > 18 ? Object.keys(isla)[0] + " - " + Object.values(isla)[0] : 0});
+
     DOM.value3.innerHTML = result;
 }
 
@@ -96,16 +101,23 @@ function f4()
     let result = 0;
     let temperatures = [{'TF':24}, {'GC':19}, {'FU':29}, {'LP':15}, {'GO':14}, {'LA':30}];
 
-    result += parseInt(temperatures.map(function(val){return parseInt(Object.values(val))}));
-    console.log(result);
+    temperatures.map(function (item) {
+                result += Object.values(item)[0];
+            })
     result = result / temperatures.length;
     DOM.value4.innerHTML = result;
 }
 
 function f5(note)
 {
-    let monedas = ["dolar", "yen", "libra", "corona", "euro", "rupia"];
-    if(monedas.includes(note))
+    let monedaSimple = ["dolar", "yen", "libra", "corona", "euro", "rupia"];
+    let monedas = [{pais: "USA", moneda: "dolar"}, {pais: "Japón", moneda: "yen"}, {pais: "Reino Únido", moneda: "libra"}, {pais: "Paises Bajos", moneda: "corona"}, {pais: "Europa", moneda: "euro"}, {pais: "India", moneda: "rupia"}];
+
+    let result = monedas.some(moneda => moneda.moneda == note);
+
+    let result2 = monedaSimple.some(moneda => moneda == note);
+
+    if(result)
     {
         DOM.value5.innerHTML = "Aceptamos " + note + " para Hacer Pagos.";
     }
@@ -113,4 +125,22 @@ function f5(note)
     {
         DOM.value5.innerHTML = "Lo Siento NO Aceptamos " + note + " para Hacer Pagos.";
     }
+
+    if (result2)
+    {
+        DOM.value6.innerHTML = "Aceptamos " + note + " para Hacer Pagos.";
+    }
+    else
+    {
+        DOM.value6.innerHTML = "Lo Siento NO Aceptamos " + note + " para Hacer Pagos.";
+    }
+}
+
+function convert(array1)
+{
+    let result;
+    Object.keys(array1).forEach((key, index) => {
+        result[`newObj$({index + 1})`] = array1[key].map(item => ({[key]: item}));
+    });
+    console.log(result);
 }
