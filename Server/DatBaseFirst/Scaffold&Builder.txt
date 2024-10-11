@@ -55,3 +55,25 @@ La Línea:
 builder.Services.AddDbContext<NorthwindContext>(); // Está agregada así en las diapositivas, falta ponerle entre los paréntesis: options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found."))
 
 Para Eliminar una Migración remove-migration y update-database 0 quita toda la tabla, 1 quita la última migración(En Caso que se Hayan Hecho dos Migraciones).
+
+Creación de la tabla Company:
+
+USE [Northwind]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+DROP TABLE [dbo].[Company];
+
+
+GO
+CREATE TABLE [dbo].[Company] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [Name]        NVARCHAR (MAX) NOT NULL,
+    [Description] NVARCHAR (MAX) NOT NULL,
+    [ShipperID]   INT            NOT NULL
+);
