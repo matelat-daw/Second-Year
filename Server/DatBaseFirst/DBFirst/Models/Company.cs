@@ -12,6 +12,6 @@ namespace DataBaseFirst.Models
         public string Description { get; set; }
         [Required]
         public int ShipperId { get; set; }
-        public Shipper? Shipper { get; set; }
+        public static Shipper? Shipper { get; set; }
     }
 }

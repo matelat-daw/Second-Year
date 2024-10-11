@@ -11,7 +11,7 @@ namespace DataBaseFirst.Models;
 public partial class Shipper
 {
     [Key]
-    public int ShipperID { get; set; }
+    public static int ShipperID { get; set; }
 
     [Required]
     [StringLength(40)]

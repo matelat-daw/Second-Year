@@ -3,6 +3,7 @@ using DataBaseFirst.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataBaseFirst.Migrations
 {
     [DbContext(typeof(NorthwindContext))]
-    partial class NorthwindContextModelSnapshot : ModelSnapshot
+    [Migration("20241011070509_initial")]
+    partial class initial
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -45,29 +48,6 @@ namespace DataBaseFirst.Migrations
                     b.HasIndex("ShipperId");
 
                     b.ToTable("Company");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "El otro Gigante Azul",
-                            Name = "Microsoft",
-                            ShipperId = 1
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Corvette",
-                            Name = "Google",
-                            ShipperId = 2
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "No soy Fan de Ellos",
-                            Name = "Apple",
-                            ShipperId = 3
-                        });
                 });
 
             modelBuilder.Entity("DataBaseFirst.Models.Shipper", b =>

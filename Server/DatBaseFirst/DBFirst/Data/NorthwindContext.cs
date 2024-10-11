@@ -17,12 +17,36 @@ public partial class NorthwindContext : DbContext
 
     public virtual DbSet<Supplier> Suppliers { get; set; }
     public virtual DbSet<Shipper> Shippers { get; set; }
-    //public DbSet<DataBaseFirst.Models.Company> Company { get; set; } = default!;
+    public DbSet<DataBaseFirst.Models.Company> Company { get; set; } = default!;
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        //modelBuilder.Entity<Supplier>().ToTable("Supplier", t => t.ExcludeFromMigrations()); // Excluye la Tabla Supplier.
-        //modelBuilder.Entity<Shipper>().ToTable("Shipper", t => t.ExcludeFromMigrations()); // Excluye la Tabla Shipper.
+        //modelBuilder.Entity<Supplier>().ToTable("Suppliers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Suppliers.
+        //modelBuilder.Entity<Shipper>().ToTable("Shippers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Shippers.
+
+        //modelBuilder.Entity<Company>().HasData(
+        //        new Company
+        //        {
+        //            Id = 1,
+        //            Name = "Microsoft",
+        //            Description = "El otro Gigante Azul",
+        //            ShipperId = 1
+        //        },
+        //        new Company
+        //        {
+        //            Id = 2,
+        //            Name = "Google",
+        //            Description = "Corvette",
+        //            ShipperId = 2
+        //        },
+        //        new Company
+        //        {
+        //            Id = 3,
+        //            Name = "Apple",
+        //            Description = "No soy Fan de Ellos",
+        //            ShipperId = 3
+        //        }
+        //    );
 
         OnModelCreatingPartial(modelBuilder);
     }
