@@ -1,5 +1,12 @@
+@font-face
+{
+    font-family: "CustomFont";
+    src: url("../font/DS-Digital.ttf");
+}
+
 *
 {
+    font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
     margin: 0;
     margin: .1em;
