@@ -81,3 +81,8 @@ CREATE TABLE [dbo].[Company] (
     [Description] NVARCHAR (MAX) NOT NULL,
     [ShipperID]   INT            NOT NULL
 );
+
+modelBuilder.Entity<Companies>(entity =>
+{
+    entity.HasOne(d => d.Shippers).WithMany(p => p.Companies).HasConstraintName("FK_CompanyShipperId");
+});
