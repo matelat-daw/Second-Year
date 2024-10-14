@@ -1,0 +1,67 @@
+"lengthMenu": "Mostrar _MENU_ Entradas",
+
+
+
+ViewBag.Tracks = new SelectList(_context.Tracks.Where(t => t.AlbumId == id), "TrackId", "Name");
+
+
+<hr />
+
+<dl class="row">
+    <dt class="col-sm-2">
+        <label asp-for="Tracks" class="control-label"></label>
+    </dt>
+    <dt class="col-sm-10">
+        <select size="16" asp-for="Tracks" class="form-control" asp-items="@ViewBag.Tracks"></select> Esta parte recibía una ViewBag como un select HTML.
+    </dt>
+</dl>
+
+
+Consulta para pasar al modelo los datos del Album más el Artista, retornando la variable album.
+
+var album = await _context.Albums.Include(a => a.Artist).FirstOrDefaultAsync(m => m.AlbumId == id);
+
+return View(album);
+
+
+Para pasar datos por ViewBag se usa la consulta así:
+
+ViewBag.Tracks = new SelectList(_context.Tracks.Where(t => t.AlbumId == id), "TrackId", "Name");
+
+El ViewBag estará disponible en la vista a la que se le pansen los datos.
+
+
+Y para pasar en el Álbum Todos los Datos Necesarios, el Álbum, el Artista y la Lista de Canciones se Usa:
+
+var album = await _context.Albums.Include(a => a.Artist).Include(a => a.Tracks).FirstOrDefaultAsync(m => m.AlbumId == id);
+
+Se agrega un Include con los datos de las canciones Agregandolas desde Tracks.
+
+
+En la Vista Detalles de Muestran así:
+
+<dl class="row">
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.Title):
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.Title)
+    </dd>
+    <dt class = "col-sm-2">
+        @Html.DisplayNameFor(model => model.Artist):
+    </dt>
+    <dd class = "col-sm-10">
+        @Html.DisplayFor(model => model.Artist.Name) // Acá se Pone el Nombre del Artista(Name), si Dejamos model.Artist.ArtistId, se Muetra la ID del Artista.
+    </dd>
+</dl>
+<hr />
+<dl class="row">
+    <dt class="col-sm-2">
+        <label asp-for="Tracks" class="control-label"></label>
+    </dt>
+        @foreach (var item in @Model.Tracks) // Se hace un foreach de la List<Track>, llamada Tracks.
+        {
+            <dd class="col-sm-10">@item.Name</dd> // Se Muestra @item.Name.
+            <dt class="col-sm-2"></dt> // Esto se pone para que queden las canciones alineadas con los Nombres de Álbum y Nombre de Autor.
+        }
+</dl>
