@@ -61,15 +61,80 @@ main li
 footer
 {
     background-color: #ffaaff;
+    font-weight: bold;
 }
 
-footer > div > ul
+footer > div > div > ul
 {
     font-weight: bold;
 }
 
-footer > div > ul > li
+footer > div > div > ul > li
 {
     font-weight: normal;
     list-style: none;
+}
+
+@media screen and (min-width: 576px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    footer
+    {
+        font-weight: bold;
+    }
+
+    footer > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 912px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    footer > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    section > div > div:not(:nth-child(1))
+    {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media screen and (min-width: 1024px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    section > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    section > div > div:not(:nth-child(3))
+    {
+        /* display: grid;
+        grid-template-columns: 1fr; */
+        display: flex;
+        direction: column;
+    }
 }
