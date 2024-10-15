@@ -7,89 +7,34 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header><h1>HEADER</h1></header>
-    <section>
-        <div class="container">
-            <div class="sidebar">
-                <nav><h2>NAV</h2></nav>
-                <aside><h3>ASIDE</h3></aside>
-            </div>
-            <div class="content">
-                <main>
-                    <h3>MAIN</h3>
-                    <div>
-                        <div>
-                            <ul>
-                                <li>01234567</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul>
-                                <li>01234567</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul>
-                                <li>01234567</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul>
-                                <li>01234567</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul>
-                                <li>01234567</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                                <li>Elemento</li>
-                            </ul>
-                        </div>
-                    </div>
-                </main>
-            </div>
-        </div>
-    </section>    
-    <footer><p>FOOTER</p>
-        <div>
-            <div>
-                <ul>Apartado 1
-                    <li>Opción 1</li>
-                    <li>Opción 2</li>
-                    <li>Opción 3</li>
-                    <li>Opción 4</li>
-                </ul>
-            </div>
-            <div>
-                <ul>Apartado 2
-                    <li>Opción 1</li>
-                    <li>Opción 2</li>
-                    <li>Opción 3</li>
-                    <li>Opción 4</li>
-                </ul>
-            </div>
-            <div>
-                <ul>Apartado 3
-                    <li>Opción 1</li>
-                    <li>Opción 2</li>
-                    <li>Opción 3</li>
-                    <li>Opción 4</li>
-                </ul>
-            </div>
-        </div>
-    </footer>
+    <style>
+        repeat {
+            display:block;
+        }
+        
+        repeat[n="1"]:before {
+           content: "★";
+        }
+        
+        repeat[n="2"]:before {
+           content: "★★";
+        }
+        
+        repeat[n="3"]:before {
+           content: "★★★";
+        }
+        
+        repeat[n="4"]:before {
+           content: "★★★★";
+        }
+        
+        repeat[n="5"]:before {
+           content: "★★★★★";
+        }
+        </style>
+<repeat n="1"></repeat>
+<repeat n="2"></repeat>
+<repeat n="5"></repeat>
+        
 </body>
 </html>
