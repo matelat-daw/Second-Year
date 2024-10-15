@@ -13,16 +13,13 @@ Al comando Scaffold-DBContext se le pasa entre comillas la String de conexión c
 
 
 Para Agregar una Segunda Tabla Usamos la Extensión de Visual Studio EF Core Power Tools: Se Hace Click con el Botón Derecho sobre el Nombre del Proyecto y Selecciono Reverse Engineer de la Opción EF Core Power Tools, Agrego una Conexión con la Base de Datos Poniendo: (localdb)\MSSQLLocalDB
-(OJO) si ya había una tabla creada, preguntar duda de si hay que excluirla en la clase ya creada o Cómo se hace.
+(OJO) si ya había una tabla creada hay que excluirla en el contexto, en el directorio Data con: modelBuilder.Entity<NOMBRE_DE_LA_TABLA>().ToTable("NOMBRE_DE_LA_TABLA", t => t.ExcludeFromMigrations());.
 
 Para Agregar Nuevas Tablas Hay que Excluir las que ya Están Creadas en Models, se agregan las siguientes Líneas en la Clase de Contexto NorthwindContext, en el Método OnModelCreating(ModelBuilder modelBuilder):
 
 		modelBuilder.Entity<Supplier>().ToTable("Suppliers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Supplier.
         modelBuilder.Entity<Shipper>().ToTable("Shippers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Shipper.
 
-Agregar a Program.cs:
-
-builder.Services.AddDbContext<NorthwindContext>();
 
 En el Context, La Clase NorthwindContext.cs(En el Directorio Data):
 
@@ -42,20 +39,17 @@ Agregar en el Método: 	protected override void OnConfiguring(DbContextOptionsBu
 							optionsBuilder.UseSqlServer(configuration.GetConnectionString("conn"));
 						}
 
+En Program.cs agregar la línea:
+builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")));
+
 y en appsettings.JSON:
 
 "ConnectionStrings": {
   "conn": "Server=(localdb)\\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True"
 }
 
-O en Program.cs agregar la línea:
-builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")));
-	
-La Línea:
-builder.Services.AddDbContext<NorthwindContext>(); // Está agregada así en las diapositivas, falta ponerle entre los paréntesis: options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")).
 
-
-Este paso de Agregar la conexión a appsettings.json hay que hacerlo antes de crear los Scaffoldings the los modelos que lamentablemente hay que hacerlos uno por uno.
+Este paso de Agregar la conexión a appsettings.json hay que hacerlo antes de crear los Scaffoldings the los modelos que lamentablemente hay que hacerlos uno por uno y después de Scaffolding hay que hacer la migración en las Tablas agregadas a mano(Modelos): add-migration NOMBRE_DE_LA_MIGRACIÓN y Update-Database.
 
 
 Para Eliminar una Migración remove-migration y update-database 0 quita toda la tabla, 1 quita la última migración(En Caso que se Hayan Hecho dos Migraciones).
