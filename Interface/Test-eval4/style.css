@@ -4,45 +4,97 @@
     box-sizing: border-box;
 }
 
-html, body {
-    height: 100%; /* Ensure the body takes up the full height of the viewport */
-}
-
 body {
     font-family: Arial, sans-serif;
 }
-.container {
-    display: flex; /* Flexbox layout for the main container */
-    height: 100vh; /* Full height of the viewport */
+
+header
+{
+    background-color: #ffaaaa;
 }
 
-.sidebar {
-    display: flex;
-    flex-direction: column; /* Stack nav and aside vertically */
-    width: 25%; /* Fixed width for the sidebar */
+nav
+{
+    background-color: #ffddaa;
 }
 
-nav {
-    background-color: #f4f4f4;
-    padding: 10px;
+aside
+{
+    background-color: #ffffaa;
+}
+
+main
+{
+    background-color: #aaffaa;
+}
+
+header > h1, nav > h2, aside > h3, main > h3, footer > p
+{
     text-align: center;
-    flex: 1; /* Take equal height in the sidebar */
 }
 
-aside {
-    background-color: #ddd;
-    padding: 10px;
+main li
+{
+    background-color: #aaaaff;
+    list-style-type: none;
     text-align: center;
-    flex: 1; /* Take equal height in the sidebar */
+    margin: 0 .05em .1em;
 }
 
-.content {
-    width: 75%; /* Remaining width for the main content area */
-    background-color: #fff;
-    padding: 10px;
-    overflow: auto; /* Handle overflow in main if needed */
+footer
+{
+    background-color: #ffaaff;
+    font-weight: bold;
 }
 
-main {
-    height: 100%; /* Allow main to take full height */
+footer > div > div > ul
+{
+    font-weight: bold;
+}
+
+footer > div > div > ul > li
+{
+    font-weight: normal;
+    list-style: none;
+}
+
+
+@media screen and (min-width: 1024px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .container {
+        display: flex; /* Flexbox layout for the main container */
+    }
+
+    .content
+    {
+        width: 100%;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column; /* Stack nav and aside vertically */
+        width: 25%; /* Fixed width for the sidebar */
+    }
+
+    nav {
+        flex: 1; /* Take equal height in the sidebar */
+    }
+
+    aside {
+        flex: 1; /* Take equal height in the sidebar */
+    }
+
+    .content {
+        overflow: auto; /* Handle overflow in main if needed */
+    }
+
+    main {
+        height: 100%; /* Allow main to take full height */
+    }
 }
