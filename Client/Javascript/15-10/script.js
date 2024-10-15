@@ -21,4 +21,46 @@ let pilots = [
       years: 22,
     }
   ];
-  
+
+function nombrePilotos()
+{
+    return pilots.map(pilot => "<li style='font-weight: bold'>Nombre: " + pilot.name + "</li>" + (pilot.years > 20 ? "<li style='color: blue'>" : "<li style='color: red'>") + "Experiencia: " + pilot.years + "</li>").join("");
+}
+
+function nombrePilotosComplejo()
+{
+    return JSON.stringify(pilots.map(pilot => "<li style='font-weight: bold'>Nombre: " + pilot.name + "</li>" + (pilot.years > 20 ? "<li style='color: blue'>" : "<li style='color: red'>") + "Experiencia: " + pilot.years + "</li>"));
+}
+
+
+function totalYears()
+{
+    let result = 0;
+    pilots.filter(pilot => result += pilot.years);
+    return "Todos los Pilotos Tienen: " + "<span style='color: green; font-size: 1.5em'>" + result + "</span> Años de Experiencia.";
+}
+
+function people2000()
+{
+    let result = "";
+    municipios = JSON.parse(strMunicipios);
+    municipios.filter(municipio => municipio.poblacion < 2000 ? result += municipio.municipio + " - " + municipio.poblacion + " - " + municipio.isla + "<br>" : result);
+    return "Los Municipios de las Islas con una Población Inferior a 2000 Habitantes Son: " + "<span style='color: green; font-size: 1.2em'>" + result + "</span> Habitantes.";
+}
+
+function laPalma()
+{
+    let result = 0;
+    municipios = JSON.parse(strMunicipios);
+    municipios.filter(municipio => municipio.isla == "La Palma"  ? result += municipio.poblacion : result);
+    return "La Isla de la Palma Tiene: " + "<span style='color: green; font-size: 1.5em'>" + result + "</span> Habitantes.";
+}
+// let array = [1, 2, 3, 4];
+// let accum = 0;
+// for (let i = 0; i < array.length; i++)
+// {
+//     accum += array[i];
+// }
+
+// console.log("El resultado es: " + accum);
+// document.getElementById("result").innerHTML = "El Resultado es: " + accum;

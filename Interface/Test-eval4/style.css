@@ -103,7 +103,7 @@ footer > div > div > ul > li
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    .sidebar > aside, .content > main
+    section > aside, main
     {
         display: grid;
         grid-template-columns: 1fr 3fr;
