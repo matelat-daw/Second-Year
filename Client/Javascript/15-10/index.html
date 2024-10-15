@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>CodePen - Agenda</title>
+  <link rel="stylesheet" href="./style.css">
+  <script  src="./script.js"></script>
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<p>Ejecicio en  clase</p>
+    <div>
+      <h2>Pilotos de Aerolíneas Argentinas</h2>
+      <ul id="pilots"></ul>
+    </div>
+    <div>
+      <h2>Nombre de Pilotos Complejo</h2>
+      <h3 id="complex"></h3>
+    </div>
+    <div>
+      <h2>Años Volando</h2>
+      <h3 id="years"></h3>
+    </div>
+    <div>
+      <h2>Población &lt; a 2000 de los Municipios con Todos los Datos.</h2>
+      <h3 id="people2000"></h3>
+    </div>
+    <div>
+      <h2>La Palma</h2>
+      <h3 id="laPalma"></h3>
+    </div>
+    <script>document.getElementById("pilots").innerHTML = nombrePilotos();</script>
+    <script>document.getElementById("complex").innerHTML = nombrePilotosComplejo();</script>
+    <script>document.getElementById("years").innerHTML = totalYears();</script>
+    <script>document.getElementById("people2000").innerHTML = people2000();</script>
+    <script>document.getElementById("laPalma").innerHTML = laPalma();</script>
+</body>
+</html>

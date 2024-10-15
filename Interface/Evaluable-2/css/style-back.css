@@ -9,7 +9,6 @@
     font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
     font-size: 1.25rem;
     margin: 0;
-    margin: .1em;
     padding: 0;
     border-radius: .3em;
 }
@@ -17,6 +16,11 @@
 header, nav, aside, main, footer, main > div ul > li
 {
     border: 1px solid lightgray;
+}
+
+header > h1, nav > h2, aside > h3, main > h3, footer > p
+{
+    text-align: center;
 }
 
 header
@@ -39,16 +43,11 @@ main
     background-color: #aaffaa;
 }
 
-header > h1, nav > h2, aside > h3, main > h3, footer > p
-{
-    text-align: center;
-}
-
 main > div
-    {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    }
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
 
 main li
 {
@@ -103,19 +102,18 @@ footer > div > div > ul > li
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    section > aside, main
-    {
-        display: grid;
-        grid-template-columns: 1fr 3fr;
-    }
-
     footer > div
     {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
     }
-}
 
+    section > div > div:not(:nth-child(1))
+    {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+}
 
 @media screen and (min-width: 1024px)
 {
@@ -125,32 +123,39 @@ footer > div > div > ul > li
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     }
 
+    /* section > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    section > div > div:nth-child(1)
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-flow: column;
+        
+    } */
+
     .container {
         display: flex;
     }
-
-    .content
-    {
-        width: 100%;
-    }
-
+    
     .sidebar {
         display: flex;
         flex-direction: column;
-        width: 25%;
+        width: 200px; /* Ajusta el ancho según sea necesario */
+        background-color: #f0f0f0; /* Color de fondo opcional */
+        padding: 10px;
     }
-
-    nav {
-        flex: 1;
+    
+    nav, aside, main {
+        margin-bottom: 10px; /* Espaciado entre elementos */
     }
-
-    aside {
-        flex: 1;
-    }
-
-    footer > div
-    {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+    
+    main {
+        flex-grow: 1; /* Para que ocupe el espacio restante */
+        background-color: #e0e0e0; /* Color de fondo opcional */
+        padding: 10px;
     }
 }
