@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header
+{
+    background-color: #ffaaaa;
+}
+
+nav
+{
+    background-color: #ffddaa;
+}
+
+aside
+{
+    background-color: #ffffaa;
+}
+
+main
+{
+    background-color: #aaffaa;
+}
+
+header > h1, nav > h2, aside > h3, main > h3, footer > p
+{
+    text-align: center;
+}
+
+main li
+{
+    background-color: #aaaaff;
+    list-style-type: none;
+    text-align: center;
+    margin: 0 .05em .1em;
+}
+
+footer
+{
+    background-color: #ffaaff;
+    font-weight: bold;
+}
+
+footer > div > div > ul
+{
+    font-weight: bold;
+}
+
+footer > div > div > ul > li
+{
+    font-weight: normal;
+    list-style: none;
+}
+
+
+@media screen and (min-width: 1024px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    .container {
+        display: flex; /* Flexbox layout for the main container */
+    }
+
+    .content
+    {
+        width: 100%;
+    }
+
+    .sidebar {
+        display: flex;
+        flex-direction: column; /* Stack nav and aside vertically */
+        width: 25%; /* Fixed width for the sidebar */
+    }
+
+    nav {
+        flex: 1; /* Take equal height in the sidebar */
+    }
+
+    aside {
+        flex: 1; /* Take equal height in the sidebar */
+    }
+
+    .content {
+        overflow: auto; /* Handle overflow in main if needed */
+    }
+
+    main {
+        height: 100%; /* Allow main to take full height */
+    }
+}

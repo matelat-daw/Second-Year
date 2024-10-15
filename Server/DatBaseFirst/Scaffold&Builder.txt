@@ -86,3 +86,13 @@ modelBuilder.Entity<Companies>(entity =>
 {
     entity.HasOne(d => d.Shippers).WithMany(p => p.Companies).HasConstraintName("FK_CompanyShipperId");
 });
+
+Para Usar GitHub Desde un Directorio Local en el CMD de Windwos como Administrador:
+
+git add .
+
+git commit -m "Segundo Commit"
+
+git push origin main
+
+con git status, Vemos el estatus de los ficheros a agregar, enviar o ya enviados.
