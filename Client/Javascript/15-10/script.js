@@ -40,6 +40,13 @@ function totalYears()
     return "Todos los Pilotos Tienen: " + "<span style='color: green; font-size: 1.5em'>" + result + "</span> Años de Experiencia.";
 }
 
+function pilotIdI()
+{
+    result = "";
+    pilots.filter(pilot => result += pilot.id + " - " + (pilot.name).charAt(0) + "<br>");
+    return result;
+}
+
 function people2000()
 {
     let result = "";
@@ -55,12 +62,13 @@ function laPalma()
     municipios.filter(municipio => municipio.isla == "La Palma"  ? result += municipio.poblacion : result);
     return "La Isla de la Palma Tiene: " + "<span style='color: green; font-size: 1.5em'>" + result + "</span> Habitantes.";
 }
-// let array = [1, 2, 3, 4];
-// let accum = 0;
-// for (let i = 0; i < array.length; i++)
-// {
-//     accum += array[i];
-// }
 
-// console.log("El resultado es: " + accum);
-// document.getElementById("result").innerHTML = "El Resultado es: " + accum;
+/* let array = [1, 2, 3, 4];
+let accum = 0;
+for (let i = 0; i < array.length; i++)
+{
+    accum += array[i];
+}
+
+console.log("El resultado es: " + accum);
+document.getElementById("result").innerHTML = "El Resultado es: " + accum; */

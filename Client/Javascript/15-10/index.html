@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="es" >
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Agenda</title>
@@ -7,8 +7,6 @@
   <script  src="./script.js"></script>
 </head>
 <body>
-<!-- partial:index.partial.html -->
-<p>Ejecicio en  clase</p>
     <div>
       <h2>Pilotos de Aerolíneas Argentinas</h2>
       <ul id="pilots"></ul>
@@ -22,6 +20,10 @@
       <h3 id="years"></h3>
     </div>
     <div>
+        <h2>Id de Pilotos e Iniciales</h2>
+        <h3 id="id_i"></h3>
+    </div>
+    <div>
       <h2>Población &lt; a 2000 de los Municipios con Todos los Datos.</h2>
       <h3 id="people2000"></h3>
     </div>
@@ -32,6 +34,7 @@
     <script>document.getElementById("pilots").innerHTML = nombrePilotos();</script>
     <script>document.getElementById("complex").innerHTML = nombrePilotosComplejo();</script>
     <script>document.getElementById("years").innerHTML = totalYears();</script>
+    <script>document.getElementById("id_i").innerHTML = pilotIdI();</script>
     <script>document.getElementById("people2000").innerHTML = people2000();</script>
     <script>document.getElementById("laPalma").innerHTML = laPalma();</script>
 </body>
