@@ -7,7 +7,7 @@
 *
 {
     font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
-    font-size: 1.25rem;
+    font-size: 1.2rem;
     margin: .02em;
     padding: 0;
     border-radius: .3em;
@@ -16,34 +16,7 @@
 img
 {
     width: 75%;
-}
-
-.star
-{
-    display: inline-block;
-    width: 13px;
-    height: 13px;
-    background-image: url(https://i.sstatic.net/KaEDC.png);
-}
-
-.stars-2
-{
-    width: 26px;
-}
-
-.stars-3
-{
-    width: 39px;
-}
-
-.stars-4
-{
-    width: 52px;
-}
-
-.stars-5
-{
-    width: 65px;
+    height: 140px;
 }
 
 header, nav, aside, main, footer, main > div > ul > li
@@ -76,6 +49,64 @@ header > h1, nav > h2, aside > h3, main > h3, footer > p
     text-align: center;
 }
 
+.nav-button
+{
+    border: 1px solid gray;
+    text-decoration: none;
+    font-size: .85em;
+    height: 1.45em;
+    padding: .1em;
+}
+
+.nav-flex
+{
+    display: flex;
+    width: 100%;
+}
+
+.nav-blue
+{
+    color: white;
+    background-color: blue;
+}
+
+.nav-lightblue
+{
+    background-color: lightblue;
+}
+
+.nav-green
+{
+    background-color: rgb(63, 194, 63);
+}
+
+.nav-lightgreen
+{
+    background-color: lightgreen;
+}
+
+.nav-lightrose
+{
+    background-color: lightpink;
+}
+
+.nav-vertical
+{
+    flex-direction: column;
+}
+
+#select
+{
+    background-color: #ffddaa;
+    width: 100%;
+    font-size: .75em;
+}
+
+#nav
+{
+    display: none;
+}
+
 main
 {
     .main
@@ -91,6 +122,34 @@ main li
     list-style-type: none;
     text-align: center;
     margin: 0 .05em .1em;
+}
+
+.star
+{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-image: url(https://i.sstatic.net/KaEDC.png);
+}
+
+.stars-2
+{
+    width: 26px;
+}
+
+.stars-3
+{
+    width: 39px;
+}
+
+.stars-4
+{
+    width: 52px;
+}
+
+.stars-5
+{
+    width: 65px;
 }
 
 footer
@@ -110,9 +169,12 @@ footer > div > div > ul > li
     list-style: none;
 }
 
-@media screen and (min-width: 576px ) {
-    main {
-        .main {
+@media screen and (min-width: 576px )
+{
+    main
+    {
+        .main
+        {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
@@ -128,20 +190,17 @@ footer > div > div > ul > li
     }
 }
 
-@media screen and (min-width: 576px)
-{
-    footer
-    {
-        .footer
-        {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr;
-        }
-    }
-}
-
 @media  screen and (min-width: 912px)
 {
+    #select
+    {
+        display: none
+    }
+
+    #nav
+    {
+        display: block;
+    }
     .container
     {
         display: grid;
@@ -169,6 +228,11 @@ footer > div > div > ul > li
 @media screen  and (min-width: 1024px) {
     .container
     {
+        #nav > a
+        {
+            display: flex;
+        }
+
         nav
         {
             grid-column: 1 / 2;
