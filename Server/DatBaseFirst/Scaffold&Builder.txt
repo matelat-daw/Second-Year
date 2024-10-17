@@ -90,3 +90,32 @@ git commit -m "Segundo Commit"
 git push origin main
 
 con git status, Vemos el estatus de los ficheros a agregar, enviar o ya enviados.
+
+Para hacer un Seeder:
+
+modelBuilder. Entity<Author>().HasData(
+new Author
+{
+AuthorId = 1,
+FirstName = "William",
+LastName = "Shakespeare"
+}
+);
+
+
+Tabla Reviews:
+
+CREATE TABLE [dbo].[Review] (
+    [ReviewId]    INT           IDENTITY (1, 1) NOT NULL,
+    [Title]       NVARCHAR (10) NOT NULL,
+    [Description] NVARCHAR (30) NOT NULL,
+    [Rating]      INT           NOT NULL,
+    [ArtistId]    INT           NOT NULL,
+    CONSTRAINT [PK_Review] PRIMARY KEY CLUSTERED ([ReviewId] ASC),
+    CONSTRAINT [FK_Review_Artist_ArtistId] FOREIGN KEY ([ArtistId]) REFERENCES [dbo].[Artist] ([ArtistId]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_Review_ArtistId]
+    ON [dbo].[Review]([ArtistId] ASC);
