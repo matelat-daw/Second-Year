@@ -16,19 +16,18 @@ body
 {
     font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
     font-size: 1.2rem;
-    margin: .02em;
     padding: 0;
     border-radius: .3em;
 }
 
 img
 {
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%;
     height: 11em;
 }
 
-header, nav, aside, main, footer, main > div > ul > li
+header, nav, aside, main, footer, main, article > div > ul > li
 {
     border: 1px solid lightgray;
 }
@@ -36,10 +35,13 @@ header, nav, aside, main, footer, main > div > ul > li
 header
 {
     background-color: #ffaaaa;
+    border: 1px solid lightgray;
+    border-radius: 12px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding: .3em;
 }
 
 nav
@@ -64,7 +66,12 @@ header > h1, nav > h2, aside > h3, main > h3, footer > p
 
 span
 {
-    font-size: .80em; /* Reduce el tamaño de la fuente al 80% */
+    font-size: .80em; /* Reduce el tamaño de la fuente de los span al 80% */
+}
+
+a
+{
+    border-radius: 6px;
 }
 
 /* Estilos de Header. */
@@ -73,61 +80,16 @@ span
 {
     display: inline;
     text-decoration: none;
-
 }
 
 .logo-size
 {
-    margin-top: .5em;
-    width: 90%;
-    height: 8em;
-}
-
-.header
-{
-    /* height: 15em; */
-    border: 1px solid lightgray;
-    border-radius: 12px;
-}
-
-.nowrap
-{
-    flex-wrap: nowrap;
-}
-
-.header-margin
-{
-    margin-left: .5em;
-    margin-right: .8em;
-}
-
-.header-inline
-{
-    display: flex;
-    align-items: center;
-}
-
-.header-border
-{
-    display: flex;
-    margin-top: 10px;
-    padding-bottom: 10px;
-    width: 60%;
-    border: 1px solid lightgray;
-    border-radius: 20px;
-}
-
-header > div > a
-{
-    height: 40px;
-    width: 180px;
-    text-align: center;
-    text-decoration: none;
+    width: 90%
 }
 
 .big-letter
 {
-    font-size: 3.5em;
+    font-size: 3em;
 }
 
 .red
@@ -273,7 +235,8 @@ footer > div > div > ul > li
 {
     font-weight: normal;
     list-style: none;
-    a {
+    a
+    {
         text-decoration: none;  
     };
 }
@@ -312,12 +275,14 @@ footer > div > div > ul > li
     {
         display: block;
     }
+
     .container
     {
         display: grid;
         
         nav
         {
+            /* height: 2em; */
             grid-column: 1 / 3;
         }
 
@@ -352,7 +317,6 @@ footer > div > div > ul > li
 
     .container
     {
-
         nav
         {
             grid-column: 1 / 2;
