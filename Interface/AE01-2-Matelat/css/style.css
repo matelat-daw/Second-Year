@@ -74,6 +74,11 @@ a
     border-radius: 6px;
 }
 
+footer
+{
+    background-image: radial-gradient(circle, red, yellow, green);
+}
+
 /* Estilos de Header. */
 
 .center > a
