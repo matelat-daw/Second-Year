@@ -269,7 +269,7 @@ footer > div > div > ul > li
     }
 }
 
-@media  screen and (min-width: 912px)
+@media  screen and (min-width: 912px), (min-width: 576px ) and (orientation: landscape)
 {
     #select
     {
