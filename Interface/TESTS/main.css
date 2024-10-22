@@ -167,8 +167,10 @@ footer > div > div > ul > li
 }
 
 @media screen  and (min-width: 1024px) {
-    .container
+    section
     {
+        display: grid;
+        /* grid-area: 1fr 1fr; /* Línea de Prueba. */
         nav
         {
             grid-column: 1 / 2;
@@ -185,9 +187,9 @@ footer > div > div > ul > li
             grid-column: 2 / 3;
         }
 
-        .main
+        /* .main
         {
             grid-template-columns: repeat(5, 1fr);
-        }
+        } */
     }
 }
