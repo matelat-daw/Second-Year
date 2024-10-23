@@ -100,6 +100,8 @@ export function ejercicio8 (nombre, apellido1, apellido2 ){
 
         resultado = resultado.map(programador => `nombre: ${nombre}, apellido1: ${apellido1}, apellido2: ${apellido2}`);
 
+        console.log(resultado);
+
         return resultado;
 }
 
@@ -128,6 +130,8 @@ export function ejercicio10 (numDias){
     let milisegundo;
     /* Convierte numDias en milisegundos.Retorna el número total de milisegundo
     */
-   milisegundo = getMilliseconds(numDias);
+   // milisegundo = getMilliseconds(numDias);
+   milisegundo = numDias * 24 * 60 * 60 * 1000;
+   console.log(milisegundo);
    return milisegundo;
 }
