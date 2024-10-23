@@ -7,3 +7,9 @@ function filterReduce()
 
     console.log(object.filter((num) => {return num.num%2}).reduce((result, num) => result + num.num, 0));
 }
+
+
+
+nombreCompleto.forEach(element => {
+    resultado += `${nombre.nombre}, ${nombre.apellido1}, ${nombre.apellido2}`;
+   });

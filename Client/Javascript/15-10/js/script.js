@@ -40,7 +40,9 @@ function nombrePilotos() // Uso de Map, devuelve el mismo array.
 {
     DOM.pilots.innerHTML = pilots.map(pilot => "<li style='font-weight: bold'>Nombre: " + pilot.name + "</li>" + (pilot.years > 20 ? "<li style='color: blue'>" : "<li style='color: red'>") + "Experiencia: " + pilot.years + "</li>").join("");
 
-    DOM.pilots2.innerHTML = pilots.map(pilot => (`Nombre: ${pilot.name} Experiencia: ${pilot.years}`)).join(" - ");
+    DOM.pilots2.innerHTML = pilots.map(pilot => (`Nombre: ${pilot.name} Experiencia: ${pilot.years}`)).join("<br>");
+
+    console.log(pilots.map(pilot => (`Nombre: ${pilot.name} Experiencia: ${pilot.years}`)).join("\n"));
 }
 
 function nombrePilotosComplejo()
@@ -136,7 +138,7 @@ function sortPilots()
 {
     DOM.sortPilots.innerHTML = pilots.map(piloto => ({Nombre: piloto.name})).sort((a, b) => a.Nombre.localeCompare(b.Nombre));
 
-    DOM.sortPilots.innerHTML = pilots.map(piloto => (`Nombre: ${pilot.name}`).sort((a, b) => a.name.localeCompare(b.name)));
+    // DOM.sortPilots.innerHTML = pilots.map(piloto => (`Nombre: ${piloto.name}`).sort((a, b) => a.name.localeCompare(b.name)));
 }
 
 /* let array = [1, 2, 3, 4];
