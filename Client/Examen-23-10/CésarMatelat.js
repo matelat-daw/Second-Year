@@ -107,23 +107,41 @@ export function ejercicio8 (nombre, apellido1, apellido2 ){
 
 
 export function ejercicio9 (nombre, apellido1, apellido2){
+    // let nombreCompleto;
+    // /* Retorna un string ooncatenando los parámetros con plantilla de cadena de caracteres
+    // */
+    //    nombreCompleto = [];
+    //    nombreCompleto.push(nombre);
+    //    nombreCompleto.push(apellido1);
+    //    nombreCompleto.push(apellido2);
+
+    //    nombreCompleto = nombreCompleto.map(programador => `nombre: ${nombre}, apellido1: ${apellido1}, apellido2: ${apellido2}`);
+
+    //    let resultado = "";
+
+    //    nombreCompleto.forEach(nombre => {
+    //     resultado += nombre.nombre + " - " + nombre.apellido1 + " - " + nombre.apellido2;
+    //    });
+    //    console.log(resultado);
+
     let nombreCompleto;
     /* Retorna un string ooncatenando los parámetros con plantilla de cadena de caracteres
     */
-       nombreCompleto = [];
-       nombreCompleto.push(nombre);
-       nombreCompleto.push(apellido1);
-       nombreCompleto.push(apellido2);
+       nombreCompleto = {};
+       let array = []
+       array.push(nombre);
+       array.push(apellido1);
+       array.push(apellido2);
 
-       nombreCompleto = nombreCompleto.map(programador => `nombre: ${nombre}, apellido1: ${apellido1}, apellido2: ${apellido2}`);
+      console.log(array);
 
-       let resultado = "";
 
-       nombreCompleto.forEach(nombre => {
-        resultado += nombre.nombre + " - " + nombre.apellido1 + " - " + nombre.apellido2;
+       array.forEach((item, index) => {
+        nombreCompleto[item] = array[index];
        });
-       console.log(resultado);
-       return resultado;
+       console.log(nombreCompleto);
+       
+       return nombreCompleto;
 }
 
 export function ejercicio10 (numDias){
