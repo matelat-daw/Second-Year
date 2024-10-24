@@ -1,6 +1,6 @@
-// import * as projects from "./matelat.js"; // Funciona, Importa Todas.
+// import * as ejercicios from "./matelat.js"; // Funciona, Importa Todas.
 
-// const projects = await import ("./matelat.js"); // Funciona, Importa Todas. asynchronous?.
+// const ejercicios = await import ("./matelat.js"); // Funciona, Importa Todas. asynchronous?.
 
 import { ejercicio1, ejercicio2, ejercicio3, ejercicio4, ejercicio5 } from "./matelat.js"; // Hay que Escribir los Nombres de Todas las Funciones que se Quiere Importar.
 
@@ -24,15 +24,15 @@ lenguajes: ['C++','JS', 'PHP']},
 ];
 
 (function(){
-    // DOM.resutlado1.innerHTML = projects.ejercicio1(programadores); // Este Caso Funciona con los Dos Primeros Imports.
+    // DOM.resutlado1.innerHTML = ejercicios.ejercicio1(programadores); // Este Caso Funciona con los Dos Primeros Imports.
 
-    // DOM.resutlado2.innerHTML = projects.ejercicio2(programadores);
+    // DOM.resutlado2.innerHTML = ejercicios.ejercicio2(programadores);
 
-    // DOM.resutlado3.innerHTML = projects.ejercicio3(programadores);
+    // DOM.resutlado3.innerHTML = ejercicios.ejercicio3(programadores);
 
-    // DOM.resutlado4.innerHTML = projects.ejercicio4(programadores,4);
+    // DOM.resutlado4.innerHTML = ejercicios.ejercicio4(programadores,4);
 
-    // DOM.resutlado5.innerHTML = projects.ejercicio5(programadores, "Ana");
+    // DOM.resutlado5.innerHTML = ejercicios.ejercicio5(programadores, "Ana");
 
     DOM.resutlado1.innerHTML = ejercicio1(programadores); // Así Funciona con Todos los Nombres, si se Usa la Importación Dinámica crea la lista completa de Funciones Importadas.
     DOM.resutlado2.innerHTML = ejercicio2(programadores);
