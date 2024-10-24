@@ -17,3 +17,7 @@ console.log(extractedData);
 // DOM.result.innerHTML = JSON.stringify(extractedData);
 
 DOM.result.innerHTML = Array.from(JSON.stringify(extractedData));
+
+const set = new Set(["foo", "bar", "baz", "foo"]);
+let result = Array.from(set);
+// [ "foo", "bar", "baz" ]
