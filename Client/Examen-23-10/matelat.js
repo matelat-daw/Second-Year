@@ -18,6 +18,7 @@ export function ejercicio2 (programadores){
         “junior” si tiene menos de 5 años de experiencia
         “senior” si tiene 5 o más años de experiencia.*/
     resultado = programadores.map(programador => {return { ...programador, categoría: (programador.edad <= 25 ? "junior" : "senior")}});
+    console.log(resultado);
 
     return resultado;
 }
@@ -27,6 +28,8 @@ export function ejercicio3 (programadores){
     /*  Suma Total de años de experiencia de los programadores mayor que 24 años*/
 
     resultado = programadores.reduce((experiencia, programador) => experiencia + programador.experiencia, 0);
+    console.log(resultado);
+
     return resultado;
 }
 
@@ -35,6 +38,8 @@ export function ejercicio4 (programadores, anios){
     /*  Colección de programadores cuya experiencia es superior número de años
         pasado por parámetro.*/
     resultado = programadores.filter(programador => programador.experiencia > anios);
+    console.log(resultado);
+
     return resultado;
 }
 
@@ -42,6 +47,8 @@ export function ejercicio5 (programadores, nombre){
     let resultado;
     /*  Retorna el objeto programador cuyo nombre es el nombre pasado por parámetros*/
     resultado = programadores.filter(programador => programador.nombre == nombre);
+    console.log(resultado);
+
     return resultado;
 }
 
@@ -58,6 +65,8 @@ export function ejercicio6 (programadores, nombre){
         {
             resultado = false;
         }
+
+        console.log(resultado);
     return resultado;
 }
 
