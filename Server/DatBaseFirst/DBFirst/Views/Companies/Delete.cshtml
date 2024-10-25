@@ -1,0 +1,33 @@
+﻿@model DataBaseFirst.Models.Company
+
+@{
+    ViewData["Title"] = "Elimina Compañía";
+}
+
+<h1>Elimina(Delete)</h1>
+
+<h3>¿Estás Seguro que Quieres Eliminar esta Compañía?</h3>
+<div>
+    <h4>Company</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-success"><i class="bi bi-house-fill"></i>Página de Compañías</a>
+    </form>
+</div>

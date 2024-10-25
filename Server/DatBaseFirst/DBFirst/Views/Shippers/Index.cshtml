@@ -1,0 +1,41 @@
+﻿@model IEnumerable<DataBaseFirst.Models.Shipper>
+
+@{
+    ViewData["Title"] = "Trasnportistas";
+}
+
+<h1>Página de Transportistas</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-info"><i class="bi bi-database-fill-add"></i>Crea un Nuevo Transportista</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Phone)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Phone)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.ShipperID" class="btn btn-warning"><i class="bi bi-pencil-fill"></i>Modifica</a> |
+                    <a asp-action="Details" asp-route-id="@item.ShipperID" class="btn btn-secondary"><i class="bi bi-info-circle-fill"></i>Lee</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ShipperID" class="btn btn-danger"><i class="bi bi-eraser-fill"></i>Elimina</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

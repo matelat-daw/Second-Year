@@ -1,0 +1,161 @@
+@font-face
+{
+    font-family: "CustomFont";
+    src: url("../font/DS-Digital.ttf");
+}
+
+*
+{
+    font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0;
+    border-radius: .3em;
+}
+
+header, nav, aside, main, footer, main > div ul > li
+{
+    border: 1px solid lightgray;
+}
+
+header > h1, nav > h2, aside > h3, main > h3, footer > p
+{
+    text-align: center;
+}
+
+header
+{
+    background-color: #ffaaaa;
+}
+
+nav
+{
+    background-color: #ffddaa;
+}
+
+aside
+{
+    background-color: #ffffaa;
+}
+
+main
+{
+    background-color: #aaffaa;
+}
+
+main > div
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+main li
+{
+    background-color: #aaaaff;
+    list-style-type: none;
+    text-align: center;
+    margin: 0 .05em .1em;
+}
+
+footer
+{
+    background-color: #ffaaff;
+    font-weight: bold;
+}
+
+footer > div > div > ul
+{
+    font-weight: bold;
+}
+
+footer > div > div > ul > li
+{
+    font-weight: normal;
+    list-style: none;
+}
+
+@media screen and (min-width: 576px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    footer
+    {
+        font-weight: bold;
+    }
+
+    footer > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 912px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    footer > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    section > div > div:not(:nth-child(1))
+    {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+}
+
+@media screen and (min-width: 1024px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    /* section > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+    }
+
+    section > div > div:nth-child(1)
+    {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-auto-flow: column;
+        
+    } */
+
+    .container {
+        display: flex;
+    }
+    
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        width: 200px; /* Ajusta el ancho según sea necesario */
+        background-color: #f0f0f0; /* Color de fondo opcional */
+        padding: 10px;
+    }
+    
+    nav, aside, main {
+        margin-bottom: 10px; /* Espaciado entre elementos */
+    }
+    
+    main {
+        flex-grow: 1; /* Para que ocupe el espacio restante */
+        background-color: #e0e0e0; /* Color de fondo opcional */
+        padding: 10px;
+    }
+}

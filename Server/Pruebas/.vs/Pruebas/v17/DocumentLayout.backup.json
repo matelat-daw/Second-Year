@@ -1,22 +1,34 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Server\\www\\DAW\\Server\\Pruebas\\",
+  "WorkspaceRootPath": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|c:\\server\\www\\daw\\server\\pruebas\\ejercicio 1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|solutionrelative:ejercicio 1\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|c:\\server\\www\\daw\\server\\pruebas\\ejercicio 1\\controllers\\despedidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|solutionrelative:ejercicio 1\\controllers\\despedidacontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\models\\charactermodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|c:\\server\\www\\daw\\server\\pruebas\\ejercicio 1\\controllers\\saludalocalidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|solutionrelative:ejercicio 1\\controllers\\saludalocalidadcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\views\\home\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\delete.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|c:\\server\\www\\daw\\server\\pruebas\\ejercicio 1\\views\\parameters\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{B42EBFFC-B1A9-4636-B495-1380E2C5A98F}|Ejercicio 1\\Ejercicio 1.csproj|solutionrelative:ejercicio 1\\views\\parameters\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\views\\home\\read.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\read.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\views\\home\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\update.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|c:\\daw2\\second-year\\server\\pruebas\\list of objects\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{41C8EFD1-5CF5-4FB9-96C3-622B9BD948D0}|List of Objects\\List of Objects.csproj|solutionrelative:list of objects\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,24 +38,15 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 17,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "Ejercicio 1\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "Ejercicio 1\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAABoAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-25T19:40:54.743Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
@@ -78,42 +81,93 @@
               "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
             },
             {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Views\\Parameters\\Index.cshtml",
-              "RelativeDocumentMoniker": "Ejercicio 1\\Views\\Parameters\\Index.cshtml",
-              "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Views\\Parameters\\Index.cshtml",
-              "RelativeToolTip": "Ejercicio 1\\Views\\Parameters\\Index.cshtml",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAACJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-09-25T19:38:50.439Z",
-              "EditorCaption": ""
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "DespedidaController.cs",
-              "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Controllers\\DespedidaController.cs",
-              "RelativeDocumentMoniker": "Ejercicio 1\\Controllers\\DespedidaController.cs",
-              "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Controllers\\DespedidaController.cs",
-              "RelativeToolTip": "Ejercicio 1\\Controllers\\DespedidaController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAACRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T19:31:36.523Z",
-              "EditorCaption": ""
+              "DocumentIndex": 5,
+              "Title": "Update.cshtml",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Update.cshtml",
+              "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Update.cshtml",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Update.cshtml",
+              "RelativeToolTip": "List of Objects\\Views\\Home\\Update.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAyAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-30T11:49:46.367Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Read.cshtml",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Read.cshtml",
+              "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Read.cshtml",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Read.cshtml",
+              "RelativeToolTip": "List of Objects\\Views\\Home\\Read.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-30T11:49:44.791Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "SaludaLocalidadController.cs",
-              "DocumentMoniker": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Controllers\\SaludaLocalidadController.cs",
-              "RelativeDocumentMoniker": "Ejercicio 1\\Controllers\\SaludaLocalidadController.cs",
-              "ToolTip": "C:\\Server\\www\\DAW\\Server\\Pruebas\\Ejercicio 1\\Controllers\\SaludaLocalidadController.cs",
-              "RelativeToolTip": "Ejercicio 1\\Controllers\\SaludaLocalidadController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAABNAAAAAAAAAA==",
+              "Title": "Delete.cshtml",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Delete.cshtml",
+              "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Delete.cshtml",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Delete.cshtml",
+              "RelativeToolTip": "List of Objects\\Views\\Home\\Delete.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-30T11:49:42.553Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Create.cshtml",
+              "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Create.cshtml",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Create.cshtml",
+              "RelativeToolTip": "List of Objects\\Views\\Home\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-30T11:49:40.714Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CharacterModel.cs",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Models\\CharacterModel.cs",
+              "RelativeDocumentMoniker": "List of Objects\\Models\\CharacterModel.cs",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Models\\CharacterModel.cs",
+              "RelativeToolTip": "List of Objects\\Models\\CharacterModel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-25T19:28:30.675Z",
+              "WhenOpened": "2024-09-30T11:26:27.832Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "List of Objects\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "List of Objects\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAA/AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-09-29T14:50:04.751Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "HomeController.cs",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Controllers\\HomeController.cs",
+              "RelativeDocumentMoniker": "List of Objects\\Controllers\\HomeController.cs",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Pruebas\\List of Objects\\Controllers\\HomeController.cs",
+              "RelativeToolTip": "List of Objects\\Controllers\\HomeController.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAAAEYAAABrAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-29T14:38:04.477Z",
               "EditorCaption": ""
             }
           ]

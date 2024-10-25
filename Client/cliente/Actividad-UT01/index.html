@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Mi Colección</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css"
+        integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js"
+        integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <!-- Modal Button, Diálogo general, muestra avisos y vuelve a index.php.-->
+<button id="alerta" type="button" class="btn btn-primary" style="visibility: hidden;" data-bs-toggle="modal" data-bs-target="#alertDialog">Diálogo</button>
+
+<!-- Modal -->
+<div class="modal fade" id="alertDialog" tabindex="-1" aria-labelledby="alertDialogLabel" aria-hidden="true" data-bs-keyboard="false" data-bs-backdrop="static">
+  <div class="modal-dialog modal-dialog-centered">
+  <div class="modal-content">
+      <div class="modal-header">
+      <h4 class="modal-title" id="alertDialogLabel">Dialogo de Avisos</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+          <h4><span id="title"></span></h4>
+          <h5 id="message"></h5>
+      </div>
+      <div class="modal-footer">
+      <button type="button" id="close_dialog" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+  </div>
+  </div>
+</div>
+    <div id="agenda">
+        <main>
+            <section class="margin">
+                <fieldset>
+                    <legend>Perfil de usuario</legend>
+                    <div class="flex">
+                        <h3 id="date">Aquí va la fecha (con el formato visto en clase) según el idioma del perfil de
+                            usuario</h3>
+                        <h3 id="time"></h3>
+                    </div>
+                    <div>
+                        <label for="idioma">Perfil de usuario - Elige un idioma</label>
+                        <select name="idioma" id="idioma" onchange="showDate(this.value)" required>
+                            <option disabled value="" selected>Selecciona tu idioma</option>
+                            <option value="es-ES">Español</option>
+                            <option value="fr-FR">Français</option>
+                            <option value="it-IT">Italiano</option>
+                            <option value="pt-PT">Português</option>
+                            <option value="en-GB">English</option>
+                            <option value="de-DE">Deutsche</option>
+                            <option value="da-DK">Dansk(Danés)</option>
+                            <option value="nb-NO">Norsk(Noruego)</option>
+                            <option value="sv-SE">Svensk(Sueca)</option>
+                            <option value="hr-HR">Hrvatski(Corata)</option>
+                            <option value="ru-RU">Русский(Rusia)</option>
+                            <option value="wo-SN">Wolof(Senegal)</option>
+                            <option value="zh-CN">中國人(Chino)</option>
+                            <option value="ar-SA">عربي(Árabe)</option>
+                            <option value="ps-AF">افغان(Afganistán)</option>
+                            <option value="he-IL">عبري(Hebreo)</option>
+                            <option value="ja-JP">日本語(Japón)</option>
+                            <option value="hi-IN">हिंदी(India)</option>
+                            <option value="el-GR">Ελληνική(Grecia)</option>
+                            <option value="sw-TZ">Kiswahili(Tanzania)</option>
+                        </select>
+                    </div>
+                </fieldset>
+            </section>
+            <section class="margin">
+                <fieldset>
+                    <legend>Mi colección de objetos</legend>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Grupo</th>
+                                <th>Músico</th>
+                                <th>Edad</th>
+                                <th>Año de Nacimiento</th>
+                                <th>Instrumentos</th>
+                                <!-- <th>Instrumento 2</th>
+                                <th>Instrumeto 3</th> -->
+                            </tr>
+                        </thead>
+                            <tbody id="tabla_coleccion">
+                        </tbody>
+                    </table>
+                    <br>
+                    <span>Id: </span>
+                    <input type="text" id="id" name="id">
+                    <button id="delete" onclick="borrarObjeto(document.getElementById('id').value)"
+                        class="btn btn-danger btn-lg">Borrar</button>
+                </fieldset>
+            </section>
+            <form id="mi_formulario">
+                <fieldset>
+                    <legend>Agrega Grupos a la Colección - Añadir</legend>
+                    <div>
+                        <input type="text" id="group" name="group" required minlength="2" maxlength="20" />
+                        <label for="group">Grupo</label>
+                        <br><br>
+                        <input type="text" id="staff" name="staff">
+                        <label for="staff">Músico</label>
+                        <br><br>
+                        <input id="bday" name="bday" type="number" min="1900" max="2006" step="1">
+                        <label for="bday">Año de Nacimiento</label>
+                    </div>
+                    <div>
+                        <label for="mi_coleccion">Selecciona al menos un Instrumento: </label>
+                        <select id="mi_coleccion" multiple size="5" onchange="checkQtty()" required>
+                            <option disabled value="">Selecciona que Instrumento Ejecuta</option>
+                            <option value="Voz">Voz</option>
+                            <option value="Piano">Piano</option>
+                            <option value="Guitarra">Guitarra</option>
+                            <option value="Bajo">Bajo</option>
+                            <option value="Batería">Batería</option>
+                            <option value="Coros">Coros</option>
+                        </select>
+                    </div>
+                    <input type="submit" value="Guardar datos" class="btn btn-primary btn-lg">
+                </fieldset>
+            </form>
+        </main>
+        <section id="footer">
+            <footer class="footer height fixed-bottom">
+                <small>(C) and TM By César Matelat 2024</small><a href="mailto:cesarmatelat@gmail.com">Escríbeme
+                    Aquí</a>
+            </footer>
+        </section>
+        <script src="./script.js"></script>
+</body>
+
+</html>

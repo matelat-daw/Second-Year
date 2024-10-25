@@ -1,0 +1,307 @@
+/* General */
+body
+{
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+h6
+{
+    margin: 0;
+}
+
+img
+{
+    width: 600px;
+    height: 330px;
+}
+
+span
+{
+    font-size: .80em;
+}
+
+p
+{
+    padding: 10px;
+}
+
+li
+{
+    margin: -40px 0;
+}
+
+header div a
+{
+    text-decoration: none;
+    margin-left: 15px;
+    padding-top: 25px;
+}
+
+aside nav a
+{
+    padding-top: 25px;
+}
+
+footer div ul li a
+{
+    font-size: .66em;
+}
+
+/* Estilos del Header. */
+
+.header
+{
+    height: 128px;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+}
+
+.header-right
+{
+    width: 100%;
+    margin-left: 125px;
+}
+
+.header-margin
+{
+    margin-left: 25px;
+    margin-right: 50px;
+}
+
+.header-inline
+{
+    display: flex;
+    align-items: center;
+}
+
+.header-border
+{
+    display: flex;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    width: 60%;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+.header-flex
+{
+    display: flex;
+    align-items:center;
+}
+
+.big
+{
+    font-size: 3.3em;
+}
+
+.red
+{
+    color: red;
+}
+
+.green
+{
+    color: green;
+}
+
+.blue
+{
+    color: blue;
+}
+
+.header-link a
+{
+    height: 40px;
+    width: 180px;
+    text-align: center;
+}
+
+.header nav a
+{
+    display: inline-block;
+}
+
+/* Estilos del Aside. */
+
+.aside a
+{
+    height: 40px;
+    width: 210px;
+    text-align: center;
+}
+
+/* Estilo del contenedor principal */
+
+.grid
+{
+    top: -458px;
+    grid-template-columns: auto auto;
+}
+
+.grid > div
+{
+    width: 640px;
+}
+
+.grid2
+{
+    top: -438px;
+    grid-template-columns: auto auto auto;
+}
+
+.grid2 > div
+{
+    width: 410px;
+}
+
+.common
+{
+    display: grid;
+    position: relative;
+    left: 180px;
+    width: 1280px;
+    gap: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.common > div
+{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 500px;
+}
+
+.section-main-margin
+{
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.section-secondary
+{
+    width: 390px;
+    height: 320px;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+/* Estilos de los NAV. */
+
+.nav-flex
+{
+    display: flex;
+    width: 30%;
+}
+
+.nav-margin
+{
+    margin-top: 25px;
+    margin-right: 50px;
+}
+
+.nav-button
+{
+    border: 1px solid gray;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+
+.nav-blue
+{
+    color: white;
+    background-color: blue;
+}
+
+.nav-lightblue
+{
+    background-color: lightblue;
+}
+
+.nav-green
+{
+    background-color: rgb(63, 194, 63);
+}
+
+.nav-lightgreen
+{
+    background-color: lightgreen;
+}
+
+.nav-lightrose
+{
+    background-color: lightpink;
+}
+
+.nav-vertical
+{
+    flex-direction: column;
+}
+
+/* Estilos del Footer */
+
+.footer
+{
+    display: flex;
+    background-color: DodgerBlue;
+    border: 1px solid blue;
+    border-radius: 20px;
+    margin-top: -300px;
+}
+  
+.footer > div
+{
+    background-color: #f1f1f1;
+    width: 33%;
+    margin: 10px;
+    line-height: 60px;
+}
+
+/* Estilos del Slider */
+
+.slider-frame
+{
+	overflow: hidden;
+}
+
+.slider-frame ul
+{
+	display: flex;
+	padding: 20px;
+	width: 600%;
+	
+	animation: slide 20s infinite ease-in;
+}
+
+.slider-frame li
+{
+	width: 100%;
+	list-style: none;
+}
+
+@keyframes slide
+{
+	0% {margin-left: 0;}
+	15% {margin-left: 0;}
+	
+	17% {margin-left: -100%;}
+	32% {margin-left: -100%;}
+	
+	34% {margin-left: -200%;}
+	49% {margin-left: -200%;}
+	
+	51% {margin-left: -300%;}
+	66% {margin-left: -300%;}
+
+    68% {margin-left: -400%;}
+	83% {margin-left: -400%;}
+	
+	85% {margin-left: -500%;}
+	100% {margin-left: -500%;}
+}

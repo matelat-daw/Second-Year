@@ -1,0 +1,123 @@
+*
+{
+    font-size: 12pt;
+}
+
+header, nav, aside, main, .content, footer
+{
+    border: 1px solid black;
+    border-radius: 0.5em;
+    padding: 0.8em;
+    margin: 0.4em
+}
+
+header
+{
+    background-color: #ffdddd;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+nav main aside footer
+{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+nav
+{
+    background-color: #ffffdd;
+}
+
+aside
+{
+    background-color: #ddffdd;
+}
+
+main
+{
+    background-color: #ddffff;
+    padding: 1em;
+}
+
+main>div
+{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3em 0;
+    flex-direction: column;
+}
+
+.content
+{
+    background-color: #eeeeee;
+    font-family: cursive;
+    height: 33%;
+    margin: 0;
+}
+
+footer
+{
+    background-color: #ddddff;
+}
+
+footer > div > ul
+{
+    font-family: cursive;
+}
+
+@media screen and (min-width: 576px)
+{
+    nav > ul, aside > ul
+    {
+        list-style: none;
+        font-family: cursive;
+        display: flex;
+        justify-content: space-around;
+        margin: 0
+    } 
+
+    main > div, footer
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2%;
+    }
+
+    footer p
+    {
+        margin: 0
+    }
+
+    footer > div:nth-child(2)
+    {
+        margin-top: 18px;
+    }
+}
+
+@media screen and (min-width: 992px)
+{
+    aside > ul
+    {
+        list-style: none;
+        margin: 0;
+        display:block;
+        padding-left: 0;
+    }
+
+    body > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    } 
+
+    main > div
+    {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2%;
+    }
+
+    footer > div:nth-child(2)
+    {
+        margin-top: 18px;
+    }
+}

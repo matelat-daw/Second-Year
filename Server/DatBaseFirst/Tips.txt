@@ -1,0 +1,21 @@
+
+
+If you want to use asp-route-{value},you need to make sure the value name is consistent to the parameter name in action.Fo example,you use
+
+
+Esta es la expliación de porqué no te funcionaba el paso de la ID en tu AlbumsController:
+
+Si pones en el Método Get del AlbumsController:
+public IActionResult Create(int eventId)
+
+Tienes que usar en la Vista:
+
+ asp-route-eventId="@ViewBag.Id"
+ 
+Lo que aun no me explico es porqué para redireccionar a otra vista por la URL, es decir que aparezca en la URL: /Artist/AlbumArtist/25
+ 
+Hay que llamar a la Variable Id, id, ID, iD en el new { Id = album.ArtisId }. Cualquier otra cosa que pongas la pasa por GET es decir si por ejemplo pones en el new { Id2 = album.ArtistId } la pasa así: /Artist/AlbumArtist?Id2 = 25 y Falla la App: 
+
+return RedirectToAction("AlbumArtist", "Artists", new { Id = album.ArtistId }); // Funciona.
+
+return RedirectToAction("AlbumArtist", "Artists", new { Id2 = album.ArtistId }); // NO Funciona.

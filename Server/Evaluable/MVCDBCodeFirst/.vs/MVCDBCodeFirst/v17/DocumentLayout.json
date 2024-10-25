@@ -1,0 +1,166 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|c:\\daw2\\second-year\\server\\evaluable\\mvcdbcodefirst\\models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|solutionrelative:models\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|c:\\daw2\\second-year\\server\\evaluable\\mvcdbcodefirst\\data\\mvcdbcodefirstcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|solutionrelative:data\\mvcdbcodefirstcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|c:\\daw2\\second-year\\server\\evaluable\\mvcdbcodefirst\\controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|solutionrelative:controllers\\carscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|c:\\daw2\\second-year\\server\\evaluable\\mvcdbcodefirst\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|solutionrelative:views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|c:\\daw2\\second-year\\server\\evaluable\\mvcdbcodefirst\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|solutionrelative:wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|c:\\daw2\\second-year\\server\\evaluable\\mvcdbcodefirst\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{06037B07-8ECF-478D-981C-A58E11EFC80B}|MVCDBCodeFirst.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{6324226f-61b6-4f28-92ee-18d4b5fe1e48}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:1:0:{e8b06f52-6d01-11d2-aa7d-00c04f990343}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:132:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:133:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MVCDBCodeFirstContext.cs",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Data\\MVCDBCodeFirstContext.cs",
+              "RelativeDocumentMoniker": "Data\\MVCDBCodeFirstContext.cs",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Data\\MVCDBCodeFirstContext.cs",
+              "RelativeToolTip": "Data\\MVCDBCodeFirstContext.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwCIAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:32:17.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Car.cs",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Models\\Car.cs",
+              "RelativeDocumentMoniker": "Models\\Car.cs",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Models\\Car.cs",
+              "RelativeToolTip": "Models\\Car.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:28:53.768Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CarsController.cs",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Controllers\\CarsController.cs",
+              "RelativeDocumentMoniker": "Controllers\\CarsController.cs",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Controllers\\CarsController.cs",
+              "RelativeToolTip": "Controllers\\CarsController.cs",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAqwGgAAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-04T08:28:47.161Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "site.css",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\wwwroot\\css\\site.css",
+              "RelativeDocumentMoniker": "wwwroot\\css\\site.css",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\wwwroot\\css\\site.css",
+              "RelativeToolTip": "wwwroot\\css\\site.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAiwBkAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-04T08:07:33.354Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAACHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-04T08:07:06.661Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "C:\\DAW2\\Second-Year\\Server\\Evaluable\\MVCDBCodeFirst\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAABPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-10-04T08:06:13.361Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

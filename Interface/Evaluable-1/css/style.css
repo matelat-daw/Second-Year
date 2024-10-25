@@ -1,0 +1,305 @@
+/* General */
+body
+{
+    font-size: 1.1rem; /* Agranda la fuente predeterinada un 10%. se puede usar PT */
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 50px;
+}
+
+section div img
+{
+    width: 90%;
+    height: 330px;
+}
+
+span
+{
+    font-size: .80em; /* Reduce el tamaño de la fuente al 80% */
+}
+
+p
+{
+    padding: 10px;
+}
+
+li
+{
+    margin: -40px 0;
+}
+
+header div a
+{
+    text-decoration: none;
+    margin-left: 15px;
+    padding-top: 25px;
+}
+
+aside nav a
+{
+    padding-top: 25px;
+}
+
+footer div ul li a
+{
+    font-size: .66em; /* Reduce el tamaño de la fuente al 66% */
+}
+
+/* Estilos del Header. */
+
+.header
+{
+    height: 128px;
+    border: 1px solid lightgray;
+    border-radius: 12px;
+}
+
+.header-right
+{
+    width: 100%;
+    margin-left: 125px;
+}
+
+.header-margin
+{
+    margin-left: 25px;
+    margin-right: 50px;
+}
+
+.header-inline
+{
+    display: flex;
+    align-items: center;
+}
+
+.header-border
+{
+    display: flex;
+    margin-top: 10px;
+    padding-bottom: 10px;
+    width: 60%;
+    border: 1px solid lightgray;
+    border-radius: 20px;
+}
+
+.header-flex
+{
+    display: flex;
+    align-items:center;
+}
+
+.big
+{
+    font-size: 3.3em;
+}
+
+.red
+{
+    color: red;
+}
+
+.green
+{
+    color: green;
+}
+
+.blue
+{
+    color: blue;
+}
+
+.header-link a
+{
+    height: 40px;
+    width: 180px;
+    text-align: center;
+}
+
+.header nav a
+{
+    display: inline-block;
+}
+
+/* Estilos del Aside. */
+
+.aside a
+{
+    height: 40px;
+    width: 210px;
+    text-align: center;
+}
+
+/* Estilo del contenedor principal */
+
+.inline
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.grid
+{
+    grid-template-columns: 1fr 1fr;
+}
+
+.grid > div
+{
+    width: 80%; /* Ancho dl 80% del contenedor */
+}
+
+.grid2
+{
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.grid2 > div
+{
+    width: 70%; /* Ancho del 70% del contenedor, queda en línea con el contenedor superior que contiene 2 columnas. */
+}
+
+.common
+{
+    display: grid;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 20px;
+}
+
+.common > div
+{
+    border: 1px solid black;
+    border-radius: 20px;
+}
+
+.section-main-margin
+{
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.section-secondary
+{
+    margin: 8px;
+}
+
+/* Estilos de los NAV. */
+
+.nav-flex
+{
+    display: flex;
+    width: 30%;
+}
+
+.nav-margin
+{
+    margin-top: 25px;
+    margin-right: 50px;
+}
+
+.nav-button
+{
+    border: 1px solid gray;
+    border-radius: 15px;
+    text-decoration: none;
+    margin-bottom: 25px;
+}
+
+.nav-blue
+{
+    color: white;
+    background-color: blue;
+}
+
+.nav-lightblue
+{
+    background-color: lightblue;
+}
+
+.nav-green
+{
+    background-color: rgb(63, 194, 63);
+}
+
+.nav-lightgreen
+{
+    background-color: lightgreen;
+}
+
+.nav-lightrose
+{
+    background-color: lightpink;
+}
+
+.nav-vertical
+{
+    flex-direction: column;
+}
+
+/* Estilos del Footer */
+
+.footer
+{
+    display: flex;
+    background-color: DodgerBlue;
+    border: 1px solid blue;
+    border-radius: 20px;
+    margin-top: 25px;
+}
+  
+.footer > div
+{
+    background-color: #f1f1f1;
+    width: 33%;
+    margin: 10px;
+    line-height: 60px;
+}
+
+.bold
+{
+    margin: 0;
+    font-weight: bold;
+}
+
+/* Estilos del Slider */
+
+.slider-frame
+{
+	overflow: hidden;
+}
+
+.slider-frame ul
+{
+	display: flex;
+	padding: 20px;
+	width: 600%;
+	
+	animation: slide 20s infinite ease-in; /* Llama a @keyframes */
+}
+
+.slider-frame li
+{
+	width: 100%;
+	list-style: none; /* Quita el estilo predeterminado de los elementos de la lista */
+}
+
+@keyframes slide /* Animación del slider */
+{
+	0% {margin-left: 0;}
+	15% {margin-left: 0;}
+	
+	17% {margin-left: -100%;}
+	32% {margin-left: -100%;}
+	
+	34% {margin-left: -200%;}
+	49% {margin-left: -200%;}
+	
+	51% {margin-left: -300%;}
+	66% {margin-left: -300%;}
+
+    68% {margin-left: -400%;}
+	83% {margin-left: -400%;}
+	
+	85% {margin-left: -500%;}
+	100% {margin-left: -500%;}
+}

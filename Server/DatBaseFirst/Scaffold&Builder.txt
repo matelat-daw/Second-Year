@@ -1,0 +1,121 @@
+Para Hacer una Migración (Crear una Tabla en la Base de Datos):
+
+add-migration nombre-de-la-migracion // Inicializa la Migración de los datos.
+
+update-database // Crea la Base de Datos y las Tablas. Hay que Hacer Estos Pasos Después de crear el Model Company, las Vistas de la Clase Company con Botón derecho sobre Controllers y Seleccionar Add -> New Scaffolded Items. El nombre de la migración es igual al nombre de la Clase: Company.
+
+
+Para DataBase First, Ejecutar en la Consola de Nuget:
+
+Scaffold-DBContext "Server=(localdb)\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Suppliers -ContextDir Data
+
+Al comando Scaffold-DBContext se le pasa entre comillas la String de conexión con la Base de Datos, seguido de Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models(El Directorio del Model donde se creará la Clase del modelo de la Tabla), el modificador -Tables con el nombre de la Tabla y el modificador -ContextDir y el Nombre del Directorio donde se guardará la Clase de Contexto con el Nombre de la Base de Datos Seguido de Context.
+
+
+Para Agregar una Segunda Tabla Usamos la Extensión de Visual Studio EF Core Power Tools: Se Hace Click con el Botón Derecho sobre el Nombre del Proyecto y Selecciono Reverse Engineer de la Opción EF Core Power Tools, Agrego una Conexión con la Base de Datos Poniendo: (localdb)\MSSQLLocalDB
+(OJO) si ya había una tabla creada hay que excluirla en el contexto, en el directorio Data con: modelBuilder.Entity<NOMBRE_DE_LA_TABLA>().ToTable("NOMBRE_DE_LA_TABLA", t => t.ExcludeFromMigrations());.
+
+Para Agregar Nuevas Tablas Hay que Excluir las que ya Están Creadas en Models, se agregan las siguientes Líneas en la Clase de Contexto NorthwindContext, en el Método OnModelCreating(ModelBuilder modelBuilder):
+
+		modelBuilder.Entity<Supplier>().ToTable("Suppliers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Supplier.
+        modelBuilder.Entity<Shipper>().ToTable("Shippers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Shipper.
+
+
+En el Context, La Clase NorthwindContext.cs(En el Directorio Data):
+
+Quitar:
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
+         //=> optionsBuilder.UseSqlServer("Server=(localdb)\\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True");
+		 
+
+Una forma de Conectar con la base de datos es:
+
+Agregar en el Método: 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+						{
+							IConfigurationRoot configuration = new ConfigurationBuilder()
+								.SetBasePath(AppDomain.CurrentDomain.BaseDirectory)
+								.AddJsonFile("appsettings.json")
+								.Build();
+							optionsBuilder.UseSqlServer(configuration.GetConnectionString("conn"));
+						}
+
+En Program.cs agregar la línea:
+builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn") ?? throw new InvalidOperationException("Connection string 'conn' not found.")));
+
+y en appsettings.JSON:
+
+"ConnectionStrings": {
+  "conn": "Server=(localdb)\\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True"
+}
+
+
+Este paso de Agregar la conexión a appsettings.json hay que hacerlo antes de crear los Scaffoldings the los modelos que lamentablemente hay que hacerlos uno por uno y después de Scaffolding hay que hacer la migración en las Tablas agregadas a mano(Modelos): add-migration NOMBRE_DE_LA_MIGRACIÓN y Update-Database.
+
+
+Para Eliminar una Migración remove-migration y update-database 0 quita toda la tabla, 1 quita la última migración(En Caso que se Hayan Hecho dos Migraciones).
+
+Creación de la tabla Company:
+
+USE [Northwind]
+GO
+
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+DROP TABLE [dbo].[Company];
+
+
+GO
+CREATE TABLE [dbo].[Company] (
+    [Id]          INT            IDENTITY (1, 1) NOT NULL,
+    [Name]        NVARCHAR (MAX) NOT NULL,
+    [Description] NVARCHAR (MAX) NOT NULL,
+    [ShipperID]   INT            NOT NULL
+);
+
+modelBuilder.Entity<Companies>(entity =>
+{
+    entity.HasOne(d => d.Shippers).WithMany(p => p.Companies).HasConstraintName("FK_CompanyShipperId");
+});
+
+Para Usar GitHub Desde un Directorio Local en el CMD de Windwos como Administrador:
+
+git add .
+
+git commit -m "Segundo Commit"
+
+git push origin main
+
+con git status, Vemos el estatus de los ficheros a agregar, enviar o ya enviados.
+
+Para hacer un Seeder:
+
+modelBuilder. Entity<Author>().HasData(
+new Author
+{
+AuthorId = 1,
+FirstName = "William",
+LastName = "Shakespeare"
+}
+);
+
+
+Tabla Reviews:
+
+CREATE TABLE [dbo].[Review] (
+    [ReviewId]    INT           IDENTITY (1, 1) NOT NULL,
+    [Title]       NVARCHAR (10) NOT NULL,
+    [Description] NVARCHAR (30) NOT NULL,
+    [Rating]      INT           NOT NULL,
+    [ArtistId]    INT           NOT NULL,
+    CONSTRAINT [PK_Review] PRIMARY KEY CLUSTERED ([ReviewId] ASC),
+    CONSTRAINT [FK_Review_Artist_ArtistId] FOREIGN KEY ([ArtistId]) REFERENCES [dbo].[Artist] ([ArtistId]) ON DELETE CASCADE
+);
+
+
+GO
+CREATE NONCLUSTERED INDEX [IX_Review_ArtistId]
+    ON [dbo].[Review]([ArtistId] ASC);

@@ -1,0 +1,175 @@
+@font-face
+{
+    font-family: "CustomFont";
+    src: url("../font/DS-Digital.ttf");
+}
+
+*
+{
+    font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    margin: 0;
+    padding: 0;
+    border-radius: .3em;
+}
+
+header, nav, aside, main, footer, main > div ul > li
+{
+    border: 1px solid lightgray;
+}
+
+header > h1, nav > h2, aside > h3, main > h3, footer > p
+{
+    text-align: center;
+}
+
+header
+{
+    background-color: #ffaaaa;
+}
+
+nav
+{
+    background-color: #ffddaa;
+}
+
+aside
+{
+    background-color: #ffffaa;
+}
+
+main
+{
+    background-color: #aaffaa;
+}
+
+main > div
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+main li
+{
+    background-color: #aaaaff;
+    list-style-type: none;
+    text-align: center;
+    margin: 0 .05em .1em;
+}
+
+footer
+{
+    background-color: #ffaaff;
+    font-weight: bold;
+}
+
+footer > div > div > ul
+{
+    font-weight: bold;
+}
+
+footer > div > div > ul > li
+{
+    font-weight: normal;
+    list-style: none;
+}
+
+@media screen and (min-width: 576px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    footer
+    {
+        font-weight: bold;
+    }
+
+    footer > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media screen and (min-width: 912px)
+{
+    /* main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+    
+    .content {
+        display: flex;
+    }
+    
+    aside {
+        width: 25%;
+    }
+    
+    main {
+        width: 75%;
+    }
+
+    footer > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        padding: .25em;
+    } */
+    
+    .content {
+        display: flex;
+        flex-grow: 1;
+    }
+
+    nav
+    {
+        width: 100%;
+    }
+    
+    aside {
+        width: 25%; /* 25% width for aside */
+    }
+    
+    main {
+        width: 75%; /* 75% width for main content */
+    }
+    
+}
+
+@media screen and (min-width: 1024px)
+{
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .content
+    {
+        width: 100%;
+    }
+    
+    .sidebar {
+        width: 25%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    nav, aside {
+        width: 100%;
+        flex: 1;
+    }
+    
+    section > div > div > main{
+        width: 100%;
+    }
+}

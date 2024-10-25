@@ -23,7 +23,7 @@ namespace Model_1.Controllers
             return View();
         }
 
-        public IActionResult Person()
+        public IActionResult Perfil()
         {
             Person persona = new Person
             {

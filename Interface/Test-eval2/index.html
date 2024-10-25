@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prueba</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <style>
+        repeat {
+            display:block;
+        }
+        
+        repeat[n="1"]:before {
+           content: "★";
+        }
+        
+        repeat[n="2"]:before {
+           content: "★★";
+        }
+        
+        repeat[n="3"]:before {
+           content: "★★★";
+        }
+        
+        repeat[n="4"]:before {
+           content: "★★★★";
+        }
+        
+        repeat[n="5"]:before {
+           content: "★★★★★";
+        }
+        </style>
+<repeat n="1"></repeat>
+<repeat n="2"></repeat>
+<repeat n="5"></repeat>
+        
+</body>
+</html>
