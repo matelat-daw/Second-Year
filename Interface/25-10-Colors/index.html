@@ -6,22 +6,37 @@
     <title>Usando 4 Paletas de Colores</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
+<body id="body">
+    <section>
+        <header class="row">
+            <div class="col-md-4">
+                <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="125">
+            </div>
+            <div class="col-md-4">
+                <select id="style" onchange="changeStyle(this.value)">
+                    <option value="">Selecciona tu Estilo</option>
+                    <option value="young">Joven</option>
+                    <option value="sober">Sobrio</option>
+                    <option value="asset">Activo</option>
+                    <option value="elegant">Elegante</option>
+                </select>
+            </div>
+            <div class="col-md-4">
+                <div class="nav nav-tabs" id="nav-tab" role="tablist" >
+                    <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Contacto</a>
+                    <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Log in</a>
+                    <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Regístrate</a>
+                </div>
+            </div>
+        </header>
+    </section>
     <section class="border rounded">
         <nav class="navbar bg-white">
-            <div class="col-md-9"> <!-- Columnas con el menú de navegación. -->
+            <div class="col-md-12"> <!-- Columnas con el menú de navegación. -->
                 <div class="nav nav-tabs" id="nav-tab" role="tablist" >
                     <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Inicio</a>
                     <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Ventas</a>
                     <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Compras</a>
-                </div>
-            </div>
-                <div class="col-md-3">
-                    <div class="nav nav-tabs" id="nav-tab" role="tablist" >
-                        <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Contacto</a>
-                        <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Log in</a>
-                        <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Regístrate</a>
-                    </div>
                 </div>
             </div>
         </nav>
@@ -32,9 +47,6 @@
                 <div class="row flex-nowrap">
                     <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
                         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                            <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                                <span class="fs-5 d-none d-sm-inline">Menu</span>
-                            </a>
                             <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                 <li class="nav-item">
                                 <a href="#" class="nav-link align-middle px-0">
@@ -67,7 +79,7 @@
                         <div class="row">
                             <div class="col-md-4">
                                 <ul class="list-group">
-                                    <li class="list-group-item"><img src="img/1.jpg" alt="Imagen" width="50%" height="250em"></li>
+                                    <li class="list-group-item"><img src="img/1.jpg" alt="Imagen" class="img-fluid"></li>
                                     <li class="list-group-item"><h3>Título</h3></li>
                                     <li class="list-group-item"><p>Descripción</p></li>
                                     <li class="list-group-item"><p>1500€</p></li>
@@ -76,7 +88,7 @@
                             </div>
                             <div class="col-md-4">
                                 <ul class="list-group">
-                                    <li class="list-group-item"><img src="img/2.jpg" alt="Imagen" width="50%" height="250em"></li>
+                                    <li class="list-group-item align-items-center"><img src="img/2.jpg" alt="Imagen" class="img-fluid"></li>
                                     <li class="list-group-item"><h3>Título</h3></li>
                                     <li class="list-group-item"><p>Descripción</p></li>
                                     <li class="list-group-item"><p>750€</p></li>
@@ -85,7 +97,7 @@
                             </div>
                             <div class="col-md-4">
                                 <ul class="list-group">
-                                    <li class="list-group-item"><img src="img/3.jpg" alt="Imagen" width="50%" height="250em"></li>
+                                    <li class="list-group-item align-items-center"><img src="img/3.jpg" alt="Imagen" class="img-fluid"></li>
                                     <li class="list-group-item"><h3>Título</h3></li>
                                     <li class="list-group-item"><p>Descripción</p></li>
                                     <li class="list-group-item"><p>250€</p></li>
@@ -103,5 +115,6 @@
             <p><small>Copyright & Trademark 2024 César Matelat - Contactame <a href="mailto:cesarmatelat@gmail.com">Aquí</a></small></p>
         </footer>
     </section>
+    <script src="js/main.js"></script>
 </body>
 </html>

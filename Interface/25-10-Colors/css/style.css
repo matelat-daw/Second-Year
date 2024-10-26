@@ -1,5 +1,17 @@
+img
+{
+    width: 50%;
+    height: 250em;
+    margin-left: 25%;
+}
+
 .border
 {
     border: 1px solid black;
     margin: 3%;
+}
+
+.margin-left
+{
+    padding-left: 25%;
 }
