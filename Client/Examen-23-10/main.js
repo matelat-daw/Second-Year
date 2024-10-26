@@ -1,8 +1,8 @@
 // import * as ejercicios from "./matelat.js"; // Funciona, Importa Todas.
 
-// const ejercicios = await import ("./matelat.js"); // Funciona, Importa Todas. asynchronous?.
+const ejercicios = await import ("./matelat.js"); // Funciona, Importa Todas. asynchronous?.
 
-import { ejercicio1, ejercicio2, ejercicio3, ejercicio4, ejercicio5 } from "./matelat.js"; // Hay que Escribir los Nombres de Todas las Funciones que se Quiere Importar.
+// import { ejercicio1, ejercicio2, ejercicio3, ejercicio4, ejercicio5 } from "./matelat.js"; // Hay que Escribir los Nombres de Todas las Funciones que se Quiere Importar.
 
 // DOM con la ID de los Elementos, para Mostrar los Resultados.
 const DOM = {
@@ -10,7 +10,12 @@ const DOM = {
     resutlado2: document.getElementById("resutlado2"),
     resutlado3: document.getElementById("resutlado3"),
     resutlado4: document.getElementById("resutlado4"),
-    resutlado5: document.getElementById("resutlado5")
+    resutlado5: document.getElementById("resutlado5"),
+    resutlado6: document.getElementById("resutlado6"),
+    resutlado7: document.getElementById("resutlado7"),
+    resutlado8: document.getElementById("resutlado8"),
+    resutlado9: document.getElementById("resutlado9"),
+    resutlado10: document.getElementById("resutlado10")
 };
 
 //Array para realizar pruebas
@@ -24,19 +29,29 @@ lenguajes: ['C++','JS', 'PHP']},
 ];
 
 (function(){
-    // DOM.resutlado1.innerHTML = ejercicios.ejercicio1(programadores); // Este Caso Funciona con los Dos Primeros Imports.
+    DOM.resutlado1.innerHTML = ejercicios.ejercicio1(programadores); // Este Caso Funciona con los Dos Primeros Imports.
 
-    // DOM.resutlado2.innerHTML = ejercicios.ejercicio2(programadores);
+    DOM.resutlado2.innerHTML = ejercicios.ejercicio2(programadores);
 
-    // DOM.resutlado3.innerHTML = ejercicios.ejercicio3(programadores);
+    DOM.resutlado3.innerHTML = ejercicios.ejercicio3(programadores);
 
-    // DOM.resutlado4.innerHTML = ejercicios.ejercicio4(programadores,4);
+    DOM.resutlado4.innerHTML = ejercicios.ejercicio4(programadores,4);
 
-    // DOM.resutlado5.innerHTML = ejercicios.ejercicio5(programadores, "Ana");
+    DOM.resutlado5.innerHTML = ejercicios.ejercicio5(programadores, "Ana");
 
-    DOM.resutlado1.innerHTML = ejercicio1(programadores); // Así Funciona con Todos los Nombres, si se Usa la Importación Dinámica crea la lista completa de Funciones Importadas.
-    DOM.resutlado2.innerHTML = ejercicio2(programadores);
-    DOM.resutlado3.innerHTML = ejercicio3(programadores);
-    DOM.resutlado4.innerHTML = ejercicio4(programadores, 4);
-    DOM.resutlado5.innerHTML = ejercicio5(programadores, "Pedro");
+    DOM.resutlado6.innerHTML = ejercicios.ejercicio6(programadores); // Este Caso Funciona con los Dos Primeros Imports.
+
+    DOM.resutlado7.innerHTML = ejercicios.ejercicio7(programadores);
+
+    DOM.resutlado8.innerHTML = ejercicios.ejercicio8(programadores);
+
+    DOM.resutlado9.innerHTML = ejercicios.ejercicio9(programadores,4);
+
+    DOM.resutlado10.innerHTML = ejercicios.ejercicio10(programadores, "Ana");
+
+    // DOM.resutlado1.innerHTML = ejercicio1(programadores); // Así Funciona con Todos los Nombres, si se Usa la Importación Dinámica crea la lista completa de Funciones Importadas.
+    // DOM.resutlado2.innerHTML = ejercicio2(programadores);
+    // DOM.resutlado3.innerHTML = ejercicio3(programadores);
+    // DOM.resutlado4.innerHTML = ejercicio4(programadores, 4);
+    // DOM.resutlado5.innerHTML = ejercicio5(programadores, "Pedro");
 })()

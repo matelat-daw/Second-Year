@@ -119,3 +119,5 @@ CREATE TABLE [dbo].[Review] (
 GO
 CREATE NONCLUSTERED INDEX [IX_Review_ArtistId]
     ON [dbo].[Review]([ArtistId] ASC);
+	
+	Musica_ApellidoNombre
