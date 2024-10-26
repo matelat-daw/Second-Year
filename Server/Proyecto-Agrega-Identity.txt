@@ -1,0 +1,127 @@
+Configuración del proyecto sin Identity (Northwind) que hay que agregarseló después:
+
+Se Crea un nuevo proyecto MVC sin Identity(en la seguna ventana al crear el proyecto aparce en primer lugar el Framework, la version de .net a utilizar y la segunda opción es: Authentication Type o Tipo de Identificacion en Español, Por defecto está None o Ninguna que es el que se va a utilizar en este proyecto). (Para crear un proyecto con Identity se selecciona Individual Accounts o Cuentas Individuales en Español.)
+
+Se Instalan los paquetes Nuget Necesarios:
+
+Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore
+
+Microsoft.AspNetCore.Identity.EntityFrameworkCore
+
+Microsoft.AspNetCore.Identity.UI
+
+Microsoft.EntityFrameworkCore.SqlServer
+
+Microsoft.EntityFrameworkCore.Tools
+
+Microsoft.VisualStudio.Web.CodeGeneration.Design
+
+Y se necesita la Herramienta EF Core Power Tools:
+
+Vamos a usar la base de datos Northwind, se hace Ingeniería inversa con EF Core Power Tools (Botón derecho sobre el nombre del proyecto => EF Core Power Tools => Ingenieria Inversa) y se Crean los modelos de las tablas de la base de datos necesarias (En este Caso Shippers).
+
+Posteriormente se agreaga la cadena de conexión en Program.cs y en appsettings.json así:
+
+Program.cs:
+
+builder.Services.AddDbContext<NorthwindContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("conn"))); // conn es el nombre de la cadena de conexión como se puede ver en appsettings.json.
+
+appsettings.json:
+
+"ConnectionStrings": {
+  "conn": "Server=(localdb)\\MSSQLLocalDB; Database=Northwind; Trusted_Connection=True; TrustServerCertificate=True"
+}
+
+Teniendo la conexión con la base de datos se puede hacer el scaffold de las vistas y controladores de las tablas agregadas por ingeniería inversa:
+
+Botón derecho en Controllers => Add(Agregar) => New Scaffolded Item => MVC, MVC Controller with views, using Entity Framework y se Selecciona la Clase(Modelo) Shippers.
+
+Para Agregar Identity al Proyecto:
+
+Hay que modificar Program.cs y la Clase de Contexto agregando:
+
+Program.cs:
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<NorthwindContext>();
+
+Y justo en la Línea que se encuentra: app.UseAuthorization(); se pone por encima y por debajo las líneas 
+
+app.UseAuthentication();
+
+app.UseAuthorization();
+
+app.MapRazorPages();
+
+
+Y en NorthwindContext.cs):
+
+public partial class NorthwindContext : IdentityDbContext // Se añade la palabra Identity antes de DBContext, muestra la linea subrayada en rojo ya que necesita la Clase Identity, hay que agregar el using:
+
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+
+Y en el Método OnModelCreating hay que modificar la línea para que quede así:
+
+base.OnModelCreating(modelBuilder);
+
+Además hay que excluri la tabla Shippers de la Próxima migración agregando la línea:
+
+modelBuilder.Entity<Shipper>().ToTable("Shippers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Shippers.
+
+
+En este punto ya podemos hacer la migración para agregar las tablas a la base de datos para el registro y login de usuario:
+
+add-migration Initial
+
+y Posteriormente update-database
+
+Una vez creadas las tablas en la base de datos hay que crear el Scaffold para Identity:
+
+Botón decrecho sobre El Nombre del Proyecto Add => New Scaffolded Item => En el Menú de la Izquierda Seleccionar Identity => Identity
+ Se creará el Directorio Areas con el Árbol de Directorios y las vistas para el Log in y registro de Usuarios.
+ 
+ Habrá que Editar Todas las Vistas para Poner los Nombres en Español, en el Modelo de Shipper hay que Agregar las Data Annotations Para Poner los Nombres de los Campos en Español.
+ 
+ Principalmente hay que agregar a Index del Controlador Home:
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="text-center">
+        <h1 class="display-4">Te Damos la Bienvenida A Nuestra WEB de Transportistas</h1>
+        <h3>Podrás Seleccionar el Transoprtista que Quieras</h3>
+        <a asp-controller="Shippers" asp-action="Index" class="btn btn-primary bttn-lg"><i class="bi bi-info-circle-fill"></i>Ver Transportistas</a>
+        <br />
+        <p>Tomate unos Segundos para leer y Aceptar Nuestra <a asp-action="Privacy">Política de Privacidad</a>, ya que te Registraste Antes de Leerla.</p>
+    </div>
+}
+else
+{
+    <h1>Para poder Ver y Seleccionar tu Transportista Deberás Rergistrarte. Gracias</h1>
+}
+ 
+La Comprobación de si el Usuario Está Logueado y Mostrarle los Enlaces a la Lista de Shippers y a la Política de Privacidad, También se agrega en la Vista Privacy, en todas las vistas del Shipper(Index, Create, Details, Edit, Delete).
+
+En el Layout principal _Layout.cshtml:
+
+<div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+    <ul></ul>
+    <partial name="_LoginPartial" />
+</div>
+
+Dentro del div clase navbar-collapse dejar la lista desordenada <ul></ul> y a Continuación Poner el <partial name="_LoginPartial"> Para Ver los Botones de Registro y Login o Logout según el caso, a la derecha de la Pantalla.
+
+Por Último Habría que Modificar Program.cs la Línea que agregamos al principio: 
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<NorthwindContext>();
+
+Hay que Reemplazarla por Esta Otra o Mejor Ponerla así de Entrada:
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => {
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 5;
+    options.Password.RequiredUniqueChars = 0;
+})
+.AddEntityFrameworkStores<NorthwindContext>();
