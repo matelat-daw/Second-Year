@@ -145,6 +145,6 @@ function defaultColor()
     }
     for (let i = 0; i < DOM.button.length; i++)
     {
-        DOM.button[i].style.background = "grey"
+        DOM.button[i].style.background = "#198754"
     }
 }
