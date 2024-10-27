@@ -7,52 +7,59 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body id="body">
-    <section>
-        <header class="row">
-            <div class="col-md-4">
-                <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="125">
-            </div>
-            <div class="col-md-4">
-                <select id="style" onchange="changeStyle(this.value)">
-                    <option value="">Selecciona tu Estilo</option>
-                    <option value="young">Joven</option>
-                    <option value="sober">Sobrio</option>
-                    <option value="asset">Activo</option>
-                    <option value="elegant">Elegante</option>
-                </select>
-            </div>
-            <div class="col-md-4">
-                <div class="nav nav-tabs" id="nav-tab" role="tablist" >
-                    <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Contacto</a>
-                    <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Log in</a>
-                    <a class="nav-link" aria-current="page" href="#" target="_blank" aria-selected="false" role="tab" aria-controls="nav-contact">Regístrate</a>
+    <section class="row">
+        <header class="navbar bg-white border rounded">
+            <div class="container-fluid">
+                <div class="col-md-4">
+                    <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="125">
+                </div>
+                <div class="col-md-4">
+                    <select id="style" onchange="changeStyle(this.value)">
+                        <option value="">Selecciona tu Estilo</option>
+                        <option value="young">Joven</option>
+                        <option value="sober">Sobrio</option>
+                        <option value="asset">Activo</option>
+                        <option value="elegant">Elegante</option>
+                        <option value="default">Minimalista</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                        <div class="nav" id="nav-tab">
+                        <a class="nav-link" href="#">Contacto</a>
+                        <a class="nav-link" href="#">Log in</a>
+                        <a class="nav-link" href="#">Regístrate</a>
+                    </div>
                 </div>
             </div>
         </header>
     </section>
-    <section class="border rounded">
-        <nav class="navbar bg-white">
-            <div class="col-md-12"> <!-- Columnas con el menú de navegación. -->
-                <div class="nav nav-tabs" id="nav-tab" role="tablist" >
-                    <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Inicio</a>
-                    <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Ventas</a>
-                    <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Compras</a>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <section class="row">
+        <nav id="nav" class="navbar bg-white border rounded">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="nav" id="nav-tab">
+                            <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Inicio</a>
+                            <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Ventas</a>
+                            <a class="nav-link" aria-current="page" href="#" aria-selected="false" role="tab" aria-controls="nav-contact">Compras</a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </section>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
     <section class="row">
-        <aside class="border rounded col-md-2">
+        <aside id="aside" class="border rounded col-md-3">
             <div class="container-fluid">
-                <div class="row flex-nowrap">
-                    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-white">
+                <div class="row">
                         <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-                            <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                                <li class="nav-item">
-                                <a href="#" class="nav-link align-middle px-0">
-                                <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">inicio</span>
-                                </a>
-                                </li>
+                            <menu class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                                 <li>
                                     <a href="#" data-bs-toggle="collapse" class="nav-link px-0 align-middle">Más vendidos</span> </a>
                                 </li>
@@ -65,44 +72,85 @@
                                 <li>
                                     <a href="#" class="nav-link px-0 align-middle">Mis Pedidos</span></a>
                                 </li>
-                            </ul>
+                            </menu>
                             <hr>
                         </div>
                     </div>
                 </div>
             </div>
         </aside>
-        <main class="col-md-10">
-            <div class="row border rounded">
+        <main class="col-md-9 border rounded">
+            <div class="row">
                 <div class="col-md-12">
                     <div>
                         <div class="row">
                             <div class="col-md-4">
-                                <ul class="list-group">
+                                <menu class="list-group">
                                     <li class="list-group-item"><img src="img/1.jpg" alt="Imagen" class="img-fluid"></li>
                                     <li class="list-group-item"><h3>Título</h3></li>
                                     <li class="list-group-item"><p>Descripción</p></li>
                                     <li class="list-group-item"><p>1500€</p></li>
                                     <li class="list-group-item"><button class="btn btn-success btn-lg">Comprar</button></li>
-                                </ul>
+                                </menu>
                             </div>
                             <div class="col-md-4">
-                                <ul class="list-group">
-                                    <li class="list-group-item align-items-center"><img src="img/2.jpg" alt="Imagen" class="img-fluid"></li>
+                                <menu class="list-group">
+                                    <li class="list-group-item"><img src="img/2.jpg" alt="Imagen" class="img-fluid"></li>
                                     <li class="list-group-item"><h3>Título</h3></li>
                                     <li class="list-group-item"><p>Descripción</p></li>
                                     <li class="list-group-item"><p>750€</p></li>
                                     <li class="list-group-item"><button class="btn btn-success btn-lg">Comprar</button></li>
-                                </ul>
+                                </menu>
                             </div>
                             <div class="col-md-4">
-                                <ul class="list-group">
-                                    <li class="list-group-item align-items-center"><img src="img/3.jpg" alt="Imagen" class="img-fluid"></li>
+                                <menu class="list-group">
+                                    <li class="list-group-item"><img src="img/3.jpg" alt="Imagen" class="img-fluid"></li>
                                     <li class="list-group-item"><h3>Título</h3></li>
                                     <li class="list-group-item"><p>Descripción</p></li>
                                     <li class="list-group-item"><p>250€</p></li>
                                     <li class="list-group-item"><button class="btn btn-success btn-lg">Comprar</button></li>
-                                </ul>
+                                </menu>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">&nbsp;</div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <menu class="list-group">
+                                    <li class="list-group-item"><img src="img/4.jpg" alt="Imagen" class="img-fluid"></li>
+                                    <li class="list-group-item"><h3>Título</h3></li>
+                                    <li class="list-group-item"><p>Descripción</p></li>
+                                    <li class="list-group-item"><p>1500€</p></li>
+                                    <li class="list-group-item"><button class="btn btn-success btn-lg">Comprar</button></li>
+                                </menu>
+                            </div>
+                            <div class="col-md-3">
+                                <menu class="list-group">
+                                    <li class="list-group-item"><img src="img/5.jpg" alt="Imagen" class="img-fluid"></li>
+                                    <li class="list-group-item"><h3>Título</h3></li>
+                                    <li class="list-group-item"><p>Descripción</p></li>
+                                    <li class="list-group-item"><p>750€</p></li>
+                                    <li class="list-group-item"><button class="btn btn-success btn-lg">Comprar</button></li>
+                                </menu>
+                            </div>
+                            <div class="col-md-3">
+                                <menu class="list-group">
+                                    <li class="list-group-item"><img src="img/6.jpg" alt="Imagen" class="img-fluid"></li>
+                                    <li class="list-group-item"><h3>Título</h3></li>
+                                    <li class="list-group-item"><p>Descripción</p></li>
+                                    <li class="list-group-item"><p>250€</p></li>
+                                    <li class="list-group-item"><button class="btn btn-success btn-lg">Comprar</button></li>
+                                </menu>
+                            </div>
+                            <div class="col-md-3">
+                                <menu class="list-group">
+                                    <li class="list-group-item"><img src="img/7.jpg" alt="Imagen" class="img-fluid"></li>
+                                    <li class="list-group-item"><h3>Título</h3></li>
+                                    <li class="list-group-item"><p>Descripción</p></li>
+                                    <li class="list-group-item"><p>250€</p></li>
+                                    <li class="list-group-item"><button class="btn btn-success btn-lg">Comprar</button></li>
+                                </menu>
                             </div>
                         </div>
                     </div>
@@ -110,10 +158,23 @@
             </div>
         </main>
     </section>
-    <section class="border rounded">
-        <footer>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <section>
+        <!-- <footer id="footer" class="border rounded">
             <p><small>Copyright & Trademark 2024 César Matelat - Contactame <a href="mailto:cesarmatelat@gmail.com">Aquí</a></small></p>
-        </footer>
+        </footer> -->
+        <div class="row">
+            <div class="col-md-12">
+                <footer class="text-center text-lg-start bg-light text-muted footer border rounded">
+                    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+                        WEB Design © 2023 César Osvaldo Matelat Borneo.
+                        <a href="mailto:cesarmatelat@gmail.com">E-Mail</a>
+                    </div>
+                </footer>
+            </div>
+        </div>
     </section>
     <script src="js/main.js"></script>
 </body>
