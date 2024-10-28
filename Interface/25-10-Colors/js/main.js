@@ -1,21 +1,6 @@
 const DOM = {
-    body: document.getElementById("body"),
-    header: document.getElementById("header"),
-    nav: document.getElementById("nav"),
-    aside: document.getElementById("aside"),
-    main: document.getElementById("main"),
-    select: document.getElementById("style"),
-    list: document.querySelector(".list-group-item"),
-    anchor: document.querySelector(".nav-link"),
-    footer: document.getElementById("footer"),
-    footer_text: document.getElementById("footer-text"),
-    button: document.querySelector(".btn")
+    body: document.getElementById("body")
 };
-
-function css( element, property )
-{
-    return window.getComputedStyle(element, null).getPropertyValue(property);
-}
 
 function changeStyle(style)
 {

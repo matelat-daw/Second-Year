@@ -1,7 +1,7 @@
 body
 {
-    --color-button: green;
-    --color-a: blue;
+    --color-button: #198754;
+    --color-a: #0066cc;
     background-color: var(--color-fondo);
     color: var(--color-texto);
 
@@ -104,9 +104,4 @@ body
     --color-li_back: #865444;
     --color-a: darkslategray;
     --color-footer_back: rgb(80, 80, 80);
-}
-
-.default
-{
-    
 }
