@@ -1,6 +1,6 @@
-Configuración del proyecto sin Identity (Northwind) que hay que agregarseló después:
+Configuración del proyecto sin Identity (Northwind) que hay que agregárselo después:
 
-Se Crea un nuevo proyecto MVC sin Identity(en la seguna ventana al crear el proyecto aparce en primer lugar el Framework, la version de .net a utilizar y la segunda opción es: Authentication Type o Tipo de Identificacion en Español, Por defecto está None o Ninguna que es el que se va a utilizar en este proyecto). (Para crear un proyecto con Identity se selecciona Individual Accounts o Cuentas Individuales en Español.)
+Se Crea un nuevo proyecto MVC sin Identity(en la segunda ventana al crear el proyecto aparce en primer lugar el Framework, la version de .net a utilizar y la segunda opción es: Authentication Type o Tipo de Identificacion en Español, Por defecto está None o Ninguna que es el que se va a utilizar en este proyecto). (Para crear un proyecto con Identity se selecciona Individual Accounts o Cuentas Individuales en Español.)
 
 Se Instalan los paquetes Nuget Necesarios:
 
@@ -63,7 +63,7 @@ Y en el Método OnModelCreating hay que modificar la línea para que quede así:
 
 base.OnModelCreating(modelBuilder);
 
-Además hay que excluri la tabla Shippers de la Próxima migración agregando la línea:
+Además hay que excluir la tabla Shippers de la Próxima migración agregando la línea:
 
 modelBuilder.Entity<Shipper>().ToTable("Shippers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Shippers.
 
