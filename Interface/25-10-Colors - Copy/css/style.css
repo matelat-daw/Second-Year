@@ -20,21 +20,21 @@ aside
     background-color: var(--color-aside_back);
 }
 
-.btn
+button
 {
-    background-color: var(--color-button);
+    color: var(--color-button);
 }
 
-.list-group-item
+/* li
 {
     background-color: var(--color-li_back);
     color: var(--color-li);
-}
+} */
 
-.nav-link
+/* a
 {
     color: var(--color-a);
-}
+} */
 
 footer
 {
@@ -102,9 +102,4 @@ footer
     --color-li_back: #865444;
     --color-a: darkslategray;
     --color-footer_back: rgb(80, 80, 80);
-}
-
-.default
-{
-    
 }

@@ -9,11 +9,11 @@ const DOM = {
     footer_text: document.getElementById("footer-text"),
     anchor: document.querySelectorAll("a:not(#email)"),
     list: document.querySelectorAll('li:not(#aside-li-1):not(#aside-li-2):not(#aside-li-3):not(#aside-li-4)'),
-    // button: document.querySelectorAll("button")
-    button: document.getElementsByClassName("btn")
+    button: document.querySelectorAll("button")
 }; // Se excluyen los li con ID aside-l1-1 / 4, los que están en el Aside(Ya que el Aside Tiene un Fondo y si se le Aplica a los li del Aside, No Queda Bien) y el enlace del footer con ID email(Pare Verlo Mejor en los Estilos Sobrio y Elegante).
 
 let body_color = DOM.body.style.color;
+console.log("Color del Body" + body_color);
 let body_backcolor = DOM.body.style.backgroundColor;
 let header_backcolor = DOM.header.style.backgroundColor;
 let header_color = DOM.header.style.color;
@@ -29,15 +29,67 @@ function changeStyle(style)
     {
         case "young":
             DOM.body.className = "young";
+            // for (let i = 0; i < DOM.anchor.length; i++)
+            // {
+            //     DOM.anchor[i].style.color = "darkslategray";
+            // }
+            // for (let i = 0; i < DOM.list.length; i++)
+            // {
+            //     DOM.list[i].style.color = "darkslategray";
+            //     DOM.list[i].style.backgroundColor = "orange";
+            // }
+            // for (let i = 0; i < DOM.button.length; i++)
+            // {
+            //     DOM.button[i].style.background = "red";
+            // }
             break;
         case "sober":
             DOM.body.className = "sober";
+            for (let i = 0; i < DOM.anchor.length; i++)
+            {
+                DOM.anchor[i].style.color = "darkslategray";
+            }
+            for (let i = 0; i < DOM.list.length; i++)
+            {
+                DOM.list[i].style.color = "lightgray";
+                DOM.list[i].style.backgroundColor = "#404040";
+            }
+            for (let i = 0; i < DOM.button.length; i++)
+            {
+                DOM.button[i].style.background = "grey";
+            }
             break;
         case "asset":
             DOM.body.className = "asset";
+            for (let i = 0; i < DOM.anchor.length; i++)
+            {
+                DOM.anchor[i].style.color = "darkslategray";
+            }
+            for (let i = 0; i < DOM.list.length; i++)
+            {
+                DOM.list[i].style.color = "darkslategray";
+                DOM.list[i].style.backgroundColor = "#4040ff";
+            }
+            for (let i = 0; i < DOM.button.length; i++)
+            {
+                DOM.button[i].style.background = "pink";
+            }
             break;
         case "elegant":
             DOM.body.className = "elegant";
+            for (let i = 0; i < DOM.anchor.length; i++)
+            {
+                DOM.anchor[i].style.color = "darkslategray";
+            }
+            for (let i = 0; i < DOM.list.length; i++)
+            {
+                DOM.list[i].style.color = "darkslategray";
+                DOM.list[i].style.backgroundColor = "#865444";
+            }
+            for (let i = 0; i < DOM.button.length; i++)
+            {
+                DOM.button[i].style.background = "#ffd700";
+            }
             break;
     }
 
@@ -48,6 +100,7 @@ function changeStyle(style)
 function defaultColor()
 {
     DOM.body.style.color = body_color;
+    console.log(body_color);
     DOM.body.style.backgroundColor = body_backcolor;
     DOM.header.style.backgroundColor = header_backcolor;
     DOM.header.style.color = header_color;
@@ -64,8 +117,8 @@ function defaultColor()
         DOM.list[i].style.color = body_color;
         DOM.list[i].style.backgroundColor = body_backcolor;
     }
-    // for (let i = 0; i < DOM.button.length; i++)
-    // {
-    //     DOM.button[i].style.background = "#198754"
-    // }
+    for (let i = 0; i < DOM.button.length; i++)
+    {
+        DOM.button[i].style.background = "#198754"
+    }
 }
