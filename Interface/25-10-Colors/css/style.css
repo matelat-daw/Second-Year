@@ -1,45 +1,47 @@
 body
 {
+    --color-button: green;
+    --color-a: blue;
     background-color: var(--color-fondo);
     color: var(--color-texto);
-}
 
-header
-{
-    background-color: var(--color-header_back);
-    color: var(--color-header);
-}
+    header
+    {
+        background-color: var(--color-header_back);
+        color: var(--color-header);
+    }
 
-nav
-{
-    background-color: var(--color-nav_back);
-}
+    nav
+    {
+        background-color: var(--color-nav_back);
+    }
 
-aside
-{
-    background-color: var(--color-aside_back);
-}
+    aside
+    {
+        background-color: var(--color-aside_back);
+    }
 
-.btn
-{
-    background-color: var(--color-button);
-}
+    footer
+    {
+        background-color: var(--color-footer_back);
+        color: var(--color-footer);
+    }
 
-.list-group-item
-{
-    background-color: var(--color-li_back);
-    color: var(--color-li);
-}
+    .btn
+    {
+        background-color: var(--color-button);
+    }
 
-.nav-link
-{
-    color: var(--color-a);
-}
+    .list-group-item
+    {
+        background-color: var(--color-li_back);
+        color: var(--color-li);
+    }
 
-footer
-{
-    background-color: var(--color-footer_back);
-    color: var(--color-footer);
+    .nav-link
+    {
+        color: var(--color-a);
+    }
 }
 
 .young
