@@ -1,0 +1,105 @@
+body
+{
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+header
+{
+    background-color: var(--color-header_back);
+    color: var(--color-header);
+}
+
+nav
+{
+    background-color: var(--color-nav_back);
+}
+
+aside
+{
+    background-color: var(--color-aside_back);
+}
+
+button
+{
+    color: var(--color-button);
+}
+
+/* li
+{
+    background-color: var(--color-li_back);
+    color: var(--color-li);
+} */
+
+/* a
+{
+    color: var(--color-a);
+} */
+
+footer
+{
+    background-color: var(--color-footer_back);
+    color: var(--color-footer);
+}
+
+.young
+{
+    --color-texto: darkslategray;
+    --color-fondo: blue;
+    --color-header_back: cyan;
+    --color-nav_back: green;
+    --color-aside_back: green;
+    --color-button: red;
+    --color-li: darkslategray;
+    --color-li_back: orange;
+    --color-a: darkslategray;
+    --color-footer: black;
+    --color-footer_back: red;
+
+}
+
+.sober
+{
+    --color-texto: #f0f0f0;
+    --color-fondo: #0f0f0f;
+    --color-header_back: #808080;
+    --color-header: #f0f0f0;
+    --color-nav_back: #a0a0a0;
+    --color-aside_back: #a0a0a0;
+    --color-button: grey;
+    --color-li: lightgray;
+    --color-li_back: #404040;
+    --color-a: darkslategray;
+    --color-footer: black;
+    --color-footer_back: rgb(80, 80, 80);
+}
+
+.asset
+{
+    --color-texto: #f0f0f0;
+    --color-fondo: magenta;
+    --color-header_back: salmon;
+    --color-header: #f0f0f0;
+    --color-nav_back: lightblue;
+    --color-aside_back: lightblue;
+    --color-button: pink;
+    --color-li: darkslategray;
+    --color-li_back: #404040;
+    --color-a: darkslategray;
+    --color-footer_back: orange;
+}
+
+.elegant
+{
+    --color-texto: #f3eae8;
+    --color-fondo: #281207;
+    --color-header_back: #281207;
+    --color-header: #F0F0F0;
+    --color-nav_back: #c0c0c0;
+    --color-aside_back: #c0c0c0;
+    --color-button: #ffd700;
+    --color-li: darkslategray;
+    --color-li_back: #865444;
+    --color-a: darkslategray;
+    --color-footer_back: rgb(80, 80, 80);
+}

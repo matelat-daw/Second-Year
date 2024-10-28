@@ -7,10 +7,10 @@ const DOM = {
     select: document.getElementById("style"),
     footer: document.getElementById("footer"),
     footer_text: document.getElementById("footer-text"),
-    anchor: document.querySelectorAll("a"),
+    anchor: document.querySelectorAll("a:not(#email)"),
     list: document.querySelectorAll('li:not(#aside-li-1):not(#aside-li-2):not(#aside-li-3):not(#aside-li-4)'),
     button: document.querySelectorAll("button")
-};
+}; // Se excluyen los li con ID aside-l1-1 / 4, los que están en el Aside(Ya que el Aside Tiene un Fondo y si se le Aplica a los li del Aside, No Queda Bien) y el enlace del footer con ID email(Pare Verlo Mejor en los Estilos Sobrio y Elegante).
 
 let body_color = DOM.body.style.color;
 let body_backcolor = DOM.body.style.backgroundColor;
@@ -21,22 +21,13 @@ let aside_color = DOM.nav.style.backgroundColor;
 let main_color = DOM.nav.style.backgroundColor;
 let footer_color = DOM.nav.style.backgroundColor;
 
-console.log("El color de fondo del body es: " + body_backcolor.toString());
-console.log("El color de fuentes del body es: " + body_color.toString());
-
 function changeStyle(style)
 {
     defaultColor();
     switch (style)
     {
         case "young":
-            DOM.body.style.color = "darkslategray";
-            DOM.body.style.backgroundColor = "blue";
-            DOM.header.style.backgroundColor = "cyan";
-            DOM.nav.style.backgroundColor = "green";
-            DOM.aside.style.backgroundColor = "green";
-            DOM.footer.style.backgroundColor = "red";
-            DOM.footer_text.style.color = "black";
+            DOM.body.className = "young";
             for (let i = 0; i < DOM.anchor.length; i++)
             {
                 DOM.anchor[i].style.color = "darkslategray";
@@ -52,14 +43,7 @@ function changeStyle(style)
             }
             break;
         case "sober":
-            DOM.body.style.color = "#f0f0f0";
-            DOM.body.style.backgroundColor = "#0f0f0f";
-            DOM.header.style.backgroundColor = "#808080";
-            DOM.header.style.color = "#F0F0F0";
-            DOM.nav.style.backgroundColor = "#a0a0a0";
-            DOM.aside.style.backgroundColor = "#a0a0a0";
-            DOM.footer.style.backgroundColor = "rgb(80, 80, 80)";
-            DOM.footer_text.style.color = "black";
+            DOM.body.className = "sober";
             for (let i = 0; i < DOM.anchor.length; i++)
             {
                 DOM.anchor[i].style.color = "darkslategray";
@@ -75,13 +59,7 @@ function changeStyle(style)
             }
             break;
         case "asset":
-            DOM.body.style.color = "#f0f0f0";
-            DOM.body.style.backgroundColor = "magenta";
-            DOM.header.style.backgroundColor = "salmon";
-            DOM.header.style.color = "#f0f0f0";
-            DOM.nav.style.backgroundColor = "lightblue";
-            DOM.aside.style.backgroundColor = "lightblue";
-            DOM.footer.style.backgroundColor = "orange";
+            DOM.body.className = "asset";
             for (let i = 0; i < DOM.anchor.length; i++)
             {
                 DOM.anchor[i].style.color = "darkslategray";
@@ -89,7 +67,7 @@ function changeStyle(style)
             for (let i = 0; i < DOM.list.length; i++)
             {
                 DOM.list[i].style.color = "darkslategray";
-                DOM.list[i].style.backgroundColor = "blue";
+                DOM.list[i].style.backgroundColor = "#4040ff";
             }
             for (let i = 0; i < DOM.button.length; i++)
             {
@@ -97,13 +75,7 @@ function changeStyle(style)
             }
             break;
         case "elegant":
-            DOM.body.style.color = "#f3eae8";
-            DOM.body.style.backgroundColor = "#281207";
-            DOM.header.style.backgroundColor = "#281207";
-            DOM.header.style.color = "#F0F0F0";
-            DOM.nav.style.backgroundColor = "#c0c0c0";
-            DOM.aside.style.backgroundColor = "#c0c0c0";
-            DOM.footer.style.backgroundColor = "rgb(80, 80, 80)";
+            DOM.body.className = "elegant";
             for (let i = 0; i < DOM.anchor.length; i++)
             {
                 DOM.anchor[i].style.color = "darkslategray";
@@ -111,13 +83,14 @@ function changeStyle(style)
             for (let i = 0; i < DOM.list.length; i++)
             {
                 DOM.list[i].style.color = "darkslategray";
-                DOM.list[i].style.backgroundColor = "#562414";
+                DOM.list[i].style.backgroundColor = "#865444";
             }
             for (let i = 0; i < DOM.button.length; i++)
             {
                 DOM.button[i].style.background = "#ffd700";
             }
             break;
+        default:
     }
 
     let option = document.querySelector(`#style option[value=""]`);
@@ -127,6 +100,7 @@ function changeStyle(style)
 function defaultColor()
 {
     DOM.body.style.color = body_color;
+    console.log(body_color);
     DOM.body.style.backgroundColor = body_backcolor;
     DOM.header.style.backgroundColor = header_backcolor;
     DOM.header.style.color = header_color;
