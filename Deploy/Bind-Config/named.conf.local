@@ -1,0 +1,32 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+zone "2dawACesar.edu"
+{
+	type master;
+	file "/etc/bind/db.2dawACesar.edu";
+	allow-transfer {10.0.16.3;};
+};
+
+zone "16.0.10.in-addr.arpa"
+{
+	type master;
+	file "/etc/bind/db.16.0.10";
+};
+
+zone "cifpcm.test"
+{
+	type master;
+	file "/etc/bind/db.cifpcm.test";
+};
+
+zone "daw.test"
+{
+	type master;
+	file "/etc/bind/db.daw.test";
+};
