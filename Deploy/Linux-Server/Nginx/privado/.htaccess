@@ -1,0 +1,6 @@
+AuthUserFile /home/.htpasswd
+AuthName "cifpcm.test"
+AuthType Basic
+<Limit GET POST>
+require valid-user
+</Limit>

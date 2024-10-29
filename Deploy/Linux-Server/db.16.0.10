@@ -1,0 +1,14 @@
+;
+; BIND reverse data file for "this host on this network" zone
+;
+$TTL	604800
+@	IN	SOA	cifpcm.test. root.localhost. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+;
+	IN	NS	orion.cifpcm.test.
+5	IN	PTR	orion.cifpcm.test
+10	IN	PTR	backup.cifpcm.test
