@@ -1,9 +1,9 @@
 body
 {
-    --color-button: #198754;
-    --color-a: #0066cc;
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
+    --color-button: #198754; /* Color de los botones predeterminado */
+    --color-a: #0066cc; /* Color de los Enlaces predeterminado */
+    background-color: var(--color-fondo); /* Color de fonde del body */
+    color: var(--color-texto); /* Color del texto del body */
 
     header
     {
@@ -55,9 +55,23 @@ body
     --color-li: darkslategray;
     --color-li_back: orange;
     --color-a: darkslategray;
-    --color-footer: black;
     --color-footer_back: red;
 
+    .text-center /* Cambio el color de la clase text-center, que tiene footer. */
+    {
+        color: black;
+    }
+
+    .btn /* Cambio el color de la clase btn(Botones de Bootstrap) */
+    {
+        color: black;
+    }
+
+    .btn:hover /* Cambio el Comprtamiento cuando paso encima del botón(hover) */
+    {
+        background-color: #198754;
+        color: #f0f0f0;
+    }
 }
 
 .sober
@@ -72,8 +86,23 @@ body
     --color-li: lightgray;
     --color-li_back: #404040;
     --color-a: darkslategray;
-    --color-footer: black;
     --color-footer_back: rgb(80, 80, 80);
+
+    .text-center
+    {
+        color: white;
+    }
+    
+    .btn
+    {
+        color: black;
+    }
+
+    .btn:hover
+    {
+        background-color: #0f0f0f;
+        color: #f0f0f0;
+    }
 }
 
 .asset
@@ -86,9 +115,25 @@ body
     --color-aside_back: lightblue;
     --color-button: pink;
     --color-li: darkslategray;
-    --color-li_back: #404040;
+    --color-li_back: #8080ff;
     --color-a: darkslategray;
     --color-footer_back: orange;
+
+    .text-center
+    {
+        color: black;
+    }
+
+    .btn
+    {
+        color: black;
+    }
+
+    .btn:hover
+    {
+        background-color: salmon;
+        color: #f0f0f0;
+    }
 }
 
 .elegant
@@ -101,7 +146,35 @@ body
     --color-aside_back: #c0c0c0;
     --color-button: #ffd700;
     --color-li: darkslategray;
-    --color-li_back: #865444;
+    --color-li_back: #969454;
     --color-a: darkslategray;
     --color-footer_back: rgb(80, 80, 80);
+
+    .text-center
+    {
+        color: white;
+    }
+
+    .btn
+    {
+        color: black;
+    }
+
+    .btn:hover
+    {
+        background-color: #0f0f0f;
+        color: wheat;
+    }
+}
+
+.hi_contrast
+{   
+    font-size: 1.25em;
+    font-weight: bold;
+    --color-button: #ffd700;
+
+    button /* Cambio el color del texto del botón para que al pasar por encima, cambien el color del botón y el color del texto. */
+    {
+        color: black;
+    }
 }

@@ -1,5 +1,5 @@
 const DOM = {
-    body: document.getElementById("body")
+    body: document.body
 };
 
 function changeStyle(style)
@@ -17,6 +17,9 @@ function changeStyle(style)
             break;
         case "elegant":
             DOM.body.className = "elegant";
+            break;
+        case "hight":
+            DOM.body.className = "hi_contrast";
             break;
         default:
             DOM.body.className = "reset-style";
