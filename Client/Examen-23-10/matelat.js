@@ -57,6 +57,7 @@ export function ejercicio6 (programadores, nombre){
     /*  Retorna TRUE si hay algún programador cuyo nombre es el nombre pasado por parámetros.
         En caso contrario retorna FALSE*/
         resultado = programadores.filter(programador => programador.nombre == nombre);
+        // resultado = programadores.find(programador => programador.nombre == nombre);
         if (resultado.length > 0)
         {
             resultado = true;
@@ -70,7 +71,8 @@ export function ejercicio6 (programadores, nombre){
     return resultado;
 }
 
-export function ejercicio7 (/*programa los parámetros*/ ){
+// export function ejercicio7 (/*programa los parámetros*/ ){
+    export function ejercicio7 (...lenguaje1){
     /* La función tiene un número variable de parámetros.
        El primero es una clave y resto son lenguajes de programación
        La función guarda en el localStorage con la clave los lengajes como
