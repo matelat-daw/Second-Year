@@ -98,7 +98,7 @@ else
     <h1>Para poder Ver y Seleccionar tu Transportista Deberás Rergistrarte. Gracias</h1>
 }
  
-La Comprobación de si el Usuario Está Logueado y Mostrarle los Enlaces a la Lista de Shippers y a la Política de Privacidad, También se agrega en la Vista Privacy, en todas las vistas del Shipper(Index, Create, Details, Edit, Delete). Tmbién se Puede Agregar [Authorize] en el Controller Dentro del namespace antes de la Clase.
+La Comprobación de si el Usuario Está Logueado y Mostrarle los Enlaces a la Lista de Shippers y a la Política de Privacidad, También se agrega en la Vista Privacy, en todas las vistas del Shipper(Index, Create, Details, Edit, Delete). También se Puede Agregar [Authorize] en el Controller Dentro del namespace antes de la Clase.
 
 En el Layout principal _Layout.cshtml:
 
