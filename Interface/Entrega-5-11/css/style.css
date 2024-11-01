@@ -1,30 +1,34 @@
-.switch {
+.switch
+{
     position: relative;
     display: inline-block;
-    top: 48px;
+    top: 0;
     width: 60px;
     height: 34px;
-  }
+}
   
-  .switch input { 
+.switch input
+{ 
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
   
-  .slider {
+.slider
+{
     position: absolute;
     cursor: pointer;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #ccc;
+    background-color: #DDD;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
   
-  .slider:before {
+.slider:before
+{
     position: absolute;
     content: "";
     height: 26px;
@@ -34,26 +38,136 @@
     background-color: white;
     -webkit-transition: .4s;
     transition: .4s;
-  }
+}
   
-  input:checked + .slider {
-    background-color: #2196F3;
-  }
+input:checked + .slider
+{
+    background-color: #444;
+}
   
-  input:focus + .slider {
-    box-shadow: 0 0 1px #2196F3;
-  }
+input:focus + .slider
+{
+    box-shadow: 0 0 1px #444;
+}
   
-  input:checked + .slider:before {
+input:checked + .slider:before
+{
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
+}
 
-.slider.round {
+.slider.round
+{
     border-radius: 34px;
-  }
+}
   
-  .slider.round:before {
+.slider.round:before
+{
     border-radius: 50%;
-  }
+}
+
+body
+{
+    background-color: blueviolet;
+    --color-button: salmon; /* Color de los botones predeterminado */
+    /* --color-a: #0066cc; *//* Color de los Enlaces predeterminado */
+    background-color: var(--color-fondo); /* Color de fonde del body */
+    color: var(--color-texto); /* Color del texto del body */
+
+    header
+    {
+        background-color: var(--color-header_back);
+        color: var(--color-header);
+    }
+
+    nav
+    {
+        background-color: var(--color-nav_back);
+    }
+
+    aside
+    {
+        background-color: var(--color-aside_back);
+    }
+
+    footer
+    {
+        background-color: var(--color-footer_back);
+        color: var(--color-footer);
+    }
+
+    .btn
+    {
+        background-color: var(--color-button);
+    }
+
+    .btn:hover
+    {
+        background-color: #9b3cf3;
+    }
+}
+
+/* header
+{
+    background-color: aqua;
+}
+
+.bar
+{
+    background-color: blue;
+}
+
+.aside
+{
+    background-color: lightblue;
+}
+
+.footer
+{
+    background-color: purple;
+    .color
+    {
+        color: wheat;
+    }
+}
+
+.btn
+{
+    background-color: var(--color-button);
+}
+
+.btn:hover
+{
+    background-color: #9b3cf3;
+} */
+
+.dark
+{
+    --color-texto: #f0f0f0;
+    --color-fondo: #0f0f0f;
+    --color-header_back: #808080;
+    --color-header: #f0f0f0;
+    --color-nav_back: #a0a0a0;
+    --color-aside_back: #a0a0a0;
+    --color-button: grey;
+    --color-li: lightgray;
+    --color-li_back: #404040;
+    --color-a: darkslategray;
+    --color-footer_back: rgb(80, 80, 80);
+    --color-footer: wheat;
+}
+
+.light
+{
+    --color-texto: #000;
+    --color-fondo: blueviolet;
+    --color-header_back: #00ffff;
+    --color-header: #000;
+    --color-nav_back: blue;
+    --color-aside_back: lightblue;
+    --color-button: grey;
+    --color-a: darkslategray;
+    --color-footer_back: purple;
+    --color-footer: wheat;
+}

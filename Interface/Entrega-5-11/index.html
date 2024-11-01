@@ -9,27 +9,33 @@
 </head>
 <body>
     <section>
-        <header class="navbar border rounded">
+        <header class="navbar border rounded row">
             <div class="container-fluid">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="125">
                 </div>
-                <div class="col-md-2">
-                    <h1>Hielos Antarticos</h1>
-                    <select id="style" onchange="changeStyle(this.value)">
-                        <option value="" selected disabled>Selecciona tu Estilo</option>
-                        <option value="normal">Normal</option>
-                        <option value="contrast">Alto Contraste</option>
-                    </select>
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1>Hielos Antarticos</h1>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <select id="style" onchange="changeStyle(this.value)">
+                                <option value="" selected disabled>Selecciona tu Estilo</option>
+                                <option value="dark">Normal</option>
+                                <option value="light">Alto Contraste</option>
+                            </select>
+                        </div>
+                        <div class="col-md-9">Modo Claro
+                            <label class="switch">
+                                <input id="mode" type="checkbox" onchange="changeMode()">
+                                <span class="slider round"></span>
+                            </label> Modo Oscuro
+                        </div>
+                    </div>
                 </div>
-                <div class="col-md-2">
-                    <label class="switch">
-                        <input id="mode" type="checkbox" onchange="changeMode()">
-                        <span class="slider round"></span>
-                    </label>
-                </div>
-                <div class="col-md-4">
-                        <div class="nav">
+                <div class="col-md-3">
+                    <div class="nav">
                         <a class="nav-link" href="#">Contacto</a>
                         <a class="nav-link" href="#">Log in</a>
                         <a class="nav-link" href="#">Regístrate</a>
@@ -38,5 +44,58 @@
             </div>
         </header>
     </section>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <section class="row margin-left">
+        <nav class="navbar bar border rounded">
+            <div class="container-fluid">
+                <div class="col-md-12">
+                    <div class="nav">
+                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="#">Ventas</a>
+                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="#">Ventas</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </section>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <section class="row">
+        <aside class="aside col-md-2 border rounded">
+            <a class="nav-link" href="#">Inicio</a>
+            <a class="nav-link" href="#">Ventas</a>
+            <a class="nav-link" href="#">Inicio</a>
+            <a class="nav-link" href="#">Ventas</a>
+        </aside>
+        <article class="article col-md-5">
+            <img src="img/logo.jpg" alt="Barra de Hielo de 25 Kg." width="150%" class="img-fluid">
+        </article>
+        <description class="col-md-5">
+            <h2>Nuestro Producto Estrella</h2>
+            <p>La Barra de Hielo de 25 Kg. es tu Mejor Opción, si eres un Borracho Profesional</p>
+            <p>Nada de esas Bolsas con Hielos Cilíndricos o Cúbicos, que Después del Segundo Whiskey ya se te Derritio Todo(a Menos que seas un Gran Bebedor y no le Des Tiempo. Quienes Somos Nosotros para Juzgarte)</p>
+            <p>De Cualquier Manera La Barra de 25 Kg. Puedes Ponerla al Sol y Tiene Garantía de 16 horas, para Cuando se Termine la Garantía ya Será de Noche y se Seguirá Manteniendo en una Pieza.</p>
+            <p>Por la Compra de 2 Barras Obtienes Gratis Herramientas para Cortar Hielo(Guantes Incluidos).</p>
+            <img src="img/tools.jpg" alt="Herramientas para Corta Hielo">
+            <p>Precio: 6€, Si Llevas 2 10€(Incluye Herramientas)</p>
+            <button class="btn btn-lg">Comprar Ahora</button>
+        </description>
+    </section>
+    <div class="row">
+        <div class="col-md-12">&nbsp;</div>
+    </div>
+    <section>
+        <footer class="text-center text-lg-start text-muted footer border rounded">
+            <div class="text-center p-4 color">
+                WEB Design © 2023 César Osvaldo Matelat Borneo.
+                Contactame en Esta Dirección de <a href="mailto:cesarmatelat@gmail.com">E-Mail</a>
+            </div>
+        </footer>
+    </section>
+    <script src="js/script.js"></script>
 </body>
 </html>
