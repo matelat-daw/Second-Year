@@ -67,12 +67,32 @@ input:checked + .slider:before
     border-radius: 50%;
 }
 
+/* @media (prefers-color-scheme: light) {
+    body {
+        background-color: white;
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #000;
+        color: #fff;
+    }
+} */
+
+.dark
+{
+    body
+    {
+        background-color: #48cae4;
+        color: #03045e;
+    }
+}
+
 body
 {
-    background-color: blueviolet;
-    --color-button: salmon; /* Color de los botones predeterminado */
-    /* --color-a: #0066cc; *//* Color de los Enlaces predeterminado */
-    background-color: var(--color-fondo); /* Color de fonde del body */
+    background-color: var(--color-fondo); /* Color de fondo del body */
     color: var(--color-texto); /* Color del texto del body */
 
     header
@@ -89,11 +109,16 @@ body
     aside
     {
         background-color: var(--color-aside_back);
+        color: var(--color-aside);
     }
 
     footer
     {
         background-color: var(--color-footer_back);
+    }
+
+    .color
+    {
         color: var(--color-footer);
     }
 
@@ -104,70 +129,34 @@ body
 
     .btn:hover
     {
-        background-color: #9b3cf3;
-    }
-}
-
-/* header
-{
-    background-color: aqua;
-}
-
-.bar
-{
-    background-color: blue;
-}
-
-.aside
-{
-    background-color: lightblue;
-}
-
-.footer
-{
-    background-color: purple;
-    .color
-    {
+        background-color: #aaaaaa;
         color: wheat;
     }
 }
 
-.btn
-{
-    background-color: var(--color-button);
-}
-
-.btn:hover
-{
-    background-color: #9b3cf3;
-} */
-
 .dark
 {
-    --color-texto: #f0f0f0;
+    --color-texto: #808080;
     --color-fondo: #0f0f0f;
-    --color-header_back: #808080;
+    --color-header_back: #545454;
     --color-header: #f0f0f0;
     --color-nav_back: #a0a0a0;
+    --color-aside: #0a0a0a;
     --color-aside_back: #a0a0a0;
     --color-button: grey;
-    --color-li: lightgray;
-    --color-li_back: #404040;
-    --color-a: darkslategray;
     --color-footer_back: rgb(80, 80, 80);
     --color-footer: wheat;
 }
 
 .light
 {
-    --color-texto: #000;
-    --color-fondo: blueviolet;
-    --color-header_back: #00ffff;
+    --color-texto: #808080;
+    --color-fondo: #03045e;
+    --color-header_back: #48cae4;
     --color-header: #000;
     --color-nav_back: blue;
     --color-aside_back: lightblue;
     --color-button: grey;
-    --color-a: darkslategray;
-    --color-footer_back: purple;
+    --color-footer_back: #023e8a;
     --color-footer: wheat;
 }

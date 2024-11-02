@@ -20,17 +20,17 @@
                     </div>
                     <div class="row">
                         <div class="col-md-3">
-                            <select id="style" onchange="changeStyle(this.value)">
+                            <select onchange="changeStyle(this.value)">
                                 <option value="" selected disabled>Selecciona tu Estilo</option>
-                                <option value="dark">Normal</option>
-                                <option value="light">Alto Contraste</option>
+                                <option value="dark">Oscuro</option>
+                                <option value="light">Claro</option>
                             </select>
                         </div>
-                        <div class="col-md-9">Modo Claro
+                        <div class="col-md-9">Modo Normal
                             <label class="switch">
-                                <input id="mode" type="checkbox" onchange="changeMode()">
+                                <input id="mode" type="checkbox" onclick="changeMode()">
                                 <span class="slider round"></span>
-                            </label> Modo Oscuro
+                            </label> Modo Alto Contraste
                         </div>
                     </div>
                 </div>

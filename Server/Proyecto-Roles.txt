@@ -121,6 +121,10 @@ add.migration Initial
 
 update-database
 
+A Continuación hay que Hacer el Scaffolding de las Páginas de Identity:
+
+Botón Derecho Sobre el Nombre del Proyecto => Add => New Scaffolded Item => Identity => Identity, se Seleccionan Login, Logout y Register y la Clase de Contexto.
+
 8-. En la Vistas que se Discriminan Hay que Agregar:
 
 @if (User.IsInRole("Administrator"))
@@ -140,18 +144,8 @@ Una en la Clase y dos en el Constructor RegisterModel.
 
 Y en el Método OnPostAsync:
 
-//var userId = await _userManager.GetUserIdAsync(user);
-//var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-//code = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(code));
-//var callbackUrl = Url.Page(
-//    "/Account/ConfirmEmail",
-//    pageHandler: null,
-//    values: new { area = "Identity", userId = userId, code = code, returnUrl = returnUrl },
-//    protocol: Request.Scheme);
-
 // await _emailSender.SendEmailAsync(Input.Email, "Confirm your email", $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
-Comentar Todo lo que Tiene que Ver con la Verificación del E-mail.
 
 Y en el Mismo Método, Tras Comprobar si el Resultado ha sido Satisfactorio:
 
