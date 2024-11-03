@@ -3,15 +3,17 @@ const DOM = {
     mode: document.getElementById("mode")
 };
 
-// const prefersColorQuery = window.matchMedia('(prefers-color-scheme: dark)'),
-//   changeTheme = e => {
-//     document.body.classList[e.matches ? 'add':'remove']('dark');
-//     console.log(e.matchMedia);
-//   }
+// DOM.body.className = "light";
 
-const prefersColorQuery = window.matchMedia('(prefers-color-scheme: no-preference)'),
+const prefersColorQuery = window.matchMedia('(prefers-color-scheme: dark)'),
   changeTheme = e => {
     document.body.classList[e.matches ? 'add':'remove']('dark');
+    console.log(e.matchMedia);
+  }
+
+  prefersColorQuery = window.matchMedia('(prefers-color-scheme: light)'),
+  changeTheme = e => {
+    document.body.classList[e.matches ? 'add':'remove']('light');
     console.log(e.matchMedia);
   }
 
@@ -21,12 +23,18 @@ function changeStyle(style)
     {
         case "dark":
             DOM.body.className = "dark";
+            if (DOM.mode.checked)
+            {
+                DOM.body.className = "dark-hight";
+            }
             break;
         case "light":
             DOM.body.className = "light";
+            if (DOM.mode.checked)
+            {
+                DOM.body.className = "light-hight";
+            }
             break;
-        // default:
-        //     DOM.body.className = "reset-style";
     }
 
     let option = document.querySelector(`#style option[value=""]`);
@@ -35,12 +43,20 @@ function changeStyle(style)
 
 function changeMode()
 {
-    if (DOM.mode.checked)
+    if (DOM.mode.checked && DOM.body.className == "dark")
     {
-        DOM.body.className = "dark";
+        DOM.body.className = "dark-hight";
+    }
+    else if (DOM.mode.checked && DOM.body.className == "light")
+    {
+        DOM.body.className = "light-hight";
+    }
+    else if (!DOM.mode.checked && DOM.body.className == "light-hight")
+    {
+        DOM.body.className = "light";
     }
     else
     {
-        DOM.body.className = "light";
+        DOM.body.className = "dark";
     }
 }
