@@ -1,6 +1,5 @@
 {
-  "homepage": "http://localhost/DAW2/Second-Year/Client/react-Matelat/",
-  "name": "com.futureprograms",
+  "name": "futureprograms.com",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,9 +9,9 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^5.4.9"
+    "vite": "^5.4.10"
   },
   "dependencies": {
-    "com.futureprograms": "file:"
+    "futureprograms.com": "file:"
   }
 }
