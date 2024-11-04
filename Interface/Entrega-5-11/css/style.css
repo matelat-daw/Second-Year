@@ -111,19 +111,21 @@ body
     }
 }
 
-/* @media (prefers-color-scheme: light) {
-    body {
-        background-color: white;
-        color: black;
-    }
-}
-
 @media (prefers-color-scheme: dark) {
     body{
-        background-color: #000;
-        color: #fff;
+        --color-texto: #808080;
+        --color-fondo: #0f0f0f;
+        --color-header_back: #545454;
+        --color-header: #f0f0f0;
+        --color-nav_back: #a0a0a0;
+        --color-aside: #0a0a0a;
+        --color-aside_back: #a0a0a0;
+        --color-button_back: #606060;
+        --color-button: wheat;
+        --color-footer_back: rgb(80, 80, 80);
+        --color-footer: wheat;
     }
-} */
+}
 
 .dark
 {
