@@ -1,0 +1,15 @@
+Vite Project With React:
+
+npx create-vite Nombre_del_Proyecto --template react
+
+Instalará Paquetes: Responder: y
+
+Pide el Nombre del Paquete: en mi caso: futureprograms.com
+
+Cuando termina:
+
+Done. Now run:
+
+  cd WishList
+  npm install
+  npm run dev
