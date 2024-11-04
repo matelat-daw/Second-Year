@@ -67,29 +67,6 @@ input:checked + .slider:before
     border-radius: 50%;
 }
 
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: white;
-        color: black;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body{
-        background-color: #000;
-        color: #fff;
-    }
-}
-
-.dark
-{
-    body
-    {
-        background-color: #48cae4;
-        color: #03045e;
-    }
-}
-
 body
 {
     background-color: var(--color-fondo); /* Color de fondo del body */
@@ -124,15 +101,29 @@ body
 
     .btn
     {
-        background-color: var(--color-button);
+        background-color: var(--color-button_back);
     }
 
     .btn:hover
     {
         background-color: #aaaaaa;
-        color: wheat;
+        color: var(--color-button);
     }
 }
+
+/* @media (prefers-color-scheme: light) {
+    body {
+        background-color: white;
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body{
+        background-color: #000;
+        color: #fff;
+    }
+} */
 
 .dark
 {
@@ -143,7 +134,8 @@ body
     --color-nav_back: #a0a0a0;
     --color-aside: #0a0a0a;
     --color-aside_back: #a0a0a0;
-    --color-button: grey;
+    --color-button_back: #606060;
+    --color-button: wheat;
     --color-footer_back: rgb(80, 80, 80);
     --color-footer: wheat;
 }
@@ -154,9 +146,10 @@ body
     --color-fondo: #03045e;
     --color-header_back: #48cae4;
     --color-header: #000;
-    --color-nav_back: blue;
+    --color-nav_back: #023e8a;
     --color-aside_back: lightblue;
-    --color-button: grey;
+    --color-button_back: #4040ff;
+    --color-button: wheat;
     --color-footer_back: #023e8a;
     --color-footer: wheat;
 }
@@ -171,9 +164,10 @@ body
     --color-nav_back: #c0c0c0;
     --color-aside: #0c0c0c;
     --color-aside_back: #c0c0c0;
-    --color-button: grey;
+    --color-button_back: #808080;
+    --color-button: white;
     --color-footer_back: rgb(80, 80, 80);
-    --color-footer: wheat;
+    --color-footer: white;
 }
 
 .light-hight
@@ -183,9 +177,10 @@ body
     --color-fondo: #01023c;
     --color-header_back: #88faf4;
     --color-header: #000;
-    --color-nav_back: blue;
+    --color-nav_back: #023e8a;
     --color-aside_back: lightblue;
-    --color-button: grey;
+    --color-button_back: #8080ff;
+    --color-button: white;
     --color-footer_back: #023e8a;
-    --color-footer: wheat;
+    --color-footer: white;
 }

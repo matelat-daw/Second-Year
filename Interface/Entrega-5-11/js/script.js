@@ -3,29 +3,24 @@ const DOM = {
     mode: document.getElementById("mode")
 };
 
-// DOM.body.className = "light";
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
+{
+    DOM.body.className = "dark"; // True, Pone la Página en modo Dark.
+}
+else
+{
+    DOM.body.className = "light"; // False, Pone la Página en Modo Light.
+}
 
-const prefersColorQuery = window.matchMedia('(prefers-color-scheme: dark)'),
-  changeTheme = e => {
-    document.body.classList[e.matches ? 'add':'remove']('dark');
-    console.log(e.matchMedia);
-  }
-
-  prefersColorQuery = window.matchMedia('(prefers-color-scheme: light)'),
-  changeTheme = e => {
-    document.body.classList[e.matches ? 'add':'remove']('light');
-    console.log(e.matchMedia);
-  }
-
-function changeStyle(style)
+function changeStyle(style) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
 {
     switch (style)
     {
         case "dark":
             DOM.body.className = "dark";
-            if (DOM.mode.checked)
+            if (DOM.mode.checked) // Si el Switch (Normal/Alto Contraste) está Seleccionado.
             {
-                DOM.body.className = "dark-hight";
+                DOM.body.className = "dark-hight"; // Activa el Modo Alto Contraste del Estilo Seleccionado
             }
             break;
         case "light":
@@ -41,7 +36,7 @@ function changeStyle(style)
     option.selected = true;
 }
 
-function changeMode()
+function changeMode() // Cambia Entre Normal y Alto Contraste.
 {
     if (DOM.mode.checked && DOM.body.className == "dark")
     {
