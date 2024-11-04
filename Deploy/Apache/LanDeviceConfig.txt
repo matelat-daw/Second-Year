@@ -1,3 +1,8 @@
 ncpa.cl
 
 La Zona Inversa es Fundamental Para que se Vea el Nombre del Servidor al Ejecutar el Comando nslookup.
+
+@media screen and (-ms-high-contrast: active) {
+   /* any rules may come here, for example: */
+   .leftMenu a:hover { text-decoration: underline; }
+}

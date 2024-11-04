@@ -1,0 +1,158 @@
+En el Proyecto Para Agregar Roles, hay que seguir los pasos del proyecto para Identity:
+
+1-. Crear el Proyecto.
+2-. Instalar los Paquetes Requeridos (6).
+3-. Hacer Ingeniería Inversa con la Tabla/Tablas Necesarias.
+4-. Agregar la Conexión con la Base de Datos, en Program.cs y en appsettings.json.
+5-. Scaffold de las Tablas Agregadas.
+6-. Agregar a Program.cs, al builder los Servicios de Identity y Roles:
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options => {
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 5;
+    options.Password.RequiredUniqueChars = 0;
+})
+.AddEntityFrameworkStores<NorthwindContext>();
+
+El Uso de Páginas Razor (Para Roles):
+
+builder.Services.AddRazorPages();
+
+Y la Autenticación y páginas Razor:
+
+app.UseAuthentication();
+
+app.UseAuthorization();
+
+app.MapRazorPages();
+
+7-. Una Vez Hechos lo Pasos Anteriores se Puede Hacer la Migración Para crear las Vistas y Clases de Identity y Roles Junto con el Seeder con los Roles, Usuarios y Roles para cada Usuario:
+
+En la Clase de Contexto esa que Está en el Directorio Data (Cambia la Herencia a: IdentityDbContext):
+
+modelBuilder.Entity<Suppliers>().ToTable("Suppliers", t => t.ExcludeFromMigrations()); // Excluye la Tabla Suppliers.
+
+IdentityRole adminRole = new IdentityRole
+{
+    Name = "Administrator"
+};
+adminRole.NormalizedName = adminRole.Name.ToUpper();
+
+IdentityRole userRole = new IdentityRole
+{
+    Name = "User"
+};
+userRole.NormalizedName = userRole.Name.ToUpper();
+
+List<IdentityRole> roles = new() // Lista de Roles de Usuarios.
+{
+    adminRole, userRole
+};
+
+IdentityUser admin = new IdentityUser
+{
+    UserName = "admin@Northwind.com",
+    Email = "admin@Northwind.com",
+    EmailConfirmed = false,
+    PhoneNumberConfirmed = false,
+    TwoFactorEnabled = false,
+    LockoutEnabled = false,
+    AccessFailedCount = 0
+};
+admin.NormalizedUserName = admin.UserName.ToUpper();
+admin.NormalizedEmail = admin.Email.ToUpper();
+
+IdentityUser user = new IdentityUser
+{
+    UserName = "cesarmatelat@nortwind.com",
+    Email = "cesarmatelat@nortwind.com",
+    EmailConfirmed = false,
+    PhoneNumberConfirmed = false,
+    TwoFactorEnabled = false,
+    LockoutEnabled = false,
+    AccessFailedCount = 0
+};
+user.NormalizedUserName = user.UserName.ToUpper();
+user.NormalizedEmail = user.Email.ToUpper();
+
+List<IdentityUser> users = new()
+{
+    admin, user
+};
+
+var passwordHasher = new PasswordHasher<IdentityUser>(); // Crea las Contraseñas de los dos Usuarios de la Lista de Usuarios.
+users[0].PasswordHash = passwordHasher.HashPassword(users[0], "Password-1");
+users[1].PasswordHash = passwordHasher.HashPassword(users[1], "Password-2");
+
+IdentityUserRole<string> userRoleAdmin = new IdentityUserRole<string>
+{
+    UserId = users[0].Id,
+    RoleId = roles[0].Id
+};
+
+IdentityUserRole<string> userRoleUser = new IdentityUserRole<string>
+{
+    UserId = users[1].Id,
+    RoleId = roles[1].Id
+};
+
+List<IdentityUserRole<string>> userRoles = new() // Lista de los Roles de los Usuarios Registrados.
+{
+    userRoleAdmin, userRoleUser
+};
+
+modelBuilder.Entity<IdentityRole>().HasData(roles); // Roles a Almacenar en la Base de Datos Northwind en la Tabla AspNetRoles.
+
+modelBuilder.Entity<IdentityUser>().HasData(users); // Roles a Almacenar en la Base de Datos Northwind en la Tabla AspNetUsers.
+
+modelBuilder.Entity<IdentityUserRole<string>>().HasData(userRoles); // Roles a Almacenar en la Base de Datos Northwind en la Tabla AspNetUserRoles.
+
+Y la Última Línea del Método es:
+
+base.OnModelCreating(modelBuilder);
+
+Se Ejecuta en la Consola de Administración de los Paquetes:
+
+add.migration Initial
+
+update-database
+
+A Continuación hay que Hacer el Scaffolding de las Páginas de Identity:
+
+Botón Derecho Sobre el Nombre del Proyecto => Add => New Scaffolded Item => Identity => Identity, se Seleccionan Login, Logout y Register y la Clase de Contexto.
+
+8-. En la Vistas que se Discriminan Hay que Agregar:
+
+@if (User.IsInRole("Administrator"))
+{
+	// Aquí va todo el Contenido de la Página.
+}
+else
+{
+	Aviso de que no se Puede Usar la Página Debido a los Roles.
+}
+
+9-. La Clase que más problemas me dio es la clase Register.cshtml.cs:
+
+Tuve que Comentar Todas la Líneas que Tenían: emailSender
+
+Una en la Clase y dos en el Constructor RegisterModel.
+
+Y en el Método OnPostAsync:
+
+// await _emailSender.SendEmailAsync(Input.Email, "Confirm your email", $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+
+
+Y en el Mismo Método, Tras Comprobar si el Resultado ha sido Satisfactorio:
+
+if (result.Succeeded)
+{
+    _logger.LogInformation("Has Creado una Nueva Cuenta de Usuario con Contraseña.");
+
+    await _userManager.AddToRoleAsync(user, "User"); // Se Agrega el Rol por Defecto a los Usuarios Registrados, User.
+	...
+}
