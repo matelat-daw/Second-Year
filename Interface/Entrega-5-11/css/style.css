@@ -69,8 +69,8 @@ input:checked + .slider:before
 
 body
 {
-    background-color: var(--color-fondo); /* Color de fondo del body */
-    color: var(--color-texto); /* Color del texto del body */
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
 
     header
     {
@@ -109,12 +109,17 @@ body
         background-color: #aaaaaa;
         color: var(--color-button);
     }
+
+    .nav-link
+    {
+        color: var(--color-a);
+    }
 }
 
 @media (prefers-color-scheme: dark) {
     body{
         --color-texto: #808080;
-        --color-fondo: #0f0f0f;
+        --color-fondo: #03045e;
         --color-header_back: #545454;
         --color-header: #f0f0f0;
         --color-nav_back: #a0a0a0;
@@ -122,6 +127,7 @@ body
         --color-aside_back: #a0a0a0;
         --color-button_back: #606060;
         --color-button: wheat;
+        --color-a: #f0f0f0;
         --color-footer_back: rgb(80, 80, 80);
         --color-footer: wheat;
     }
@@ -130,14 +136,15 @@ body
 .dark
 {
     --color-texto: #808080;
-    --color-fondo: #0f0f0f;
+    --color-fondo: #03045e;
     --color-header_back: #545454;
     --color-header: #f0f0f0;
     --color-nav_back: #a0a0a0;
     --color-aside: #0a0a0a;
     --color-aside_back: #a0a0a0;
-    --color-button_back: #606060;
+    --color-button_back: #808080;
     --color-button: wheat;
+    --color-a: #f0f0f0;
     --color-footer_back: rgb(80, 80, 80);
     --color-footer: wheat;
 }
@@ -148,10 +155,11 @@ body
     --color-fondo: #03045e;
     --color-header_back: #48cae4;
     --color-header: #000;
-    --color-nav_back: #023e8a;
+    --color-nav_back: lightblue;
     --color-aside_back: lightblue;
     --color-button_back: #4040ff;
     --color-button: wheat;
+    --color-a: #0f0f0f;
     --color-footer_back: #023e8a;
     --color-footer: wheat;
 }
@@ -159,15 +167,16 @@ body
 .dark-hight
 {
     font-size: 1.25em;
-    --color-texto: #bbbbbb;
-    --color-fondo: #000;
-    --color-header_back: #222222;
-    --color-header: #f8f8f8;
-    --color-nav_back: #c0c0c0;
+    --color-texto: #cccccc;
+    --color-fondo: #03045e;
+    --color-header_back: #0c0c0c;
+    --color-header: #fff;
+    --color-nav_back: #a0a0a0;
     --color-aside: #0c0c0c;
-    --color-aside_back: #c0c0c0;
+    --color-aside_back: #a0a0a0;
     --color-button_back: #808080;
     --color-button: white;
+    --color-a: #f0f0f0;
     --color-footer_back: rgb(80, 80, 80);
     --color-footer: white;
 }
@@ -175,14 +184,15 @@ body
 .light-hight
 {
     font-size: 1.25em;
-    --color-texto: #aaaaaa;
-    --color-fondo: #01023c;
-    --color-header_back: #88faf4;
+    --color-texto: #cccccc;
+    --color-fondo: #03045e;
+    --color-header_back: lightblue;
     --color-header: #000;
-    --color-nav_back: #023e8a;
+    --color-nav_back: lightblue;
     --color-aside_back: lightblue;
     --color-button_back: #8080ff;
     --color-button: white;
+    --color-a: #0f0f0f;
     --color-footer_back: #023e8a;
     --color-footer: white;
 }
