@@ -25,7 +25,7 @@ let carrera = {
 // let [maraton,,, km4] = [42, 21, 8, 4]
 // console.log(maraton, km4);
 
-// let [maraton, km4, ...otrosDatos] = [42, 21, 8, 4];
+// let [maraton, km4, ...otrosDatos] = [42, 21, 8, 4]; // Este No Funciona.
 // console.log(maraton, km4);
 
 // let km4 = 8;
