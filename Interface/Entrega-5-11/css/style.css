@@ -131,7 +131,7 @@ body
         --color-button_back: #606060;
         --color-button: wheat;
         --color-a: #f0f0f0;
-        --color-footer_back: rgb(80, 80, 80);
+        --color-footer_back: #505050;
         --color-footer: wheat;
     }
 }
@@ -148,7 +148,7 @@ body
     --color-button_back: #808080;
     --color-button: wheat;
     --color-a: #f0f0f0;
-    --color-footer_back: rgb(80, 80, 80);
+    --color-footer_back: #505050;
     --color-footer: wheat;
 }
 
@@ -180,7 +180,7 @@ body
     --color-button_back: #808080;
     --color-button: white;
     --color-a: #f0f0f0;
-    --color-footer_back: rgb(80, 80, 80);
+    --color-footer_back: #505050;
     --color-footer: white;
 }
 
