@@ -4,75 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Descripción del Artículo</title>
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro. -->
     <section>
         <header class="navbar border rounded row">
-            <!-- <div class="container-fluid"> -->
-                <div class="col-md-3">
-                    <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="125">
-                </div>
-                <!-- <div class="row"> -->
-                    <div class="col-md-12 big-letter">
-                        <h1>Hielos Antarticos</h1>
-                    <!-- </div> -->
-                    <!-- <div class="row"> -->
-                        <!-- <div class="col-md-3"> -->
-                            <select id="style" onchange="changeStyle(this.value)">
-                                <option value="" selected disabled>Selecciona tu Estilo</option>
-                                <option value="dark">Oscuro</option>
-                                <option value="light">Claro</option>
-                            </select>
-                        <!-- </div> -->
-                        <!-- <div class="col-md-9">Modo Normal -->
-                            <label class="switch">
-                                <input id="mode" type="checkbox" onclick="changeMode()">
-                                <span class="slider round"></span>
-                            </label> Modo Alto Contraste
-                        <!-- </div> -->
-                    </div>
-                <!-- </div> -->
-                <!-- <div class="col-md-3"> -->
-                    <div  class="center">
-                        <a class="nav-link" href="#">Contacto</a>
-                        <a class="nav-link" href="#">Log in</a>
-                        <a class="nav-link" href="#">Regístrate</a>
-                    </div>
-                <!-- </div> -->
-            <!-- </div> -->
+            <div>
+                <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="125">
+            </div>
+            <div>
+                <h1 class="big-letter">Hielos Antarticos</h1>
+                <select id="style" onchange="changeStyle(this.value)">
+                    <option value="" selected disabled>Selecciona tu Estilo</option>
+                    <option value="dark">Oscuro</option>
+                    <option value="light">Claro</option>
+                </select>
+                <label class="switch">
+                    <input id="mode" type="checkbox" onclick="changeMode()">
+                    <span class="slider round"></span>
+                </label> Modo Alto Contraste
+            </div>
+            <div  class="center">
+                <a class="nav-link" href="#">Contacto</a>
+                <a class="nav-link" href="#">Log in</a>
+                <a class="nav-link" href="#">Regístrate</a>
+            </div>
         </header>
     </section>
-    <!-- <div class="row">
-        <div class="col-md-12">&nbsp;</div>
-    </div> -->
-    <section class="row margin-left">
-        <nav class="navbar bar border rounded">
-            <div class="container-fluid">
-                <div class="col-md-12">
-                    <div class="nav">
-                        <a class="nav-link" href="#">Inicio</a>
-                        <a class="nav-link" href="#">Ventas</a>
-                        <a class="nav-link" href="#">Zonas de Reparto</a>
-                        <a class="nav-link" href="#">¿Donde Estamos?</a>
-                    </div>
-                </div>
+    <section>
+        <nav>
+            <div>
+                <a class="nav-link sort" href="#">Inicio</a>
+                <a class="nav-link sort" href="#">Ventas</a>
+                <a class="nav-link sort" href="#">Zonas de Reparto</a>
+                <a class="nav-link sort" href="#">¿Donde Estamos?</a>
             </div>
         </nav>
     </section>
-    <div class="row">
-        <div class="col-md-12">&nbsp;</div>
-    </div>
-    <section class="row">
-        <aside class="aside col-md-2 border rounded">
+    <section class="grid-255">
+        <aside class="nav-flex">
             <a class="nav-link" href="#">Inicio</a>
             <a class="nav-link" href="#">Ventas</a>
             <a class="nav-link" href="#">FAQ</a>
             <a class="nav-link" href="#">Sugerencias</a>
         </aside>
         <article class="article col-md-5">
-            <img src="img/logo.jpg" alt="Barra de Hielo de 25 Kg." width="150%" class="img-fluid">
+            <img src="img/logo.jpg" alt="Barra de Hielo de 25 Kg." width="95%" class="img-fluid">
         </article>
         <description class="col-md-5">
             <h2>Nuestro Producto Estrella</h2>

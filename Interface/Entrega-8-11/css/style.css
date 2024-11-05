@@ -3,7 +3,7 @@
 {
     position: relative;
     display: inline-block;
-    top: 0;
+    top: -5px;
     width: 60px;
     height: 34px;
 }
@@ -69,6 +69,7 @@ input:checked + .slider:before
 }
 
 /* Estilos de la Página */
+
 body
 {
     background-color: var(--color-fondo);
@@ -76,12 +77,22 @@ body
 
     header
     {
+        border: 1px solid lightgray;
+        border-radius: 12px;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        align-items: center;
+        padding: .3em;
         background-color: var(--color-header_back);
         color: var(--color-header);
     }
 
     nav
     {
+        border: 1px solid lightgray;
+        border-radius: 12px;
+        overflow: hidden;
+        height: 4em;
         background-color: var(--color-nav_back);
     }
 
@@ -94,6 +105,15 @@ body
     footer
     {
         background-color: var(--color-footer_back);
+    }
+
+    .grid-255
+    {
+        display: grid;
+        grid-template-columns: 2fr 5fr 5fr;
+        border: 1px solid lightgray;
+        border-radius: 12px;
+        overflow: hidden;
     }
 
     .color
@@ -115,6 +135,21 @@ body
     .nav-link
     {
         color: var(--color-a);
+        margin: .5em 0;
+        text-decoration: none;
+    }
+
+    .nav-flex
+    {
+        display: flex;
+        flex-direction: column;
+        padding: .5em;
+    }
+
+    .sort
+    {
+        vertical-align: middle;
+        margin: 0 .5em;
     }
 
     .center > a
@@ -283,7 +318,7 @@ body
         flex-direction: row;
     }
 
-    .container
+    /* .container
     {
         nav
         {
@@ -310,5 +345,5 @@ body
         {
             display: flex;
         }
-    }
+    } */
 }
