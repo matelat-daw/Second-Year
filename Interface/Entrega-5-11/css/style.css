@@ -1,3 +1,4 @@
+/* CSS del Input tipo checkbox, descargado de W3 Schools */
 .switch
 {
     position: relative;
@@ -67,6 +68,7 @@ input:checked + .slider:before
     border-radius: 50%;
 }
 
+/* Estilos de la Página */
 body
 {
     background-color: var(--color-fondo);
@@ -116,7 +118,8 @@ body
     }
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) /* Media Query que Detecta Cuando el Navegador Está Configurado para Usar el Modo Oscuro (dark). */
+{
     body{
         --color-texto: #808080;
         --color-fondo: #03045e;
@@ -133,7 +136,7 @@ body
     }
 }
 
-.dark
+.dark /* Modo Oscuro */
 {
     --color-texto: #808080;
     --color-fondo: #03045e;
@@ -149,7 +152,7 @@ body
     --color-footer: wheat;
 }
 
-.light
+.light /* Modo Claro */
 {
     --color-texto: #808080;
     --color-fondo: #03045e;
@@ -164,7 +167,7 @@ body
     --color-footer: wheat;
 }
 
-.dark-hight
+.dark-hight /* Modo Oscuro Alto Contraste */
 {
     font-size: 1.25em;
     --color-texto: #cccccc;
@@ -181,7 +184,7 @@ body
     --color-footer: white;
 }
 
-.light-hight
+.light-hight /* Modo Claro Alto Contraste */
 {
     font-size: 1.25em;
     --color-texto: #cccccc;
