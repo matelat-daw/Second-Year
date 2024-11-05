@@ -22,6 +22,20 @@ El Uso de Páginas Razor (Para Roles):
 
 builder.Services.AddRazorPages();
 
+Si se Us AddDefaultIdentity (No Hace Falta Agregar RazorPages en el Builder como Service.):
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => {
+    options.SignIn.RequireConfirmedAccount = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequireLowercase = true;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = true;
+    options.Password.RequiredLength = 5;
+    options.Password.RequiredUniqueChars = 0;
+})
+.AddRoles<IdentityRole>()
+.AddEntityFrameworkStores<DiccionarioContext>();
+
 Y la Autenticación y páginas Razor:
 
 app.UseAuthentication();
