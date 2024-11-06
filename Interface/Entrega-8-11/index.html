@@ -8,12 +8,12 @@
 </head>
 <body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro. -->
     <section>
-        <header class="navbar border rounded row">
+        <header>
             <div>
-                <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="125">
+                <img src="img/logo.jpg" alt="Logo de la Empresa" width="400" height="178">
             </div>
             <div>
-                <h1 class="big-letter">Hielos Antarticos</h1>
+                <h1 class="big-letter">Hielos Antárticos</h1>
                 <select id="style" onchange="changeStyle(this.value)">
                     <option value="" selected disabled>Selecciona tu Estilo</option>
                     <option value="dark">Oscuro</option>
@@ -24,10 +24,10 @@
                     <span class="slider round"></span>
                 </label> Modo Alto Contraste
             </div>
-            <div  class="center">
-                <a class="nav-link" href="#">Contacto</a>
-                <a class="nav-link" href="#">Log in</a>
-                <a class="nav-link" href="#">Regístrate</a>
+            <div class="repair">
+                <a class="nav-link sort" href="#">Contacto</a>
+                <a class="nav-link sort" href="#">Log in</a>
+                <a class="nav-link sort" href="#">Regístrate</a>
             </div>
         </header>
     </section>
@@ -41,36 +41,33 @@
             </div>
         </nav>
     </section>
-    <section class="grid-255">
+    <section class="flex-255">
         <aside class="nav-flex">
             <a class="nav-link" href="#">Inicio</a>
             <a class="nav-link" href="#">Ventas</a>
             <a class="nav-link" href="#">FAQ</a>
             <a class="nav-link" href="#">Sugerencias</a>
         </aside>
-        <article class="article col-md-5">
-            <img src="img/logo.jpg" alt="Barra de Hielo de 25 Kg." width="95%" class="img-fluid">
+        <article>
+            <img id="article" src="img/logo.jpg" alt="Barra de Hielo de 25 Kg." width="98%">
         </article>
-        <description class="col-md-5">
+        <description>
             <h2>Nuestro Producto Estrella</h2>
             <p>La Barra de Hielo de 25 Kg. es tu Mejor Opción, si eres un Borracho Profesional</p>
-            <p>Nada de esas Bolsas con Hielos Cilíndricos o Cúbicos, que Después del Segundo Whiskey ya se te Derritio Todo(a Menos que seas un Gran Bebedor y no le Des Tiempo. Quienes Somos Nosotros para Juzgarte)</p>
-            <p>De Cualquier Manera La Barra de 25 Kg. Puedes Ponerla al Sol y Tiene Garantía de 16 horas, para Cuando se Termine la Garantía ya Será de Noche y se Seguirá Manteniendo en una Pieza.</p>
+            <p>Nada de esas Bolsas con Hielos Cilíndricos o Cúbicos, que Después del Segundo Whiskey ya se te Derritio Todo,</p>
+            <p>(a Menos que seas un Gran Bebedor y no le Des Tiempo. Quienes Somos Nosotros para Juzgarte)</p>
+            <p>De Cualquier Manera La Barra de 25 Kg. Puedes Ponerla al Sol y Tiene Garantía de 16 horas,</p>
+            <p>para Cuando se Termine la Garantía ya Será de Noche y se Seguirá Manteniendo en una Pieza.</p>
             <p>Por la Compra de 2 Barras Obtienes Gratis Herramientas para Cortar Hielo(Guantes Incluidos).</p>
             <img src="img/tools.jpg" alt="Herramientas para Corta Hielo">
             <p>Precio: 6€, Si Llevas 2 10€(Incluye Herramientas). Entrega a Domicilio.</p>
-            <button class="btn btn-lg">Comprar Ahora</button>
+            <button class="btn">Comprar Ahora</button>
         </description>
     </section>
-    <div class="row">
-        <div class="col-md-12"></div>
-    </div>
     <section>
-        <footer class="text-center text-lg-start text-muted footer border rounded">
-            <div class="text-center p-4 color">
-                WEB Design © 2023 César Osvaldo Matelat Borneo.
-                Contactame en Esta Dirección de <a href="mailto:cesarmatelat@gmail.com">E-Mail</a>
-            </div>
+        <footer class="color">
+            <p>WEB Design © 2023 César Osvaldo Matelat Borneo.</p>
+            <p><small>&nbsp;Contáctame en Esta Dirección de <a href="mailto:cesarmatelat@gmail.com">E-Mail</a></small></p>
         </footer>
     </section>
     <script src="js/script.js"></script>
