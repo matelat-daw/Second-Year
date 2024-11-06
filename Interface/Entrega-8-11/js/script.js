@@ -1,11 +1,13 @@
 const DOM = {
     body: document.body,
-    mode: document.getElementById("mode")
+    mode: document.getElementById("mode"),
+    article: document.getElementById("article")
 };
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
 {
     DOM.body.className = "dark"; // True, Pone la Página en modo Dark.
+    DOM.article.src = "img/logo-dark.jpg";
 }
 else
 {
@@ -17,6 +19,7 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
     switch (style)
     {
         case "dark":
+            DOM.article.src = "img/logo-dark.jpg";
             DOM.body.className = "dark";
             if (DOM.mode.checked) // Si el Switch (Normal/Alto Contraste) está Seleccionado.
             {
@@ -24,6 +27,7 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
             }
             break;
         case "light":
+            DOM.article.src = "img/logo.jpg";
             DOM.body.className = "light";
             if (DOM.mode.checked)
             {
