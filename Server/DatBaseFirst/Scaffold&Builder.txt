@@ -81,6 +81,10 @@ modelBuilder.Entity<Companies>(entity =>
     entity.HasOne(d => d.Shippers).WithMany(p => p.Companies).HasConstraintName("FK_CompanyShipperId");
 });
 
+Para Clonar un repositorio:
+
+git clone https://github.com/SomosDeWeb/aut02-05-matelat-daw.git // git clone y la dirección del repositorio.
+
 Para Usar GitHub Desde un Directorio Local en el CMD de Windwos como Administrador:
 
 git add .
