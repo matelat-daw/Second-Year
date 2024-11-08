@@ -26,7 +26,7 @@ const App = () => <div>
                 </label>
             </li>))}
     </ul>
-    <button>Guarda tu Deseo</button>
+    <button class=''>Guarda tu Deseo</button>
 </div>
 
 export default App
