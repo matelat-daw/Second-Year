@@ -34,7 +34,9 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.Password.RequiredUniqueChars = 0;
 })
 .AddRoles<IdentityRole>()
-.AddEntityFrameworkStores<DiccionarioContext>();
+.AddEntityFrameworkStores<DiccionarioContext>(); // Si la Base de Datos de Usuarios Está en el Contexto de la App.
+.AddEntityFrameworkStores<UserContext>(); // Si la Base de Datos Está en Otro Contexto, User En Este Caso.
+
 
 Y la Autenticación y páginas Razor:
 
