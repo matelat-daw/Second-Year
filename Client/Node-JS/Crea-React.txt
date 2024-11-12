@@ -1,6 +1,6 @@
 Vite Project With React:
 
-npx create vite@latest Nombre_del_Proyecto --template react
+npx create vite@latest Nombre_del_Proyecto
 
 Instalará Paquetes: Responder: y
 
