@@ -6,64 +6,64 @@ body
     font-size: 1.2rem;
     padding: 0;
     border-radius: .3em;
-}
 
-img
-{
-    border-radius: 10px;
-    width: 98%;
-}
+    img
+    {
+        border-radius: 10px;
+        width: 98%;
+    }
 
-header, nav, aside, main, footer, main, article > div > ul > li
-{
-    border: 1px solid lightgray;
-}
+    header, nav, aside, main, footer, main, article > div > ul > li
+    {
+        border: 1px solid lightgray;
+    }
 
-header
-{
-    border: 1px solid lightgray;
-    border-radius: 12px;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: space-between;
-    justify-items: center;
-    padding: .3em;
-    background-color: var(--color-header_back);
-    color: var(--color-header);
-}
+    header
+    {
+        border: 1px solid lightgray;
+        border-radius: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        justify-items: center;
+        padding: .3em;
+        background-color: var(--color-header_back);
+        color: var(--color-header);
+    }
 
-nav
-{
-    background-color: var(--color-nav_aside_back);
-    color: var(--color-texto);
-}
+    nav
+    {
+        background-color: var(--color-nav_aside_back);
+        color: var(--color-texto);
+    }
 
-aside
-{
-    background-color: var(--color-nav_aside_back);
-    color: var(--color-texto);
-}
+    aside
+    {
+        background-color: var(--color-nav_aside_back);
+        color: var(--color-texto);
+    }
 
-main
-{
-    background-color: var(--color-fondo);
-    /* color: var(--color-fondo); */
-}
+    main
+    {
+        background-color: var(--color-fondo);
+        /* color: var(--color-fondo); */
+    }
 
-header > h1, nav > h2, aside > h3, main > h3, footer > p
-{
-    text-align: center;
-}
+    header > h1, nav > h2, aside > h3, main > h3, footer > p
+    {
+        text-align: center;
+    }
 
-span
-{
-    font-size: .80em; /* Reduce el tamaño de la fuente de los span al 80% */
-}
+    span
+    {
+        font-size: .80em; /* Reduce el tamaño de la fuente de los span al 80% */
+    }
 
-a
-{
-    border-radius: 6px;
+    a
+    {
+        border-radius: 6px;
+    }
 }
 
 /* CSS del Input tipo checkbox, descargado de W3 Schools */
@@ -204,6 +204,7 @@ main
     height: 4em;
     background-color: var(--color-button_back);
     color: var(--color-button);
+    font-size: 1.05em;
 }
 
 .btn:hover
@@ -253,6 +254,7 @@ footer > div > div > ul > li
 .sort
 {
     margin: 0 .5em;
+    line-height: 2em;
 }
 
 @media (prefers-color-scheme: dark) /* Media Query que Detecta Cuando el Navegador Está Configurado para Usar el Modo Oscuro (dark). */
