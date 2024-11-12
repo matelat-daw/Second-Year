@@ -102,3 +102,16 @@ export function ejercicio10 (numDias){
     milisegundo = numDias*24*60*60*1000;
    return milisegundo;
 }
+
+function ask(question, yes, no) {
+    if (confirm(question)) yes()
+    else no();
+    }
+    function showOk() {
+    alert( "Estás de acuerdo." );
+    }
+    function showCancel() {
+    alert( "Cancelaste la ejecución." );
+    }
+    // uso: las funciones showOk, showCancel son pasadas como argumentos de ask.
+    ask("Estás de acuerdo?", showOk, showCancel);

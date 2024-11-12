@@ -7,8 +7,12 @@ export function ejercicio1 (programadores){
 
         resultado = programadores.map((programador => programador.nombre + " - " + programador.apellido1 + " - " + programador.apellido2)).sort((a, b) => a.localeCompare(b));
         console.log(resultado);
+        return resultado;
 
-    return resultado;
+        // Tenía que ser así.
+        resultado = programadores.map(programador => ({ nombre: programador.nombre, apellido1: programador.apellido1, apellido2: programador.apellido2}));
+        resultado.sort((a,b) => a.nombre.localeCompare(b.nombre));
+        return resultado;
 }
 
 export function ejercicio2 (programadores){
@@ -19,7 +23,10 @@ export function ejercicio2 (programadores){
         “senior” si tiene 5 o más años de experiencia.*/
     resultado = programadores.map(programador => {return { ...programador, categoría: (programador.edad <= 25 ? "junior" : "senior")}});
     console.log(resultado);
-
+    return resultado;
+    
+    // Tenía que ser así.
+    resultado = programadores.map(programador => ({...programador, categoría: programador.experiencia >= 5 ? "senior" : "junior"}));
     return resultado;
 }
 
@@ -29,17 +36,20 @@ export function ejercicio3 (programadores){
 
     resultado = programadores.reduce((experiencia, programador) => experiencia + programador.experiencia, 0);
     console.log(resultado);
+    return resultado;
 
+    // Tenía que ser así.
+    resultado = programadores.filter(programador => programador.edad > 24).reduce((experienciaTotal,programador) => experienciaTotal+programador.experiencia, 0);
     return resultado;
 }
 
-export function ejercicio4 (programadores, anios){
+export function ejercicio4 (programadores, anios) // Este está Bien.
+{
     let resultado;
     /*  Colección de programadores cuya experiencia es superior número de años
         pasado por parámetro.*/
     resultado = programadores.filter(programador => programador.experiencia > anios);
     console.log(resultado);
-
     return resultado;
 }
 
@@ -48,7 +58,10 @@ export function ejercicio5 (programadores, nombre){
     /*  Retorna el objeto programador cuyo nombre es el nombre pasado por parámetros*/
     resultado = programadores.filter(programador => programador.nombre == nombre);
     console.log(resultado);
+    return resultado;
 
+    // Tenía que ser así, Se Usa Find.
+    resultado = programadores.find(programador => programador.nombre == nombre);
     return resultado;
 }
 
@@ -68,7 +81,11 @@ export function ejercicio6 (programadores, nombre){
         }
 
         console.log(resultado);
-    return resultado;
+        return resultado;
+
+        // Tenía que ser así. Some Retorna true si se encuantra el dato o false si no está.
+        resultado = programadores.some(programador => programador.nombre == nombre);
+        return resultado;
 }
 
 // export function ejercicio7 (/*programa los parámetros*/ ){
@@ -85,6 +102,9 @@ export function ejercicio6 (programadores, nombre){
        let resultado;
        resultado = lenguaje.map(lenguaje1 => lenguaje1);
        localStorage.setItem("lenguajes", JSON.stringify(resultado));
+
+    // Tenía que ser Así.
+    localStorage.setItem(clave, lenguajes.toString());
 }
 
 export function ejercicio8 (nombre, apellido1, apellido2 ){
@@ -98,11 +118,15 @@ export function ejercicio8 (nombre, apellido1, apellido2 ){
         resultado.push(nombre);
         resultado.push(apellido1);
         resultado.push(apellido2);
-
         resultado = resultado.map(programador => `nombre: ${nombre}, apellido1: ${apellido1}, apellido2: ${apellido2}`);
-
         console.log(resultado);
+        return resultado;
 
+        //Tenía que ser Así.
+        resultado = {};
+        resultado["nombre"] = nombre;
+        resultado["apellido1"] = apellido1;
+        resultado["apellido2"] = apellido2;
         return resultado;
 }
 
@@ -128,21 +152,8 @@ export function ejercicio9 (nombre, apellido1, apellido2){
     let nombreCompleto;
     /* Retorna un string ooncatenando los parámetros con plantilla de cadena de caracteres
     */
-       nombreCompleto = {};
-       let array = []
-       array.push(nombre);
-       array.push(apellido1);
-       array.push(apellido2);
-
-      console.log(array);
-
-
-       array.forEach((item, index) => {
-        nombreCompleto[item] = array[index];
-       });
-       console.log(nombreCompleto);
-       
-       return nombreCompleto;
+    nombreCompleto = `${nombre} ${apellido1} ${apellido2}`;
+    return nombreCompleto;
 }
 
 export function ejercicio10 (numDias){
