@@ -89,7 +89,7 @@ export function ejercicio8 (nombre, apellido1, apellido2){
 
 export function ejercicio9 (nombre, apellido1, apellido2){
     let nombreCompleto;
-    /* Retorna un string ooncatenando los parámetros con plantilla de cadena de caracteres
+    /* Retorna un string concatenando los parámetros con plantilla de cadena de caracteres
     */
    nombreCompleto = `${nombre} ${apellido1} ${apellido2}`;
    return nombreCompleto;
