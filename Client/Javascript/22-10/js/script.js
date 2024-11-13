@@ -43,6 +43,8 @@ console.log(pilots7);
 
 let pilots8 = pilots.map(pilot => ({ id: pilot.id, iniciales: pilot.name.split(" ").reduce((inic, palabra) => (inic + palabra[0]), '')}));
 console.log(pilots8);
+
+let pilots9 = pilots.map(pilot => ({nombre: pilot.name, iniciales: pilot.name.split(" ").map(iniciales => iniciales[0]).join("")})).sort((a, b) => a.nombre.localeCompare(b.nombre));
 }
 
 var personnel = [
