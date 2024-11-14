@@ -1,0 +1,6 @@
+    Desde 0 hasta 12.450 euros: retención del 19%.
+    Desde 12.450 hasta 20.199 euros: retención del 24%.
+    Desde 20.200 hasta 35.199 euros: retención del 30%.
+    Desde 35.200 hasta 59.999 euros: retención del 37%.
+    Desde 60.000 hasta 299.999 euros: retención del 45%.
+    Más de 300.000 euros: retención del 47%.
