@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabla de Métodos de Manipulación de DOM en JavaScript</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: left;
+}
+
+thead th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+tbody tr:hover {
+  background-color: #e9f5e9;
+}
+
+code {
+  background-color: #f9f2f4;
+  padding: 3px 5px;
+  border-radius: 3px;
+  font-size: 0.9em;
+  font-weight: 800;
+  color: #d6336c;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Métodos de Manipulación de DOM en JavaScript</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Método</th>
+          <th>Descripción</th>
+          <th>Ejemplo</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>createElement()</code></td>
+          <td>Crea un nuevo elemento HTML (pero no lo añade al DOM).</td>
+          <td><code>const div = document.createElement('div');</code></td>
+        </tr>
+        <tr>
+          <td><code>appendChild()</code></td>
+          <td>Añade un nodo como el último hijo de un elemento.</td>
+          <td><code>parent.appendChild(child);</code></td>
+        </tr>
+        <tr>
+          <td><code>prepend()</code></td>
+          <td>Inserta un nodo al principio de un elemento padre.</td>
+          <td><code>parent.prepend(child);</code></td>
+        </tr>
+        <tr>
+          <td><code>insertBefore()</code></td>
+          <td>Inserta un nodo antes de un nodo específico hijo de un elemento.</td>
+          <td><code>parent.insertBefore(newNode, referenceNode);</code></td>
+        </tr>
+        <tr>
+          <td><code>insertAdjacentHTML()</code></td>
+          <td>Inserta HTML en una posición específica (beforebegin, afterbegin, beforeend, afterend).</td>
+          <td><code>element.insertAdjacentHTML('beforeend', '&lt;p&gt;Texto&lt;/p&gt;');</code></td>
+        </tr>
+        <tr>
+          <td><code>innerHTML</code></td>
+          <td>Reemplaza el contenido HTML de un elemento.</td>
+          <td><code>element.innerHTML = '&lt;p&gt;Texto nuevo&lt;/p&gt;';</code></td>
+        </tr>
+        <tr>
+          <td><code>removeChild()</code></td>
+          <td>Elimina un nodo hijo de un elemento.</td>
+          <td><code>parent.removeChild(child);</code></td>
+        </tr>
+        <tr>
+          <td><code>remove()</code></td>
+          <td>Elimina el elemento del DOM.</td>
+          <td><code>element.remove();</code></td>
+        </tr>
+        <tr>
+          <td><code>replaceChild()</code></td>
+          <td>Reemplaza un nodo hijo por otro nodo en el mismo elemento padre.</td>
+          <td><code>parent.replaceChild(newChild, oldChild);</code></td>
+        </tr>
+        <tr>
+          <td><code>cloneNode()</code></td>
+          <td>Crea una copia de un nodo. Puede copiar con o sin sus hijos (true para copiar hijos).</td>
+          <td><code>const clone = element.cloneNode(true);</code></td>
+        </tr>
+        <tr>
+          <td><code>setAttribute()</code></td>
+          <td>Establece o modifica el valor de un atributo en un elemento.</td>
+          <td><code>element.setAttribute('class', 'nuevo');</code></td>
+        </tr>
+        <tr>
+          <td><code>removeAttribute()</code></td>
+          <td>Elimina un atributo específico de un elemento.</td>
+          <td><code>element.removeAttribute('class');</code></td>
+        </tr>
+        <tr>
+          <td><code>classList.add()</code></td>
+          <td>Añade una o más clases a un elemento.</td>
+          <td><code>element.classList.add('nuevaClase');</code></td>
+        </tr>
+        <tr>
+          <td><code>classList.remove()</code></td>
+          <td>Elimina una o más clases de un elemento.</td>
+          <td><code>element.classList.remove('clase');</code></td>
+        </tr>
+        <tr>
+          <td><code>classList.toggle()</code></td>
+          <td>Añade o elimina una clase, dependiendo de si ya está presente.</td>
+          <td><code>element.classList.toggle('clase');</code></td>
+        </tr>
+        <tr>
+          <td><code>textContent</code></td>
+          <td>Establece o devuelve el contenido de texto de un nodo (sin HTML).</td>
+          <td><code>element.textContent = 'Texto nuevo';</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</body>
+</html>
