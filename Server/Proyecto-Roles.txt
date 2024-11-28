@@ -22,7 +22,7 @@ El Uso de Páginas Razor (Para Roles):
 
 builder.Services.AddRazorPages();
 
-Si se Us AddDefaultIdentity (No Hace Falta Agregar RazorPages en el Builder como Service.):
+Si se Usa AddDefaultIdentity (No Hace Falta Agregar RazorPages en el Builder como Service.):
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => {
     options.SignIn.RequireConfirmedAccount = false;
