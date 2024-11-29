@@ -7,7 +7,7 @@ const DOM = {
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
 {
     DOM.body.className = "dark"; // True, Pone la Página en modo Dark.
-    DOM.article.src = "imgs/kiwi-dark.jpg";
+    DOM.article.src = "../img/kiwi-dark.jpg";
 }
 else
 {
@@ -19,7 +19,7 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
     switch (style)
     {
         case "dark":
-            DOM.article.src = "imgs/kiwi-dark.jpg";
+            DOM.article.src = "../img/kiwi-dark.jpg";
             DOM.body.className = "dark";
             if (DOM.mode.checked) // Si el Switch (Normal/Alto Contraste) está Seleccionado.
             {
@@ -27,7 +27,7 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
             }
             break;
         case "light":
-            DOM.article.src = "imgs/kiwi.jpg";
+            DOM.article.src = "../img/kiwi.jpg";
             DOM.body.className = "light";
             if (DOM.mode.checked)
             {
