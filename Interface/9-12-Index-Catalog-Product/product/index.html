@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Producto</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro. -->
+    <header>
+        <div><img src="imgs/fruta.webp" alt="Logo de la Empresa Frutas del Mundo" class="logo-size"></div>
+        <div>
+            <h1 class="big-letter">Frutas del Mundo</h1>
+            <select id="style" onchange="changeStyle(this.value)">
+                <option value="" selected disabled>Selecciona tu Estilo</option>
+                <option value="dark">Oscuro</option>
+                <option value="light">Claro</option>
+            </select>
+            <label class="switch">
+                <input id="mode" type="checkbox" onclick="changeMode()">
+                <span class="slider round"></span>
+            </label> Modo Alto Contraste
+        </div>
+        <div class="repair">
+            <a href="#" class="nav-link sort"><p>Contacto</p></a>
+            <a href="#" class="nav-link sort"><p>LogIn</p></a>
+            <a href="#" class="nav-link sort"><p>Me Registro</p></a>
+        </div>
+    </header>
+    <section class="container">
+        <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+            <a href="#" class="nav-link sort">Página de Inicio</a>
+            <a href="#" class="nav-link sort">Frutas de Cercanias</a>
+            <a href="#" class="nav-link sort">Frutas de Temporada</a>
+            <a href="#" class="nav-link sort">Frutas Tropicales</a>
+            <a href="#" class="nav-link sort">Frutas exóticas</a>
+        </nav>
+        <select id="select"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+            <option value="">Selecciona una Opción</option>
+            <option value="#">Página de Inicio</option>
+            <option value="#">Frutas de Cercanias</option>
+            <option value="#">Frutas de Temporada</option>
+            <option value="#">Frutas Tropicales</option>
+            <option value="#">Frutas exóticas</option>
+        </select>
+        <aside>
+            <div class="nav-flex nav-vertical">
+                <a href="#" class="nav-link">¡Ofertas!</a>
+                <a href="#" class="nav-link">Batidos en el Momento</a>
+                <a href="#" class="nav-link">Ensalada de Frutas</a>
+                <a href="#" class="nav-link">Fruta Congelada</a>
+                <a href="#" class="nav-link">Mix de Frutas Congeladas</a>
+            </div>
+        </aside>
+        <main>
+            <div class="main">
+                <article>
+                    <img id="article" src="imgs/kiwi.jpg" alt="Un Kiwi, La Mejor Fruta" class="article">
+                </article>
+                <description>
+                    <h2>Nuestro Producto Estrella</h2>
+                    <p>La Barra de Hielo de 25 Kg. es tu Mejor Opción, si eres un Borracho Profesional</p>
+                    <p>Nada de esas Bolsas con Hielos Cilíndricos o Cúbicos, que Después del Segundo Whiskey ya se te Derritio Todo,</p>
+                    <p>(a Menos que seas un Gran Bebedor y no le Des Tiempo. Quienes Somos Nosotros para Juzgarte)</p>
+                    <p>De Cualquier Manera La Barra de 25 Kg. Puedes Ponerla al Sol y Tiene Garantía de 16 horas,</p>
+                    <p>para Cuando se Termine la Garantía ya Será de Noche y Seguirá Manteniendose en una Pieza.</p>
+                    <p>Por la Compra de 2 Barras Obtienes Gratis Herramientas para Cortar Hielo(Guantes Incluidos).</p>
+                    <img id="tools" src="img/tools.jpg" alt="Herramientas para Corta Hielo" class="tools">
+                    <p>Precio: 6€, Si Llevas 2 10€(Incluye Herramientas). Entrega a Domicilio.</p>
+                    <button class="btn">Comprar Ahora</button>
+                </description>
+            </div>
+        </main>
+    </section>
+    <footer>
+        <div class="footer">
+            <div>
+                <p class="bold">Codiciones de Uso del Sitio</p>
+                <ul>
+                    <li><a href="#">Condiciones de Uso</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Sin Cookies</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="bold">Servicio</p>
+                <ul>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Zona de repato</a></li>
+                    <li><a href="#">Servicio de entrega personalizado</a></li>
+                    <li><a href="#">Necesidades especiales.</a></li>
+                </ul>
+            </div>
+            <div>
+                <p class="bold">Acerca de Nosotros</p>
+                <ul>
+                    <li><a href="#">Quienes somos</a></li>
+                    <li><a href="#">Nuetra Mision, Vision y Valores</a></li>
+                    <li><a href="#">Responsabilidad y compromiso Social</a></li>
+                    <li><a href="#">Nuestras Tiendas</a></li>
+                    <li><a href="#">Tienda Online, Registrate para Comprar</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/script.js"></script>
+</body>
+</html>

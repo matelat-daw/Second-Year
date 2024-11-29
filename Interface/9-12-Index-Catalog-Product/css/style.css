@@ -1,0 +1,217 @@
+/* CSS del Input tipo checkbox, descargado de W3 Schools */
+.switch
+{
+    position: relative;
+    display: inline-block;
+    top: 0;
+    width: 60px;
+    height: 34px;
+}
+  
+.switch input
+{ 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+  
+.slider
+{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #DDD;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+.slider:before
+{
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+  
+input:checked + .slider
+{
+    background-color: #444;
+}
+  
+input:focus + .slider
+{
+    box-shadow: 0 0 1px #444;
+}
+  
+input:checked + .slider:before
+{
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider.round
+{
+    border-radius: 34px;
+}
+  
+.slider.round:before
+{
+    border-radius: 50%;
+}
+
+@font-face
+{
+    font-family: "CustomFont";
+    src: url("../font/DS-Digital.ttf");
+}
+
+*
+{
+    font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
+    font-size: 1.25rem;
+    margin: 0;
+    margin: .1em;
+    padding: 0;
+    border-radius: .3em;
+}
+
+/* Estilos de la Página */
+body
+{
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+
+    header
+    {
+        background-color: var(--color-header_back);
+        color: var(--color-header);
+    }
+
+    nav
+    {
+        background-color: var(--color-nav_back);
+    }
+
+    aside
+    {
+        background-color: var(--color-aside_back);
+        color: var(--color-aside);
+    }
+
+    footer
+    {
+        background-color: var(--color-footer_back);
+    }
+
+    .color
+    {
+        color: var(--color-footer);
+    }
+
+    .btn
+    {
+        background-color: var(--color-button_back);
+    }
+
+    .btn:hover
+    {
+        background-color: #aaaaaa;
+        color: var(--color-button);
+    }
+
+    .nav-link
+    {
+        color: var(--color-a);
+    }
+}
+
+@media (prefers-color-scheme: dark) /* Media Query que Detecta Cuando el Navegador Está Configurado para Usar el Modo Oscuro (dark). */
+{
+    body{
+        --color-texto: #808080;
+        --color-fondo: #03045e;
+        --color-header_back: #545454;
+        --color-header: #f0f0f0;
+        --color-nav_back: #a0a0a0;
+        --color-aside: #0a0a0a;
+        --color-aside_back: #a0a0a0;
+        --color-button_back: #606060;
+        --color-button: wheat;
+        --color-a: #f0f0f0;
+        --color-footer_back: #505050;
+        --color-footer: wheat;
+    }
+}
+
+.dark /* Modo Oscuro */
+{
+    --color-texto: #808080;
+    --color-fondo: #03045e;
+    --color-header_back: #545454;
+    --color-header: #f0f0f0;
+    --color-nav_back: #a0a0a0;
+    --color-aside: #0a0a0a;
+    --color-aside_back: #a0a0a0;
+    --color-button_back: #808080;
+    --color-button: wheat;
+    --color-a: #f0f0f0;
+    --color-footer_back: #505050;
+    --color-footer: wheat;
+}
+
+.light /* Modo Claro */
+{
+    --color-texto: #808080;
+    --color-fondo: #03045e;
+    --color-header_back: #48cae4;
+    --color-header: #000;
+    --color-nav_back: lightblue;
+    --color-aside_back: lightblue;
+    --color-button_back: #4040ff;
+    --color-button: wheat;
+    --color-a: #0f0f0f;
+    --color-footer_back: #023e8a;
+    --color-footer: wheat;
+}
+
+.dark-hight /* Modo Oscuro Alto Contraste */
+{
+    font-size: 1.25em;
+    --color-texto: #cccccc;
+    --color-fondo: #03045e;
+    --color-header_back: #0c0c0c;
+    --color-header: #fff;
+    --color-nav_back: #a0a0a0;
+    --color-aside: #0c0c0c;
+    --color-aside_back: #a0a0a0;
+    --color-button_back: #808080;
+    --color-button: white;
+    --color-a: #f0f0f0;
+    --color-footer_back: #505050;
+    --color-footer: white;
+}
+
+.light-hight /* Modo Claro Alto Contraste */
+{
+    font-size: 1.25em;
+    --color-texto: #cccccc;
+    --color-fondo: #03045e;
+    --color-header_back: lightblue;
+    --color-header: #000;
+    --color-nav_back: lightblue;
+    --color-aside_back: lightblue;
+    --color-button_back: #8080ff;
+    --color-button: white;
+    --color-a: #0f0f0f;
+    --color-footer_back: #023e8a;
+    --color-footer: white;
+}
