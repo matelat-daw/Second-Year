@@ -133,7 +133,7 @@ base.OnModelCreating(modelBuilder);
 
 Se Ejecuta en la Consola de Administración de los Paquetes:
 
-add.migration Initial
+add-migration Initial
 
 update-database
 
