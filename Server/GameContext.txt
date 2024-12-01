@@ -1,0 +1,131 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Api_4_Games_Users.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+
+public class GameContext : IdentityDbContext
+    {
+        public GameContext (DbContextOptions<GameContext> options)
+            : base(options)
+        {
+        }
+
+        public DbSet<Api_4_Games_Users.Models.Game> Game { get; set; } = default!;
+
+        public DbSet<Api_4_Games_Users.Models.Genre> Genre { get; set; } = default!;
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        //modelBuilder.Entity<Game>().ToTable("Game", t => t.ExcludeFromMigrations()); // Excluye la Tabla Game.
+        //modelBuilder.Entity<Genre>().ToTable("Genre", t => t.ExcludeFromMigrations()); // Excluye la Tabla Genre.
+
+        modelBuilder.Entity<Genre>().HasData(new Genre
+        {
+            Id = 1,
+            Name = "Adventure"
+        },
+        new Game
+        {
+            Id = 2,
+            Name = "Action/Adv"
+        },
+        new Game
+        {
+            Id = 3,
+            Name = "Wit/Strategy"
+        });
+
+        modelBuilder.Entity<Game>().HasData(new Game
+        {
+            Id = 1,
+            Name = "Monkey Island I",
+            Price = 5,
+            GenreId = 1
+        },
+        new Game
+        {
+            Id = 2,
+            Name = "Tomb Raider II",
+            Price = 15,
+            GenreId = 2
+        },
+        new Game
+        {
+            Id = 3,
+            Name = "Mimi & Mites",
+            Price = 5,
+            GenreId = 3
+        });
+
+        IdentityRole adminRole = new()
+        {
+            Name = "Admin"
+        };
+        adminRole.NormalizedName = adminRole.Name.ToUpper();
+
+        IdentityRole basicRole = new()
+        {
+            Name = "Basic"
+        };
+        basicRole.NormalizedName = basicRole.Name.ToUpper();
+
+        List<IdentityRole> roles =
+        [
+            adminRole, basicRole
+        ];
+
+        IdentityUser Admin = new IdentityUser
+        {
+            UserName = "admin@ejercicio4.com",
+            Email = "admin@ejercicio4.com"
+        };
+        Admin.NormalizedUserName = Admin.UserName.ToUpper();
+        Admin.NormalizedEmail = Admin.Email.ToUpper();
+
+        IdentityUser Basic = new()
+        {
+            UserName = "basic@ejercicio4.com",
+            Email = "basic@ejercicio4.com"
+        };
+        Basic.NormalizedUserName = Basic.UserName.ToUpper();
+        Basic.NormalizedEmail = Basic.Email.ToUpper();
+
+        List<IdentityUser> users =
+        [
+            Admin, Basic
+        ];
+
+        var passwordHasher = new PasswordHasher<IdentityUser>(); // Crea las Contraseñas de los tres Usuarios de la Lista de Usuarios.
+        users[0].PasswordHash = passwordHasher.HashPassword(users[0], "Admin123!");
+        users[1].PasswordHash = passwordHasher.HashPassword(users[1], "Basic123!");
+
+        IdentityUserRole<string> userRoleAdmin = new()
+        {
+            UserId = users[0].Id,
+            RoleId = roles[0].Id
+        };
+
+        IdentityUserRole<string> userRoleBasic = new()
+        {
+            UserId = users[1].Id,
+            RoleId = roles[1].Id
+        };
+
+        List<IdentityUserRole<string>> userRoles =
+        [
+            userRoleAdmin, userRoleBasic
+        ]; // Lista de los Roles de los Usuarios Registrados.
+
+        modelBuilder.Entity<IdentityRole>().HasData(roles); // Roles a Almacenar en la Base de Datos Games en la Tabla AspNetRoles.
+
+        modelBuilder.Entity<IdentityUser>().HasData(users); // Roles a Almacenar en la Base de Datos Games en la Tabla AspNetUsers.
+
+        modelBuilder.Entity<IdentityUserRole<string>>().HasData(userRoles); // Roles a Almacenar en la Base de Datos Games en la Tabla AspNetUserRoles.
+
+        base.OnModelCreating(modelBuilder);
+    }
+}
