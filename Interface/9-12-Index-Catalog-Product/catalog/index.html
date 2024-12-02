@@ -6,28 +6,44 @@
     <title>Catálogo</title>
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body>
+<body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro. -->
     <header>
         <div><img src="../img/fruta.webp" alt="Logo de la Empresa Frutas del Mundo" class="logo-size"></div>
-        <div class="big-letter">Frutas del M<span class="red">u</span><span class="green">n</span><span class="blue">d</span>o</div>
-        <div class="center">
-            <a href="#"><p>Contacto</p></a>
-            <a href="#"><p>LogIn</p></a>
-            <a href="#"><p>Me Registro</p></a>
+        <div>
+            <h1 class="big-letter">Frutas del Mundo</h1>
+            <!-- <select id="style" onchange="changeStyle(this.value)">
+                <option value="" selected disabled>Selecciona tu Estilo</option>
+                <option value="dark">Oscuro</option>
+                <option value="light">Claro</option>
+            </select> -->
+            <a href="javascript:changeStyle('light')"><i class="bi bi-brightness-high"></i></a>
+            <a href="javascript:changeStyle('dark')"><i class="bi bi-moon-stars"></i></a>
+            &nbsp;&nbsp;&nbsp;<a href="javascript:changeMode('high')"><i class="bi bi-lightbulb-fill"></i></a>
+            <a href="javascript:changeMode('low')"><i class="bi bi-lightbulb"></i></a>
+            <!-- <label class="switch">
+                <input id="mode" type="checkbox" onclick="changeMode()">
+                <span class="slider round"></span>
+            </label> Modo Alto Contraste -->
+        </div>
+        <div class="repair">
+            <a href="#" class="nav-link sort"><p>Contacto</p></a>
+            <a href="#" class="nav-link sort"><p>LogIn</p></a>
+            <a href="#" class="nav-link sort"><p>Me Registro</p></a>
         </div>
     </header>
     <section class="container">
         <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
-            <a href="#" class="nav-margin nav-button nav-blue">Página de Inicio</a>
-            <a href="#" class="nav-margin nav-button nav-lightblue">Frutas de Cercanias</a>
-            <a href="#" class="nav-margin nav-button nav-green">Frutas de Temporada</a>
-            <a href="#" class="nav-margin nav-button nav-lightgreen">Frutas Tropicales</a>
-            <a href="#" class="nav-button nav-lightrose">Frutas exóticas</a>
+            <a href="../index.html" class="nav-link sort">Página de Inicio</a>
+            <a href="#" class="nav-link sort">Frutas de Cercanias</a>
+            <a href="#" class="nav-link sort">Frutas de Temporada</a>
+            <a href="#" class="nav-link sort">Frutas Tropicales</a>
+            <a href="#" class="nav-link sort">Frutas exóticas</a>
         </nav>
         <select id="select"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <option value="">Selecciona una Opción</option>
-            <option value="#">Página de Inicio</option>
+            <option value="../index.html">Página de Inicio</option>
             <option value="#">Frutas de Cercanias</option>
             <option value="#">Frutas de Temporada</option>
             <option value="#">Frutas Tropicales</option>
@@ -35,53 +51,53 @@
         </select>
         <aside>
             <div class="nav-flex nav-vertical">
-                <a href="#" class="nav-button nav-blue">¡Ofertas!</a>
-                <a href="#" class="nav-button nav-lightblue">Batidos en el Momento</a>
-                <a href="#" class="nav-button nav-green">Ensalada de Frutas</a>
-                <a href="#" class="nav-button nav-lightgreen">Fruta Congelada</a>
-                <a href="#" class="nav-button nav-lightrose">Mix de Frutas Congeladas</a>
+                <a href="#" class="nav-link">¡Ofertas!</a>
+                <a href="#" class="nav-link">Batidos en el Momento</a>
+                <a href="#" class="nav-link">Ensalada de Frutas</a>
+                <a href="#" class="nav-link">Fruta Congelada</a>
+                <a href="#" class="nav-link">Mix de Frutas Congeladas</a>
             </div>
         </aside>
         <main>
             <div class="main">
                 <article>
                     <ul>
-                        <a href="../product/index.html"><li><img src="../img/kiwi.jpg" alt="Fresas"></li>
+                        <a href="../product/index.html"><li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li></a>
                         <li>Kiwi</li>
                         <li>2,80€ x Kg</li>
-                        <li><span class="star stars-5"></span></li></a>
+                        <li><span class="star stars-5"></span></li>
                     </ul>
                 </article>
                 <article>
                     <ul>
-                        <a href="../product/index.html"><li><img src="../img/fresa.webp" alt="Fresas"></li>
+                        <a href="../product/index.html"><li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li></a>
                         <li>Fresas</li>
                         <li>5,50€ x Kg</li>
-                        <li><span class="star stars-4"></span></li></a>
+                        <li><span class="star stars-4"></span></li>
                     </ul>
                 </article>
                 <article>
                     <ul>
-                        <a href="../product/index.html"><li><img src="../img/manzana.jpg" alt="Fresas"></li>
+                        <a href="../product/index.html"><li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li></a>
                         <li>Manzanas</li>
                         <li>1,60€ x Kg</li>
-                        <li><span class="star stars-3"></span></li></a>
+                        <li><span class="star stars-3"></span></li>
                     </ul>
                 </article>
                 <article>
                     <ul>
-                        <a href="../product/index.html"><li><img src="../img/piña.jpg" alt="Fresas"></li>
+                        <a href="../product/index.html"><li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li></a>
                         <li>Piña</li>
                         <li>5,80€ x Kg</li>
-                        <li><span class="star stars-4"></span></li></a>
+                        <li><span class="star stars-4"></span></li>
                     </ul>
                 </article>
                 <article>
                     <ul>
-                        <a href="../product/index.html"><li><img src="../img/pomelo.jpg" alt="Fresas"></li>
+                        <a href="../product/index.html"><li><img src="../img/pomelo.jpg" alt="Pomelo" class="catalog"></li></a>
                         <li>Pomelo</li>
                         <li>2,20€ x Kg</li>
-                        <li><span class="star stars-4"></span></li></a>
+                        <li><span class="star stars-4"></span></li>
                     </ul>
                 </article>
             </div>

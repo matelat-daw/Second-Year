@@ -64,6 +64,34 @@ body
     {
         border-radius: 6px;
     }
+
+    .star
+    {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background-image: url(https://i.sstatic.net/KaEDC.png);
+    }
+
+    .stars-2
+    {
+        width: 26px;
+    }
+
+    .stars-3
+    {
+        width: 39px;
+    }
+
+    .stars-4
+    {
+        width: 52px;
+    }
+
+    .stars-5
+    {
+        width: 65px;
+    }
 }
 
 /* CSS del Input tipo checkbox, descargado de W3 Schools */
@@ -219,6 +247,71 @@ main
     border: 0;
 }
 
+.grid
+{
+    top: -458px;
+    grid-template-columns: auto auto;
+}
+
+.grid > div
+{
+    width: 640px;
+}
+
+.grid2
+{
+    top: -438px;
+    grid-template-columns: auto auto auto;
+}
+
+.grid2 > div
+{
+    width: 410px;
+}
+
+.common
+{
+    display: grid;
+    position: relative;
+    left: 180px;
+    width: 1280px;
+    gap: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.common > div
+{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 500px;
+}
+
+.section-main-margin
+{
+    margin-left: 25px;
+    margin-top: 25px;
+}
+
+.section-secondary
+{
+    width: 390px;
+    height: 320px;
+    margin-left: 8px;
+    margin-top: 8px;
+}
+
+.catalog
+{
+    width: 200px;
+    height: 200px;
+}
+
+article > ul
+{
+    list-style: none;
+}
+
 /* Estilos de Footer. */
 
 footer
@@ -346,10 +439,22 @@ footer > div > div > ul > li
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
         }
+
         img
         {
             width: 75%;
             height: 65%;
+        }
+
+        img, .catalog
+        {
+            width: 20em;
+            height: 25em;
+        }
+
+        article > ul
+        {
+            list-style: none;
         }
     }
 
@@ -384,6 +489,17 @@ footer > div > div > ul > li
             width: 90%;
             height: 85%;
         }
+
+        img, .catalog
+        {
+            width: 30em;
+            height: 30em;
+        }
+
+        article > ul
+        {
+            list-style: none;
+        }
         
         nav
         {
@@ -395,6 +511,7 @@ footer > div > div > ul > li
             grid-template-columns: 1fr 1fr;
         }
     }
+
     footer
     {
         .footer
@@ -440,6 +557,17 @@ footer > div > div > ul > li
             {
                 width: 98%;
                 height: 100%;
+            }
+
+            img, .catalog
+            {
+                width: 40em;
+                height: 33em;
+            }
+
+            article > ul
+            {
+                list-style: none;
             }
         }
 

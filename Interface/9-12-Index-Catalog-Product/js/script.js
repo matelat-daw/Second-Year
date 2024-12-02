@@ -4,6 +4,8 @@ const DOM = {
     article: document.getElementById("article")
 };
 
+localStorage.setItem("style") = "";
+
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
 {
     DOM.body.className = "dark"; // True, Pone la Página en modo Dark.
@@ -35,13 +37,36 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
             }
             break;
     }
+    localStorage.setItem("style") = style;
 
-    let option = document.querySelector(`#style option[value=""]`);
-    option.selected = true;
+    // let option = document.querySelector(`#style option[value=""]`);
+    // option.selected = true;
 }
 
-function changeMode() // Cambia Entre Normal y Alto Contraste.
+function changeMode(mode) // Cambia Entre Normal y Alto Contraste.
 {
+    switch (mode)
+    {
+        case "high":
+            if (localStorage.getItem("style") == "dark")
+            {
+                DOM.body.className = "dark-hight";
+            }
+            else
+            {
+                DOM.body.className = "light-hight";
+            }
+            break;
+        default:
+            if (localStorage.getItem("style") == "dark")
+            {
+                DOM.body.className = "dark";
+            }
+            else
+            {
+                DOM.body.className = "light";
+            }
+    }
     if (DOM.mode.checked && DOM.body.className == "dark")
     {
         DOM.body.className = "dark-hight";
