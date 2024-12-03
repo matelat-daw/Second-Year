@@ -13,24 +13,19 @@
         <div><img src="img/fruta.webp" alt="Logo de la Empresa Frutas del Mundo" class="logo-size"></div>
         <div>
             <h1 class="big-letter">Frutas del Mundo</h1>
-            <!-- <select id="style" onchange="changeStyle(this.value)">
-                <option value="" selected disabled>Selecciona tu Estilo</option>
-                <option value="dark">Oscuro</option>
-                <option value="light">Claro</option>
-            </select> -->
-            <a href="javascript:changeStyle('light')"><i class="bi bi-brightness-high"></i></a>
-            <a href="javascript:changeStyle('dark')"><i class="bi bi-moon-stars"></i></a>
-            &nbsp;&nbsp;&nbsp;<a href="javascript:changeMode('high')"><i class="bi bi-lightbulb-fill"></i></a>
-            <a href="javascript:changeMode('low')"><i class="bi bi-lightbulb"></i></a>
-            <!-- <label class="switch">
-                <input id="mode" type="checkbox" onclick="changeMode()">
-                <span class="slider round"></span>
-            </label> Modo Alto Contraste -->
         </div>
         <div class="repair">
             <a href="#" class="nav-link sort"><p>Contacto</p></a>
             <a href="#" class="nav-link sort"><p>LogIn</p></a>
             <a href="#" class="nav-link sort"><p>Me Registro</p></a>
+            <div class="left">
+                <a href="javascript:changeStyle('light')"><i id="lightMode" class="bi bi-brightness-high double"></i></a>
+                <a href="javascript:changeStyle('dark')"><i id="darkMode" class="bi bi-moon-stars double"></i></a>
+            </div>
+            <div>
+                <a href="javascript:changeSize('down')"><button class="double">-f</button></a>
+                <a href="javascript:changeSize('up')"><button class="double">F+</button></a>
+            </div>
         </div>
     </header>
     <section class="container">

@@ -94,76 +94,6 @@ body
     }
 }
 
-/* CSS del Input tipo checkbox, descargado de W3 Schools */
-.switch
-{
-    position: relative;
-    display: inline-block;
-    top: -5px;
-    width: 60px;
-    height: 34px;
-}
-  
-.switch input
-{ 
-    opacity: 0;
-    width: 0;
-    height: 0;
-}
-  
-.slider
-{
-    position: absolute;
-    cursor: pointer;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #DDD;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-  
-.slider:before
-{
-    position: absolute;
-    content: "";
-    height: 26px;
-    width: 26px;
-    left: 4px;
-    bottom: 4px;
-    background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
-}
-  
-input:checked + .slider
-{
-    background-color: #444;
-}
-  
-input:focus + .slider
-{
-    box-shadow: 0 0 1px #444;
-}
-  
-input:checked + .slider:before
-{
-    -webkit-transform: translateX(26px);
-    -ms-transform: translateX(26px);
-    transform: translateX(26px);
-}
-
-.slider.round
-{
-    border-radius: 34px;
-}
-  
-.slider.round:before
-{
-    border-radius: 50%;
-}
-
 /* Estilos de Header. */
 
 .logo-size
@@ -181,6 +111,11 @@ input:checked + .slider:before
     color: var(--color-a);
     margin: .5em 0;
     text-decoration: none;
+}
+
+.double
+{
+    font-size: 2em;
 }
 
 /* Estilos de Nav. */
@@ -206,6 +141,12 @@ input:checked + .slider:before
 #nav /* El nav no se Ve ya que el Diseño en Mobile First */
 {
     display: none;
+}
+
+.left
+{
+    margin-top: 20px;
+    margin-right: 20px;
 }
 
 /* Estilos de Main. */
