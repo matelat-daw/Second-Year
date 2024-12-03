@@ -8,25 +8,26 @@ const DOM = {
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
 {
-    console.log("El Modo por Defect es: " + localStorage.getItem("style"));
-    if (localStorage.getItem("style") == "dark")
+    console.log("Al Entrar en Detección del Modo es: " + localStorage.getItem("style"));
+    if (localStorage.getItem("style") == "dark" || localStorage.getItem("style") == null)
     {
         localStorage.setItem("style", "dark");
         DOM.dark.style.display = "none";
         DOM.body.className = "dark"; // True, Pone la Página en modo Dark.
         if (DOM.article != null)
             DOM.article.src = "../img/kiwi-dark.jpg";
+
+        console.log("El Modo por Defecto es: " + localStorage.getItem("style"));
     }
     else
     {
         DOM.light.style.display = "none";
         DOM.body.className = "light"; // False, Pone la Página en Modo Light.
+        if (DOM.article != null)
+            DOM.article.src = "../img/kiwi.jpg";
+
+        console.log("Acá no tiene que estar y es: " + localStorage.getItem("style"));
     }
-}
-else
-{
-    DOM.light.style.display = "none";
-    DOM.body.className = "light"; // False, Pone la Página en Modo Light.
 }
 
 function changeStyle(style) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
@@ -38,17 +39,18 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
                 DOM.article.src = "../img/kiwi-dark.jpg";
             DOM.light.style.display = "block";
             DOM.dark.style.display = "none";
-            DOM.body.className = "dark";
+            DOM.body.className = style;
             break;
         case "light":
             if (DOM.article != null)
                 DOM.article.src = "../img/kiwi.jpg";
             DOM.dark.style.display = "block";
             DOM.light.style.display = "none";
-            DOM.body.className = "light";
+            DOM.body.className = style;
             break;
     }
     localStorage.setItem("style", style);
+    console.log("Cambié el Modo a: " + localStorage.getItem("style"));
 }
 
 var size = 2;
