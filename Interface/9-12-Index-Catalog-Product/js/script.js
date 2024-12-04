@@ -8,8 +8,18 @@ const DOM = {
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
 {
-    console.log("Al Entrar en Detección del Modo es: " + localStorage.getItem("style"));
-    if (localStorage.getItem("style") == "dark" || localStorage.getItem("style") == null)
+    putMode();
+}
+else
+{
+    putMode();
+}
+
+function putMode()
+{
+    let style = localStorage.style;
+    console.log("Al Entrar en AutoDetección el Modo es: " + style);
+    if (style == "dark" || style == null)
     {
         localStorage.setItem("style", "dark");
         DOM.dark.style.display = "none";
@@ -17,7 +27,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
         if (DOM.article != null)
             DOM.article.src = "../img/kiwi-dark.jpg";
 
-        console.log("El Modo por Defecto es: " + localStorage.getItem("style"));
+        console.log("El Modo por Defecto es: " + style);
     }
     else
     {
@@ -26,7 +36,7 @@ if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').match
         if (DOM.article != null)
             DOM.article.src = "../img/kiwi.jpg";
 
-        console.log("Acá no tiene que estar y es: " + localStorage.getItem("style"));
+        console.log("Acá el Modo es Light: " + style);
     }
 }
 
@@ -50,7 +60,7 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
             break;
     }
     localStorage.setItem("style", style);
-    console.log("Cambié el Modo a: " + localStorage.getItem("style"));
+    console.log("Cambié el Modo a: " + localStorage.style);
 }
 
 var size = 2;
