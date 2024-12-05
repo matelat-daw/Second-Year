@@ -17,13 +17,10 @@ else
 
 function changeStyle(style, where) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
 {
-    console.log("El Estilo en Change es: " + style);
-    console.log("Y Viene de: " + where + "  en Change");
-    if (localStorage.getItem("stilo") != null)
+    if (localStorage.getItem("style") != null)
     {
-        let mode = localStorage.getItem("stilo");
-        console.log("El modo en Change es: " + mode);
-        if (mode != style && where == "default")
+        let mode = localStorage.getItem("style");
+        if (where == "default")
         {
             styleIt(mode);
         }
@@ -40,24 +37,23 @@ function changeStyle(style, where) // Cambia los Estilos de la Página, Según s
 
 function styleIt(style)
 {
-    console.log("El Estilo en styleIt es: " + style);
-    switch (style)
+    if (style == "dark")
     {
-        case "dark":
-            if (DOM.article != null)
-                DOM.article.src = "../img/kiwi-dark.jpg";
-            DOM.light.style.display = "block";
-            DOM.dark.style.display = "none";
-            DOM.body.className = style;
-            break;
-        default:
-            if (DOM.article != null)
-                DOM.article.src = "../img/kiwi.jpg";
-            DOM.dark.style.display = "block";
-            DOM.light.style.display = "none";
-            DOM.body.className = style;
+        if (DOM.article != null)
+            DOM.article.src = "../img/kiwi-dark.jpg";
+        DOM.light.style.display = "block";
+        DOM.dark.style.display = "none";
+        DOM.body.className = style;
     }
-    localStorage.setItem("stilo", style);
+    else
+    {
+        if (DOM.article != null)
+            DOM.article.src = "../img/kiwi.jpg";
+        DOM.dark.style.display = "block";
+        DOM.light.style.display = "none";
+        DOM.body.className = style;
+    }
+    localStorage.setItem("style", style);
 }
 
 var size = 2;
@@ -66,13 +62,11 @@ function changeSize(where)
 {
     const fontSizes = ["small", "medium", "large", "x-large", "xx-large"];
 
-    var style = window.getComputedStyle(DOM.body, null).getPropertyValue('font-size');
-    var fontSize = parseFloat(style);
-    console.log("Size de las Fuente del Body es: " + fontSize);
+    let style = window.getComputedStyle(DOM.body, null).getPropertyValue('font-size');
+    let fontSize = parseFloat(style);
 
-    switch (where)
-    {
-        case "up":
+        if (where == "up")
+        {
             size += 1;
             if (size <= 4)
             {
@@ -82,8 +76,9 @@ function changeSize(where)
             {
                 size -= 1;
             }
-            break;
-        case "down":
+        }
+        else
+        {
             size -= 1;
             if (size >= 0)
             {
@@ -93,8 +88,7 @@ function changeSize(where)
             {
                 size += 1;
             }
-            break;
-    }
+        }
 }
 // function changeMode(mode) // Cambia Entre Normal y Alto Contraste.
 // {
