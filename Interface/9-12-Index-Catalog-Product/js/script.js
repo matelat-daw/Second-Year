@@ -8,45 +8,50 @@ const DOM = {
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
 {
-    console.log("El Modo por Defect es: " + localStorage.getItem("style"));
-    if (localStorage.getItem("style") == "dark")
-    {
-        localStorage.setItem("style", "dark");
-        DOM.dark.style.display = "none";
-        DOM.body.className = "dark"; // True, Pone la Página en modo Dark.
-        if (DOM.article != null)
-            DOM.article.src = "../img/kiwi-dark.jpg";
-    }
-    else
-    {
-        DOM.light.style.display = "none";
-        DOM.body.className = "light"; // False, Pone la Página en Modo Light.
-    }
+    changeStyle("dark", "default");
 }
 else
 {
-    DOM.light.style.display = "none";
-    DOM.body.className = "light"; // False, Pone la Página en Modo Light.
+    changeStyle("light", "default");
 }
 
-function changeStyle(style) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
+function changeStyle(style, where) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
 {
-    switch (style)
+    if (localStorage.getItem("style") != null)
     {
-        case "dark":
-            if (DOM.article != null)
-                DOM.article.src = "../img/kiwi-dark.jpg";
-            DOM.light.style.display = "block";
-            DOM.dark.style.display = "none";
-            DOM.body.className = "dark";
-            break;
-        case "light":
-            if (DOM.article != null)
-                DOM.article.src = "../img/kiwi.jpg";
-            DOM.dark.style.display = "block";
-            DOM.light.style.display = "none";
-            DOM.body.className = "light";
-            break;
+        let mode = localStorage.getItem("style");
+        if (where == "default")
+        {
+            styleIt(mode);
+        }
+        else
+        {
+            styleIt(style);
+        }
+    }
+    else
+    {
+        styleIt(style);
+    }
+}
+
+function styleIt(style)
+{
+    if (style == "dark")
+    {
+        if (DOM.article != null)
+            DOM.article.src = "../img/kiwi-dark.jpg";
+        DOM.light.style.display = "block";
+        DOM.dark.style.display = "none";
+        DOM.body.className = style;
+    }
+    else
+    {
+        if (DOM.article != null)
+            DOM.article.src = "../img/kiwi.jpg";
+        DOM.dark.style.display = "block";
+        DOM.light.style.display = "none";
+        DOM.body.className = style;
     }
     localStorage.setItem("style", style);
 }
@@ -57,13 +62,11 @@ function changeSize(where)
 {
     const fontSizes = ["small", "medium", "large", "x-large", "xx-large"];
 
-    var style = window.getComputedStyle(DOM.body, null).getPropertyValue('font-size');
-    var fontSize = parseFloat(style);
-    console.log("Size de las Fuente del Body es: " + fontSize);
+    let style = window.getComputedStyle(DOM.body, null).getPropertyValue('font-size');
+    let fontSize = parseFloat(style);
 
-    switch (where)
-    {
-        case "up":
+        if (where == "up")
+        {
             size += 1;
             if (size <= 4)
             {
@@ -73,8 +76,9 @@ function changeSize(where)
             {
                 size -= 1;
             }
-            break;
-        case "down":
+        }
+        else
+        {
             size -= 1;
             if (size >= 0)
             {
@@ -84,8 +88,7 @@ function changeSize(where)
             {
                 size += 1;
             }
-            break;
-    }
+        }
 }
 // function changeMode(mode) // Cambia Entre Normal y Alto Contraste.
 // {
