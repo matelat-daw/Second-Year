@@ -8,40 +8,39 @@ const DOM = {
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
 {
-    putMode();
+    changeStyle("dark", "default");
 }
 else
 {
-    putMode();
+    changeStyle("light", "default");
 }
 
-function putMode()
+function changeStyle(style, where) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
 {
-    let style = localStorage.style;
-    console.log("Al Entrar en AutoDetección el Modo es: " + style);
-    if (style == "dark" || style == null)
+    console.log("El Estilo en Change es: " + style);
+    console.log("Y Viene de: " + where + "  en Change");
+    if (localStorage.getItem("stilo") != null)
     {
-        localStorage.setItem("style", "dark");
-        DOM.dark.style.display = "none";
-        DOM.body.className = "dark"; // True, Pone la Página en modo Dark.
-        if (DOM.article != null)
-            DOM.article.src = "../img/kiwi-dark.jpg";
-
-        console.log("El Modo por Defecto es: " + style);
+        let mode = localStorage.getItem("stilo");
+        console.log("El modo en Change es: " + mode);
+        if (mode != style && where === "default")
+        {
+            styleIt(mode);
+        }
+        else
+        {
+            styleIt(style);
+        }
     }
     else
     {
-        DOM.light.style.display = "none";
-        DOM.body.className = "light"; // False, Pone la Página en Modo Light.
-        if (DOM.article != null)
-            DOM.article.src = "../img/kiwi.jpg";
-
-        console.log("Acá el Modo es Light: " + style);
+        styleIt(style);
     }
 }
 
-function changeStyle(style) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
+function styleIt(style)
 {
+    console.log("El Estilo en styleIt es: " + style);
     switch (style)
     {
         case "dark":
@@ -51,16 +50,14 @@ function changeStyle(style) // Cambia los Estilos de la Página, Según se Selec
             DOM.dark.style.display = "none";
             DOM.body.className = style;
             break;
-        case "light":
+        default:
             if (DOM.article != null)
                 DOM.article.src = "../img/kiwi.jpg";
             DOM.dark.style.display = "block";
             DOM.light.style.display = "none";
             DOM.body.className = style;
-            break;
     }
-    localStorage.setItem("style", style);
-    console.log("Cambié el Modo a: " + localStorage.style);
+    localStorage.setItem("stilo", style);
 }
 
 var size = 2;
