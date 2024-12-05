@@ -23,7 +23,7 @@ function changeStyle(style, where) // Cambia los Estilos de la Página, Según s
     {
         let mode = localStorage.getItem("stilo");
         console.log("El modo en Change es: " + mode);
-        if (mode != style && where === "default")
+        if (mode != style && where == "default")
         {
             styleIt(mode);
         }
