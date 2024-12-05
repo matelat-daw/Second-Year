@@ -16,6 +16,6 @@ const DOM = {
   // DOM.curso.textContent = curso();
   DOM.curso.textContent = modulos.curso();
   // DOM.modulo.textContent = asignatura();
-  DOM.modulo.textContent = modulos.modulo(); // Asignatura s eexporta con alias modulo.
-  // DOM.modulo.textContent = modulo(); // Asignatura s eexporta con alias modulo.
+  DOM.modulo.textContent = modulos.modulo(); // Asignatura se exporta con alias modulo.
+  // DOM.modulo.textContent = modulo(); // Asignatura se exporta con alias modulo.
 })()
