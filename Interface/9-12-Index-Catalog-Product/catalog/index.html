@@ -19,12 +19,12 @@
             <a href="#" class="nav-link sort"><p>LogIn</p></a>
             <a href="#" class="nav-link sort"><p>Me Registro</p></a>
             <div class="left">
-                <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double"></i></a>
-                <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double"></i></a>
+                <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double" aria-label="Cambia a Tema Claro"></i></a>
+                <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
             </div>
             <div>
-                <a href="javascript:changeSize('down')"><button class="double">-f</button></a>
-                <a href="javascript:changeSize('up')"><button class="double">F+</button></a>
+                <a href="javascript:changeSize('down')"><button class="double" aria-label="Disminuye el Tamaño de la Letra">-f</button></a>
+                <a href="javascript:changeSize('up')"><button class="double" aria-label="Aumenta el Tamaño de la Letra">F+</button></a>
             </div>
         </div>
     </header>
@@ -36,7 +36,7 @@
             <a href="#" class="nav-link sort">Frutas Tropicales</a>
             <a href="#" class="nav-link sort">Frutas exóticas</a>
         </nav>
-        <select id="select"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+        <select id="select" onchange="visit(this.value)"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <option value="">Selecciona una Opción</option>
             <option value="../index.html">Página de Inicio</option>
             <option value="#">Frutas de Cercanias</option>
@@ -84,14 +84,6 @@
                         <a href="../product/index.html"><li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li></a>
                         <li>Piña</li>
                         <li>5,80€ x Kg</li>
-                        <li><span class="star stars-4"></span></li>
-                    </ul>
-                </article>
-                <article>
-                    <ul>
-                        <a href="../product/index.html"><li><img src="../img/pomelo.jpg" alt="Pomelo" class="catalog"></li></a>
-                        <li>Pomelo</li>
-                        <li>2,20€ x Kg</li>
                         <li><span class="star stars-4"></span></li>
                     </ul>
                 </article>

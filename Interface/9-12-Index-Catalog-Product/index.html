@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 </head>
-<body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro. -->
+<body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro, a Menos que el Modo Predeterminado del Usuario Sea Dark, que se Detecta en el Script script.js de Javascript. -->
     <header>
         <div><img src="img/fruta.webp" alt="Logo de la Empresa Frutas del Mundo" class="logo-size"></div>
         <div>
@@ -19,12 +19,12 @@
             <a href="#" class="nav-link sort"><p>LogIn</p></a>
             <a href="#" class="nav-link sort"><p>Me Registro</p></a>
             <div class="left">
-                <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double"></i></a>
-                <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double"></i></a>
+                <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double" aria-label="Cambia a Tema Claro"></i></a>
+                <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
             </div>
             <div>
-                <a href="javascript:changeSize('down')"><button class="double">-f</button></a>
-                <a href="javascript:changeSize('up')"><button class="double">F+</button></a>
+                <a href="javascript:changeSize('down')"><button class="double" aria-label="Disminuye el Tamaño de la Letra">-f</button></a>
+                <a href="javascript:changeSize('up')"><button class="double" aria-label="Aumenta el Tamaño de la Letra">F+</button></a>
             </div>
         </div>
     </header>
@@ -36,7 +36,7 @@
             <a href="catalog/index.html" class="nav-link sort">Frutas Tropicales</a>
             <a href="catalog/index.html" class="nav-link sort">Frutas exóticas</a>
         </nav>
-        <select id="select"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+        <select id="select" onchange="visit(this.value)"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <option value="">Selecciona una Opción</option>
             <option value="#">Página de Inicio</option>
             <option value="catalog/index.html">Frutas de Cercanias</option>
@@ -53,49 +53,52 @@
                 <a href="#" class="nav-link">Mix de Frutas Congeladas</a>
             </div>
         </aside>
-    <section class="grid common">
-        <div>
-            <div>
-                <h3>Toda la Fruta</h3>
-                <img src="img/kiwi.jpg" alt="Kiwi">
-            </div>
-            <p>Si hubiese que reducir todo a una, ¿cuál es la fruta más sana del mundo? Pues según diversos estudios la respuesta es el kiwi. El kiwi es el número uno en contenido de nutrientes en comparación con otras frutas.</p>
-        </div>
-        <div>
-            <h3>Fruta Local</h3>
-            <img src="img/all.png" alt="Frutas de Temporada" class="section-main-margin">
-            <p>Fruta de Temporada y Producto Local.</p>
-        </div>
-    </section>
-    <br>
-    <section class="grid common">
-        <div>
-            <h3>Fruta Exótica</h3>
-            <img src="img/exotic.jpg" alt="Frutas Exóticas" class="section-main-margin">
-            <p>Frutas Exótica Importadas bajo las condiciones más estrictas para mentener la cadena de frio.</p>
-        </div>
-        <div>
-            <h3>Frutas a Medida</h3>
-            <img src="img/rare.jpg" alt="Frutas con Formas" class="section-main-margin">
-            <p>Necesitas que la fruta se adapte a Ti, tenemos todos los formatos y diseños para tu comodidad.</p>
-        </div>
-    </section>
-    <section class="grid2 common">
-        <div>
-            <h3>Fruta Congelada</h3>
-            <img src="img/freeze.jpg" alt="Fruta Congelada" class="section-secondary">
-            <p>Todo tipo de Frutas congeladas</p>
-        </div>
-        <div>
-            <h3>Ensaladas de Frutas</h3>
-            <img src="img/salad.webp" alt="Ensalada de Frutas" class="section-secondary">
-            <p>Las ensaladas de fruta se preparan en el momento al igual que los batidos.</p>
-        </div>
-        <div>
-            <h3>Batidos de Frutas</h3>
-            <img src="img/shakes.jpg" alt="Batidos de Frutas" class="section-secondary">
-            <p>Batidos Naturales y Nutritivos. Se preparan en el momento.</p>
-        </div>
+        <main>
+            <section class="main-2col">
+                <div class="inline">
+                    <h3>Toda la Fruta</h3>
+                    <img src="img/kiwi.jpg" alt="Kiwi" class="section-main-margin">
+                    <p>Si hubiese que reducir todo a una, ¿cuál es la fruta más sana del mundo?</p>
+                    <p>Pues según diversos estudios la respuesta es el kiwi. El kiwi es el número</p>
+                    <p>uno en contenido de nutrientes en comparación con otras frutas.</p>
+                </div>
+                <div class="inline">
+                    <h3>Fruta Local</h3>
+                    <img src="img/all.png" alt="Frutas de Temporada" class="section-main-margin-up">
+                    <p class="left">Fruta de Temporada y Producto Local.</p>
+                </div>
+            </section>
+            <br>
+            <section class="main-2col">
+                <div class="inline">
+                    <h3>Fruta Exótica</h3>
+                    <img src="img/exotic.jpg" alt="Frutas Exóticas" class="section-main-margin">
+                    <p>Frutas Exótica Importada bajo estrictas condiciones para la cadena de frio.</p>
+                </div>
+                <div class="inline">
+                    <h3>Frutas a Medida</h3>
+                    <img src="img/rare.jpg" alt="Frutas con Formas" class="section-main-margin">
+                    <p class="left">Necesitas que la fruta se adapte a Ti, formatos y diseños para tu comodidad.</p>
+                </div>
+            </section>
+            <section class="main-3col">
+                <div class="inline">
+                    <h3>Fruta Congelada</h3>
+                    <img src="img/freeze.jpg" alt="Fruta Congelada" class="section-secondary">
+                    <p>Todo tipo de Frutas congeladas</p>
+                </div>
+                <div class="inline">
+                    <h3>Ensaladas de Frutas</h3>
+                    <img src="img/salad.webp" alt="Ensalada de Frutas" class="section-secondary">
+                    <p class="left">Las ensaladas de fruta se preparan en el momento.</p>
+                </div>
+                <div class="inline">
+                    <h3>Batidos de Frutas</h3>
+                    <img src="img/shakes.jpg" alt="Batidos de Frutas" class="section-secondary">
+                    <p class="left">Batidos Naturales y Nutritivos. Se preparan en el momento.</p>
+                </div>
+            </section>
+        </main>
     </section>
     <footer>
         <div class="footer">
