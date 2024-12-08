@@ -23,14 +23,15 @@
                 <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
             </div>
             <div>
-                <a href="javascript:changeSize('down')"><button class="double" aria-label="Disminuye el Tamaño de la Letra">-f</button></a>
-                <a href="javascript:changeSize('up')"><button class="double" aria-label="Aumenta el Tamaño de la Letra">F+</button></a>
+                <button onclick="changeSize('down')" class="double" aria-label="Disminuye el Tamaño de la Letra">-f</button>
+                <button onclick="changeSize('up')" class="double" aria-label="Aumenta el Tamaño de la Letra">F+</button>
             </div>
         </div>
     </header>
-    <section class="container">
+    <div class="container">
         <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <a href="../index.html" class="nav-link sort">Página de Inicio</a>
+            <p><strong>Nuestro Catálogo</strong></p>
             <a href="../catalog/index.html" class="nav-link sort">Frutas de Cercanias</a>
             <a href="../catalog/index.html" class="nav-link sort">Frutas de Temporada</a>
             <a href="../catalog/index.html" class="nav-link sort">Frutas Tropicales</a>
@@ -39,10 +40,12 @@
         <select id="select" onchange="visit(this.value)"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <option value="">Selecciona una Opción</option>
             <option value="../index.html">Página de Inicio</option>
-            <option value="../catalog/index.html">Frutas de Cercanias</option>
-            <option value="../catalog/index.html">Frutas de Temporada</option>
-            <option value="../catalog/index.html">Frutas Tropicales</option>
-            <option value="../catalog/index.html">Frutas exóticas</option>
+            <optgroup label="Nuetro Catálogo">
+                <option value="../catalog/index.html">Frutas de Cercanias</option>
+                <option value="../catalog/index.html">Frutas de Temporada</option>
+                <option value="../catalog/index.html">Frutas Tropicales</option>
+                <option value="../catalog/index.html">Frutas exóticas</option>
+            </optgroup>
         </select>
         <aside>
             <div class="nav-flex nav-vertical">
@@ -55,10 +58,8 @@
         </aside>
         <main>
             <div class="main">
+                <img id="article" src="../img/kiwi.jpg" alt="Un Kiwi, La Mejor Fruta" class="article">
                 <article>
-                    <img id="article" src="../img/kiwi.jpg" alt="Un Kiwi, La Mejor Fruta" class="article">
-                </article>
-                <description>
                     <h2>Nuestro Producto Estrella</h2>
                     <p>El Kiwi es tu Mejor Opción, si buscas la mejor fruta</p>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,</p>
@@ -69,14 +70,14 @@
                     <p>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
                     <p>Compra Ahora, una Caja de 5 Kg. de Kiwi y Lleva Gratis un Pelador de Kiwis.</p>
                     <button class="btn">Comprar Ahora</button>
-                </description>
+                </article>
             </div>
         </main>
-    </section>
+    </div>
     <footer>
         <div class="footer">
             <div>
-                <p class="bold">Codiciones de Uso del Sitio</p>
+                <p>Codiciones de Uso del Sitio</p>
                 <ul>
                     <li><a href="#">Condiciones de Uso</a></li>
                     <li><a href="#">Aviso Legal</a></li>
@@ -85,7 +86,7 @@
                 </ul>
             </div>
             <div>
-                <p class="bold">Servicio</p>
+                <p>Servicio</p>
                 <ul>
                     <li><a href="#">Como Comprar</a></li>
                     <li><a href="#">Zona de repato</a></li>
@@ -94,7 +95,7 @@
                 </ul>
             </div>
             <div>
-                <p class="bold">Acerca de Nosotros</p>
+                <p>Acerca de Nosotros</p>
                 <ul>
                     <li><a href="#">Quienes somos</a></li>
                     <li><a href="#">Nuetra Mision, Vision y Valores</a></li>

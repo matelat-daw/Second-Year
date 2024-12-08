@@ -23,14 +23,15 @@
                 <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
             </div>
             <div>
-                <a href="javascript:changeSize('down')"><button class="double" aria-label="Disminuye el Tamaño de la Letra">-f</button></a>
-                <a href="javascript:changeSize('up')"><button class="double" aria-label="Aumenta el Tamaño de la Letra">F+</button></a>
+                <button onclick="changeSize('down')" class="double" aria-label="Disminuye el Tamaño de la Letra">-f</button>
+                <button onclick="changeSize('up')" class="double" aria-label="Aumenta el Tamaño de la Letra">F+</button>
             </div>
         </div>
     </header>
-    <section class="container">
+    <div class="container">
         <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <a href="../index.html" class="nav-link sort">Página de Inicio</a>
+            <p><strong>Nuestro Catálogo</strong></p>
             <a href="#" class="nav-link sort">Frutas de Cercanias</a>
             <a href="#" class="nav-link sort">Frutas de Temporada</a>
             <a href="#" class="nav-link sort">Frutas Tropicales</a>
@@ -39,10 +40,12 @@
         <select id="select" onchange="visit(this.value)"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <option value="">Selecciona una Opción</option>
             <option value="../index.html">Página de Inicio</option>
-            <option value="#">Frutas de Cercanias</option>
-            <option value="#">Frutas de Temporada</option>
-            <option value="#">Frutas Tropicales</option>
-            <option value="#">Frutas exóticas</option>
+            <optgroup label="Nuetro Catálogo">
+                <option value="#">Frutas de Cercanias</option>
+                <option value="#">Frutas de Temporada</option>
+                <option value="#">Frutas Tropicales</option>
+                <option value="#">Frutas exóticas</option>
+            </optgroup>
         </select>
         <aside>
             <div class="nav-flex nav-vertical">
@@ -56,44 +59,48 @@
         <main>
             <div class="main">
                 <article>
-                    <ul>
-                        <a href="../product/index.html"><li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li></a>
+                    <h3>El Kiwi</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
                         <li>Kiwi</li>
                         <li>2,80€ x Kg</li>
                         <li><span class="star stars-5"></span></li>
-                    </ul>
+                    </ul></a>
                 </article>
                 <article>
-                    <ul>
-                        <a href="../product/index.html"><li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li></a>
+                    <h3>La Fresa</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
                         <li>Fresas</li>
                         <li>5,50€ x Kg</li>
                         <li><span class="star stars-4"></span></li>
-                    </ul>
+                    </ul></a>
                 </article>
                 <article>
-                    <ul>
-                        <a href="../product/index.html"><li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li></a>
+                    <h3>La Manzana</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
                         <li>Manzanas</li>
                         <li>1,60€ x Kg</li>
                         <li><span class="star stars-3"></span></li>
-                    </ul>
+                    </ul></a>
                 </article>
                 <article>
-                    <ul>
-                        <a href="../product/index.html"><li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li></a>
+                    <h3>La Piña</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
                         <li>Piña</li>
                         <li>5,80€ x Kg</li>
                         <li><span class="star stars-4"></span></li>
-                    </ul>
+                    </ul></a>
                 </article>
             </div>
         </main>
-    </section>
+    </div>
     <footer>
         <div class="footer">
             <div>
-                <p class="bold">Codiciones de Uso del Sitio</p>
+                <p>Codiciones de Uso del Sitio</p>
                 <ul>
                     <li><a href="#">Condiciones de Uso</a></li>
                     <li><a href="#">Aviso Legal</a></li>
@@ -102,7 +109,7 @@
                 </ul>
             </div>
             <div>
-                <p class="bold">Servicio</p>
+                <p>Servicio</p>
                 <ul>
                     <li><a href="#">Como Comprar</a></li>
                     <li><a href="#">Zona de repato</a></li>
@@ -111,7 +118,7 @@
                 </ul>
             </div>
             <div>
-                <p class="bold">Acerca de Nosotros</p>
+                <p>Acerca de Nosotros</p>
                 <ul>
                     <li><a href="#">Quienes somos</a></li>
                     <li><a href="#">Nuetra Mision, Vision y Valores</a></li>

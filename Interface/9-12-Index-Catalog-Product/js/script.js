@@ -56,39 +56,60 @@ function styleIt(style)
     localStorage.setItem("style", style);
 }
 
-var size = 2;
-
-function changeSize(where)
+if (localStorage.getItem("fontSize") != null)
 {
-    const fontSizes = ["small", "medium", "large", "x-large", "xx-large"];
+    DOM.body.style.fontSize = localStorage.getItem("fontSize");
+}
+else
+{
+    localStorage.setItem("index", 2);
+}
+
+const fontSizes = ["small", "medium", "large", "x-large", "xx-large"];
+
+function changeSize(how)
+{
+    // const fontSizes = ["small", "medium", "large", "x-large", "xx-large"];
 
     let style = window.getComputedStyle(DOM.body, null).getPropertyValue('font-size');
     let fontSize = parseFloat(style);
 
-        if (where == "up")
+    if (localStorage.getItem("fontSize") != null)
+    {
+        let size = parseInt(localStorage.getItem("index"));
+
+        if (how == "up")
         {
-            size += 1;
-            if (size <= 4)
+            localStorage.setItem("index", ++size);
+            if (localStorage.getItem("index") <= 4)
             {
-                DOM.body.style.fontSize = fontSizes[size];
+                DOM.body.style.fontSize = fontSizes[localStorage.getItem("index")];
+                localStorage.setItem("fontSize", fontSizes[localStorage.getItem("index")]);
             }
             else
             {
-                size -= 1;
+                localStorage.setItem("index", --size);
             }
         }
         else
         {
-            size -= 1;
+            localStorage.setItem("index", --size);
             if (size >= 0)
             {
-                DOM.body.style.fontSize = fontSizes[size];
+                DOM.body.style.fontSize = fontSizes[localStorage.getItem("index")];
+                localStorage.setItem("fontSize", fontSizes[localStorage.getItem("index")]);
             }
             else
             {
-                size += 1;
+                localStorage.setItem("index", ++size);
             }
         }
+    }
+    else
+    {
+        localStorage.setItem("fontSize", "large");
+        changeSize(how);
+    }
 }
 
 function visit(url)

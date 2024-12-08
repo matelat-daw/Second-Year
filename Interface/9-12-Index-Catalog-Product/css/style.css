@@ -243,6 +243,17 @@ article > ul
     list-style: none;
 }
 
+article > a
+{
+    text-decoration: none;
+    color: var(--color-texto);
+}
+
+article > a > ul
+{
+    list-style: none;
+}
+
 /* Estilos de Footer. */
 
 footer
@@ -307,21 +318,21 @@ footer > div > div > ul > li
     --color-header: #fff;
     --color-aside: #0a0a0a;
     --color-nav_aside_back: #505050;
-    --color-button_back: #808080;
+    --color-button_back: #474747;
     --color-button: wheat;
     --color-a: #fff;
     --color-footer_back: #505050;
-    --color-footer: wheat;
+    --color-footer: white;
 }
 
 .light /* Modo Claro */
 {
     --color-texto: #000;
     --color-fondo: #04a9db;
-    --color-header_back: #0b94d3;
+    --color-header_back: #7A94D3;
     --color-header: #000;
     --color-nav_aside_back: #08a4ff;
-    --color-button_back: #4040ff;
+    --color-button_back: #0000f2;
     --color-button: wheat;
     --color-a: #000;
     --color-footer_back: #08a4ff;
