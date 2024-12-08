@@ -1,30 +1,19 @@
-    const DOM = {
-        body: document.body,
-        mode: document.getElementById("mode"),
-        article: document.getElementById("article"),
-        dark: document.getElementById("darkMode"),
-        light: document.getElementById("lightMode")
-    };
-    
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
-    {
-        changeStyle("dark", "default");
-    }
-    else
-    {
-        changeStyle("light", "default");
-    }
+const DOM = {
+    body: document.body,
+    mode: document.getElementById("mode"),
+    article: document.getElementById("article"),
+    dark: document.getElementById("darkMode"),
+    light: document.getElementById("lightMode")
+};
 
-    if (localStorage.getItem("fontSize") != null)
-    {
-        DOM.body.style.fontSize = localStorage.getItem("fontSize");
-    }
-    else
-    {
-        localStorage.setItem("index", "2");
-    }
-    
-    const fontSizes = ["small", "medium", "large", "x-large", "xx-large"];
+if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
+{
+    changeStyle("dark", "default");
+}
+else
+{
+    changeStyle("light", "default");
+}
 
 function changeStyle(style, where) // Cambia los Estilos de la Página, Según se Seleccione en el Selector y Dependoendo de como esté el Switch(Normal/Alto Contraste).
 {
@@ -66,6 +55,17 @@ function styleIt(style)
     }
     localStorage.setItem("style", style);
 }
+
+if (localStorage.getItem("fontSize") != null)
+{
+    DOM.body.style.fontSize = localStorage.getItem("fontSize");
+}
+else
+{
+    localStorage.setItem("index", "2");
+}
+
+const fontSizes = ["small", "medium", "large", "x-large", "xx-large"];
 
 function changeSize(how)
 {
