@@ -28,12 +28,12 @@ public class GameContext : IdentityDbContext
             Id = 1,
             Name = "Adventure"
         },
-        new Game
+        new Genre
         {
             Id = 2,
             Name = "Action/Adv"
         },
-        new Game
+        new Genre
         {
             Id = 3,
             Name = "Wit/Strategy"

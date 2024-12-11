@@ -71,7 +71,7 @@ app.UseAuthorization();
 app.MapRazorPages();
 
 
-Y en NorthwindContext.cs):
+Y en NorthwindContext.cs:
 
 public partial class NorthwindContext : IdentityDbContext // Se añade la palabra Identity antes de DBContext, muestra la linea subrayada en rojo ya que necesita la Clase Identity, hay que agregar el using:
 
