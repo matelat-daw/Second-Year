@@ -40,3 +40,20 @@
 .read-the-docs {
   color: #888;
 }
+
+table
+{
+  border-collapse: collapse;
+  border: 1px solid red;
+  border-radius: 20px;
+}
+
+tr
+{
+  border-bottom: 1px, solid blue;
+}
+
+th
+{
+  border: 1px, solid green;
+}
