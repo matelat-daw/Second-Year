@@ -8,13 +8,13 @@ export default function FrmPersona({addPersona}) {
         esMayorDeEdad : true,
         ciclo : "Superior",
     }
-    let setNombre
+    let setNombre;
     [persona.nombre, setNombre] = useState(persona.nombre);
 
-    let setEsMayorDeEdad
+    let setEsMayorDeEdad;
     [persona.esMayorDeEdad, setEsMayorDeEdad] = useState(persona.esMayorDeEdad);
 
-    let setCiclo
+    let setCiclo;
     [persona.ciclo, setCiclo] = useState(persona.ciclo);
 
     return (

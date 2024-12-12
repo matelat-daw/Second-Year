@@ -6,7 +6,7 @@ let personas = [];
 
 export default function Contenedor() {
 
-    let setPersona
+    let setPersona;
     [personas, setPersona] = useState(personas);
 
     function addPersona(persona)
