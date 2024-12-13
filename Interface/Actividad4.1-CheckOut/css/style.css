@@ -16,7 +16,7 @@ body
     img
     {
         border-radius: 10px;
-        width: 98%;
+        /* width: 98%; */
     }
 
     header, nav, aside, main, footer, main, article > div > ul > li
@@ -53,7 +53,17 @@ body
     main
     {
         background-color: var(--color-fondo);
-        /* color: var(--color-fondo); */
+    }
+
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        img
+        {
+            width: 15em;
+            height: 6em;
+        }
     }
 
     header > h1, nav > h2, aside > h3, main > h3, footer > p
@@ -97,6 +107,14 @@ body
     .stars-5
     {
         width: 65px;
+    }
+
+    article > a > li > .catalog
+    {
+        img
+        {
+            width: 20%;
+        }
     }
 }
 
@@ -185,6 +203,10 @@ main
     {
         display: grid;
         grid-template-columns: 1fr 1fr;
+        img
+        {
+            width: 30%;
+        }
     } 
 }
 
@@ -256,11 +278,11 @@ main
     height: 500px;
 }
 
-.catalog
+/* .catalog
 {
     width: 200px;
     height: 200px;
-}
+} */
 
 article > ul
 {
@@ -369,23 +391,33 @@ footer > div > div > ul > li
 {
     main
     {
-        .main
+        /* .main
         {
             display: grid;
             grid-template-columns: 1fr 1fr 1fr;
+        } */
+
+        main > div
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            img
+            {
+                width: 60%;
+            }
         }
 
-        img
+        /* img
         {
             width: 75%;
             height: 65%;
-        }
+        } */
 
-        img, .catalog
+        /* img, .catalog
         {
             width: 20em;
             height: 25em;
-        }
+        } */
 
         article > ul
         {
@@ -419,17 +451,17 @@ footer > div > div > ul > li
     {
         display: grid;
 
-        img
+        /* img
         {
             width: 90%;
             height: 85%;
-        }
+        } */
 
-        img, .catalog
+        /* img, .catalog
         {
             width: 30em;
             height: 30em;
-        }
+        } */
 
         article > ul
         {
@@ -441,9 +473,19 @@ footer > div > div > ul > li
             grid-column: 1 / 3;
         }
 
-        .main
+        /* .main
         {
             grid-template-columns: 1fr 1fr;
+        } */
+
+        main > div
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            img
+            {
+                width: 30%;
+            }
         }
     }
 
@@ -488,10 +530,21 @@ footer > div > div > ul > li
             grid-row: 1 / 3;
             grid-column: 2 / 2;
 
-            img, .catalog
+            /* img, .catalog
             {
-                width: 30em;
-                height: 26em;
+                width: 10em;
+                height: 8em;
+            } */
+
+            div
+            {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                img
+                {
+                    width: 10em;
+                    height: 7em;
+                }
             }
 
             .section-main-margin
@@ -521,10 +574,10 @@ footer > div > div > ul > li
             }
         }
 
-        .main
+        /* .main
         {
             grid-template-columns: 1fr 1fr;
-        }
+        } */
 
         .main-2col
         {
