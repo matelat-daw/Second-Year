@@ -42,7 +42,7 @@ Hay que modificar Program.cs y la Clase de Contexto agregando:
 
 Program.cs:
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<NorthwindContext>();
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false).AddEntityFrameworkStores<NorthwindContext>();
 
 Para Agregar Identity con Roles hay que Escribir la Línea:
 

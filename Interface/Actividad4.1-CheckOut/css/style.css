@@ -1,0 +1,597 @@
+@font-face
+{
+    font-family: "CustomFont";
+    src: url("../font/DS-Digital.ttf");
+}
+
+body
+{
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
+    font-size: 1.2rem;
+    padding: 0;
+    border-radius: .3em;
+
+    img
+    {
+        border-radius: 10px;
+        /* width: 98%; */
+    }
+
+    header, nav, aside, main, footer, main, article > div > ul > li
+    {
+        border: 1px solid lightgray;
+    }
+
+    header
+    {
+        border: 1px solid lightgray;
+        border-radius: 12px;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        justify-items: center;
+        padding: .3em;
+        background-color: var(--color-header_back);
+        color: var(--color-header);
+    }
+
+    nav
+    {
+        background-color: var(--color-nav_aside_back);
+        color: var(--color-texto);
+    }
+
+    aside
+    {
+        background-color: var(--color-nav_aside_back);
+        color: var(--color-texto);
+    }
+
+    main
+    {
+        background-color: var(--color-fondo);
+    }
+
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        img
+        {
+            width: 15em;
+            height: 6em;
+        }
+    }
+
+    header > h1, nav > h2, aside > h3, main > h3, footer > p
+    {
+        text-align: center;
+    }
+
+    span
+    {
+        font-size: .80em; /* Reduce el tamaño de la fuente de los span al 80% */
+    }
+
+    a
+    {
+        border-radius: 6px;
+    }
+
+    .star
+    {
+        display: inline-block;
+        width: 13px;
+        height: 13px;
+        background-image: url(https://i.sstatic.net/KaEDC.png);
+    }
+
+    .stars-2
+    {
+        width: 26px;
+    }
+
+    .stars-3
+    {
+        width: 39px;
+    }
+
+    .stars-4
+    {
+        width: 52px;
+    }
+
+    .stars-5
+    {
+        width: 65px;
+    }
+
+    article > a > li > .catalog
+    {
+        img
+        {
+            width: 20%;
+        }
+    }
+}
+
+/* Estilos de Header. */
+
+.logo-size
+{
+    width: 90%
+}
+
+.big-letter
+{
+    font-size: 2.6em;
+}
+
+.nav-link
+{
+    color: var(--color-a);
+    margin: .5em 0;
+    text-decoration: none;
+}
+
+.double
+{
+    font-size: 2em;
+    color: #0066cc;
+}
+
+.equal
+{
+    width: 1.4em;
+    background-color: var(--color-header_back);
+    border: none;
+}
+
+.equal:hover
+{
+    cursor: pointer;
+}
+
+.equal:active
+{
+    color: red;
+}
+
+/* Estilos de Nav. */
+
+.nav-flex
+{
+    display: flex;
+    width: 100%;
+}
+
+.nav-vertical
+{
+    flex-direction: column;
+}
+
+#select
+{
+    background-color: #ffddaa;
+    width: 100%;
+    font-size: .75em;
+}
+
+#nav /* El nav no se Ve ya que el Diseño en Mobile First */
+{
+    display: none;
+}
+
+.left
+{
+    margin-right: .5em;
+}
+
+/* Estilos de Main. */
+
+.inline
+{
+    display: inline-block;
+}
+
+main
+{
+    .main
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        img
+        {
+            width: 30%;
+        }
+    } 
+}
+
+.article
+{
+    height: 50%;
+}
+
+.btn
+{
+    border: 2px solid grey;
+    border-radius: 12px;
+    width: 8em;
+    height: 4em;
+    background-color: var(--color-button_back);
+    color: var(--color-button);
+    font-size: 1.05em;
+}
+
+.btn:hover
+{
+    background-color: var(--color-nav_aside_back);
+    color: var(--color-a);
+    cursor: pointer;
+}
+
+.btn:active
+{
+    border: 0;
+}
+
+.grid
+{
+    top: -458px;
+    grid-template-columns: auto auto;
+}
+
+.grid > div
+{
+    width: 640px;
+}
+
+.grid2
+{
+    top: -438px;
+    grid-template-columns: auto auto auto;
+}
+
+.grid2 > div
+{
+    width: 410px;
+}
+
+.common
+{
+    display: grid;
+    position: relative;
+    left: 180px;
+    width: 1280px;
+    gap: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.common > div
+{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 500px;
+}
+
+/* .catalog
+{
+    width: 200px;
+    height: 200px;
+} */
+
+article > ul
+{
+    list-style: none;
+}
+
+article > a
+{
+    text-decoration: none;
+    color: var(--color-texto);
+}
+
+article > a > ul
+{
+    list-style: none;
+}
+
+/* Estilos de Footer. */
+
+footer
+{
+    background-color: var(--color-footer_back);
+    color: var(--color-footer);
+    font-weight: bold;
+}
+
+footer > div > div > ul
+{
+    font-weight: bold;
+}
+
+footer > div > div > ul > li
+{
+    font-weight: normal;
+    list-style: none;
+    a
+    {
+        text-decoration: none;
+        color: var(--color-footer)
+    };
+}
+
+.repair
+{
+    display: flex;
+    direction: row;
+    line-height: 5em;
+}
+
+.sort
+{
+    margin: 0 .5em;
+    line-height: 2em;
+}
+
+@media (prefers-color-scheme: dark) /* Media Query que Detecta Cuando el Navegador Está Configurado para Usar el Modo Oscuro (dark). */
+{
+    body{
+        --color-texto: #808080;
+        --color-fondo: #020329;
+        --color-header_back: #505050;
+        --color-header: #f0f0f0;
+        --color-nav_back: #808080;
+        --color-aside: #0a0a0a;
+        --color-aside_back: #b0b0b0;
+        --color-button_back: #606060;
+        --color-button: wheat;
+        --color-a: #f0f0f0;
+        --color-footer_back: #505050;
+        --color-footer: wheat;
+    }
+}
+
+.dark /* Modo Oscuro */
+{
+    --color-texto: #fff;
+    --color-fondo: #020329;
+    --color-header_back: #252525;
+    --color-header: #fff;
+    --color-aside: #0a0a0a;
+    --color-nav_aside_back: #505050;
+    --color-button_back: #474747;
+    --color-button: wheat;
+    --color-a: #fff;
+    --color-footer_back: #505050;
+    --color-footer: white;
+}
+
+.light /* Modo Claro */
+{
+    --color-texto: #000;
+    --color-fondo: #04a9db;
+    --color-header_back: #7A94D3;
+    --color-header: #000;
+    --color-nav_aside_back: #08a4ff;
+    --color-button_back: #0000f2;
+    --color-button: wheat;
+    --color-a: #000;
+    --color-footer_back: #08a4ff;
+    --color-footer: #000;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 576px )
+{
+    main
+    {
+        /* .main
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        } */
+
+        main > div
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            img
+            {
+                width: 60%;
+            }
+        }
+
+        /* img
+        {
+            width: 75%;
+            height: 65%;
+        } */
+
+        /* img, .catalog
+        {
+            width: 20em;
+            height: 25em;
+        } */
+
+        article > ul
+        {
+            list-style: none;
+        }
+    }
+
+    footer
+    {
+        .footer
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media  screen and (min-width: 912px), (min-width: 576px ) and (orientation: landscape)
+{
+    #select
+    {
+        display: none
+    }
+
+    #nav
+    {
+        display: block;
+    }
+
+    .container
+    {
+        display: grid;
+
+        /* img
+        {
+            width: 90%;
+            height: 85%;
+        } */
+
+        /* img, .catalog
+        {
+            width: 30em;
+            height: 30em;
+        } */
+
+        article > ul
+        {
+            list-style: none;
+        }
+        
+        nav
+        {
+            grid-column: 1 / 3;
+        }
+
+        /* .main
+        {
+            grid-template-columns: 1fr 1fr;
+        } */
+
+        main > div
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            img
+            {
+                width: 30%;
+            }
+        }
+    }
+
+    footer
+    {
+        .footer
+        {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+    }
+}
+
+@media screen  and (min-width: 1024px) {
+
+    header
+    {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    header > .nowrap
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container
+    {
+        nav
+        {
+            grid-column: 1 / 2;
+        }
+
+        aside
+        {
+            grid-column: 1 / 2;
+        }
+
+        main
+        {
+            grid-row: 1 / 3;
+            grid-column: 2 / 2;
+
+            /* img, .catalog
+            {
+                width: 10em;
+                height: 8em;
+            } */
+
+            div
+            {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+                img
+                {
+                    width: 10em;
+                    height: 7em;
+                }
+            }
+
+            .section-main-margin
+            {
+                margin-left: 25px;
+                margin-top: 25px;
+            }
+
+            .section-main-margin-up
+            {
+                margin-left: 25px;
+                margin-top: 25px;
+                margin-bottom: 4.3em;
+            }
+
+            .section-secondary
+            {
+                width: 24em;
+                height: 20em;
+                margin-left: 8px;
+                margin-top: 8px;
+            }
+
+            article > ul
+            {
+                list-style: none;
+            }
+        }
+
+        /* .main
+        {
+            grid-template-columns: 1fr 1fr;
+        } */
+
+        .main-2col
+        {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .main-3col
+        {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+
+        #nav > a
+        {
+            display: flex;
+        }
+    }
+}
