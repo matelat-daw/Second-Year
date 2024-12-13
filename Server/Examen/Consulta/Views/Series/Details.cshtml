@@ -1,0 +1,66 @@
+﻿@model PO02_01.Models.Serie
+
+@{
+    ViewData["Title"] = "Detalles - Serie";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Serie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SeriesName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SeriesName)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genre.GenreName)
+        </dd>
+    </dl>
+    @if (!User.IsInRole("User"))
+    {        
+        <h4>@Html.DisplayNameFor(Model => Model.Recommendations)</h4>
+        @foreach (var recomendacion in Model.Recommendations)
+        {
+            <dl class="row p-3">
+                <dt class="col-sm-2">
+                    Título:
+                </dt>
+                <dd class="col-sm-10">
+                    @recomendacion.Title
+                </dd>
+                <dt class="col-sm-2">
+                    Descripción:
+                </dt>
+                <dd class="col-sm-10">
+                    @recomendacion.Description
+                </dd>
+            </dl>
+        }
+        @if (User.IsInRole("Admin"))
+        {
+            <a asp-controller="Recommendations" asp-action="Create" asp-route-SerieID="@Model.SeriesID" class="btn btn-success">Nueva recomendación</a>
+        }
+    }
+</div>
+<div>
+    <a asp-action="Index">Volver al listado</a>
+</div>

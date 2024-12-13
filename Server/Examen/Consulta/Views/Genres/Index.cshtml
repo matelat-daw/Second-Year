@@ -1,0 +1,42 @@
+﻿@model IEnumerable<PO02_01.Models.Genre>
+
+@{
+    ViewData["Title"] = "Géneros";
+}
+
+<h1>@ViewBag.Title</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.GenreName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Series)
+            </th>
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                <th></th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreName)
+            </td>            
+            <td>
+                @Html.DisplayFor(modelItem => item.Series.Count)
+            </td>
+            @if (User.IsInRole("Admin") || User.IsInRole("Manager"))
+            {
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.GenreID">Detalles</a>
+                </td>
+            }
+        </tr>
+}
+    </tbody>
+</table>

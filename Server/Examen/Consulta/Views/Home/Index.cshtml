@@ -1,0 +1,21 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Catálogo de Series</h1>
+    @if (!SignInManager.IsSignedIn(User))
+    {
+        <p>Identifíquese para acceder a nuestro catálogo</p>
+        <partial name="_LoginPartial" />
+    }
+    else
+    {
+        <p>¡Disfrute de nuestro catálogo!</p>
+        <a asp-controller="Series" asp-action="Index" class="btn btn-primary">Series</a>
+        <a asp-controller="Genres" asp-action="Index" class="btn btn-primary">Géneros</a>
+    }
+</div>

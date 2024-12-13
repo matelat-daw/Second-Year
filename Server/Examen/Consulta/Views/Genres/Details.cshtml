@@ -1,0 +1,35 @@
+﻿@model PO02_01.Models.Genre
+
+@{
+    ViewData["Title"] = "Detalles - Género";
+}
+
+<h1>Detalles</h1>
+
+<div>
+    <h4>Género</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.GenreName)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.GenreName)
+        </dd>
+    </dl>
+
+    <h4>@Html.DisplayNameFor(Model => Model.Series)</h4>
+    <ul>
+        @foreach (var serie in Model.Series)
+        {
+            <li>@serie.SeriesName</li>
+        }
+    </ul>
+    @if (User.IsInRole("Admin"))
+    {
+        <a asp-controller="Series" asp-action="Create" asp-route-GenreID="@Model.GenreID" class="btn btn-success">Nueva serie</a>
+    }
+</div>
+<div>
+    <a asp-action="Index">Volver al listado</a>
+</div>
