@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Empresa</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro, a Menos que el Modo Predeterminado del Usuario Sea Dark, que se Detecta en el Script script.js de Javascript. -->
+    <header>
+        <div><img src="../img/fruta.webp" alt="Logo de la Empresa Frutas del Mundo" class="logo-size"></div>
+        <div>
+            <h1 class="big-letter">Frutas del Mundo</h1>
+        </div>
+        <div class="repair">
+            <a href="#" class="nav-link sort"><p>Contacto</p></a>
+            <a href="#" class="nav-link sort"><p>LogIn</p></a>
+            <a href="#" class="nav-link sort"><p>Me Registro</p></a>
+            <div class="left">
+                <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double" aria-label="Cambia a Tema Claro"></i></a>
+                <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
+            </div>
+            <div>
+                <button onclick="changeSize('down')" class="double equal" aria-label="Disminuye el Tamaño de la Letra">-f</button>
+                <button onclick="changeSize('up')" class="double equal" aria-label="Aumenta el Tamaño de la Letra">F+</button>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+            <a href="../index.html" class="nav-link sort">Página de Inicio</a>
+            <p><strong>Nuestro Catálogo</strong></p>
+            <a href="../catalog/index.html" class="nav-link sort">Frutas de Cercanias</a>
+            <a href="../catalog/index.html" class="nav-link sort">Frutas de Temporada</a>
+            <a href="../catalog/index.html" class="nav-link sort">Frutas Tropicales</a>
+            <a href="../catalog/index.html" class="nav-link sort">Frutas exóticas</a>
+        </nav>
+        <select id="select" onchange="visit(this.value)"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+            <option value="">Selecciona una Opción</option>
+            <option value="../index.html">Página de Inicio</option>
+            <optgroup label="Nuetro Catálogo">
+                <option value="../catalog/index.html">Frutas de Cercanias</option>
+                <option value="../catalog/index.html">Frutas de Temporada</option>
+                <option value="../catalog/index.html">Frutas Tropicales</option>
+                <option value="../catalog/index.html">Frutas exóticas</option>
+            </optgroup>
+        </select>
+        <aside>
+            <div class="nav-flex nav-vertical">
+                <a href="../catalog/index.html" class="nav-link">¡Ofertas!</a>
+                <a href="../catalog/index.html" class="nav-link">Batidos en el Momento</a>
+                <a href="../catalog/index.html" class="nav-link">Ensalada de Frutas</a>
+                <a href="../catalog/index.html" class="nav-link">Fruta Congelada</a>
+                <a href="../catalog/index.html" class="nav-link">Mix de Frutas Congeladas</a>
+            </div>
+        </aside>
+        <main>
+            <h1>Estos son tus Artículos Seleccionados</h1>
+            <form accept="../datos/datos.html" method="post">
+                <fieldset>
+                    <legend>Tu Compra</legend>
+                        <div>
+                            <input id="art1" type="number" name="art1" value="2" onchange="check(this, this.value, label = document.getElementById('lart1'))">
+                            <label id="lart1" for="art1">Caja de Fresas de 5 Kg.</label>
+                        </div>
+                        <div>
+                            <input id="art2" type="number" name="art2" value="1" onchange="check(this, this.value, label = document.getElementById('lart2'))">
+                            <label id="lart2" for="art2">Bolsa de Limones x 2 Kg.</label>
+                        </div>
+                        <div>
+                            <input id="art3" type="number" name="art3" value="2" onchange="check(this, this.value, label = document.getElementById('lart3'))">
+                            <label id="lart3" for="art3">Piña Tropical Congelada x 500 Gr.</label>
+                        </div>
+                        <div>
+                            <input id="art4" type="number" name="art4" value="2" onchange="check(this, this.value, label = document.getElementById('lart4'))">
+                            <label id="lart4" for="art4">Manga Congelada x 500 Gr.</label>
+                        </div>
+                        <div>
+                            <input id="art5" type="number" name="art5" disabled onchange="check(this, this.value, label = document.getElementById('lart5'))">
+                            <label id="lart5" for="art5">Pera con Forma de Buda(Sin Stock)</label>
+                        </div>
+                </fieldset>
+            </form>
+        </main>
+    </div>
+    <script src="../js/script.js"></script>
+</body>
+</html>

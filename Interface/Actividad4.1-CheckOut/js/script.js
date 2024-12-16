@@ -114,3 +114,12 @@ function visit(url)
 {
     window.open(url, "_self");
 }
+
+function check(element, value, label)
+{
+    if (value == 0)
+    {
+        element.style.display = "none";
+        label.style.display = "none";
+    }
+}
