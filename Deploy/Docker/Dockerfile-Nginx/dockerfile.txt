@@ -1,3 +1,3 @@
 FROM ngnix:1.26.2-alpine3.20
 EXPOSE 80
-CMD ["nginxctl","-D","FOREGROUND"]
+CMD ["nginx","-g","daemon off;"]
