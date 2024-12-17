@@ -6,11 +6,6 @@ export default function ListPersonas({personas})
     [personas, borraPersona] = useState(personas);
     
     return (
-        // <ul>
-        //     {personas.map((persona, i) => <li key={i}>
-        //         {`${persona.nombre}`}
-        // </li>)}
-        // </ul>
         <table>
             <tr><th>Nombre</th><th>Es Mayor de Edad</th><th>Ciclo</th></tr>
             {personas.map((persona, i) => <tr key={i}>

@@ -1,0 +1,160 @@
+.star
+{
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background-image: url(https://i.sstatic.net/KaEDC.png);
+}
+
+.stars-2
+{
+    width: 26px;
+}
+
+.stars-3
+{
+    width: 39px;
+}
+
+.stars-4
+{
+    width: 52px;
+}
+
+.stars-5
+{
+    width: 65px;
+}
+
+
+
+.main > div > a
+{
+    text-decoration: none;
+    color: var(--color-a);
+    ul
+    {
+        list-style: none;
+    }
+}
+
+@media screen and (min-width: 576px )
+{
+
+    main > div
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        img
+        {
+            width: 95%;
+        }
+    }
+
+    footer
+    {
+        .footer
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
+@media  screen and (min-width: 912px), (min-width: 576px ) and (orientation: landscape)
+{
+    #select
+    {
+        display: none
+    }
+
+    #nav
+    {
+        display: block;
+    }
+
+    .container
+    {
+        display: grid;
+        
+        nav
+        {
+            grid-column: 1 / 3;
+        }
+
+        main > div
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            img
+            {
+                width: 95%;
+            }
+        }
+    }
+
+    footer
+    {
+        .footer
+        {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
+    }
+}
+
+@media screen  and (min-width: 1024px) {
+
+    header
+    {
+        flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    header > .nowrap
+    {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .container
+    {
+        nav
+        {
+            grid-column: 1 / 2;
+        }
+
+        aside
+        {
+            grid-column: 1 / 2;
+        }
+
+        main
+        {
+            grid-row: 1 / 3;
+            grid-column: 2 / 2;
+
+            .article
+            {
+                width: 95%;
+                height: 95%;
+            }
+
+            div
+            {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+            }
+
+            article > ul
+            {
+                list-style: none;
+            }
+        }
+
+        #nav > a
+        {
+            display: flex;
+        }
+    }
+}
