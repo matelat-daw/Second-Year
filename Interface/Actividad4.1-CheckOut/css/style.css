@@ -59,11 +59,11 @@ body
     {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        img
+        /* img
         {
             width: 15em;
             height: 6em;
-        }
+        } */
     }
 
     header > h1, nav > h2, aside > h3, main > h3, footer > p
@@ -203,17 +203,17 @@ main
     {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        img
+        /* img
         {
             width: 30%;
-        }
+        } */
     } 
 }
 
-.article
+/* .article
 {
     height: 50%;
-}
+} */
 
 .btn
 {
@@ -405,6 +405,12 @@ footer > div > div > ul > li
             {
                 width: 60%;
             }
+            
+            .article
+            {
+                width: 95%;
+                height: 95%;
+            }
         }
 
         /* img
@@ -451,17 +457,11 @@ footer > div > div > ul > li
     {
         display: grid;
 
-        /* img
+        .article
         {
-            width: 90%;
-            height: 85%;
-        } */
-
-        /* img, .catalog
-        {
-            width: 30em;
-            height: 30em;
-        } */
+            width: 95%;
+            height: 95%;
+        }
 
         article > ul
         {
@@ -473,11 +473,6 @@ footer > div > div > ul > li
             grid-column: 1 / 3;
         }
 
-        /* .main
-        {
-            grid-template-columns: 1fr 1fr;
-        } */
-
         main > div
         {
             display: grid;
@@ -487,6 +482,11 @@ footer > div > div > ul > li
                 width: 30%;
             }
         }
+    }
+
+    .main
+    {
+        grid-template-columns: 1fr 1fr;
     }
 
     footer
@@ -530,11 +530,11 @@ footer > div > div > ul > li
             grid-row: 1 / 3;
             grid-column: 2 / 2;
 
-            /* img, .catalog
+            .article
             {
-                width: 10em;
-                height: 8em;
-            } */
+                width: 95%;
+                height: 95%;
+            }
 
             div
             {
@@ -574,10 +574,10 @@ footer > div > div > ul > li
             }
         }
 
-        /* .main
+        .main
         {
             grid-template-columns: 1fr 1fr;
-        } */
+        }
 
         .main-2col
         {
