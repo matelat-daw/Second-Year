@@ -1,12 +1,15 @@
 import java.util.Scanner;
+import Models.Farmacia;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Game game = new Game();
-        game.SetName("Tomb Raider I");
-        game.SetPrice(15.50);
+        // Game game = new Game();
+        // game.SetName("Tomb Raider I");
+        // game.SetPrice(15.50);
+        Farmacia farmacia = new Farmacia();
+        farmacia.SetLunes("8:00 - 20:00");
+        farmacia.SetName("La Farmacia de la Esquina");
+        farmacia.SetWeb("https://farmacorner.com");
         Scanner input = new Scanner(System.in);
         int option = 0;
 
