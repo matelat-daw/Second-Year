@@ -2,3 +2,20 @@ FROM ngnix:1.26.2-alpine3.20
 VOLUME ["/usr/share/nginx/html"]
 EXPOSE 80
 CMD ["nginx","-g","daemon off;"]
+
+Para Remover todos los Contenedores:
+
+docker rm -v -f $(docker ps -qa)
+
+Muestra los Contenedores en Ejecución:
+
+docker ps
+
+Muestra Todos los Contenedores:
+
+docker ps -a
+
+
+Para Arrancar(Levantar) Contenedores con Compose
+
+docker compose up -d
