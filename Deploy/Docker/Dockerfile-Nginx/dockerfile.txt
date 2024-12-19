@@ -16,6 +16,20 @@ Muestra Todos los Contenedores:
 docker ps -a
 
 
-Para Arrancar(Levantar) Contenedores con Compose
+Para Arrancar(Levantar) Contenedores con Compose:
 
 docker compose up -d
+
+
+Para Navegar dentro de un contenedor:
+
+docker exec barbery-new-barbery-1 ls /etc/nginx
+
+Muestra el contenido del directorio /etc/nginx.
+
+
+Muestra el Contenido del Fichero nginx.conf (docker comando a ejecutar(exec) nombre del contenedor(barbery-new-barbery-1) Comando a Ejecutar Dentro del Contenedor(cat) Ruta al Fichero(/etc/nginx/nginx.conf):
+
+docker exec barbery-new-barbery-1 cat /etc/nginx/nginx.conf
+
+
