@@ -1,5 +1,7 @@
 const DOM = {
     body: document.body,
+    main: document.getElementById("main"),
+    select: document.getElementById("style"),
     mode: document.getElementById("mode"),
     article: document.getElementById("article"),
     dark: document.getElementById("darkMode"),
