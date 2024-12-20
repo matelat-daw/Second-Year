@@ -1,4 +1,8 @@
 {
     "git.ignoreLimitWarning": true,
-    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable"
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx2G -Xms100m -Xlog:disable",
+    "java.project.sourcePaths": [
+        "Server/Projects/Java/Java - API/src",
+        "Server/Projects/Java/Farmacia/aut04-01-matelat-daw/src/main/java/com/futureprograms"
+    ]
 }
