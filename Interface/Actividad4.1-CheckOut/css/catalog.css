@@ -58,8 +58,18 @@
     }
 }
 
-@media screen and (min-width: 912px)
+@media  screen and (min-width: 912px), (min-width: 576px ) and (orientation: landscape)
 {
+    #select
+    {
+        display: none
+    }
+
+    #nav
+    {
+        display: block;
+    }
+
     main > div
     {
         display: grid;
