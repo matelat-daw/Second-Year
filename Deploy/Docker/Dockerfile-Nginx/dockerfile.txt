@@ -33,3 +33,8 @@ Muestra el Contenido del Fichero nginx.conf (docker comando a ejecutar(exec) nom
 docker exec barbery-new-barbery-1 cat /etc/nginx/nginx.conf
 
 
+Para Pasaar un Dump SQL a MariaDB o MySQL Server:
+
+entrypoint: "mysql -h db -u root --password=Contr@senia -D barbery -e 'source /barbery.sql'"
+
+entrypoint: "mysql -h $DB_HOST -u $DB_USERNAME --password=$DB_PASSWORD -D $DB_DATABASE -e 'source /barbery.sql'"
