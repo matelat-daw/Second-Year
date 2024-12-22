@@ -125,3 +125,8 @@ function check(element, value, label)
         label.style.display = "none";
     }
 }
+
+function checkout(url)
+{
+    window.open(url, "_self")
+}
