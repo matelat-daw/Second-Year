@@ -89,17 +89,17 @@
                         </div>
                         <div class="inline_grid">
                             <div>
-                                <img src="../img/limon.avif" alt="Limones" class="img">
+                                <img src="../img/limon.webp" alt="Limones" class="img">
                             </div>
                             <div>
                                 <div>
-                                    <input id="price2" type="number" name="price2" value="5">
-                                    <label for="lprice2">5€ por Kilo</label>
+                                    <input id="art2" type="number" name="art2" value="1" onchange="check(this, this.value, label = document.getElementById('lart2'), price = document.getElementById('price2'), labelPrice = document.getElementById('lprice2'), total = document.getElementById('total2'), labelTotal = document.getElementById('total2'))">
+                                    <label id="lart2" for="art2">Bolsa de Limones x 2 Kg.</label>
                                 </div>
                                 <br>
                                 <div>
-                                    <input id="art2" type="number" name="art2" value="1" onchange="check(this, this.value, label = document.getElementById('lart2'), price = document.getElementById('price2'), labelPrice = document.getElementById('lprice2'), total = document.getElementById('total2'), labelTotal = document.getElementById('total2'))">
-                                    <label id="lart2" for="art2">Bolsa de Limones x 2 Kg.</label>
+                                    <input id="price2" type="number" name="price2" value="5">
+                                    <label for="lprice2">5€ por Kilo</label>
                                 </div>
                                 <br>
                                 <div>
@@ -108,25 +108,93 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- <div>
-                            <img src="../img/piña.jpg" alt="Piña Tropical" class="img">
-                            <input id="art3" type="number" name="art3" value="2" onchange="check(this, this.value, label = document.getElementById('lart3'))">
-                            <label id="lart3" for="art3">Piña Tropical Congelada x 500 Gr.</label>
+                        <div class="inline_grid">
+                            <div>
+                                <img src="../img/piña.jpg" alt="Piña Tropical" class="img">
+                            </div>
+                            <div>
+                                <div>
+                                    <input id="art3" type="number" name="art3" value="2" onchange="check(this, this.value, label = document.getElementById('lart3'))">
+                                    <label id="lart3" for="art3">Piña Tropical Congelada x 500 Gr.</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="price3" type="number" name="price3" value="5">
+                                    <label for="lprice3">5€ por Kilo</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="total3" type="number" name="total3" value="50€">
+                                    <label for="ltotal3">Total a Pagar:<span></span></label>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <img src="../img/manga.png" alt="Manga" class="img">
-                            <input id="art4" type="number" name="art4" value="2" onchange="check(this, this.value, label = document.getElementById('lart4'))">
-                            <label id="lart4" for="art4">Manga Congelada x 500 Gr.</label>
+                        <div class="inline_grid">
+                            <div>
+                                <img src="../img/manga.webp" alt="Manga" class="img">
+                            </div>
+                            <div>
+                                <div>
+                                    <input id="art4" type="number" name="art4" value="2" onchange="check(this, this.value, label = document.getElementById('lart4'))">
+                                    <label id="lart4" for="art4">Manga Congelada x 500 Gr.</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="price4" type="number" name="price4" value="5">
+                                    <label for="lprice4">5€ por Kilo</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="total4" type="number" name="total4" value="50€">
+                                    <label for="ltotal4">Total a Pagar:<span></span></label>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <img src="../img/rare.jpg" alt="Pera con Forma de Buda" class="img">
-                            <input id="art5" type="number" name="art5" disabled onchange="check(this, this.value, label = document.getElementById('lart5'))">
-                            <label id="lart5" for="art5">Pera con Forma de Buda(Sin Stock)</label>
-                        </div> -->
+                        <div class="inline_grid">
+                            <div>
+                                <img src="../img/rare.jpg" alt="Pera con Forma de Buda" class="img">
+                            </div>
+                            <div>
+                                <input id="art5" type="number" name="art5" disabled onchange="check(this, this.value, label = document.getElementById('lart5'))">
+                                <label id="lart5" for="art5">Pera con Forma de Buda(Sin Stock)</label>
+                            </div>
+                        </div>
                 </fieldset>
             </form>
         </main>
     </div>
+    <footer>
+        <div class="footer">
+            <div>
+                <p>Codiciones de Uso del Sitio</p>
+                <ul>
+                    <li><a href="#">Condiciones de Uso</a></li>
+                    <li><a href="#">Aviso Legal</a></li>
+                    <li><a href="#">Política de Privacidad</a></li>
+                    <li><a href="#">Sin Cookies</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>Servicio</p>
+                <ul>
+                    <li><a href="#">Como Comprar</a></li>
+                    <li><a href="#">Zona de repato</a></li>
+                    <li><a href="#">Servicio de entrega personalizado</a></li>
+                    <li><a href="#">Necesidades especiales.</a></li>
+                </ul>
+            </div>
+            <div>
+                <p>Acerca de Nosotros</p>
+                <ul>
+                    <li><a href="#">Quienes somos</a></li>
+                    <li><a href="#">Nuetra Mision, Vision y Valores</a></li>
+                    <li><a href="#">Responsabilidad y compromiso Social</a></li>
+                    <li><a href="#">Nuestras Tiendas</a></li>
+                    <li><a href="#">Tienda Online, Registrate para Comprar</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
     <script src="../js/script.js"></script>
 </body>
 </html>
