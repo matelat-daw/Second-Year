@@ -5,7 +5,8 @@ const DOM = {
     mode: document.getElementById("mode"),
     article: document.getElementById("article"),
     dark: document.getElementById("darkMode"),
-    light: document.getElementById("lightMode")
+    light: document.getElementById("lightMode"),
+    kind: document.querySelector(".kind")
 };
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
@@ -129,4 +130,16 @@ function check(element, value, label)
 function checkout(url)
 {
     window.open(url, "_self")
+}
+
+function changeKind(kind)
+{
+    if (kind)
+    {
+        DOM.kind.style.visibility = "visible";
+    }
+    else
+    {
+        DOM.kind.style.visibility = "hidden";
+    }
 }
