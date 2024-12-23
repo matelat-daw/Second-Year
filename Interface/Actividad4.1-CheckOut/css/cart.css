@@ -1,0 +1,13 @@
+main
+{
+    .img
+    {
+        width: 25%;
+    }
+
+    .inline_grid
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+}

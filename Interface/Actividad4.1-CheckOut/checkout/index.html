@@ -66,26 +66,63 @@
             <form accept="../data/index.html" method="post">
                 <fieldset>
                     <legend>Tu Compra</legend>
-                        <div>
-                            <input id="art1" type="number" name="art1" value="2" onchange="check(this, this.value, label = document.getElementById('lart1'))">
-                            <label id="lart1" for="art1">Caja de Fresas de 5 Kg.</label>
+                        <div class="inline_grid">
+                            <div>
+                                <img id="img1" src="../img/fresa.webp" alt="Fresas" class="img">
+                            </div>
+                            <div>
+                                <div>
+                                    <input id="art1" type="number" name="art1" value="2" onchange="check(this, this.value, labelName = document.getElementById('lart1'), price = document.getElementById('price1'), labelPrice = document.getElementById('lprice1'), total = document.getElementById('total1'), labelTotal = document.getElementById('ltotal1'))">
+                                    <label id="lart1" for="art1">Caja de Fresas de 5 Kg.</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="price1" type="number" name="price1" value="5">
+                                    <label for="lprice1">5€ por Kilo</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="total1" type="number" name="total1" value="50€">
+                                    <label for="ltotal1">Total a Pagar:<span></span></label>
+                                </div>
+                            </div>
                         </div>
-                        <div>
-                            <input id="art2" type="number" name="art2" value="1" onchange="check(this, this.value, label = document.getElementById('lart2'))">
-                            <label id="lart2" for="art2">Bolsa de Limones x 2 Kg.</label>
+                        <div class="inline_grid">
+                            <div>
+                                <img src="../img/limon.avif" alt="Limones" class="img">
+                            </div>
+                            <div>
+                                <div>
+                                    <input id="price2" type="number" name="price2" value="5">
+                                    <label for="lprice2">5€ por Kilo</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="art2" type="number" name="art2" value="1" onchange="check(this, this.value, label = document.getElementById('lart2'), price = document.getElementById('price2'), labelPrice = document.getElementById('lprice2'), total = document.getElementById('total2'), labelTotal = document.getElementById('total2'))">
+                                    <label id="lart2" for="art2">Bolsa de Limones x 2 Kg.</label>
+                                </div>
+                                <br>
+                                <div>
+                                    <input id="total2" type="number" name="total2" value="50€">
+                                    <label for="ltotal2">Total a Pagar:<span></span></label>
+                                </div>
+                            </div>
                         </div>
-                        <div>
+                        <!-- <div>
+                            <img src="../img/piña.jpg" alt="Piña Tropical" class="img">
                             <input id="art3" type="number" name="art3" value="2" onchange="check(this, this.value, label = document.getElementById('lart3'))">
                             <label id="lart3" for="art3">Piña Tropical Congelada x 500 Gr.</label>
                         </div>
                         <div>
+                            <img src="../img/manga.png" alt="Manga" class="img">
                             <input id="art4" type="number" name="art4" value="2" onchange="check(this, this.value, label = document.getElementById('lart4'))">
                             <label id="lart4" for="art4">Manga Congelada x 500 Gr.</label>
                         </div>
                         <div>
+                            <img src="../img/rare.jpg" alt="Pera con Forma de Buda" class="img">
                             <input id="art5" type="number" name="art5" disabled onchange="check(this, this.value, label = document.getElementById('lart5'))">
                             <label id="lart5" for="art5">Pera con Forma de Buda(Sin Stock)</label>
-                        </div>
+                        </div> -->
                 </fieldset>
             </form>
         </main>
