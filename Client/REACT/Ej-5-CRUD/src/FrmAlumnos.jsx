@@ -8,17 +8,11 @@ export default function Alumnos({addAlumno}) {
         grupo : ""
     }
 
-
-    // let alumno = "";
-    // let grupo = "";
-
     let setAlumno;
-    [pupil, setAlumno] = useState(pupil);
+    [alumno.nombre, setAlumno] = useState(alumno.nombre);
 
-    let setCurso;
-    [group, setGrupo] = useState(group);
-
-    // let index = 0;
+    let setGrupo;
+    [alumno.grupo, setGrupo] = useState(alumno.grupo);
 
     if (localStorage.getItem("ID") == null)
     {
@@ -40,7 +34,7 @@ export default function Alumnos({addAlumno}) {
             <input id='name' type='text' name='pupil' onChange={e => setAlumno(e.target.value)}/>
             <br /><br />
             <label htmlFor="group">Nombre</label>
-            <select id='group' type='text' name='group' onChange={e => setCurso(e.target.value)}>
+            <select id='group' type='text' name='group' onChange={e => setGrupo(e.target.value)}>
                 <option value={""}>Selecciona un Grupo</option>
                 <option value={"A"}>Grupo A</option>
                 <option value={"B"}>Grupo B</option>

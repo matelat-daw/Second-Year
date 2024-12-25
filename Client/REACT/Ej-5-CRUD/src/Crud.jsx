@@ -1,17 +1,14 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import {useNavigate} from 'react-router-dom'
 
-function App() {
-
+export default function Crud() {
+    const navegar = useNavigate();
   return (
     <>
       <h1>Te Damos la Bienvenida al CRUD del CIFP César Manrique</h1>
-        <ul>
-            <li><Link to="/Centro">Centro</Link></li>
-            <li><Link to="/ListaAlumnos">Alumnos</Link></li>
-        </ul>
+      <br />
+      <button onClick={(e) => navegar("/") }>Volver al Inicio</button>
+      <br /><br />
+      <button onClick={(e) => navegar("/ListaAlumnos") }>Alumnos</button>
     </>
   )
 }
-
-export default App
