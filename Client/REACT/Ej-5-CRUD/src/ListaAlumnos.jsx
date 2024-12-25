@@ -1,17 +1,17 @@
-import { useState } from "react";
-
-export default function ListAlumnos({alumnos})
+import { useState } from 'react';
+export default function ListaAlumnos({alumnos})
 {
-    let borraPersona;
-    [alumnos, borraPersona] = useState(alumnos);
+    let borraAlumno;
+    [alumnos, borraAlumno] = useState(alumnos);
     
-    return (
+    if (alumnos != null){return (
         <table>
-            <tr><th>Nombre</th><th>Grupo</th></tr>
+            <tr><th>Nombre</th><th>Grupo</th><th>Eliminar</th></tr>
             {alumnos.map((alumno, i) => <tr key={i}>
-                <td>{`${alumno.nombre}`}<button onClick={borraAlumno}>Eliminar</button></td>
+                <td>{`${alumno.nombre}`}</td>
                 <td>{`${alumno.grupo}`}</td>
+                <td><button onClick={borraAlumno}>Eliminar</button></td>
             </tr>)}
         </table>
-    )
+    )}
 }

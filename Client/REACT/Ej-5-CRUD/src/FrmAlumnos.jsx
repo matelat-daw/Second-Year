@@ -1,7 +1,7 @@
 import { useState } from 'react';
-// import {useNavigate} from 'react-router-dom'
+import './App.css'
 
-export default function Alumnos({addAlumno}) {
+export default function FrmAlumnos({addAlumno}) {
     const alumno = 
     {
         nombre : "",
@@ -27,18 +27,18 @@ export default function Alumnos({addAlumno}) {
   return (
     <>
         <h3>Alumnos</h3>
-        <form onSubmit={e => (e.preventDefault(), addAlumno(alumno))}>
-            <label htmlFor="id">ID del Alumno</label>
+        <form id='form' onSubmit={e => (e.preventDefault(), addAlumno(alumno))}>
             <input id='id' type='hidden' name='id' value={localStorage.getItem("ID")} />
             <label htmlFor="name">Nombre</label>
             <input id='name' type='text' name='pupil' onChange={e => setAlumno(e.target.value)}/>
             <br /><br />
-            <label htmlFor="group">Nombre</label>
+            <label htmlFor="group">Grupo</label>
             <select id='group' type='text' name='group' onChange={e => setGrupo(e.target.value)}>
                 <option value={""}>Selecciona un Grupo</option>
                 <option value={"A"}>Grupo A</option>
                 <option value={"B"}>Grupo B</option>
             </select>
+            <br /><br />
             <input type='submit' value="Agrega un Alumno al Grupo" />
         </form>
     </>

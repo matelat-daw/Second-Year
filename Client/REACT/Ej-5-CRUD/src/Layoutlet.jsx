@@ -1,4 +1,5 @@
-import {Link, Outlet} from 'react-router-dom'
+import React from "react";
+import {Link, Outlet} from 'react-router-dom';
 
 export default function Layoutlet()
 {
@@ -7,7 +8,7 @@ export default function Layoutlet()
             <nav>
                 <Link to="/">Inicio |</Link>
                 <Link to="/Centro">Centro |</Link>
-                <Link to="/Crud">Alumnos</Link>
+                <Link to="/Daw2">Alumnos</Link>
             </nav>
             <div>
                 <Outlet />

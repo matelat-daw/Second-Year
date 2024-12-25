@@ -1,4 +1,4 @@
-// import React from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 export default function Inicio() {
@@ -7,7 +7,6 @@ export default function Inicio() {
       <h1>Te Damos la Bienvenida al CRUD del CIFP César Manrique</h1>
         <ul>
             <li><Link to="/Centro">Centro</Link></li>
-            <li><Link to="/ListaAlumnos">Alumnos</Link></li>
         </ul>
     </>
   )
