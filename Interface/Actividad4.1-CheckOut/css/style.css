@@ -229,6 +229,26 @@ main > .main
     height: 500px;
 }
 
+.tabs
+{
+    width: 95%;
+    height: 64px;
+    margin: 8px;
+    a
+    {
+        text-decoration: none;
+        color: var(--color-a);
+    }
+}
+
+.here
+{
+    border-left: 1px solid salmon;
+    border-right: 1px solid salmon;
+    border-top: 1px solid salmon;
+    padding: 10px;
+}
+
 article > ul
 {
     list-style: none;

@@ -16,11 +16,24 @@ export default function Contenedor() {
         alumnos.push(alumno);
         setNumAlumnos(alumnos.length); // Solución del Profesor, Asigna a la variable numPersonas el tamaño del array personas y se actualiza el estado.
     }
+
+    function borrarAlumno(alumno)
+    {
+        alumnos.splice(1, alumno.id);
+        setNumAlumnos(alumnos.length);
+    }
+
+    function modificarAlumno(alumno)
+    {
+        // alumnos.splice(1, alumno.id);
+        // setNumAlumnos(alumnos.length);
+    }
+
     return (
         // Lista de Personas (Tarea para Mañana)
         //useState cuando cambie el tamaño del array personas.
         <>
-            <FrmAlumnos addAlumno = {addAlumno}/>
+            <FrmAlumnos addAlumno = {addAlumno} />
             <ListaAlumnos alumnos = {alumnos}/>
         </>
     )

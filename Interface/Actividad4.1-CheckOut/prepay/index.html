@@ -29,11 +29,16 @@
                 <button onclick="changeSize('up')" class="double equal" aria-label="Aumenta el Tamaño de la Letra">F+</button>
             </div>
             <div>
-                <button onclick="checkout('index.html')" class="double down equal"><i class="bi bi-cart-check-fill"></i><span class="xsmall">CheckOut</span></button>
+                <button onclick="checkout('../cart/index.html')" class="double down equal"><i class="bi bi-cart-check-fill"></i><span class="xsmall">CheckOut</span></button>
             </div>
         </div>
     </header>
     <div class="container">
+        <nav>
+            <div class="tabs">
+                <a href="../cart/index.html"><span>Carrito de la Compra</span></a>&nbsp;<a href="../data/index.html"><span>Datos de Cliente</span></a>&nbsp;<a href="#"><span class="here">Sistema de Pago</span></a>&nbsp;<a href="../checkout/index.html"><span>Check Out</span></a>
+            </div>
+        </nav>
         <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
             <a href="../index.html" class="nav-link sort">Página de Inicio</a>
             <p><strong>Nuestro Catálogo</strong></p>
