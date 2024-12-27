@@ -1,19 +1,25 @@
-const Content = ({ Alumnos, handleCheck, handleDelete }) => {
+const Content = ({ alumnos, BorraAlumno }) => {
     return (
       <main className="content">
-        {Alumnos.length ? (
-          <ul>
-            {Alumnos.map((alumno) => {
+        {alumnos.length ? (
+          <table>
+            <thead><tr><th>ID</th><th>Nombre</th><th>Curso</th><th>Elimina</th></tr></thead><tbody>
+            {alumnos.map((alumno, i) => {
               return (
-                <li className="list" key={alumno.id}>
-                  <label onDoubleClick={() => handleCheck(alumno.id)}>
-                    <span className="h3">{alumno.alumnoNombre}</span>
+                <tr key={i}>
+                <td>{alumno.id}</td>
+                <td>
+                  <label>
+                    <span className="h3">{alumno.nombre}</span>
                   </label>
-                  <button className="small" onClick={() => handleDelete(alumno.id)}>Elimina</button>
-                </li>
+                </td>
+                <td>{alumno.grupo}</td>
+                <td><button className="small" onClick={() => BorraAlumno(alumno.id)}>Elimina</button></td>
+                </tr>
               );
             })}
-          </ul>
+            </tbody>
+          </table>
         ) : (
           <h3
             style={{
