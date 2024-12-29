@@ -1,3 +1,15 @@
+import "bootstrap/dist/css/bootstrap.min.css";
+import {
+  Table,
+  Button,
+  Container,
+  Modal,
+  ModalHeader,
+  ModalBody,
+  FormGroup,
+  ModalFooter,
+} from "reactstrap";
+
 const Content = ({ alumnos, BorraAlumno }) => {
     return (
       <main className="content">

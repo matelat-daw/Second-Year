@@ -21,13 +21,8 @@ const Content = ({ alumnos, BorraAlumno }) => {
             </tbody>
           </table>
         ) : (
-          <h3
-            style={{
-              marginTop: "2rem",
-            }}
-          >
-            {" "}
-            La Lista Está Vacía{" "}
+          <h3 style={{marginTop: "2rem"}} >
+            {" "}La Lista Está Vacía{" "}
           </h3>
         )}
       </main>

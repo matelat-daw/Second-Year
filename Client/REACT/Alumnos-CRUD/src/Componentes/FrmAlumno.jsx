@@ -25,7 +25,7 @@ export default function FrmAlumno({addAlumno}) {
     <>
     <form onSubmit={e => (e.preventDefault(), addAlumno(alumno))}>
         <input type="hidden" onChange={changeId} />
-      <input type="text" id="addAlumno" autoFocus placeholder="Agrega un Alumno" // onChange={(e) => setAlumno(e.target.value)}
+      <input type="text" id="addAlumno" autoFocus placeholder="Nombre" // onChange={(e) => setAlumno(e.target.value)}
         onChange={changeName}
         required />
       &nbsp;<label htmlFor="addAlumno">Nombre</label>
@@ -47,5 +47,5 @@ export default function FrmAlumno({addAlumno}) {
       <br /><br />
     </form>
     </>
-  )
-}
+  );
+};

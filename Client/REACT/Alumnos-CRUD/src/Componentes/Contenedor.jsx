@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import FrmAlumno from './FrmAlumno';
 import ListaAlumnos from './ListaAlumnos';
+import React from "react";
+import "./App.css";
 
 let alumnos = [];
 
