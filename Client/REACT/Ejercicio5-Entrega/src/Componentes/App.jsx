@@ -69,7 +69,7 @@ export default class App extends React.Component {
         }
         else
         {
-            this.setState({modalError: true, mensaje: "Todos los Campos son Obligatorios. Por Favor Verifica si Falta Algún Dato. Gracias."})
+            this.setState({modalError: true, mensaje: <h3>Todos los Campos son Obligatorios. Por Favor Verifica si Falta Algún Dato. Gracias.</h3>})
         }
     }
 
@@ -82,7 +82,7 @@ export default class App extends React.Component {
         }
         else
         {
-            this.setState({modalError: true, mensaje: "Todos los Campos son Obligatorios. Por Favor Verifica si Falta Algún Dato. Gracias."})
+            this.setState({modalError: true, mensaje: <h3>Todos los Campos son Obligatorios. Por Favor Verifica si Falta Algún Dato. Gracias.</h3>})
         }
     }
 
@@ -221,25 +221,28 @@ export default class App extends React.Component {
             <label htmlFor="id">
                 Id: 
             </label>
-            <input id="id" name="id" type="number" className="form-control" onChange={this.handleChange} />
+            <input id="id" name="id" type="number" className="form-control" onChange={this.handleChange} required />
+            <span id="sid">Completa el campo ID</span>
             </FormGroup>
 
             <FormGroup>
             <label htmlFor="nombre">
                 Nombre: 
             </label>
-            <input id="nombre" name="nombre" type="text" className="form-control" onChange={this.handleChange} />
+            <input id="nombre" name="nombre" type="text" className="form-control" onChange={this.handleChange} required />
+            <span id="snombre">Completa el campo Nombre</span>
             </FormGroup>
 
             <FormGroup>
             <label htmlFor="grupo">
                 Grupo: 
             </label>
-                <select id="grupo" name="grupo" type='text' className="form-control" onChange={this.handleChange} >
+                <select id="grupo" name="grupo" type='text' className="form-control" onChange={this.handleChange} required >
                     <option value={""}>Selecciona un Grupo</option>
                     <option value={"A"}>Grupo A</option>
                     <option value={"B"}>Grupo B</option>
                 </select>
+                <span id="sgrupo">Selecciona un Grupo</span>
             </FormGroup>
             </ModalBody>
 
@@ -270,18 +273,20 @@ export default class App extends React.Component {
             <label htmlFor="nombre">
                 Nombre:
             </label>
-            <input id="nombre" name="nombre" type="text" className="form-control" onChange={this.handleChange} value={this.state.form.nombre} />
+            <input id="nombre" name="nombre" type="text" className="form-control" onChange={this.handleChange} value={this.state.form.nombre} required />
+            <span id="snombre">Completa el Campo Nombre</span>
             </FormGroup>
 
             <FormGroup>
             <label htmlFor="grupo">
                 Grupo:
             </label>
-            <select id="grupo" name="grupo" type='text' className="form-control" onChange={this.handleChange} value={this.state.form.grupo}>
+            <select id="grupo" name="grupo" type='text' className="form-control" onChange={this.handleChange} value={this.state.form.grupo} required >
                     <option value={""}>Selecciona un Grupo</option>
                     <option value={"A"}>Grupo A</option>
                     <option value={"B"}>Grupo B</option>
                 </select>
+                <span id="sgrupo">Selecciona un Grupo</span>
             </FormGroup>
             </ModalBody>
 

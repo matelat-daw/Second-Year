@@ -19,3 +19,16 @@ a {
 {
     color: red;
 }
+
+span
+{
+    visibility: hidden;
+}
+
+input:invalid + #sid, input:invalid + #snombre, select:invalid + #sgrupo
+{
+    visibility: visible;
+    font-size: small;
+    color: salmon;
+    display: block;
+}
