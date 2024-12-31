@@ -1,0 +1,10 @@
+// Para que la ID del Item agregado sea la siguiente a la que tiene el Item que está en la última poición en el Array (Líneas Comentadas).
+
+insertar = () => {
+    var valorNuevo= {...this.state.form};
+    // var index = alumno.length - 1;
+    // valorNuevo.id=this.state.alumno[index].id + 1;
+    lista = this.state.alumnos;
+    lista.push(valorNuevo);
+    this.setState({ modalInsertar: false, alumno: lista });
+  }

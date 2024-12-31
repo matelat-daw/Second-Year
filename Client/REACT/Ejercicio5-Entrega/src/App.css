@@ -1,0 +1,21 @@
+#root {
+  max-width: 1920px;
+  margin: 20px auto;
+  padding: 2rem;
+  text-align: left;
+}
+
+a {
+
+    font-weight: 500;
+    color: blue;
+    text-decoration: none !important;
+  }
+  a:hover {
+    color: #535bf2;
+  }
+
+.error
+{
+    color: red;
+}
