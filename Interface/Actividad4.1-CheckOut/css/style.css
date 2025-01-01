@@ -268,13 +268,15 @@ article > a > ul
     list-style: none;
 }
 
-.next
+.next /* Clase del DIV que contiene el botón submit del carro. */
 {
+    height: 48px;
     padding: 10px;
-    input
+    input /* Input type submit del carro de la compra. */
     {
         float: right;
         border: 2px solid black;
+        border-radius: 8px;
         color: var(--color-button);
         background-color: var(--color-button_back);
         width: 96px;
