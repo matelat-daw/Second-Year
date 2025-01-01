@@ -161,7 +161,7 @@ export default class App extends React.Component {
               </tr>
             </thead>
             <tbody>
-              { this.state.alumnos.sort((a, b) => a < b ? -1 : 1).map((alumno) => (
+              { this.state.alumnos.map((alumno) => (
                 <tr key={alumno.id}>
                   <td>{alumno.id}</td>
                   <td>{alumno.nombre}</td>
