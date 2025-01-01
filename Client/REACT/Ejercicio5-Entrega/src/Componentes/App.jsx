@@ -32,9 +32,16 @@ export default class App extends React.Component {
     mensaje: ""
   };
 
-  insertar = () => {
-    var valorNuevo= {...this.state.form};
-    this.validarCreate(valorNuevo);
+  insertar = (id) => {
+    if (lista.some((alumno) => id == alumno.id))
+    {
+        this.mostrarModalId();
+    }
+    else
+    {
+        var alumnoNuevo = {...this.state.form};
+        this.validarCreate(alumnoNuevo);
+    }
   }
 
   editar = (editarAlumno) => {
@@ -57,15 +64,15 @@ export default class App extends React.Component {
         }
         indice++;
       });
-      this.setState({ alumnos: alumnos, modalDelete: false, alumno: lista });
+      this.setState({ alumnos: alumnos, modalDelete: false, alumno: lista, form: "" });
   };
 
-  validarCreate = (alumno) => {
-        if (alumno.id != "" && alumno.nombre != "" && alumno.grupo != "")
+  validarCreate = (alumnoNuevo) => {
+        if (alumnoNuevo.nombre != "" && alumnoNuevo.grupo != "" && alumnoNuevo.id != "" && alumnoNuevo.id != undefined && alumnoNuevo.nombre != undefined && alumnoNuevo.grupo != undefined)
         {
             lista = this.state.alumnos;
-            lista.push(alumno);
-            this.setState({ modalInsertar: false, alumno: lista });
+            lista.push(alumnoNuevo);
+            this.setState({ modalInsertar: false, alumnoNuevo: lista, form: "" });
         }
         else
         {
@@ -78,7 +85,7 @@ export default class App extends React.Component {
         {
             alumnos[indice].nombre = alumno.nombre;
             alumnos[indice].grupo = alumno.grupo;
-            this.setState({ alumnos: alumnos, modalActualizar: false, alumno: lista });
+            this.setState({ alumnos: alumnos, modalActualizar: false, alumno: lista, form: "" });
         }
         else
         {
@@ -127,11 +134,6 @@ export default class App extends React.Component {
   }
 
   handleChange = (e) => {
-    while (lista.some((alumno) => e.target.value == alumno.id))
-    {
-        this.mostrarModalId();
-        e.target.value = "";
-    }
         this.setState({
             form: {
                 ...this.state.form,
@@ -159,7 +161,7 @@ export default class App extends React.Component {
               </tr>
             </thead>
             <tbody>
-              { this.state.alumnos.map((alumno) => (
+              { this.state.alumnos.sort((a, b) => a < b ? -1 : 1).map((alumno) => (
                 <tr key={alumno.id}>
                   <td>{alumno.id}</td>
                   <td>{alumno.nombre}</td>
@@ -221,7 +223,7 @@ export default class App extends React.Component {
             <label htmlFor="id">
                 Id: 
             </label>
-            <input id="id" name="id" type="number" className="form-control" onChange={this.handleChange} required />
+            <input id="id" name="id" type="number" min={1} className="form-control" onChange={this.handleChange} required />
             <span id="sid">Completa el campo ID</span>
             </FormGroup>
 
@@ -247,7 +249,7 @@ export default class App extends React.Component {
             </ModalBody>
 
             <ModalFooter>
-            <Button color="primary" onClick={() => this.insertar()}>
+            <Button color="primary" onClick={() => this.insertar(document.getElementById("id").value)}>
             Agregar
             </Button>
             <Button color="secondary" onClick={() => this.cerrarModalInsertar()}>
