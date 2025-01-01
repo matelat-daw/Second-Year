@@ -287,6 +287,11 @@ article > a > ul
     {
         border: 2px solid white;
     }
+
+    input:active
+    {
+        border: 2px solid black;
+    }
 }
 
 /* Estilos de Footer. */

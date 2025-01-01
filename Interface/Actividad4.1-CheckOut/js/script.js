@@ -135,7 +135,6 @@ function check(element, price, total, container, label)
                 label.textContent = "Bolsa de Limones x 2 Kg.";
                 break;
         }
-        total.value = element.value * price.value;
     }
     else
     {
@@ -148,8 +147,8 @@ function check(element, price, total, container, label)
                 label.textContent = "Bolsas de Limones x 2 Kg.";
                 break;
         }
-        total.value = element.value * price.value;
     }
+    total.value = element.value * price.value;
 }
 
 function checkout(url)
