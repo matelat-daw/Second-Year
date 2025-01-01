@@ -118,12 +118,37 @@ function visit(url)
     window.open(url, "_self");
 }
 
-function check(element, value, label)
+function check(element, price, total, container, label)
 {
-    if (value == 0)
+    if (element.value == 0)
     {
-        element.style.display = "none";
-        label.style.display = "none";
+        container.style.display = "none";
+    }
+    else if (element.value == 1)
+    {
+        switch (label.textContent)
+        {
+            case "Cajas de Fresas x 5 Kg.":
+                label.textContent = "Caja de Fresas x 5 Kg.";
+                break;
+            case "Bolsas de Limones x 2 Kg.":
+                label.textContent = "Bolsa de Limones x 2 Kg.";
+                break;
+        }
+        total.value = element.value * price.value;
+    }
+    else
+    {
+        switch (label.textContent)
+        {
+            case "Caja de Fresas x 5 Kg.":
+                label.textContent = "Cajas de Fresas x 5 Kg.";
+                break;
+            case "Bolsa de Limones x 2 Kg.":
+                label.textContent = "Bolsas de Limones x 2 Kg.";
+                break;
+        }
+        total.value = element.value * price.value;
     }
 }
 

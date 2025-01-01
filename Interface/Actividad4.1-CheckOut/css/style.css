@@ -2,7 +2,7 @@
 @font-face
 {
     font-family: "CustomFont";
-    src: url("../font/DS-Digital.ttf");
+    src: url("../font/OpenSans-Regular.ttf");
 }
 
 body
@@ -246,7 +246,10 @@ main > .main
     border-left: 1px solid salmon;
     border-right: 1px solid salmon;
     border-top: 1px solid salmon;
-    padding: 10px;
+    border-radius: 5px;
+    color: white;
+    font-weight: bold;
+    padding: 8px;
 }
 
 article > ul
@@ -263,6 +266,25 @@ article > a
 article > a > ul
 {
     list-style: none;
+}
+
+.next
+{
+    padding: 10px;
+    input
+    {
+        float: right;
+        border: 2px solid black;
+        color: var(--color-button);
+        background-color: var(--color-button_back);
+        width: 96px;
+        height: 48px;
+    }
+
+    input:hover
+    {
+        border: 2px solid white;
+    }
 }
 
 /* Estilos de Footer. */
