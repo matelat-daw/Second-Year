@@ -5,32 +5,70 @@ const DOMDATA = {
     dni: document.getElementById("dni"),
     address: document.getElementById("address"),
     cp: document.getElementById("cp"),
-    shipper: document.getElementById("shipper"),
+    shipper1: document.getElementById("shipper1"),
+    shipper2: document.getElementById("shipper2"),
+    shipper3: document.getElementById("shipper3"),
     invoice: document.getElementById("invoice"),
-    kind: document.getElementById("kind"),
+    kind1: document.getElementById("kind1"),
+    kind2: document.getElementById("kind2"),
     cif: document.getElementById("cif"),
     phone: document.getElementById("phone"),
-    whatsapp: document.getElementById("whastapp"),
+    whatsapp1: document.getElementById("whatsapp1"),
+    whatsapp2: document.getElementById("whatsapp2"),
     email: document.getElementById("email")
 };
 
 function storeData()
 {
+    let shipper;
+    let kind;
+    let whatsapp;
     let name = DOMDATA.name.value;
     let surname = DOMDATA.surname.value;
     let surname2 = DOMDATA.surname2.value;
     let dni = DOMDATA.dni.value;
     let address = DOMDATA.address.value;
     let cp = DOMDATA.cp.value;
-    let shipper = DOMDATA.shipper.value;
+
+    if (DOMDATA.shipper1.checked)
+    {
+        shipper = DOMDATA.shipper1.value;
+    }
+    else if (DOMDATA.shipper2.checked)
+    {
+        shipper = DOMDATA.shipper2.value;
+    }
+    else
+    {
+        shipper = DOMDATA.shipper3.value;
+    }
+
     let invoice = DOMDATA.invoice.value;
-    let kind = DOMDATA.kind.value;
+
+    if (DOMDATA.kind1.checked)
+    {
+        kind = DOMDATA.kind1.value;
+    }
+    else
+    {
+        kind = DOMDATA.kind2.value;
+    }
+
     let cif = DOMDATA.cif.value;
     let phone = DOMDATA.phone.value;
-    let whatsapp = DOMDATA.whatsapp.value;
+
+    if (DOMDATA.whatsapp1.checked)
+    {
+        whatsapp = DOMDATA.whatsapp1.value;
+    }
+    else
+    {
+        whatsapp = DOMDATA.whatsapp2.value;
+    }
+
     let email = DOMDATA.email.value;
 
-    let result = [{
+    let result = {
         name: name,
         surname: surname,
         surname2: surname2,
@@ -44,9 +82,8 @@ function storeData()
         phone: phone,
         whatsapp: whatsapp,
         email: email,
-    }];
+    };
 
-    console.log("El resultado es: " + JSON.stringify(result));
     localStorage.setItem("data", JSON.stringify(result));
     window.open("../prepay/index.html", "_self");
 }

@@ -61,7 +61,6 @@ function storeCar()
         total4: total4
     }];
 
-    console.log("El resultado es: " + JSON.stringify(result));
     localStorage.setItem("car", JSON.stringify(result));
     window.open("../data/index.html", "_self");
 }
