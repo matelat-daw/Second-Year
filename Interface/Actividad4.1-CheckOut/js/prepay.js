@@ -6,8 +6,8 @@ const DOMPREPAY = {
 
 function showTransfer(how)
 {
-    DOM.transfer.style.display = "block";
-    DOM.btn_transfer.style.display = "none";
+    DOMPREPAY.transfer.style.display = "block";
+    DOMPREPAY.btn_transfer.style.display = "none";
     if (how == "Transferencia")
     {
         DOMPREPAY.payment.value = how;

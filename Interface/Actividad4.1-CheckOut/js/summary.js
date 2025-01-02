@@ -38,5 +38,15 @@ function showData()
 
 function showPayment()
 {
+    let container = document.getElementById("payment");
+    let data = JSON.parse(localStorage.getItem("payment"));
 
+    let html = "";
+    html += "<ul>"
+    data.map(function (pay) {
+        html += "<li>Método de Pago: " + pay.payment + "</li>";
+    });
+    html +="</ul>";
+
+    container.innerHTML = html;
 }
