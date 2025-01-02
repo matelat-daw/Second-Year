@@ -20,19 +20,19 @@ const DOMCAR = {
 function storeCar()
 {
     let art1 = DOMCAR.art1.value;
-    let label1 = DOMCAR.label1.value;
+    let label1 = DOMCAR.label1.textContent;
     let price1 = DOMCAR.price1.value;
     let total1 = DOMCAR.total1.value;
     let art2 = DOMCAR.art2.value;
-    let label2 = DOMCAR.label2.value;
+    let label2 = DOMCAR.label2.textContent;
     let price2 = DOMCAR.price2.value;
     let total2 = DOMCAR.total2.value;
     let art3 = DOMCAR.art3.value;
-    let label3 = DOMCAR.label3.value;
+    let label3 = DOMCAR.label3.textContent;
     let price3 = DOMCAR.price3.value;
     let total3 = DOMCAR.total3.value;
     let art4 = DOMCAR.art4.value;
-    let label4 = DOMCAR.label4.value;
+    let label4 = DOMCAR.label4.textContent;
     let price4 = DOMCAR.price4.value;
     let total4 = DOMCAR.total4.value;
 

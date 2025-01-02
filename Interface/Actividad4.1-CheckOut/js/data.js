@@ -68,7 +68,7 @@ function storeData()
 
     let email = DOMDATA.email.value;
 
-    let result = {
+    let result = [{
         name: name,
         surname: surname,
         surname2: surname2,
@@ -82,7 +82,7 @@ function storeData()
         phone: phone,
         whatsapp: whatsapp,
         email: email,
-    };
+    }];
 
     localStorage.setItem("data", JSON.stringify(result));
     window.open("../prepay/index.html", "_self");

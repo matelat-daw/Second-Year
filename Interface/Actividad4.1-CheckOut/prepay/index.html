@@ -71,7 +71,8 @@
             <h1>Pasarela de Pago.</h1>
             <h2>Total a Pagar: <span id="total"></span> €</h2>
             <h3>Selecciona tu Método de Pago:</h3>
-            <button id="btn-transfer" onclick="showTransfer()">Tranferencia Bancaria</button>
+            <button id="btn-transfer" onclick="showTransfer('Transferencia')">Tranferencia Bancaria</button>
+            <input id="payment" type="hidden" value="">
 
             <div id="transfer">
                 <h3>Este es nuestro IBAN: ES00 1111 123456789123 9999</h3>
@@ -83,7 +84,7 @@
             <div id="paypal-button"></div>
             <script src="https://www.paypalobjects.com/api/checkout.js"></script>
             <div class="next">
-                <input type="button" onclick="window.open('../checkout/index.html')" value="Siguiente">
+                <input type="button" onclick="storePayment()" value="Siguiente">
             </div>
 
 <script>
@@ -185,5 +186,6 @@
         </div>
     </footer>
     <script src="../js/script.js"></script>
+    <script src="../js/prepay.js"></script>
 </body>
 </html>
