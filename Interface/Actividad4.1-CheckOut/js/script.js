@@ -6,7 +6,9 @@ const DOM = {
     article: document.getElementById("article"),
     dark: document.getElementById("darkMode"),
     light: document.getElementById("lightMode"),
-    kind: document.querySelector(".kind")
+    kind: document.querySelector(".kind"),
+    btn_transfer: document.getElementById("btn-transfer"),
+    transfer: document.getElementById("transfer"),
 };
 
 if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) // Verifica si El Navegador Soporta MatchMedia y si está Configurado el Modo dark.
@@ -166,4 +168,10 @@ function changeKind(kind)
     {
         DOM.kind.style.visibility = "hidden";
     }
+}
+
+function showTransfer()
+{
+    DOM.transfer.style.display = "block";
+    DOM.btn_transfer.style.display = "none";
 }

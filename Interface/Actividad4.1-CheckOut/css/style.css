@@ -68,6 +68,26 @@ body
     {
         border-radius: 5px;
     }
+
+    #btn-transfer
+    {
+        border: 1px solid blue;
+        border-radius: 15px;
+        background-color: #ffc439;
+        height: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #btn-transfer:hover
+    {
+        border: 2px solid white;
+    }
+
+    #transfer
+    {
+        display: none;
+    }
 }
 
 /* Estilos de Header. */
@@ -92,7 +112,7 @@ body
 .double
 {
     font-size: 2em;
-    color: #0066cc;
+    color: var(--color-texto);
 }
 
 .down

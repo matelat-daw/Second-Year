@@ -36,7 +36,7 @@
     </header>
     <nav>
         <div class="tabs">
-            <a href="../cart/index.html"><span>Carrito</span></a>&nbsp;<a href="../data/index.html"><span>Datos de Cliente</span></a>&nbsp;<a href="#"><span class="here">Sistema de Pago</span></a>&nbsp;<a href="../checkout/index.html"><span>Check Out</span></a>
+            <a href="../cart/index.html"><span>Carrito</span></a>&nbsp;<a href="../data/index.html"><span>Datos de Cliente</span></a>&nbsp;<a href="#"><span class="here">Sistema de Pago</span></a>&nbsp;<a href="../checkout/index.html"><span>Resumen</span></a>
         </div>
     </nav>
     <div class="container">
@@ -69,11 +69,22 @@
         </aside>
         <main>
             <h1>Pasarela de Pago.</h1>
+            <h2>Total a Pagar: <span id="total"></span> €</h2>
             <h3>Selecciona tu Método de Pago:</h3>
-            <button>Tranferencia Bancaria</button>
+            <button id="btn-transfer" onclick="showTransfer()">Tranferencia Bancaria</button>
 
+            <div id="transfer">
+                <h3>Este es nuestro IBAN: ES00 1111 123456789123 9999</h3>
+                <h4>Por Favor haz una Transferencia a ese Número Cuenta por el Importe que Figura en la Página</h4>
+                <p>En la Referencia pon: Pedido Nº: Cli-25-00126</p>
+                <p>Ten en Cuenta que la Transferencia Puede Tardar hasta 48 Hs. En Cuanto la Recibamos, Enviaremos tu Pedido por Medio del Transportista que Hayas Seleccionado.</p>
+            </div>
+            <br><br>
             <div id="paypal-button"></div>
             <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+            <div class="next">
+                <input type="button" onclick="window.open('../checkout/index.html')" value="Siguiente">
+            </div>
 
 <script>
 
