@@ -37,28 +37,28 @@ function storeCar()
     let total4 = DOMCAR.total4.value;
 
     let result = [{
-        art1: art1,
-        label1: label1,
-        price1: price1,
-        total1: total1
+        article: art1,
+        label: label1,
+        price: price1,
+        total: total1
     },
     {
-        art2: art2,
-        label2: label2,
-        price2: price2,
-        total2: total2
+        article: art2,
+        label: label2,
+        price: price2,
+        total: total2
     },
     {
-        art3: art3,
-        label3: label3,
-        price3: price3,
-        total3: total3
+        article: art3,
+        label: label3,
+        price: price3,
+        total: total3
     },
     {
-        art4: art4,
-        label4: label4,
-        price4: price4,
-        total4: total4
+        article: art4,
+        label: label4,
+        price: price4,
+        total: total4
     }];
 
     localStorage.setItem("car", JSON.stringify(result));
