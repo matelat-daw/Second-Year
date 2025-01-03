@@ -28,7 +28,14 @@ function showData()
         html += "<li>Nombre: " + dato.name + " " + dato.surname + dato.surname2 + "</li>";
         html += "<li>DNI: " + dato.dni + "</li>";
         html += "<li>Dirección: " + dato.address + " Código Postal: " + dato.cp + "</li>";
-        html += "<li>Entrega: " + dato.shipper + " a " + dato.kind + "</li>";
+        if (dato.kind == "Particular")
+        {
+            html += "<li>Entrega: " + dato.shipper + " a " + dato.kind + "</li>";
+        }
+        else
+        {
+            html += "<li>Entrega: " + dato.shipper + " a " + dato.kind + " CIF: " + dato.cif +  "</li>";
+        }
         html += "<li>Teléfono: " + dato.phone + " E-mail: " + dato.email + "</li>";
         html += "<li>Contacto por WhatsApp: " + dato.whatsapp + "</li>";
     });
@@ -39,13 +46,10 @@ function showData()
 function showPayment()
 {
     let container = document.getElementById("payment");
-    let data = JSON.parse(localStorage.getItem("payment"));
 
     let html = "";
     html += "<ul>"
-    data.map(function (pay) {
-        html += "<li>Método de Pago: " + pay.payment + "</li>";
-    });
+    html += "<li>Método de Pago: " + localStorage.getItem("payment") + "</li>";
     html +="</ul>";
 
     container.innerHTML = html;
