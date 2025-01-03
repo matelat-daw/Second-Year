@@ -134,6 +134,11 @@
       });
     },
 
+    // onClick is called when the button is selected
+    onClick() {
+        showTransfer("PayPal");
+    },
+
     // Execute the payment
 
     onAuthorize: function(data, actions) {

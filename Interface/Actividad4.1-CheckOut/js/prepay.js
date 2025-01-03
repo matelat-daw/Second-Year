@@ -21,9 +21,6 @@ function showTransfer(how)
 function storePayment()
 {
     let payment = DOMPREPAY.payment.value;
-    let result = [{
-        payment: payment
-    }];
-    localStorage.setItem("payment", JSON.stringify(result));
+    localStorage.setItem("payment", JSON.stringify(payment));
     window.open('../checkout/index.html')
 }
