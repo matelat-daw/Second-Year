@@ -3,6 +3,7 @@ function showCar()
     let container = document.getElementById("car");
     let data = JSON.parse(localStorage.getItem("car"));
 
+    let total = 0;
     let html = "";
     html += "<ul>"
     data.map(function (art) {
@@ -11,8 +12,10 @@ function showCar()
             html += "<li>" + art.article + " " + art.label + "</li>";
             html += "<li>Precio: " + art.price + " €</li>";
             html += "<li>Total " + art.article + " " + art.label + ": " + art.total + " €</li>";
+            total += parseInt(art.total);
         }
     });
+    html += "<li>Total a Pagar: " + total + " €</li>";
     html +="</ul>";
     container.innerHTML = html;
 }
@@ -25,7 +28,7 @@ function showData()
     let html = "";
     html += "<ul>"
     data.map(function (dato) {
-        html += "<li>Nombre: " + dato.name + " " + dato.surname + dato.surname2 + "</li>";
+        html += "<li>Nombre: " + dato.name + " " + dato.surname + " " + dato.surname2 + "</li>";
         html += "<li>DNI: " + dato.dni + "</li>";
         html += "<li>Dirección: " + dato.address + " Código Postal: " + dato.cp + "</li>";
         if (dato.kind == "Particular")
