@@ -18,5 +18,5 @@ function storePayment()
 {
     let payment = DOMPREPAY.payment.value;
     localStorage.setItem("payment", JSON.stringify(payment));
-    window.open('../checkout/index.html')
+    window.open('../checkout/index.html', '_self')
 }

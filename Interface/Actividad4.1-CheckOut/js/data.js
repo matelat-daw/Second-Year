@@ -18,8 +18,9 @@ const DOMDATA = {
     email: document.getElementById("email")
 };
 
-function storeData()
+function storeData(event)
 {
+    event.preventDefault();
     let shipper;
     let kind;
     let whatsapp;
@@ -48,6 +49,7 @@ function storeData()
     if (DOMDATA.kind1.checked)
     {
         kind = DOMDATA.kind1.value;
+        DOMDATA.cif.required = false;
     }
     else
     {

@@ -17,8 +17,9 @@ const DOMCAR = {
     total4: document.getElementById("total4")
 };
 
-function storeCar()
+function storeCar(event)
 {
+    event.preventDefault();
     let art1 = DOMCAR.art1.value;
     let label1 = DOMCAR.label1.textContent;
     let price1 = DOMCAR.price1.value;

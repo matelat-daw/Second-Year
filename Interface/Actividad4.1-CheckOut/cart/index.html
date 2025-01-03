@@ -69,7 +69,7 @@
         </aside>
         <main>
             <h1>Estos son tus Artículos Seleccionados</h1>
-            <!-- <form action="../data/index.html" method="post"> -->
+            <form onsubmit="return storeCar(event)">
                 <fieldset>
                     <legend>Tu Compra</legend>
                         <div id="container1" class="inline_grid">
@@ -171,9 +171,9 @@
                         </div>
                 </fieldset>
                 <div class="next">
-                    <input type="button" onclick="storeCar()" value="Siguiente">
+                    <input type="submit" value="Siguiente">
                 </div>
-            <!-- </form> -->
+            </form>
         </main>
     </div>
     <footer>

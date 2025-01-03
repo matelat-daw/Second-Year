@@ -69,7 +69,7 @@
             </div>
         </aside>
         <main>
-            <!-- <form action="../prepay/index.html" method="post" onsubmit="return verify()"> -->
+            <form onsubmit="return storeData(event)">
                 <fieldset>
                     <legend>Datos del Cliente</legend>
                         <div>
@@ -134,7 +134,7 @@
                         </div>
                         <br>
                         <div class="kind">
-                            <input id="cif" name="cif" type="text" value="" required>
+                            <input id="cif" name="cif" type="text" required>
                             <label for="cif"> CIF de Empresa</label>
                         </div>
                         <br>
@@ -161,9 +161,9 @@
                         </div>
                 </fieldset>
                 <div class="next">
-                    <input type="button" onclick="storeData()" value="Siguiente">
+                    <input type="submit" value="Siguiente">
                 </div>
-            <!-- </form> -->
+            </form>
         </main>
     </div>
     <footer>
