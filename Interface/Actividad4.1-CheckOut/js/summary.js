@@ -15,7 +15,7 @@ function showCar()
             total += parseFloat(art.total);
         }
     });
-    html += "<li>Total a Pagar: " + total + " €</li>";
+    html += "<li><strong>Total a Pagar: " + total + " €</strong></li>";
     html +="</ul>";
     container.innerHTML = html;
 }

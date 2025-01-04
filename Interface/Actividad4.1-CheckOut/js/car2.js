@@ -1,4 +1,4 @@
-const DOM = {
+const DOM2 = {
     contenedor: document.getElementById("contenedor")
 }
 
@@ -20,7 +20,7 @@ function showItems()
 
     html += "<div class='inline_grid'><div><img src='../img/rare.jpg' alt='Pera con Forma de Buda' class='img'></div><div><input id='art5' type='number' disabled><label id='lart5' for='art5'>Pera con Forma de Buda(Sin Stock)</label></div></div><br></fieldset><div class='next'><input type='submit' value='Siguiente'></div>";
 
-    DOM.contenedor.innerHTML = html;
+    DOM2.contenedor.innerHTML = html;
 }
 
 function calculate(qtty, price, total, contenedor, label)
