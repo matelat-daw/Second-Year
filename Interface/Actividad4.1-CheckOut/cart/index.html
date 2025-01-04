@@ -36,7 +36,7 @@
     </header>
     <nav>
         <div class="tabs">
-            <a href="#"><span class="here">Carrito</span></a>&nbsp;<a href="../data/index.html"><span>Datos de Cliente</span></a>&nbsp;<a href="../prepay/index.html"><span>Sistema de Pago</span></a>&nbsp;<span>Resumen</span>
+            <span class="here">Carrito</span>&nbsp;<a href="../data/index.html"><span>Datos de Cliente</span></a>&nbsp;<a href="../prepay/index.html"><span>Forma de Pago</span></a>&nbsp;<span>Resumen</span>
         </div>
     </nav>
     <div class="container">
@@ -69,7 +69,7 @@
         </aside>
         <main>
             <h1>Estos son tus Artículos Seleccionados</h1>
-            <form onsubmit="return storeCar(event)">
+            <form method="post" onsubmit="storeCar(event)">
                 <fieldset>
                     <legend>Tu Compra</legend>
                         <div id="container1" class="inline_grid">

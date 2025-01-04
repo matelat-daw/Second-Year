@@ -12,7 +12,7 @@ function showCar()
             html += "<li>" + art.article + " " + art.label + "</li>";
             html += "<li>Precio: " + art.price + " €</li>";
             html += "<li>Total " + art.article + " " + art.label + ": " + art.total + " €</li>";
-            total += parseInt(art.total);
+            total += parseFloat(art.total);
         }
     });
     html += "<li>Total a Pagar: " + total + " €</li>";

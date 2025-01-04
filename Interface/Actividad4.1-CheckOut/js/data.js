@@ -11,12 +11,38 @@ const DOMDATA = {
     invoice: document.getElementById("invoice"),
     kind1: document.getElementById("kind1"),
     kind2: document.getElementById("kind2"),
+    kind: document.querySelector(".kind"),
     cif: document.getElementById("cif"),
     phone: document.getElementById("phone"),
     whatsapp1: document.getElementById("whatsapp1"),
     whatsapp2: document.getElementById("whatsapp2"),
     email: document.getElementById("email")
 };
+
+function changeKind(kind)
+{
+    if (kind)
+    {
+        DOMDATA.kind.style.visibility = "visible";
+    }
+    else
+    {
+        DOMDATA.kind.style.visibility = "hidden";
+    }
+}
+
+function checkKind()
+{
+    if (DOMDATA.kind1.checked)
+    {
+        kind = DOMDATA.kind1.value;
+        DOMDATA.cif.required = false;
+    }
+    else
+    {
+        kind = DOMDATA.kind2.value;
+    }
+}
 
 function storeData(event)
 {
@@ -50,10 +76,12 @@ function storeData(event)
     {
         kind = DOMDATA.kind1.value;
         DOMDATA.cif.required = false;
+        console.log("Entró acá así que cif es: " + DOMDATA.cif.required)
     }
     else
     {
         kind = DOMDATA.kind2.value;
+        console.log("Entonces entra acá.");
     }
 
     let cif = DOMDATA.cif.value;

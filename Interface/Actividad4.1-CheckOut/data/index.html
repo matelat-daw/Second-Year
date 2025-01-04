@@ -37,7 +37,7 @@
     </header>
     <nav>
         <div class="tabs">
-            <a href="#"><span class="here">Carrito</span></a>&nbsp;<a href="../data/index.html"><span>Datos de Cliente</span></a>&nbsp;<a href="../prepay/index.html"><span>Sistema de Pago</span></a>&nbsp;<span>Resumen</span>
+            <a  href="../cart/index.html"><span>Carrito</span></a>&nbsp;<span class="here">Datos de Cliente</span>&nbsp;<a href="../prepay/index.html"><span>Forma de Pago</span></a>&nbsp;<span>Resumen</span>
         </div>
     </nav>
     <div class="container">
@@ -69,7 +69,7 @@
             </div>
         </aside>
         <main>
-            <form onsubmit="return storeData(event)">
+            <form method="post" onsubmit="storeData(event)">
                 <fieldset>
                     <legend>Datos del Cliente</legend>
                         <div>
@@ -127,9 +127,9 @@
                         </div>
                         <br>
                         <div>
-                            <input id="kind1" type="radio" name="kind" value="particular" onchange="changeKind(false)" checked>
+                            <input id="kind1" type="radio" name="kind" value="Particular" onchange="changeKind(false)" checked>
                             <label for="kind1"> Particular</label>
-                            <input id="kind2" type="radio" name="kind" value="empresa" onchange="changeKind(true)">
+                            <input id="kind2" type="radio" name="kind" value="Empresa" onchange="changeKind(true)">
                             <label for="kind2"> Empresa</label>
                         </div>
                         <br>
@@ -161,7 +161,7 @@
                         </div>
                 </fieldset>
                 <div class="next">
-                    <input type="submit" value="Siguiente">
+                    <input type="submit" value="Siguiente" onclick="checkKind()">
                 </div>
             </form>
         </main>
