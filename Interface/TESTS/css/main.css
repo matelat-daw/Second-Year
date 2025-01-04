@@ -1,9 +1,3 @@
-@font-face
-{
-    font-family: "CustomFont";
-    src: url("../font/DS-Digital.ttf");
-}
-
 *
 {
     font-family: "CustomFont", "Tangerine", Arial, Helvetica, sans-serif;
@@ -41,6 +35,21 @@ aside
 main
 {
     background-color: #aaffaa;
+
+    .img
+    {
+        width: 25%;
+    }
+
+    .inline_grid
+    {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        margin: 5px 0 5px 0;
+        padding: 5px 0 5px 0;
+        border: 1px solid grey;
+        border-radius: 10px;
+    }
 }
 
 header > h1, nav > h2, aside > h3, main > h3, footer > p

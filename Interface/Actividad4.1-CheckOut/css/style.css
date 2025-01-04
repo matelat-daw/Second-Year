@@ -267,7 +267,7 @@ main > .main
     border-right: 1px solid salmon;
     border-top: 1px solid salmon;
     border-radius: 5px;
-    color: white;
+    color: var(--color-texto);
     font-weight: bold;
     padding: 8px;
 }

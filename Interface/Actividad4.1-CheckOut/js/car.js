@@ -65,3 +65,36 @@ function storeCar(event)
     localStorage.setItem("car", JSON.stringify(result));
     window.open("../data/index.html", "_self");
 }
+
+function check(element, price, total, container, label)
+{
+    if (element.value == 0)
+    {
+        container.style.display = "none";
+    }
+    else if (element.value == 1)
+    {
+        switch (label.textContent)
+        {
+            case "Cajas de Fresas x 5 Kg.":
+                label.textContent = "Caja de Fresas x 5 Kg.";
+                break;
+            case "Bolsas de Limones x 2 Kg.":
+                label.textContent = "Bolsa de Limones x 2 Kg.";
+                break;
+        }
+    }
+    else
+    {
+        switch (label.textContent)
+        {
+            case "Caja de Fresas x 5 Kg.":
+                label.textContent = "Cajas de Fresas x 5 Kg.";
+                break;
+            case "Bolsa de Limones x 2 Kg.":
+                label.textContent = "Bolsas de Limones x 2 Kg.";
+                break;
+        }
+    }
+    total.value = element.value * price.value;
+}
