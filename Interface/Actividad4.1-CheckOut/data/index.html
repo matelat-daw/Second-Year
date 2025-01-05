@@ -138,7 +138,19 @@
                             <label for="cif"> CIF de Empresa</label>
                         </div>
                         <br>
-                </fieldset>
+                        <div>
+                            <h3>Dirección de Envío</h3>
+                            <input id="address1" type="radio" name="address2" value="same" onchange="changeAddress(false)" checked>
+                            <label for="address1"> Es la Misma que la de Datos de Envío</label>
+                            <input id="address2" type="radio" name="address2" value="other" onchange="changeAddress(true)">
+                            <label for="address2"> Envíenmelo a Está Dirección, Por Favor</label>
+                        </div>
+                        <br>
+                        <div class="address2">
+                            <input id="other_address" name="other_address" type="text" required>
+                            <label for="other_address"> Dirección de Entrega (Incluye el Código Postal, Por Favor)</label>
+                        </div>
+                        <br>
                 <fieldset>
                     <legend>Datos de Contacto</legend>
                         <div>
@@ -162,6 +174,7 @@
                 </fieldset>
                 <div class="next">
                     <input type="submit" value="Siguiente" onclick="checkKind()">
+                    <!-- <input type="submit" value="Siguiente"> -->
                 </div>
             </form>
         </main>

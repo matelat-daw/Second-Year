@@ -24,16 +24,8 @@ function storePayment()
 
 function showTotal()
 {
-    let data = JSON.parse(localStorage.getItem("car"));
+    let total = getTotal();
 
-    let total = 0;
-
-    data.map(function (article) {
-        if (article.qtty > 0 && article.check)
-        {
-            total += parseFloat(article.total);
-        }
-    });
     DOMPREPAY.total.innerHTML = total;
 }
 
@@ -49,19 +41,18 @@ function getTotal()
             total += parseFloat(article.total);
         }
     });
-    let igic = total * .07;
+    let igic = (total * .07).toFixed(2);
     let to_pay = 0;
     if (total >= 30)
     {
         let discount = total * .2;
-        to_pay = (total - discount).toFixed(2);
+        to_pay = parseFloat(total - discount).toFixed(2);
     }
     else
     {
         to_pay = total;
     }
 
-    let final = parseFloat(to_pay + igic).toFixed(2);
-    console.log("Al final quedó: " + final);
+    final = (parseFloat(to_pay) + parseFloat(igic)).toFixed(2);
     return final;
 }

@@ -15,8 +15,21 @@ main
         border-radius: 10px;
     }
 
-    .inline
+    .danger
     {
-        display: inline-block
+        background-color: red;
+        width: 100px;
+        height: 42px;
+        font-weight: bolder;
+    }
+
+    .danger:hover
+    {
+        border: 2px solid black;
+    }
+
+    .danger:active
+    {
+        border: 2px solid white;
     }
 }

@@ -21,7 +21,8 @@ function showCar()
     {
         let discount = total * .2;
         to_pay = total - discount;
-        html += "<li><strong>Total a Pagar sin I.G.I.C. con Descuento: " + to_pay + " €</strong></li>";
+        html += "<li><strong>Total a Pagar sin I.G.I.C. " + total + " €</strong></li>";
+        html += "<li><strong>Total a Pagar sin I.G.I.C. con el Descuento del 20%: " + to_pay + " €</strong></li>";
     }
     else
     {

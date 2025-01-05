@@ -12,6 +12,10 @@ const DOMDATA = {
     kind1: document.getElementById("kind1"),
     kind2: document.getElementById("kind2"),
     kind: document.querySelector(".kind"),
+    address1: document.getElementById("address1"),
+    address2: document.getElementById("address2"),
+    other_address: document.getElementById("other_address"),
+    other: document.querySelector(".address2"),
     cif: document.getElementById("cif"),
     phone: document.getElementById("phone"),
     whatsapp1: document.getElementById("whatsapp1"),
@@ -31,6 +35,18 @@ function changeKind(kind)
     }
 }
 
+function changeAddress(other)
+{
+    if (other)
+    {
+        DOMDATA.other.style.visibility = "visible";
+    }
+    else
+    {
+        DOMDATA.other.style.visibility = "hidden";
+    }
+}
+
 function checkKind()
 {
     if (DOMDATA.kind1.checked)
@@ -41,6 +57,17 @@ function checkKind()
     else
     {
         kind = DOMDATA.kind2.value;
+    }
+
+    if (DOMDATA.address1.checked)
+    {
+        address = DOMDATA.address.value;
+        DOMDATA.other_address.required = false;
+    }
+    else
+    {
+        address = DOMDATA.other_address.value;
+        DOMDATA.address.required = false;
     }
 }
 
@@ -76,12 +103,21 @@ function storeData(event)
     {
         kind = DOMDATA.kind1.value;
         DOMDATA.cif.required = false;
-        console.log("Entró acá así que cif es: " + DOMDATA.cif.required)
     }
     else
     {
         kind = DOMDATA.kind2.value;
-        console.log("Entonces entra acá.");
+    }
+
+    if (DOMDATA.address1.checked)
+    {
+        address = DOMDATA.address.value;
+        DOMDATA.other_address.required = false;
+    }
+    else
+    {
+        address = DOMDATA.other_address.value;
+        DOMDATA.address.required = false;
     }
 
     let cif = DOMDATA.cif.value;
