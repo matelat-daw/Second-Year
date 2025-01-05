@@ -6,13 +6,13 @@ function showCar()
     let total = 0;
     let html = "";
     html += "<ul>"
-    data.map(function (art) {
-        if (art.price > 0 && art.total > 0)
+    data.map(function (article) {
+        if (article.qtty > 0 && article.check)
         {
-            html += "<li>" + art.article + " " + art.label + "</li>";
-            html += "<li>Precio: " + art.price + " €</li>";
-            html += "<li>Total " + art.article + " " + art.label + ": " + art.total + " €</li>";
-            total += parseFloat(art.total);
+            html += "<li>" + article.qtty + " " + article.label + "</li>";
+            html += "<li>Precio: " + article.price + " €</li>";
+            html += "<li>Total " + article.qtty + " " + article.label + ": " + article.total + " €</li>";
+            total += parseFloat(article.total);
         }
     });
     html += "<li><strong>Total a Pagar: " + total + " €</strong></li>";
