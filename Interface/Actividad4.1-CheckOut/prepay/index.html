@@ -90,9 +90,6 @@
 <script>
 
   paypal.Button.render({
-
-    // Configure environment
-
     env: 'sandbox',
 
     client: {
@@ -103,49 +100,34 @@
 
     },
 
-    // Customize button (optional)
-
     locale: 'es_ES',
 
     style: {
         size: 'small', color: 'gold', shape: 'pill',
     },
 
-
-    // Enable Pay Now checkout flow (optional)
-
     commit: true,
 
-
-    // Set up a payment
-
     payment: function(data, actions) {
-        // var btn = document.getElementById('getQR');
-        // btn.style.visibility = "visible";
 
       return actions.payment.create({
 
         transactions: [{
 
             amount: {
-                  total: 100, currency: 'EUR'
+                  total: getTotal(), currency: 'EUR'
             }
         }]
       });
     },
 
-    // onClick is called when the button is selected
     onClick() {
         showTransfer("PayPal");
     },
 
-    // Execute the payment
-
     onAuthorize: function(data, actions) {
 
       return actions.payment.execute().then(function() {
-
-        // Show a confirmation message to the buyer
 
         window.alert('Gracias por tu Compra!');
 
@@ -192,5 +174,6 @@
     </footer>
     <script src="../js/script.js"></script>
     <script src="../js/prepay.js"></script>
+    <script>showTotal()</script>
 </body>
 </html>

@@ -11,11 +11,24 @@ function showCar()
         {
             html += "<li>" + article.qtty + " " + article.label + "</li>";
             html += "<li>Precio: " + article.price + " €</li>";
-            html += "<li>Total " + article.qtty + " " + article.label + ": " + article.total + " €</li>";
+            html += "<li>Total: " + article.qtty + " " + article.label + ": " + article.total + " €</li>";
             total += parseFloat(article.total);
         }
     });
-    html += "<li><strong>Total a Pagar: " + total + " €</strong></li>";
+    let igic = total * .07;
+    let to_pay = 0;
+    if (total >= 30)
+    {
+        let discount = total * .2;
+        to_pay = total - discount;
+        html += "<li><strong>Total a Pagar sin I.G.I.C. con Descuento: " + to_pay + " €</strong></li>";
+    }
+    else
+    {
+        html += "<li><strong>Total a Pagar sin I.G.I.C.: " + total + " €</strong></li>";
+        to_pay = total;
+    }
+    html += "<li><strong>Total a Pagar + I.G.I.C.: " + (to_pay + igic).toFixed(2) + " €</strong></li>";
     html +="</ul>";
     container.innerHTML = html;
 }

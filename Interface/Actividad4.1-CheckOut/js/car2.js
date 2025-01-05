@@ -1,17 +1,19 @@
 const DOM2 = {
-    contenedor: document.getElementById("contenedor")
+    contenedor: document.getElementById("contenedor"),
+    to_pay: document.getElementById("to_pay")
 }
 
 const imgs = ["../img/fresa.webp", "../img/limon.webp", "../img/piña.jpg", "../img/manga.webp"];
 
 const alts = ["Fresas", "Limones", "Piña Tropical", "Manga"];
 
-const items = ["Caja de Fresas x 5 Kg.", "Bolsa de Limones x 2 Kg.", "Piña Tropical Congelada x 500 Gr." , "Manga Congelada x 500 Gr."];
+const items = ["Caja de Fresas x 2 Kg.", "Bolsa de Limones x 2 Kg.", "Piña Tropical Congelada x 500 Gr." , "Manga Congelada x 500 Gr."];
 
-const prices = [4, 1.5, 3, 2];
+const prices = [8, 2.5, 3, 2];
 
 function showItems()
 {
+    DOM2.to_pay.innerHTML = "15.5";
     html = "<fieldset><legend>Tu Compra</legend>";
     for (var i = 0; i < 4; i++)
     {
@@ -21,6 +23,12 @@ function showItems()
     html += "<div class='inline_grid'><div><img src='../img/rare.jpg' alt='Pera con Forma de Buda' class='img'></div><div><input id='art5' type='number' disabled><label id='lart5' for='art5'>Pera con Forma de Buda(Sin Stock)</label></div></div><br></fieldset><div class='next'><input type='submit' value='Siguiente'></div>";
 
     DOM2.contenedor.innerHTML = html;
+}
+
+let totalArray = [];
+for (var i = 0; i < prices.length; i++)
+{
+    totalArray[i] = prices[i];
 }
 
 function calculate(qtty, price, total, contenedor, label)
@@ -33,8 +41,8 @@ function calculate(qtty, price, total, contenedor, label)
     {
         switch (label.textContent)
         {
-            case "Cajas de Fresas x 5 Kg.":
-                label.textContent = "Caja de Fresas x 5 Kg.";
+            case "Cajas de Fresas x 2 Kg.":
+                label.textContent = "Caja de Fresas x 2 Kg.";
                 break;
             case "Bolsas de Limones x 2 Kg.":
                 label.textContent = "Bolsa de Limones x 2 Kg.";
@@ -45,8 +53,8 @@ function calculate(qtty, price, total, contenedor, label)
     {
         switch (label.textContent)
         {
-            case "Caja de Fresas x 5 Kg.":
-                label.textContent = "Cajas de Fresas x 5 Kg.";
+            case "Caja de Fresas x 2 Kg.":
+                label.textContent = "Cajas de Fresas x 2 Kg.";
                 break;
             case "Bolsa de Limones x 2 Kg.":
                 label.textContent = "Bolsas de Limones x 2 Kg.";
@@ -54,13 +62,42 @@ function calculate(qtty, price, total, contenedor, label)
         }
     }
 
-    total.value = qtty * price;
+    showTotal(qtty, total, price, contenedor);
 }
 
 function quit(qtty, container)
 {
     qtty.value = 0;
     container.style.display = "none";
+    showTotal(0, total, 0, contenedor);
+}
+
+function showTotal(qtty, total, price, contenedor)
+{
+    total.value = qtty * price;
+
+    switch (contenedor.id)
+    {
+        case "contenedor1":
+            totalArray[0] = total.value;
+            break;
+        case "contenedor2":
+            totalArray[1] = total.value;
+            break;
+        case "contenedor3":
+            totalArray[2] = total.value;
+            break;
+        case "contenedor4":
+            totalArray[3] = total.value;
+            break;
+    }
+
+    let final = 0;
+    for (var i = 0; i < totalArray.length; i++)
+    {
+        final += parseFloat(totalArray[i]);
+    }
+    DOM2.to_pay.innerHTML = final;
 }
 
 function storeCar(event)

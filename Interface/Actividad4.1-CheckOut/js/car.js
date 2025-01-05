@@ -96,5 +96,15 @@ function check(element, price, total, container, label)
                 break;
         }
     }
-    total.value = element.value * price.value;
+
+    let total1 = element.value * price.value;
+    let igic = total1 * .07;
+    let totalIgic = total1 + igic;
+
+    if (total1 >= 30)
+    {
+        discount = total1 * 0.2;
+        total1 = total1 - discount;
+    }
+    total.value = total1;
 }
