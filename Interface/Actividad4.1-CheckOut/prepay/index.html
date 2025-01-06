@@ -79,6 +79,12 @@
                 <h4>Por Favor haz una Transferencia a ese Número Cuenta por el Importe que Figura en la Página</h4>
                 <p>En la Referencia pon: Pedido Nº: Cli-25-00126</p>
                 <p>Ten en Cuenta que la Transferencia Puede Tardar hasta 48 Hs. En Cuanto la Recibamos, Enviaremos tu Pedido por Medio del Transportista que Hayas Seleccionado.</p>
+                <form method="post" enctype="multipart/form-data" onsubmit="noSend(event)">
+                    <input id="pdf" type="file" name="comprobante" accept=".pdf">
+                    <label for="pdf"> Sube el Comprobante de Pago en PDF, Para Acortar los Plazos de Entrega. Gracias.</label>
+                    <br><br>
+                    <input class="send" type="submit" value="Envia el Comprobante">
+                </form>
             </div>
             <br><br>
             <div id="paypal-button"></div>

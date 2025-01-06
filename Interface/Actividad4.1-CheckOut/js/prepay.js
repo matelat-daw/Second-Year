@@ -56,3 +56,8 @@ function getTotal() // El Pago por PayPal Llama a Este Método Para Saber Cuanto
     let final = (parseFloat(to_pay) + parseFloat(igic)).toFixed(2); // Asigno a final la Suma del Total a Pagar Más el IGIC (el 7% del Precio Total sin Descuento.)
     return final; // Devuelvo el Total a Pagar con el IGIC y el Descuento si Aplica.
 }
+
+function noSend(event)
+{
+    event.preventDefault();
+}
