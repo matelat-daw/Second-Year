@@ -17,7 +17,7 @@ function showItems() // Se Llama a Este Método al abrir la Página.
     html = "<fieldset><legend>Tu Compra</legend>";
     for (var i = 0; i < 4; i++)
     {
-        html += "<div id='contenedor" + (i + 1) + "' class='inline_grid'><div><img src='" + imgs[i] + "' alt='" + alts[i] + "' class='img'></div><div><div><input id='qtty" + (i + 1) + "' type='number' value='1' onchange='calculate(this.value, " + prices[i] + ", document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"), document.getElementById(\"label" + (i + 1) + "\"))' required><label id='label" + (i + 1) + "' for='qtty" + (i + 1) + "'>" + items[i] + "</label></div><br><div><input readonly type='number' id='price" + (i + 1) + "' value='" + prices[i] + "' step='.5'><label for='price" + (i + 1) + "'>Precio</label></div><br><div><input readonly type='number' id='total" + (i + 1) + "' step='.5' value='" + prices[i] + "'><label for='total" + (i + 1) + "'>Total</label></div><br><input id='check" + (i + 1) + "' type='checkbox' checked><label for='check" + (i + 1) + "'>Facturar</label>&nbsp;&nbsp;&nbsp;<input type='button' onclick='quit(document.getElementById(\"qtty" + (i + 1) + "\"), document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"))' value='Eliminar' class='danger'></div></div>";
+        html += "<div id='contenedor" + (i + 1) + "' class='inline_grid'><div><img src='" + imgs[i] + "' alt='" + alts[i] + "' class='img'></div><div><div><input id='qtty" + (i + 1) + "' type='number' value='1' onchange='calculate(this.value, " + prices[i] + ", document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"), document.getElementById(\"label" + (i + 1) + "\"))' required><label id='label" + (i + 1) + "' for='qtty" + (i + 1) + "'>" + items[i] + "</label></div><br><div><input readonly type='number' id='price" + (i + 1) + "' value='" + prices[i] + "' step='.5'><label for='price" + (i + 1) + "'>Precio</label></div><br><div><input readonly type='number' id='total" + (i + 1) + "' step='.5' value='" + prices[i] + "'><label for='total" + (i + 1) + "'>Total</label></div><br><input id='check" + (i + 1) + "' type='checkbox' onchange='invoice(this, document.getElementById(\"qtty" + (i + 1) + "\"), " + prices[i] + ", document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"))' checked><label for='check" + (i + 1) + "'>Facturar</label>&nbsp;&nbsp;&nbsp;<input type='button' onclick='quit(document.getElementById(\"qtty" + (i + 1) + "\"), document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"))' value='Eliminar' class='danger'></div></div>";
     }
 
     html += "<div class='inline_grid'><div><img src='../img/rare.jpg' alt='Pera con Forma de Buda' class='img'></div><div><input id='art5' type='number' disabled><label id='lart5' for='art5'>Pera con Forma de Buda(Sin Stock)</label></div></div><br></fieldset><div class='next'><input type='submit' value='Siguiente'></div>";
@@ -49,7 +49,7 @@ function calculate(qtty, price, total, contenedor, label) // Se Llama Cada Vez q
                 break;
         }
     }
-    else // Si no es 0 ni 1.
+    else // Si no es 1.
     {
         switch (label.textContent) // Vuelvo a Verificar si hay que Cambiar los Nombres.
         {
@@ -63,6 +63,21 @@ function calculate(qtty, price, total, contenedor, label) // Se Llama Cada Vez q
     }
 
     showTotal(qtty, total, price, contenedor); // Lamo al Método showTotal, le Paso los Elementos: Cantidad, Total, Precio y Contenedor.
+}
+
+function invoice(article, qtty, price, total, contenedor)
+{
+    if (!article.checked)
+    {
+        localStorage.setItem(qtty.id, qtty.value);
+        qtty.value = 0;
+        showTotal(0, total, 0, contenedor);
+    }
+    else
+    {
+        qtty.value = localStorage.getItem(qtty.id);
+        showTotal(qtty.value, total, price, contenedor);
+    }
 }
 
 function quit(qtty, total, contenedor) // Este Método se llama cuando el Cliente Elimina un Artículo con el Botón Eliminar, recibe los Elementos Cantidad, Total y Contenedor.
