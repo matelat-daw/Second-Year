@@ -3,17 +3,17 @@ const DOM2 = {
     to_pay: document.getElementById("to_pay")
 }
 
-const imgs = ["../img/fresa.webp", "../img/limon.webp", "../img/piña.jpg", "../img/manga.webp"];
+const imgs = ["../img/fresa.webp", "../img/limon.webp", "../img/piña.jpg", "../img/manga.webp"]; // Path a la Imágenes de los Artículos del Carro.
 
-const alts = ["Fresas", "Limones", "Piña Tropical", "Manga"];
+const alts = ["Fresas", "Limones", "Piña Tropical", "Manga"]; // Alt de la Imágenes, requerido para la Accesibilidad.
 
-const items = ["Caja de Fresas x 2 Kg.", "Bolsa de Limones x 2 Kg.", "Piña Tropical Congelada x 500 Gr." , "Manga Congelada x 500 Gr."];
+const items = ["Caja de Fresas x 2 Kg.", "Bolsa de Limones x 2 Kg.", "Piña Tropical Congelada x 500 Gr." , "Manga Congelada x 500 Gr."]; // Nombres de los Artículos.
 
-const prices = [8, 2.5, 3, 2];
+const prices = [8, 2.5, 3, 2]; // Precios de los Artículos.
 
-function showItems()
+function showItems() // Se Llama a Este Método al abrir la Página.
 {
-    DOM2.to_pay.innerHTML = "15.5";
+    DOM2.to_pay.innerHTML = "15.5"; // Total a Pagar Hardcodeado.
     html = "<fieldset><legend>Tu Compra</legend>";
     for (var i = 0; i < 4; i++)
     {
@@ -22,36 +22,36 @@ function showItems()
 
     html += "<div class='inline_grid'><div><img src='../img/rare.jpg' alt='Pera con Forma de Buda' class='img'></div><div><input id='art5' type='number' disabled><label id='lart5' for='art5'>Pera con Forma de Buda(Sin Stock)</label></div></div><br></fieldset><div class='next'><input type='submit' value='Siguiente'></div>";
 
-    DOM2.contenedor.innerHTML = html;
+    DOM2.contenedor.innerHTML = html; // Pone en el DOM Todos los Elementos Html que Contiene la Variable html.
 }
 
-let totalArray = [];
-for (var i = 0; i < prices.length; i++)
+let totalArray = []; // Array que Contendrá los precios de cada Artículo en el Carro de la Compra.
+for (var i = 0; i < prices.length; i++) // Bucle al Tamaño del Array de Precios.
 {
-    totalArray[i] = prices[i];
+    totalArray[i] = prices[i]; // Asigna los Precios al Array totalArray.
 }
 
-function calculate(qtty, price, total, contenedor, label)
+function calculate(qtty, price, total, contenedor, label) // Se Llama Cada Vez que el Cliente Aumenta o Disminuye la Cantidad de un Articulo en el Carro
 {
-    if (qtty == 0)
+    if (qtty == 0) // Si la Cantidad llegó a 0, Quita el Artículo de la Venta.
     {
         contenedor.style.display = "none";
     }
-    else if (qtty == 1)
+    else if (qtty == 1) // Si la Cantidad es 1.
     {
-        switch (label.textContent)
+        switch (label.textContent) // Salta Según el Artículo Cambiado.
         {
-            case "Cajas de Fresas x 2 Kg.":
-                label.textContent = "Caja de Fresas x 2 Kg.";
+            case "Cajas de Fresas x 2 Kg.": // Si el Nombre del Artículo era Cajas de Fresas x 2 Kg.
+                label.textContent = "Caja de Fresas x 2 Kg."; // Lo Cambia a Caja de Fesas x 2 Kg.
                 break;
             case "Bolsas de Limones x 2 Kg.":
                 label.textContent = "Bolsa de Limones x 2 Kg.";
                 break;
         }
     }
-    else
+    else // Si no es 0 ni 1.
     {
-        switch (label.textContent)
+        switch (label.textContent) // Vuelvo a Verificar si hay que Cambiar los Nombres.
         {
             case "Caja de Fresas x 2 Kg.":
                 label.textContent = "Cajas de Fresas x 2 Kg.";
@@ -62,24 +62,24 @@ function calculate(qtty, price, total, contenedor, label)
         }
     }
 
-    showTotal(qtty, total, price, contenedor);
+    showTotal(qtty, total, price, contenedor); // Lamo al Método showTotal, le Paso los Elementos: Cantidad, Total, Precio y Contenedor.
 }
 
-function quit(qtty, total, contenedor)
+function quit(qtty, total, contenedor) // Este Método se llama cuando el Cliente Elimina un Artículo con el Botón Eliminar, recibe los Elementos Cantidad, Total y Contenedor.
 {
-    qtty.value = 0;
-    contenedor.style.display = "none";
-    showTotal(0, total, 0, contenedor);
+    qtty.value = 0; // Asigna 0 a la Cantidad del Artículo.
+    contenedor.style.display = "none"; // Quita el Artículo del Carro.
+    showTotal(0, total, 0, contenedor); // Llama al Método showTotal, le Paso los Elementos: Cantidad que es 0 en este caso, Total, Precio a 0 y Contenedor.
 }
 
-function showTotal(qtty, total, price, contenedor)
+function showTotal(qtty, total, price, contenedor) // Este Método se Llama Cuando el Cliente Modifica la Cantidad de un Artículo o Elimina un Artículo del Carro, Recibe el Elemento Cantidad, Total, Precio y Contenedor.
 {
-    total.value = qtty * price;
+    total.value = qtty * price; // Asigna al Input que Contiene el Total de Artículo el Producto de Cantidad por Precio.
 
-    switch (contenedor.id)
+    switch (contenedor.id) // Salta, Según el Contenedor Pasado.
     {
-        case "contenedor1":
-            totalArray[0] = total.value;
+        case "contenedor1": // Si es el Contenedor 1.
+            totalArray[0] = total.value; // Asigna el Nuevo Valor en Total a la Primera Posición del Array totalArray.
             break;
         case "contenedor2":
             totalArray[1] = total.value;
@@ -92,17 +92,17 @@ function showTotal(qtty, total, price, contenedor)
             break;
     }
 
-    let final = 0;
-    for (var i = 0; i < totalArray.length; i++)
+    let final = 0; // Esta Variable se Usa Para Calcular el Total a Pagar de Todos los Artículos del Carro.
+    for (var i = 0; i < totalArray.length; i++) // Bucle al Tamaño del Array de totales.
     {
-        final += parseFloat(totalArray[i]);
+        final += parseFloat(totalArray[i]); // Se Acumulan en final Todos los Totales.
     }
-    DOM2.to_pay.innerHTML = final;
+    DOM2.to_pay.innerHTML = final; // Muestra en el h3 que contiene un strong con ID to_pay el Total a Pagar.
 }
 
-function storeCar(event)
+function storeCar(event) // Este Método se Llama Cuando se Envía el Formulario, recibe el Evento.
 {
-    event.preventDefault();
+    event.preventDefault(); // Evita que se Envíe el Formulario.
 
     const DOMCAR = {
         qtty1: document.getElementById("qtty1"),
@@ -177,6 +177,6 @@ function storeCar(event)
         check: check4
     }];
 
-    localStorage.setItem("car", JSON.stringify(result));
+    localStorage.setItem("car", JSON.stringify(result)); // Almaceno en localStorage Todos los Artículos del Carro.
     window.open("../data/index.html", "_self");
 }

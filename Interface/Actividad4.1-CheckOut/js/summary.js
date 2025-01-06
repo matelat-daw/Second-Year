@@ -1,13 +1,13 @@
-function showCar()
+function showCar() // Este Métdo se Llama al Cargar la Página para Mostrar el Contenido del Carro de la Compra.
 {
     let container = document.getElementById("car");
-    let data = JSON.parse(localStorage.getItem("car"));
+    let data = JSON.parse(localStorage.getItem("car")); // Carga los Datos del Carro en localStorage en la Variable data.
 
     let total = 0;
     let html = "";
     html += "<ul>"
     data.map(function (article) {
-        if (article.qtty > 0 && article.check)
+        if (article.qtty > 0 && article.check) // Artículos con Cantidad Mayor que 0 y que Tengan el Check Facturar.
         {
             html += "<li>" + article.qtty + " " + article.label + "</li>";
             html += "<li>Precio: " + article.price + " €</li>";
@@ -34,7 +34,7 @@ function showCar()
     container.innerHTML = html;
 }
 
-function showData()
+function showData() // Este Métdo se Llama al Cargar la Página para Mostrar los Datos del Cliente.
 {
     let container = document.getElementById("data");
     let data = JSON.parse(localStorage.getItem("data"));
@@ -60,7 +60,7 @@ function showData()
     container.innerHTML = html;
 }
 
-function showPayment()
+function showPayment() // Este Métdo se Llama al Cargar la Página para Mostrar la Forma de Pago.
 {
     let container = document.getElementById("payment");
 

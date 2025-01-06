@@ -12,9 +12,9 @@ const DOMDATA = {
     kind1: document.getElementById("kind1"),
     kind2: document.getElementById("kind2"),
     kind: document.querySelector(".kind"),
+    other_address: document.getElementById("other_address"),
     address1: document.getElementById("address1"),
     address2: document.getElementById("address2"),
-    other_address: document.getElementById("other_address"),
     other: document.querySelector(".address2"),
     cif: document.getElementById("cif"),
     phone: document.getElementById("phone"),
@@ -23,9 +23,9 @@ const DOMDATA = {
     email: document.getElementById("email")
 };
 
-function changeKind(kind)
+function changeKind(kind) // Al Cambiar el Radio Button Llama a Este Método, recibe un booleano.
 {
-    if (kind)
+    if (kind) // Si es true.
     {
         DOMDATA.kind.style.visibility = "visible";
     }
@@ -35,9 +35,9 @@ function changeKind(kind)
     }
 }
 
-function changeAddress(other)
+function changeAddress(other) // Al Cambiar el Radio Button Llama a Este Método, recibe un booleano.
 {
-    if (other)
+    if (other) // Si es true.
     {
         DOMDATA.other.style.visibility = "visible";
     }
@@ -47,41 +47,41 @@ function changeAddress(other)
     }
 }
 
-function checkKind()
+function checkKind() // Este Método se Llama al Presionar el Input Submit del Formulario.
 {
-    if (DOMDATA.kind1.checked)
+    if (DOMDATA.kind1.checked) // Si está Selecionado el Primer Radio Button de los Tipos de Facturación.
     {
-        kind = DOMDATA.kind1.value;
-        DOMDATA.cif.required = false;
+        kind = DOMDATA.kind1.value; // Asigna el Valor del Radio Button a kind (Tipo de Facturación, Particular).
+        DOMDATA.cif.required = false; // Quita el atributo required del Input con ID cif.
     }
-    else
+    else // Si Está Seleccionado el Segundo Radio Button.
     {
-        kind = DOMDATA.kind2.value;
+        kind = DOMDATA.kind2.value; // Asigna el Valor del Radio Button a kind (Tipo de Facturación, Empresa).
     }
 
-    if (DOMDATA.address1.checked)
+    if (DOMDATA.address1.checked) // Si está Selecionado el Primer Radio Button de la Dirección de Entrega.
     {
-        address = DOMDATA.address.value;
-        DOMDATA.other_address.required = false;
+        address = DOMDATA.address.value; // Asigna el Valor en el Input con ID address a addres, No se cambiará la Dirección.
+        DOMDATA.other_address.required = false; // Quita el atributo required del Input con ID other_address.
     }
-    else
+    else // Si está Seleccioando el Segundo Radio Button.
     {
-        address = DOMDATA.other_address.value;
-        DOMDATA.address.required = false;
+        address = DOMDATA.other_address.value; // Asigna el Valor en el Input con ID other_address a addres, Cambiará la Dirección.
+        DOMDATA.address.required = false; // Quita el atributo required del Input con ID address.
+        DOMDATA.cp.required = false; // Quita el atributo required del Input con ID cp.
+        DOMDATA.cp.value = ""; // Asigna una string vacía al Input con ID cp, Vacía el Campo cp (Código Postal).
     }
 }
 
-function storeData(event)
+function storeData(event) // Se Llama a Esta Función en el onsubmit del Formulario, Recibe el Evento.
 {
-    event.preventDefault();
+    event.preventDefault(); // Evita que se envía el Formulario.
     let shipper;
-    let kind;
     let whatsapp;
     let name = DOMDATA.name.value;
     let surname = DOMDATA.surname.value;
     let surname2 = DOMDATA.surname2.value;
     let dni = DOMDATA.dni.value;
-    let address = DOMDATA.address.value;
     let cp = DOMDATA.cp.value;
 
     if (DOMDATA.shipper1.checked)
@@ -98,27 +98,6 @@ function storeData(event)
     }
 
     let invoice = DOMDATA.invoice.value;
-
-    if (DOMDATA.kind1.checked)
-    {
-        kind = DOMDATA.kind1.value;
-        DOMDATA.cif.required = false;
-    }
-    else
-    {
-        kind = DOMDATA.kind2.value;
-    }
-
-    if (DOMDATA.address1.checked)
-    {
-        address = DOMDATA.address.value;
-        DOMDATA.other_address.required = false;
-    }
-    else
-    {
-        address = DOMDATA.other_address.value;
-        DOMDATA.address.required = false;
-    }
 
     let cif = DOMDATA.cif.value;
     let phone = DOMDATA.phone.value;
@@ -150,6 +129,6 @@ function storeData(event)
         email: email,
     }];
 
-    localStorage.setItem("data", JSON.stringify(result));
+    localStorage.setItem("data", JSON.stringify(result)); // Almaceno en localStorage todos los datos.
     window.open("../prepay/index.html", "_self");
 }
