@@ -96,6 +96,7 @@ function storeData(event) // Se Llama a Esta Función en el onsubmit del Formula
     {
         shipper = DOMDATA.shipper3.value;
     }
+    fixTotal(shipper);
 
     let invoice = DOMDATA.invoice.value;
 
@@ -131,4 +132,21 @@ function storeData(event) // Se Llama a Esta Función en el onsubmit del Formula
 
     localStorage.setItem("data", JSON.stringify(result)); // Almaceno en localStorage todos los datos.
     window.open("../prepay/index.html", "_self");
+}
+
+function fixTotal(shipper)
+{
+    let total = 0;
+    switch (shipper)
+    {
+        case "Correos de España":
+            total = parseFloat(localStorage.getItem("total")) + 7;
+            break;
+        case "DHL":
+            total = parseFloat(localStorage.getItem("total")) + 15;
+            break;
+        default:
+            total = parseFloat(localStorage.getItem("total")) + 25;
+    }
+    localStorage.setItem("total", total);
 }

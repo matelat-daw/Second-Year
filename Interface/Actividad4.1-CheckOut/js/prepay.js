@@ -31,30 +31,8 @@ function showTotal() // Llamo a Este Método Para Mostrar el Total a Pagar con e
 
 function getTotal() // El Pago por PayPal Llama a Este Método Para Saber Cuanto Hay que Pagar en PayPal.
 {
-    let data = JSON.parse(localStorage.getItem("car")); // Asigno a data el Contenido del localStorage de los Artículos del Carro.
-
-    let total = 0; // Variable para el total de los Artículos Comprados.
-
-    data.map(function (article) {
-        if (article.qtty > 0 && article.check)
-        {
-            total += parseFloat(article.total);
-        }
-    }); // Mapeo los Datos en data para Obtener el Total a Pagar de Todos los Artículos.
-    let igic = (total * .07).toFixed(2); // Asigno a igic el Impuesto del 7% del Total.
-    let to_pay = 0; // Asigno a to_pay 0, se usa para Tener el Valor del Total a Pagar con o sin Descuento.
-    if (total >= 30) // Si el Total es 30€ o Más.
-    {
-        let discount = total * .2; // Aplico un Descuento de 20%.
-        to_pay = parseFloat(total - discount).toFixed(2); // Asigno a to_pay el Total a Pagar Menos el Descuento.
-    }
-    else // Si el Total a Pagar es menos de 30€.
-    {
-        to_pay = total; // to_pay es el Mismo Total.
-    }
-
-    let final = (parseFloat(to_pay) + parseFloat(igic)).toFixed(2); // Asigno a final la Suma del Total a Pagar Más el IGIC (el 7% del Precio Total sin Descuento.)
-    return final; // Devuelvo el Total a Pagar con el IGIC y el Descuento si Aplica.
+    let total = localStorage.getItem("total");
+    return total;
 }
 
 function noSend(event)

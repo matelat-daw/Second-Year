@@ -1,6 +1,7 @@
 const DOM2 = {
     contenedor: document.getElementById("contenedor"),
-    to_pay: document.getElementById("to_pay")
+    to_pay: document.getElementById("to_pay"),
+    discount: document.getElementById("discount")
 }
 
 const imgs = ["../img/fresa.webp", "../img/limon.webp", "../img/piña.jpg", "../img/manga.webp"]; // Path a la Imágenes de los Artículos del Carro.
@@ -20,7 +21,7 @@ function showItems() // Se Llama a Este Método al abrir la Página.
         html += "<div id='contenedor" + (i + 1) + "' class='inline_grid'><div><img src='" + imgs[i] + "' alt='" + alts[i] + "' class='img'></div><div><div><input id='qtty" + (i + 1) + "' type='number' value='1' onchange='calculate(this.value, " + prices[i] + ", document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"), document.getElementById(\"label" + (i + 1) + "\"))' required><label id='label" + (i + 1) + "' for='qtty" + (i + 1) + "'>" + items[i] + "</label></div><br><div><input readonly type='number' id='price" + (i + 1) + "' value='" + prices[i] + "' step='.5'><label for='price" + (i + 1) + "'>Precio</label></div><br><div><input readonly type='number' id='total" + (i + 1) + "' step='.5' value='" + prices[i] + "'><label for='total" + (i + 1) + "'>Total</label></div><br><input id='check" + (i + 1) + "' type='checkbox' onchange='invoice(this, document.getElementById(\"qtty" + (i + 1) + "\"), " + prices[i] + ", document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"))' checked><label for='check" + (i + 1) + "'>Facturar</label>&nbsp;&nbsp;&nbsp;<input type='button' onclick='quit(document.getElementById(\"qtty" + (i + 1) + "\"), document.getElementById(\"total" + (i + 1) + "\"), document.getElementById(\"contenedor" + (i + 1) + "\"))' value='Eliminar' class='danger'></div></div>";
     }
 
-    html += "<div class='inline_grid'><div><img src='../img/rare.jpg' alt='Pera con Forma de Buda' class='img'></div><div><input id='art5' type='number' disabled><label id='lart5' for='art5'>Pera con Forma de Buda(Sin Stock)</label></div></div><br></fieldset><div class='next'><input type='submit' value='Siguiente'></div>";
+    html += "<div class='inline_grid'><div><img src='../img/rare.jpg' alt='Pera con Forma de Buda' class='img'></div><div><input id='art5' type='number' disabled><label id='lart5' for='art5'>Pera con Forma de Buda(Sin Stock)</label><br><br><input id='warnme' type='checkbox' name'warnme'><label> Avísame Cuando esté Disponible</label></div></div></fieldset><div class='next'><input type='submit' value='Siguiente'></div>";
 
     DOM2.contenedor.innerHTML = html; // Pone en el DOM Todos los Elementos Html que Contiene la Variable html.
 }
@@ -31,7 +32,7 @@ for (var i = 0; i < prices.length; i++) // Bucle al Tamaño del Array de Precios
     totalArray[i] = prices[i]; // Asigna los Precios al Array totalArray.
 }
 
-function calculate(qtty, price, total, contenedor, label) // Se Llama Cada Vez que el Cliente Aumenta o Disminuye la Cantidad de un Articulo en el Carro
+function calculate(qtty, price, total, contenedor, label) // Se Llama Cada Vez que el Cliente Aumenta o Disminuye la Cantidad de un Articulo en el Carro.
 {
     if (qtty == 0) // Si la Cantidad llegó a 0, Quita el Artículo de la Venta.
     {
@@ -69,13 +70,12 @@ function invoice(article, qtty, price, total, contenedor)
 {
     if (!article.checked)
     {
-        localStorage.setItem(qtty.id, qtty.value);
-        qtty.value = 0;
+        qtty.readOnly = true;
         showTotal(0, total, 0, contenedor);
     }
     else
     {
-        qtty.value = localStorage.getItem(qtty.id);
+        qtty.readOnly = false;
         showTotal(qtty.value, total, price, contenedor);
     }
 }
@@ -107,12 +107,28 @@ function showTotal(qtty, total, price, contenedor) // Este Método se Llama Cuan
             break;
     }
 
+    getTotal();
+}
+
+function getTotal()
+{
     let final = 0; // Esta Variable se Usa Para Calcular el Total a Pagar de Todos los Artículos del Carro.
     for (var i = 0; i < totalArray.length; i++) // Bucle al Tamaño del Array de totales.
     {
         final += parseFloat(totalArray[i]); // Se Acumulan en final Todos los Totales.
     }
-    DOM2.to_pay.innerHTML = final; // Muestra en el h3 que contiene un strong con ID to_pay el Total a Pagar.
+    if (final >= 30)
+    {
+        let discount = final * .2;
+        final = final - discount;
+        DOM2.to_pay.innerHTML = final; // Muestra en el h3 que contiene un strong con ID to_pay el Total a Pagar.
+        DOM2.discount.innerHTML = " (Con Descuento del 20%)";
+    }
+    else
+    {
+        DOM2.to_pay.innerHTML = final;
+        DOM2.discount.innerHTML = "";
+    }
 }
 
 function storeCar(event) // Este Método se Llama Cuando se Envía el Formulario, recibe el Evento.
@@ -192,6 +208,29 @@ function storeCar(event) // Este Método se Llama Cuando se Envía el Formulario
         check: check4
     }];
 
-    localStorage.setItem("car", JSON.stringify(result)); // Almaceno en localStorage Todos los Artículos del Carro.
-    window.open("../data/index.html", "_self");
+    let total = 0;
+    for (var i = 0; i < totalArray.length; i++)
+    {
+        if (totalArray[i] != 0)
+            total += parseFloat(totalArray[i]); // Hay que Parsear a Float el Contenido del Array.
+    }
+
+    if (total > 0)
+    {
+        let igic = (total * .07).toFixed(2); // Asigno a igic el Impuesto del 7% del Total, hay que redondear a 2 decimales.
+        if (total >= 30)
+        {
+            let discount = total * .2;
+            total = total - discount;
+        }
+        total = parseFloat(total) + parseFloat(igic); // Hay que Parsear a Float Ambos Valores.
+        localStorage.setItem("total", total);
+        total = 0;
+        localStorage.setItem("car", JSON.stringify(result)); // Almaceno en localStorage Todos los Artículos del Carro.
+        window.open("../data/index.html", "_self");
+    }
+    else
+    {
+        alert("No Has Seleccionado Ningún Artículo. Por Favor Selecciona al Menos un Artículo Para Facturar.");
+    }
 }

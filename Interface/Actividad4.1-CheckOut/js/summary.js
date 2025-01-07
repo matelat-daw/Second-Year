@@ -29,7 +29,7 @@ function showCar() // Este Métdo se Llama al Cargar la Página para Mostrar el 
         html += "<li><strong>Total a Pagar sin I.G.I.C.: " + total + " €</strong></li>";
         to_pay = total;
     }
-    html += "<li><strong>Total a Pagar + I.G.I.C.: " + (to_pay + igic).toFixed(2) + " €</strong></li>";
+    html += "<li><strong>Total a Pagar + I.G.I.C. + Transporte: " + localStorage.getItem("total") + " €</strong></li>";
     html +="</ul>";
     container.innerHTML = html;
 }
