@@ -19,7 +19,7 @@ function storePayment() // Almaceno en localStorage el Método de Pago.
 {
     let payment = DOMPREPAY.payment.value;
     localStorage.setItem("payment", JSON.stringify(payment));
-    window.open('../checkout/index.html', '_self');
+    window.open('../summary/index.html', '_self');
 }
 
 function showTotal() // Llamo a Este Método Para Mostrar el Total a Pagar con el Impuesto ya Agregado y el Descuento Aplicado en Caso que Corresponda.

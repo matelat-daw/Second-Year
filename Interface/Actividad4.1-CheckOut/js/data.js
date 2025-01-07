@@ -131,7 +131,7 @@ function storeData(event) // Se Llama a Esta Función en el onsubmit del Formula
     }];
 
     localStorage.setItem("data", JSON.stringify(result)); // Almaceno en localStorage todos los datos.
-    window.open("../prepay/index.html", "_self");
+    window.open("../payment/index.html", "_self");
 }
 
 function fixTotal(shipper)
