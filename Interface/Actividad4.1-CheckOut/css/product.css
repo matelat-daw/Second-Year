@@ -127,27 +127,6 @@
                 height: 26em;
             }
 
-            .section-main-margin
-            {
-                margin-left: 25px;
-                margin-top: 25px;
-            }
-
-            .section-main-margin-up
-            {
-                margin-left: 25px;
-                margin-top: 25px;
-                margin-bottom: 4.3em;
-            }
-
-            .section-secondary
-            {
-                width: 24em;
-                height: 20em;
-                margin-left: 8px;
-                margin-top: 8px;
-            }
-
             article > ul
             {
                 list-style: none;
@@ -157,16 +136,6 @@
         .main
         {
             grid-template-columns: 1fr 1fr;
-        }
-
-        .main-2col
-        {
-            grid-template-columns: 1fr 1fr;
-        }
-
-        .main-3col
-        {
-            grid-template-columns: 1fr 1fr 1fr;
         }
 
         #nav > a
