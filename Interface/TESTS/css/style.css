@@ -209,6 +209,46 @@ main > .main
     border: 0;
 }
 
+.grid
+{
+    top: -458px;
+    grid-template-columns: auto auto;
+}
+
+.grid > div
+{
+    width: 640px;
+}
+
+.grid2
+{
+    top: -438px;
+    grid-template-columns: auto auto auto;
+}
+
+.grid2 > div
+{
+    width: 410px;
+}
+
+.common
+{
+    display: grid;
+    position: relative;
+    left: 180px;
+    width: 1280px;
+    gap: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+.common > div
+{
+    border: 1px solid black;
+    border-radius: 20px;
+    height: 500px;
+}
+
 .tabs
 {
     width: 95%;
@@ -248,7 +288,7 @@ article > a > ul
     list-style: none;
 }
 
-.next /* Clase del DIV que contiene el botón submit del carro, data, payment y summary. */
+.next /* Clase del DIV que contiene el botón submit del carro, data, prepay y checkout. */
 {
     height: 48px;
     padding: 10px;
@@ -303,7 +343,7 @@ footer > div > div > ul > li
 {
     display: flex;
     direction: row;
-    line-height: 5em;
+    /* line-height: 2.5em; */
 }
 
 .sort
