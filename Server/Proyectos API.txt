@@ -1,0 +1,145 @@
+Así debe quedar Program.cs para API:
+
+builder.Services.AddDbContext<JardineriaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Jardineria") ?? throw new InvalidOperationException("Connection string 'JardineriaContext' not found."))); // Base de datos de Productos/Articulos.
+
+builder.Services.AddDbContext<CesarContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CesarUsers") ?? throw new InvalidOperationException("Connection string 'CesarContext' not found."))); // Base de Datos de Usuarios
+
+builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); // Para Evitar que los JSON Hagan un Bucle Infinito.
+
+builder.Services.AddIdentityCore<JardinUser>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+})
+    .AddRoles<IdentityRole>()
+    .AddEntityFrameworkStores<CesarContext>(); // El Método Más Simple para Agregar Identity, usa AddIdentityCore<UserContext> que es el contexto de Usuarios.
+
+builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+    .AddJwtBearer(options =>
+    {
+        options.RequireHttpsMetadata = false;
+        options.SaveToken = true;
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuer = true,
+            ValidateAudience = true,
+            ValidateLifetime = true,
+            ValidateIssuerSigningKey = true,
+            ValidIssuer = builder.Configuration["Jwt:Issuer"],
+            ValidAudience = builder.Configuration["Jwt:Audience"],
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+        };
+    }); // Método para la Autenticación por Token.
+
+// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+builder.Services.AddEndpointsApiExplorer();
+
+builder.Services.AddSwaggerGen(option =>
+{
+    option.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Pega el Token del Usuario Logueado",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    });
+    option.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+            new string[]{ }
+        }
+    });
+}); // Este Método Habilita Swagger para Hacer la Pruebas de la API Autenticando Usuarios con el Token.
+
+var app = builder.Build();
+
+// Configure the HTTP request pipeline.
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
+
+app.UseHttpsRedirection();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.MapControllers();
+
+app.Run();
+
+Las Conexiones a las Bases de Datos en appsettings.json:
+
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  "AllowedHosts": "*",
+  "ConnectionStrings": {
+    "Jardineria": "Server=(localdb)\\mssqllocaldb;Database=Jardineria;Trusted_Connection=True;MultipleActiveResultSets=true",
+    "CesarUsers": "Server=(localdb)\\mssqllocaldb;Database=CesarUsers;Trusted_Connection=True;MultipleActiveResultSets=true"
+  },
+  "JWT": {
+    "Issuer": "Cesar Matelat",
+    "Audience": "JardinApp",
+    "Key": "Th1s1sMyKeyPleaseD0ntT0uch1t1sMin3Nom3J0"
+  }
+}
+
+El Último Objeto: JWT, Es para Cifrar los Tokens de Usuarios Logueados, Issuer es el autor, Audience la APP, Key es la clave para Cifrar los Tokens.
+
+La Ingeniería Inversa Crea la Clase de Contexto de los Productos/Artículos, Queda así:
+
+public partial class JardineriaContext(DbContextOptions<JardineriaContext> options) : DbContext(options) // Extiende DbContext.
+{
+	public virtual DbSet<GamaProducto> Gama { get; set; }
+
+	public virtual DbSet<Producto> Producto { get; set; }
+	
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		modelBuilder.Entity<GamaProducto>().ToTable("gama_producto", t => t.ExcludeFromMigrations()); // Para Excluir las Tablas al Agregar la Migración del Nuevo Modelo.
+		modelBuilder.Entity<Producto>().ToTable("producto", t => t.ExcludeFromMigrations());
+		
+		OnModelCreatingPartial(modelBuilder);
+	}
+	
+	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+}
+
+Después se Puede Hacer el Scaffold que Genera el Controlador con Todos los Métodos, Crear, Listar, Listar por ID, Modificar y Eliminar.
+
+Después de Hacer el Scaffold Seguramente Habrá que Crear un Modelo de Reviews, Ventas, etc. y Agregar en el Contexto de los Artículos/Productos la Creación de los Datos.
+
+Para Crear la Tabla del Nuevo Modelo e Insertar los Datos en la Base de Datos hay que Hacer la Migración:
+
+add-migration Initial -Context NombreAPPContext
+
+Se Crea el Contexto de Usuarios, la Clase es:
+
+public class CesarContext(DbContextOptions<CesarContext> options) : IdentityDbContext<JardinUser>(options)// Usa IdentityDbContext<IdentityUser> que es la Identity Estandar, si se Hace la base de Datos Personalizada como en este Caso se usa el Nombre del Modelo de los Usuarios que es JardinUser, el Modelo JardinUser extiende la Clase IdentityUser.
+{
+	protected override void OnModelCreating(ModelBuilder modelBuilder)
+	{
+		base.OnModelCreating(modelBuilder);
+	}
+}
+
+Una Vez Creado el Contexto de Usuarios se Crean los Usuarios en el Contexto y se Hace la Migración de Usuarios:
+
+add-migration Users -Context CesarContext
+
+Si solo Hubiera una Base de Datos con Identity, el Único Contexto tiene que Extender IdentityDbContext<IdentityUser>
