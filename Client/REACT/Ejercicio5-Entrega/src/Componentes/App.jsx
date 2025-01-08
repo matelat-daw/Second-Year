@@ -16,7 +16,7 @@ let lista = [];
 
 const alumnos = [];
 
-const grupos = ["A", "B", "C", "D"];
+const grupos = ["A", "B"];
 
 export default class App extends React.Component {
   state = {
@@ -242,7 +242,7 @@ export default class App extends React.Component {
                 Grupo: 
             </label>
                 <select id="grupo" name="grupo" type='text' className="form-control" onChange={this.handleChange} required >
-                  <option value="">Selecciona el Grupo</option>
+                  <option value="">Selecciona un Grupo</option>
                     {grupos.map((grupo, i) => (
                       <option value={grupo} key={i}>{grupo}</option>
                     ))}
@@ -287,7 +287,7 @@ export default class App extends React.Component {
                 Grupo:
             </label>
             <select id="grupo" name="grupo" type='text' className="form-control" onChange={this.handleChange} value={this.state.form.grupo} required >
-                    <option value={""}>Selecciona un Grupo</option>
+                    <option value="">Selecciona un Grupo</option>
                     {grupos.map((grupo, i) => (
                       <option value={grupo} key={i}>{grupo}</option>
                     ))}
