@@ -26,21 +26,20 @@
     width: 65px;
 }
 
-
-
 .main > div > a
 {
     text-decoration: none;
     color: var(--color-a);
-    ul
-    {
-        list-style: none;
-    }
+}
+
+.main > div > a > ul
+{
+    list-style: none;
 }
 
 @media screen and (min-width: 576px)
 {
-    main > div
+    main > .main
     {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr;
@@ -48,28 +47,48 @@
 
     footer
     {
-        font-weight: bold;
-    }
-
-    footer > div
-    {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
+        .footer
+        {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
     }
 }
 
-@media screen and (min-width: 912px)
+@media  screen and (min-width: 912px), (min-width: 576px ) and (orientation: landscape)
 {
-    main > div
+    #select
+    {
+        display: none
+    }
+
+    #nav
+    {
+        display: block;
+    }
+
+    .container
+    {
+        display: grid;
+        nav
+        {
+            grid-column: 1 / 3;
+        }
+    }
+
+    main > .main
     {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
-    footer > div
+    footer
     {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
+        .footer
+        {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+        }
     }
 
     section > div > div:not(:nth-child(1))
@@ -81,31 +100,43 @@
 
 @media screen and (min-width: 1024px)
 {
-    main > div
+    #select
+    {
+        display: none
+    }
+
+    #nav
+    {
+        display: block;
+    }
+
+    #nav > a
+    {
+        display: flex;
+    }
+
+    .container
+    {
+        nav
+        {
+            grid-column: 1 / 2;
+        }
+
+        aside
+        {
+            grid-column: 1 / 2;
+        }
+
+        main
+        {
+            grid-row: 1 / 3;
+            grid-column: 2 / 2;
+        }
+    }
+
+    main > .main
     {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    }
-
-    .container {
-        display: flex;
-    }
-    
-    .sidebar {
-        display: flex;
-        flex-direction: column;
-        width: 200px; /* Ajusta el ancho según sea necesario */
-        background-color: #f0f0f0; /* Color de fondo opcional */
-        padding: 10px;
-    }
-    
-    nav, aside, main {
-        margin-bottom: 10px; /* Espaciado entre elementos */
-    }
-    
-    main {
-        flex-grow: 1; /* Para que ocupe el espacio restante */
-        background-color: #e0e0e0; /* Color de fondo opcional */
-        padding: 10px;
     }
 }

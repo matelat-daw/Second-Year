@@ -14,11 +14,11 @@ createRoot(document.getElementById('root')).render(
   // </StrictMode>,
   <BrowserRouter>
     <Routes>
-      <Route path="/" element={<Inicio />}></Route>
-      <Route path="/centro" element={<Centro />}></Route>
-      <Route path="/ciclo" element={<Ciclo />}></Route>
-      <Route path="/curso" element={<Curso />}></Route>
-      <Route path="*" element={<Navigate to="/" replace="true"/>}></Route>
+        <Route index element={<Inicio />}></Route>
+        <Route path="/centro" element={<Centro />}></Route>
+        <Route path="/ciclo" element={<Ciclo />}></Route>
+        <Route path="/curso" element={<Curso />}></Route>
+        <Route path="*" element={<Navigate to="/" replace="true"/>}></Route>
     </Routes>
   </BrowserRouter>
 )

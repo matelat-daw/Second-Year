@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catálogo</title>
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/theme.css">
     <link rel="stylesheet" href="../css/catalog.css">
@@ -16,11 +17,13 @@
         <div>
             <h1 class="big-letter">Frutas del Mundo</h1>
         </div>
-        <div class="repair">
-            <a href="#" class="nav-link sort"><p>Contacto</p></a>
-            <a href="#" class="nav-link sort"><p>LogIn</p></a>
-            <a href="#" class="nav-link sort"><p>Me Registro</p></a>
-            <div class="left">
+        <div>
+            <div class="repair">
+                <a href="#" class="nav-link sort"><p>Contacto</p></a>
+                <a href="#" class="nav-link sort"><p>LogIn</p></a>
+                <a href="#" class="nav-link sort"><p>Me Registro</p></a>
+            </div>
+            <div>
                 <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double" aria-label="Cambia a Tema Claro"></i></a>
                 <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
             </div>
@@ -28,227 +31,224 @@
                 <button onclick="changeSize('down')" class="double equal" aria-label="Disminuye el Tamaño de la Letra">-f</button>
                 <button onclick="changeSize('up')" class="double equal" aria-label="Aumenta el Tamaño de la Letra">F+</button>
             </div>
+            <div>
+                <button onclick="checkout('../cart/index.html')" class="double equal"><i class="bi bi-cart-check-fill"></i><span class="xsmall">CheckOut</span></button>
+            </div>
         </div>
     </header>
-    <section>
-        <div class="container">
-            <div>
-            <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
-                <a href="../index.html" class="nav-link sort">Página de Inicio</a>
-                <p><strong>Nuestro Catálogo</strong></p>
-                <a href="#" class="nav-link sort">Frutas de Cercanias</a>
-                <a href="#" class="nav-link sort">Frutas de Temporada</a>
-                <a href="#" class="nav-link sort">Frutas Tropicales</a>
-                <a href="#" class="nav-link sort">Frutas exóticas</a>
-            </nav>
-            <select id="select" onchange="visit(this.value)"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
-                <option value="">Selecciona una Opción</option>
-                <option value="../index.html">Página de Inicio</option>
-                <optgroup label="Nuetro Catálogo">
-                    <option value="#">Frutas de Cercanias</option>
-                    <option value="#">Frutas de Temporada</option>
-                    <option value="#">Frutas Tropicales</option>
-                    <option value="#">Frutas exóticas</option>
-                </optgroup>
-            </select>
+    <div class="container">
+        <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+            <a href="../index.html" class="nav-link sort">Página del Catálogo</a>
+            <p><strong>Nuestro Catálogo</strong></p>
+            <a href="#" class="nav-link sort">Frutas de Cercanias</a>
+            <a href="#" class="nav-link sort">Frutas de Temporada</a>
+            <a href="#" class="nav-link sort">Frutas Tropicales</a>
+            <a href="#" class="nav-link sort">Frutas exóticas</a>
+        </nav>
+        <select id="select" onchange="visit(this.value)"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
+            <option value="">Selecciona una Opción</option>
+            <option value="../index.html">Página de Inicio</option>
+            <optgroup label="Nuetro Catálogo">
+                <option value="#">Frutas de Cercanias</option>
+                <option value="#">Frutas de Temporada</option>
+                <option value="#">Frutas Tropicales</option>
+                <option value="#">Frutas exóticas</option>
+            </optgroup>
+        </select>
+        <aside>
+            <div class="nav-flex nav-vertical">
+                <a href="#" class="nav-link">¡Ofertas!</a>
+                <a href="#" class="nav-link">Batidos en el Momento</a>
+                <a href="#" class="nav-link">Ensalada de Frutas</a>
+                <a href="#" class="nav-link">Fruta Congelada</a>
+                <a href="#" class="nav-link">Mix de Frutas Congeladas</a>
             </div>
-            <div>
-            <aside>
-                <div class="nav-flex nav-vertical">
-                    <a href="#" class="nav-link">¡Ofertas!</a>
-                    <a href="#" class="nav-link">Batidos en el Momento</a>
-                    <a href="#" class="nav-link">Ensalada de Frutas</a>
-                    <a href="#" class="nav-link">Fruta Congelada</a>
-                    <a href="#" class="nav-link">Mix de Frutas Congeladas</a>
+        </aside>
+        <main>
+            <div class="main">
+                <div>
+                    <h3>El Kiwi</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
+                        <li>Kiwi</li>
+                        <li>2,80€ x Kg</li>
+                        <li><span class="star stars-5"></span></li>
+                    </ul></a>
                 </div>
-            </aside>
-            <main>
-                <div class="main">
-                    <div>
-                        <h3>El Kiwi</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
-                            <li>Kiwi</li>
-                            <li>2,80€ x Kg</li>
-                            <li><span class="star stars-5"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Fresa</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
-                            <li>Fresas</li>
-                            <li>5,50€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Manzana</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
-                            <li>Manzanas</li>
-                            <li>1,60€ x Kg</li>
-                            <li><span class="star stars-3"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Piña</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
-                            <li>Piña</li>
-                            <li>5,80€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>El Kiwi</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
-                            <li>Kiwi</li>
-                            <li>2,80€ x Kg</li>
-                            <li><span class="star stars-5"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Fresa</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
-                            <li>Fresas</li>
-                            <li>5,50€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Manzana</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
-                            <li>Manzanas</li>
-                            <li>1,60€ x Kg</li>
-                            <li><span class="star stars-3"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Piña</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
-                            <li>Piña</li>
-                            <li>5,80€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>El Kiwi</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
-                            <li>Kiwi</li>
-                            <li>2,80€ x Kg</li>
-                            <li><span class="star stars-5"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Fresa</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
-                            <li>Fresas</li>
-                            <li>5,50€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Manzana</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
-                            <li>Manzanas</li>
-                            <li>1,60€ x Kg</li>
-                            <li><span class="star stars-3"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Piña</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
-                            <li>Piña</li>
-                            <li>5,80€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>El Kiwi</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
-                            <li>Kiwi</li>
-                            <li>2,80€ x Kg</li>
-                            <li><span class="star stars-5"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Fresa</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
-                            <li>Fresas</li>
-                            <li>5,50€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Manzana</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
-                            <li>Manzanas</li>
-                            <li>1,60€ x Kg</li>
-                            <li><span class="star stars-3"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Piña</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
-                            <li>Piña</li>
-                            <li>5,80€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>El Kiwi</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
-                            <li>Kiwi</li>
-                            <li>2,80€ x Kg</li>
-                            <li><span class="star stars-5"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Fresa</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
-                            <li>Fresas</li>
-                            <li>5,50€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Manzana</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
-                            <li>Manzanas</li>
-                            <li>1,60€ x Kg</li>
-                            <li><span class="star stars-3"></span></li>
-                        </ul></a>
-                    </div>
-                    <div>
-                        <h3>La Piña</h3>
-                        <a href="../product/index.html"><ul>
-                            <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
-                            <li>Piña</li>
-                            <li>5,80€ x Kg</li>
-                            <li><span class="star stars-4"></span></li>
-                        </ul></a>
-                    </div>
+                <div>
+                    <h3>La Fresa</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
+                        <li>Fresas</li>
+                        <li>5,50€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
                 </div>
-            </main>
+                <div>
+                    <h3>La Manzana</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
+                        <li>Manzanas</li>
+                        <li>1,60€ x Kg</li>
+                        <li><span class="star stars-3"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Piña</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
+                        <li>Piña</li>
+                        <li>5,80€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>El Kiwi</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
+                        <li>Kiwi</li>
+                        <li>2,80€ x Kg</li>
+                        <li><span class="star stars-5"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Fresa</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
+                        <li>Fresas</li>
+                        <li>5,50€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Manzana</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
+                        <li>Manzanas</li>
+                        <li>1,60€ x Kg</li>
+                        <li><span class="star stars-3"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Piña</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
+                        <li>Piña</li>
+                        <li>5,80€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>El Kiwi</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
+                        <li>Kiwi</li>
+                        <li>2,80€ x Kg</li>
+                        <li><span class="star stars-5"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Fresa</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
+                        <li>Fresas</li>
+                        <li>5,50€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Manzana</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
+                        <li>Manzanas</li>
+                        <li>1,60€ x Kg</li>
+                        <li><span class="star stars-3"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Piña</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
+                        <li>Piña</li>
+                        <li>5,80€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>El Kiwi</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
+                        <li>Kiwi</li>
+                        <li>2,80€ x Kg</li>
+                        <li><span class="star stars-5"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Fresa</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
+                        <li>Fresas</li>
+                        <li>5,50€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Manzana</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
+                        <li>Manzanas</li>
+                        <li>1,60€ x Kg</li>
+                        <li><span class="star stars-3"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Piña</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
+                        <li>Piña</li>
+                        <li>5,80€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>El Kiwi</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/kiwi.jpg" alt="Kiwi" class="catalog"></li>
+                        <li>Kiwi</li>
+                        <li>2,80€ x Kg</li>
+                        <li><span class="star stars-5"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Fresa</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/fresa.webp" alt="Fresas" class="catalog"></li>
+                        <li>Fresas</li>
+                        <li>5,50€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Manzana</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/manzana.jpg" alt="Manzana" class="catalog"></li>
+                        <li>Manzanas</li>
+                        <li>1,60€ x Kg</li>
+                        <li><span class="star stars-3"></span></li>
+                    </ul></a>
+                </div>
+                <div>
+                    <h3>La Piña</h3>
+                    <a href="../product/index.html"><ul>
+                        <li><img src="../img/piña.jpg" alt="Piña Tropical" class="catalog"></li>
+                        <li>Piña</li>
+                        <li>5,80€ x Kg</li>
+                        <li><span class="star stars-4"></span></li>
+                    </ul></a>
+                </div>
             </div>
-        </div>
-    </section>
+        </main>
+    </div>
     <footer>
         <div class="footer">
             <div>

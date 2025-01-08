@@ -1,0 +1,12 @@
+span
+{
+    visibility: hidden;
+}
+
+input:invalid + #sid
+{
+    visibility: visible;
+    font-size: small;
+    color: salmon;
+    display: block;
+}

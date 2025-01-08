@@ -117,11 +117,7 @@ function visit(url)
     window.open(url, "_self");
 }
 
-function check(element, value, label)
+function checkout(url)
 {
-    if (value == 0)
-    {
-        element.style.display = "none";
-        label.style.display = "none";
-    }
+    window.open(url, "_self")
 }

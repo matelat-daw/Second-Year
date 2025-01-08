@@ -162,7 +162,7 @@ body
     font-size: .75em;
 }
 
-#nav /* El nav no se Ve ya que el Diseño en Mobile First */
+#nav /* El nav no se Ve ya que el Diseño es Mobile First */
 {
     display: none;
 }

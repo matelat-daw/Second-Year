@@ -2,7 +2,7 @@
 @font-face
 {
     font-family: "CustomFont";
-    src: url("../font/DS-Digital.ttf");
+    src: url("../font/OpenSans-Regular.ttf");
 }
 
 body
@@ -14,15 +14,14 @@ body
     padding: 0;
     border-radius: .3em;
 
-    img
-    {
-        border-radius: 10px;
-        width: 95%;
-    }
-
     header, nav, aside, main, footer, main, article > div > ul > li
     {
         border: 1px solid lightgray;
+        img
+        {
+            border-radius: 10px;
+            width: 95%;
+        }
     }
 
     header
@@ -69,6 +68,26 @@ body
     {
         border-radius: 5px;
     }
+
+    #btn-transfer
+    {
+        border: 1px solid blue;
+        border-radius: 15px;
+        background-color: #ffc439;
+        height: 28px;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    #btn-transfer:hover
+    {
+        border: 2px solid white;
+    }
+
+    #transfer
+    {
+        display: none;
+    }
 }
 
 /* Estilos de Header. */
@@ -93,7 +112,18 @@ body
 .double
 {
     font-size: 2em;
-    color: #0066cc;
+    color: var(--color-texto);
+}
+
+.down
+{
+    margin-top: 6em;
+    margin-right: 1em;
+}
+
+.xsmall
+{
+    font-size: small;
 }
 
 .equal
@@ -150,13 +180,10 @@ body
     display: inline-block;
 }
 
-main
+main > .main
 {
-    .main
-    {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-    } 
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 }
 
 .btn
@@ -182,44 +209,27 @@ main
     border: 0;
 }
 
-.grid
+.tabs
 {
-    top: -458px;
-    grid-template-columns: auto auto;
+    width: 95%;
+    height: 64px;
+    margin: 8px;
+    a
+    {
+        text-decoration: none;
+        color: var(--color-a);
+    }
 }
 
-.grid > div
+.here
 {
-    width: 640px;
-}
-
-.grid2
-{
-    top: -438px;
-    grid-template-columns: auto auto auto;
-}
-
-.grid2 > div
-{
-    width: 410px;
-}
-
-.common
-{
-    display: grid;
-    position: relative;
-    left: 180px;
-    width: 1280px;
-    gap: 50px;
-    margin-left: 50px;
-    margin-right: 50px;
-}
-
-.common > div
-{
-    border: 1px solid black;
-    border-radius: 20px;
-    height: 500px;
+    border-left: 1px solid salmon;
+    border-right: 1px solid salmon;
+    border-top: 1px solid salmon;
+    border-radius: 5px;
+    color: var(--color-texto);
+    font-weight: bold;
+    padding: 8px;
 }
 
 article > ul
@@ -236,6 +246,32 @@ article > a
 article > a > ul
 {
     list-style: none;
+}
+
+.next /* Clase del DIV que contiene el botón submit del carro, data, payment y summary. */
+{
+    height: 48px;
+    padding: 10px;
+    input /* Input type submit del carro de la compra. */
+    {
+        float: right;
+        border: 2px solid black;
+        border-radius: 8px;
+        color: var(--color-button);
+        background-color: var(--color-button_back);
+        width: 96px;
+        height: 48px;
+    }
+
+    input:hover
+    {
+        border: 2px solid white;
+    }
+
+    input:active
+    {
+        border: 2px solid black;
+    }
 }
 
 /* Estilos de Footer. */

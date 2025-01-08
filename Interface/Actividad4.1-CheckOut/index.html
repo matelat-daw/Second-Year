@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Empresa</title>
+    <title>Frutas del Mundo</title>
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/theme.css">
     <link rel="stylesheet" href="css/main.css">
@@ -16,17 +17,22 @@
         <div>
             <h1 class="big-letter">Frutas del Mundo</h1>
         </div>
-        <div class="repair">
-            <a href="#" class="nav-link sort"><p>Contacto</p></a>
-            <a href="#" class="nav-link sort"><p>LogIn</p></a>
-            <a href="#" class="nav-link sort"><p>Me Registro</p></a>
-            <div class="left">
+        <div>
+            <div class="repair">
+                <a href="#" class="nav-link sort"><p>Contacto</p></a>
+                <a href="#" class="nav-link sort"><p>LogIn</p></a>
+                <a href="#" class="nav-link sort"><p>Me Registro</p></a>
+            </div>
+            <div>
                 <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double" aria-label="Cambia a Tema Claro"></i></a>
                 <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
             </div>
             <div>
                 <button onclick="changeSize('down')" class="double equal" aria-label="Disminuye el Tamaño de la Letra">-f</button>
                 <button onclick="changeSize('up')" class="double equal" aria-label="Aumenta el Tamaño de la Letra">F+</button>
+            </div>
+            <div>
+                <button onclick="checkout('cart/index.html')" class="double equal"><i class="bi bi-cart-check-fill"></i><span class="xsmall">CheckOut</span></button>
             </div>
         </div>
     </header>
@@ -78,7 +84,7 @@
                 <div class="inline">
                     <h3>Fruta Exótica</h3>
                     <img src="img/exotic.jpg" alt="Frutas Exóticas" class="section-main-margin">
-                    <p>Frutas Exótica Importada bajo estrictas condiciones para la cadena de frio.</p>
+                    <p>Frutas Exóticas, bajo estrictas condiciones para la cadena de frio.</p>
                 </div>
                 <div class="inline">
                     <h3>Frutas a Medida</h3>
@@ -95,12 +101,12 @@
                 <div class="inline">
                     <h3>Ensaladas de Frutas</h3>
                     <img src="img/salad.webp" alt="Ensalada de Frutas" class="section-secondary">
-                    <p class="left">Las ensaladas de fruta se preparan en el momento.</p>
+                    <p class="left">Ensaladas de fruta al momento.</p>
                 </div>
                 <div class="inline">
                     <h3>Batidos de Frutas</h3>
                     <img src="img/shakes.jpg" alt="Batidos de Frutas" class="section-secondary">
-                    <p class="left">Batidos Naturales y Nutritivos. Se preparan en el momento.</p>
+                    <p class="left">Batidos Naturales y Nutritivos.</p>
                 </div>
             </section>
         </main>
