@@ -1,7 +1,10 @@
 import { useState } from 'react';
-import './App.css'
+import './App.css';
+import {grupos} from './Grupo';
 
 export default function FrmAlumnos({addAlumno}) {
+    const { open } = {addAlumno};
+
     const alumno = 
     {
         id : 1,
@@ -9,10 +12,8 @@ export default function FrmAlumnos({addAlumno}) {
         grupo : ""
     }
 
-    let index = 1;
-
-    // let setId;
-    // [alumno.id, setId] = useState(alumno.id);
+    let setId;
+    [alumno.id, setId] = useState(alumno.id);
 
     let setAlumno;
     [alumno.nombre, setAlumno] = useState(alumno.nombre);
@@ -20,30 +21,23 @@ export default function FrmAlumnos({addAlumno}) {
     let setGrupo;
     [alumno.grupo, setGrupo] = useState(alumno.grupo);
 
-    // if (localStorage.getItem("ID") == null)
-    // {
-    //     localStorage.setItem("ID", 1);
-    // }
-    // else
-    // {
-    //     let ID = parseInt(localStorage.getItem("ID"));
-    //     localStorage.setItem("ID", ++ID);
-    // }
-
   return (
     <>
         <h3>Alumnos</h3>
         <form onSubmit={e => (e.preventDefault(), addAlumno(alumno))}>
-            <input id='id' type='hidden' name='id' value={++index} />
-            <label htmlFor="name">Nombre</label>
-            <input id='name' type='text' name='nombre' onChange={e => setAlumno(e.target.value)}/>
+            <input id='id' type='number' name='id' onChange={e => setId(e.target.value)} />
+            <label htmlFor="id">ID</label>
             <br /><br />
-            <label htmlFor="group">Grupo</label>
+            <input id='name' type='text' name='nombre' onChange={e => setAlumno(e.target.value)}/>
+            <label htmlFor="name">Nombre</label>
+            <br /><br />
             <select id='group' type='text' name='grupo' onChange={e => setGrupo(e.target.value)}>
                 <option value={""}>Selecciona un Grupo</option>
-                <option value={"A"}>Grupo A</option>
-                <option value={"B"}>Grupo B</option>
+                {grupos.map((grupo, i) => (
+                      <option value={grupo} key={i}>{grupo}</option>
+                    ))}
             </select>
+            <label htmlFor="group">Grupo</label>
             <br /><br />
             <input type='submit' value="Agrega un Alumno al Grupo" />
         </form>
