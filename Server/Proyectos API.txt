@@ -148,6 +148,4 @@ add-migration Users -Context CesarContext
 
 update-database -Context CesarUsersContext
 
-Por Último hay que Crear el Sacffold de Usuarios, Botón derecho sobre Controller, New Scaffolded Item, Identity, se Selecciona Login, Logout y Register, la Clase de Contexto y Siguiente.
-
 Si solo Hubiera una Base de Datos con Identity, el Único Contexto tiene que Extender IdentityDbContext<IdentityUser>

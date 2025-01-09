@@ -8,7 +8,7 @@ export default function Centro() {
       <br/>
       <button onClick={(e) => navegar('/') }>Volver al Inicio</button>
       <br /><br />
-      <button onClick={(e) => navegar('/Componentes/App') }>Base de Datos</button>
+      <button onClick={(e) => navegar('/Componentes/Alumno') }>Base de Datos</button>
     </>
   )
 }

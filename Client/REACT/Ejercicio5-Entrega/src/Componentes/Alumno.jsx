@@ -1,6 +1,6 @@
 import React from "react";
 import "../App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/css/bootstrap.min.css"; // Además de react-router-dom Importé Bootstrap y Reactstrap y del último se importan en el proyecto los siguientes Componentes.
 import {
     Table,
     Button,
@@ -12,13 +12,11 @@ import {
     ModalFooter,
 } from "reactstrap";
 
-let lista = [];
+const alumnos = []; // Contiene la Lista de Alumnos, se le Asigan al Estado alumnos de la Clase Alumno
 
-const alumnos = [];
+const grupos = ["A", "B"]; // Se Usa para Alimentar Dinamicamente el Selector Para Seleccionar el Grupo del Alumno a Agregar o Editar.
 
-const grupos = ["A", "B"];
-
-export default class App extends React.Component {
+export default class Alumno extends React.Component {
   state = {
     alumnos: alumnos,
     modalError: false,
@@ -35,7 +33,7 @@ export default class App extends React.Component {
   };
 
   insertar = (id) => {
-    if (lista.some((alumno) => id == alumno.id))
+    if (alumnos.some((alumno) => id == alumno.id))
     {
         this.mostrarModalId();
     }
@@ -44,7 +42,7 @@ export default class App extends React.Component {
         var alumnoNuevo = {...this.state.form};
         this.validarCreate(alumnoNuevo);
     }
-  }
+  }; // Método que Agrega Alumons a la Lista (Create).
 
   editar = (editarAlumno) => {
     var indice = 0;
@@ -55,7 +53,7 @@ export default class App extends React.Component {
       }
       indice++;
     });
-  };
+  }; // Método que Modifica un Alumno de la Lista (Update).
 
     eliminar = (id) => {
       var indice = 0;
@@ -66,15 +64,14 @@ export default class App extends React.Component {
         }
         indice++;
       });
-      this.setState({ alumnos: alumnos, modalDelete: false, alumno: lista, form: "" });
-  };
+    this.setState({ alumnos: alumnos, modalDelete: false, alumno: alumnos, form: "" });
+  }; // Método que Elimina un Alumno de la Lista (Delete).
 
   validarCreate = (alumnoNuevo) => {
         if (alumnoNuevo.nombre != "" && alumnoNuevo.grupo != "" && alumnoNuevo.id != "" && alumnoNuevo.id != undefined && alumnoNuevo.nombre != undefined && alumnoNuevo.grupo != undefined)
         {
-            lista = this.state.alumnos;
-            lista.push(alumnoNuevo);
-            this.setState({ modalInsertar: false, alumnoNuevo: lista, form: "" });
+            alumnos.push(alumnoNuevo);
+            this.setState({ modalInsertar: false, alumnoNuevo: alumnos, form: "" });
         }
         else
         {
@@ -87,7 +84,7 @@ export default class App extends React.Component {
         {
             alumnos[indice].nombre = alumno.nombre;
             alumnos[indice].grupo = alumno.grupo;
-            this.setState({ alumnos: alumnos, modalActualizar: false, alumno: lista, form: "" });
+            this.setState({ alumnos: alumnos, modalActualizar: false, alumno: alumnos, form: "" });
         }
         else
         {
@@ -97,7 +94,7 @@ export default class App extends React.Component {
 
   mostrarModalError = (mensaje) => {
     this.setState({mensaje: mensaje, modalError: true });
-  };
+  }; // Estos Métodos son de los Modales que Muestran los Formularios para Ingresar los Datos así Como los Mensajes de Error.
 
   cerrarModalError = () => {
     this.setState({modalError: false });
@@ -136,13 +133,13 @@ export default class App extends React.Component {
   }
 
   handleChange = (e) => {
-        this.setState({
-            form: {
-                ...this.state.form,
-                [e.target.name]: e.target.value,
-            },
-        });
-  };
+    this.setState({
+        form: {
+            ...this.state.form,
+            [e.target.name]: e.target.value,
+        },
+    });
+  }; // Este Método Maneja los Cambios en los Formularios de Creación y Edición de Alumnos.
 
   render() {
     
@@ -245,7 +242,7 @@ export default class App extends React.Component {
                   <option value="">Selecciona un Grupo</option>
                     {grupos.map((grupo, i) => (
                       <option value={grupo} key={i}>{grupo}</option>
-                    ))}
+                    ))};
                 </select>
                 <span id="sgrupo">Selecciona un Grupo</span>
             </FormGroup>
@@ -290,7 +287,7 @@ export default class App extends React.Component {
                     <option value="">Selecciona un Grupo</option>
                     {grupos.map((grupo, i) => (
                       <option value={grupo} key={i}>{grupo}</option>
-                    ))}
+                    ))};
                 </select>
                 <span id="sgrupo">Selecciona un Grupo</span>
             </FormGroup>
@@ -325,6 +322,6 @@ export default class App extends React.Component {
             </ModalFooter>
             </Modal>
         </Container>
-    );
+    ); // En el Renderizado de las Vista se Muestran la Tabla con la Lista de Alumnos y se Configuran Todos los Modales (Diálogos), los de los formularios para Agregar y Editar y los de Mensajes de Errores.
   }
 }

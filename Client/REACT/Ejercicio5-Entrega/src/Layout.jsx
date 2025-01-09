@@ -7,7 +7,7 @@ export default function Layout()
             <nav>
                 <Link to="/">Inicio |</Link>
                 <Link to="/Componentes/Centro"> Centro |</Link>
-                <Link to="/Componentes/App"> Base de Datos</Link>
+                <Link to="/Componentes/Alumno"> Base de Datos</Link>
             </nav>
             <div>
                 <Outlet />
