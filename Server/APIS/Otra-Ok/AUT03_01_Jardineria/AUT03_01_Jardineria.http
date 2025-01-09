@@ -1,0 +1,6 @@
+@AUT03_01_Jardineria_HostAddress = http://localhost:5202
+
+GET {{AUT03_01_Jardineria_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,8 +1,8 @@
 Así debe quedar Program.cs para API:
 
-builder.Services.AddDbContext<JardineriaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Jardineria") ?? throw new InvalidOperationException("Connection string 'JardineriaContext' not found."))); // Base de datos de Productos/Articulos.
+builder.Services.AddDbContext<JardineriaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Jardineria") ?? throw new InvalidOperationException("Connection string 'Jardineria' not found."))); // Base de datos de Productos/Articulos.
 
-builder.Services.AddDbContext<CesarContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CesarUsers") ?? throw new InvalidOperationException("Connection string 'CesarContext' not found."))); // Base de Datos de Usuarios
+builder.Services.AddDbContext<CesarContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CesarUsers") ?? throw new InvalidOperationException("Connection string 'CesarUsers' not found."))); // Base de Datos de Usuarios
 
 builder.Services.AddControllers().AddJsonOptions(x => x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles); // Para Evitar que los JSON Hagan un Bucle Infinito.
 
@@ -89,7 +89,7 @@ Las Conexiones a las Bases de Datos en appsettings.json:
   },
   "AllowedHosts": "*",
   "ConnectionStrings": {
-    "Jardineria": "Server=(localdb)\\mssqllocaldb;Database=Jardineria;Trusted_Connection=True;MultipleActiveResultSets=true",
+    "GameStore": "Server=(localdb)\\mssqllocaldb;Database=GameStore;Trusted_Connection=True;MultipleActiveResultSets=true",
     "CesarUsers": "Server=(localdb)\\mssqllocaldb;Database=CesarUsers;Trusted_Connection=True;MultipleActiveResultSets=true"
   },
   "JWT": {
@@ -101,7 +101,7 @@ Las Conexiones a las Bases de Datos en appsettings.json:
 
 El Último Objeto: JWT, Es para Cifrar los Tokens de Usuarios Logueados, Issuer es el autor, Audience la APP, Key es la clave para Cifrar los Tokens.
 
-La Ingeniería Inversa Crea la Clase de Contexto de los Productos/Artículos, Queda así:
+La Ingeniería Inversa Crea la Clase de Contexto de los Productos/Artículos, se Puede Pedir que Agregue la Cadena de Conexión con la Base de Datos en la Clase de Contexto(Pero Prefiero Usar las de Proyectos Anteriores), Además hay que Seleccionar Usar los Nombres de las Tablas, Queda así:
 
 public partial class JardineriaContext(DbContextOptions<JardineriaContext> options) : DbContext(options) // Extiende DbContext.
 {
@@ -120,13 +120,17 @@ public partial class JardineriaContext(DbContextOptions<JardineriaContext> optio
 	partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
 }
 
-Después se Puede Hacer el Scaffold que Genera el Controlador con Todos los Métodos, Crear, Listar, Listar por ID, Modificar y Eliminar.
+Para Crear la Conexión con la Base de datos se usa: (localdb)\MSSQLlocaldb
+
+Después se Puede Hacer el Scaffold (API: Api Controller With Actions, Using Entity Framework), por cada Tabla de la Base de Datos, ya tiene que Estar la Conexión con la Base de Datos en Program.cs y en appsettings.json, que Genera el Controlador con Todos los Métodos, Crear, Listar, Listar por ID, Modificar y Eliminar.
 
 Después de Hacer el Scaffold Seguramente Habrá que Crear un Modelo de Reviews, Ventas, etc. y Agregar en el Contexto de los Artículos/Productos la Creación de los Datos.
 
 Para Crear la Tabla del Nuevo Modelo e Insertar los Datos en la Base de Datos hay que Hacer la Migración:
 
-add-migration Initial -Context NombreAPPContext
+add-migration Initial -Context GameStoreContext
+
+update-database -Context GameStoreContext
 
 Se Crea el Contexto de Usuarios, la Clase es:
 
@@ -141,5 +145,9 @@ public class CesarContext(DbContextOptions<CesarContext> options) : IdentityDbCo
 Una Vez Creado el Contexto de Usuarios se Crean los Usuarios en el Contexto y se Hace la Migración de Usuarios:
 
 add-migration Users -Context CesarContext
+
+update-database -Context CesarUsersContext
+
+Por Último hay que Crear el Sacffold de Usuarios, Botón derecho sobre Controller, New Scaffolded Item, Identity, se Selecciona Login, Logout y Register, la Clase de Contexto y Siguiente.
 
 Si solo Hubiera una Base de Datos con Identity, el Único Contexto tiene que Extender IdentityDbContext<IdentityUser>

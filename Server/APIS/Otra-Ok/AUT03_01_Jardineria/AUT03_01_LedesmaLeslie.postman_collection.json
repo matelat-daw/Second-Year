@@ -1,0 +1,1179 @@
+{
+	"info": {
+		"_postman_id": "61e3f6d3-3db3-47f1-ab3c-6d052fbb71b1",
+		"name": "AUT03_01_LedesmaLeslie",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "27377734"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Register",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.eql(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"useremail\", pm.variables.replaceIn('{{$randomExampleEmail}}'));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{useremail}}\",\n    \"password\": \"{{userpassword}}\",\n    \"fullName\": \"{{$randomFullName}}\",\n    \"address\": \"{{$randomStreetAddress}}\",\n    \"postalCode\": \"38555\",\n    \"phone\": \"922123123\"\n}"
+						},
+						"url": "https://{{host}}:{{port}}/api/Auth/Register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Response status code is 200 or 401', function () {\r",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 401]);\r",
+									"});\r",
+									"\r",
+									"if (pm.response.code === 200) {\r",
+									"    pm.test('Validate the access token is present in the response', function () {\r",
+									"        const responseData = pm.response.text();\r",
+									"        pm.expect(responseData).to.include('eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9', 'Access token is not present');\r",
+									"    });\r",
+									"\r",
+									"    pm.test('Validate the access token is a non-empty string', function () {\r",
+									"        const responseData = pm.response.text();\r",
+									"        pm.expect(responseData).to.be.a('string').and.to.have.lengthOf.at.least(1, 'Access token should not be empty');\r",
+									"    });\r",
+									"\r",
+									"    pm.test('The access token is a valid JWT format', function () {\r",
+									"        const responseData = pm.response.text();\r",
+									"        pm.expect(responseData).to.match(/^[\\w-]+\\.[\\w-]+\\.[\\w-]+$/);\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"Verify that the access token contains the expected claims\", function () {\r",
+									"            const responseData = pm.response.text();\r",
+									"            const token = responseData.split('.')[1];\r",
+									"            const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"            pm.expect(payload).to.have.property(\"iss\"); //Issuer\r",
+									"            pm.expect(payload).to.have.property(\"sub\"); //Subject\r",
+									"            pm.expect(payload).to.have.property(\"exp\"); //Expiration\r",
+									"            pm.expect(payload).to.have.property(\"iat\"); //IssuedAt\r",
+									"            pm.expect(payload).to.have.property(\"aud\"); //Audience\r",
+									"            pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    });\r",
+									"\r",
+									"    pm.collectionVariables.set(\"bearer-token\", pm.response.text());\r",
+									"\r",
+									"}\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"{{useremail}}\",\n    \"password\": \"{{userpassword}}\"\n}"
+						},
+						"url": "https://{{host}}:{{port}}/api/Auth/Login"
+					},
+					"response": []
+				},
+				{
+					"name": "Upgrade",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check response based on role\", function () { \r",
+									"    // Get the token from the collection authorization\r",
+									"    const bearerToken = pm.collectionVariables.get('bearer-token');\r",
+									"    pm.expect(bearerToken).to.not.be.null.and.not.be.undefined;\r",
+									"    const token = bearerToken.split('.')[1];\r",
+									"    const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"    // Check that the token includes the Role claim\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    const roles = payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"];\r",
+									"\r",
+									"    if ((roles.includes(\"Premium\") || roles.includes(\"Admin\")) && !roles.length === 1) {\r",
+									"        pm.expect(pm.response.code).to.eql(405);\r",
+									"    } else if (roles.length === 1 && roles[0] === \"Basic\") {\r",
+									"        pm.expect(pm.response.code).to.eql(204);\r",
+									"    } else if (roles.length === 1 && !roles.includes(\"Basic\")) {\r",
+									"        pm.expect(pm.response.code).to.eql(403); // Para los usuarios premium y admin del seeding que no contienen rol basic\r",
+									"    }\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{host}}:{{port}}/api/Auth/Upgrade"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUsers",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check response based on role\", function () { \r",
+									"    // Get the token from the collection authorization\r",
+									"    const bearerToken = pm.collectionVariables.get('bearer-token');\r",
+									"\r",
+									"    const token = bearerToken.split('.')[1];\r",
+									"    const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"    // Check that the token includes the Role claim\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    const roles = payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"];\r",
+									"\r",
+									"    if (roles.includes('Admin')) {\r",
+									"        pm.expect(pm.response.code).to.eql(200);\r",
+									"    } else {\r",
+									"        pm.expect(pm.response.code).to.eql(403);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "https://{{host}}:{{port}}/api/Auth/Users"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gamas",
+			"item": [
+				{
+					"name": "Get Gamas",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"  pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    ",
+									"    responseData.forEach(function(item) {",
+									"        pm.expect(item.gama).to.exist;",
+									"        pm.expect(item.descripcion_texto).to.exist;",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Image URL is in a valid format\", function () {",
+									"  const responseData = pm.response.json();",
+									"",
+									"  responseData.forEach(function(gama) {",
+									"    if (gama.imagen) {",
+									"      pm.expect(gama.imagen).to.match(/^https?:\\/\\/.*\\.(png|jpg|jpeg|gif)$/);",
+									"    }",
+									"  });",
+									"});",
+									"",
+									"pm.test(\"Productos array is present and is empty\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    pm.expect(responseData).to.have.lengthOf.at.least(1, \"Array should not be empty\");",
+									"    responseData.forEach(function(item) {",
+									"        pm.expect(item.productos).to.exist.and.to.be.an('array');",
+									"        pm.expect(item.productos).to.have.lengthOf(0, \"The 'productos' array should be empty\");",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "https://{{host}}:{{port}}/api/Gamas"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Gama",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Response status code is 200 or 404', function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    pm.test(\"Response has the required fields\", function () {",
+									"        const responseData = pm.response.json();",
+									"        ",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData).to.have.property('gama');",
+									"        pm.expect(responseData).to.have.property('descripcion_texto');",
+									"        pm.expect(responseData).to.have.property('productos');",
+									"    });",
+									"",
+									"    pm.test(\"Content-Type header is application/json\", function () {",
+									"        pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"    });",
+									"",
+									"    pm.test(\"Productos array is present\", function () {",
+									"        const responseData = pm.response.json();",
+									"        ",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData.productos).to.exist.and.to.be.an('array');",
+									"    });",
+									"",
+									"    pm.test(\"Validate product properties\", function () {",
+									"        const responseData = pm.response.json();",
+									"",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData.productos).to.be.an('array');",
+									"",
+									"        responseData.productos.forEach(function(product) {",
+									"            pm.expect(product.codigo_producto).to.be.a('number').greaterThanOrEqual(0);",
+									"            pm.expect(product.nombre).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"            pm.expect(product.cantidad_en_stock).to.be.a('number').greaterThanOrEqual(0);",
+									"            pm.expect(product.precio_venta).to.be.a('number').greaterThanOrEqual(0);",
+									"        });",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Gamas/:gamaID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Gamas",
+								":gamaID"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "gamaID",
+									"value": "{{gamaID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Gama",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check response based on role\", function () { \r",
+									"    // Get the token from the collection authorization\r",
+									"    const bearerToken = pm.collectionVariables.get('bearer-token');\r",
+									"\r",
+									"    const token = bearerToken.split('.')[1];\r",
+									"    const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"    // Check that the token includes the Role claim\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    const roles = payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"];\r",
+									"\r",
+									"    if (roles.includes('Admin')) {\r",
+									"        pm.expect(pm.response.code).to.be.oneOf([204, 404]);\r",
+									"    } else {\r",
+									"        pm.expect(pm.response.code).to.eql(403);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"gama\": \"Aromaticas\",\n    \"descripcion_texto\": \"Son plantas... aromáticas\",\n    \"descripcion_html\": null,\n    \"imagen\": null\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Gamas/:gamaID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Gamas",
+								":gamaID"
+							],
+							"variable": [
+								{
+									"key": "gamaID",
+									"value": "{{gamaID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Productos",
+			"item": [
+				{
+					"name": "Get Productos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"",
+									"pm.test(\"Response has the required fields\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    ",
+									"    responseData.forEach(function(item) {",
+									"        pm.expect(item).to.include.all.keys(",
+									"            'codigo_producto',",
+									"            'nombre',",
+									"            'gama',",
+									"            'dimensiones',",
+									"            'proveedor',",
+									"            'descripcion',",
+									"            'cantidad_en_stock',",
+									"            'precio_venta',",
+									"            'precio_proveedor',",
+									"            'gamaNavigation',",
+									"            'reviews'",
+									"        );",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Cantidad_en_stock is a non-negative integer\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array');",
+									"    responseData.forEach(function(product) {",
+									"        pm.expect(product.cantidad_en_stock).to.be.a('number');",
+									"        pm.expect(product.cantidad_en_stock).to.be.at.least(0, \"Should be a non-negative integer\");",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Precio_venta and precio_proveedor are non-negative numbers\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  pm.expect(responseData).to.be.an('array');",
+									"  responseData.forEach(function(item) {",
+									"    pm.expect(item.precio_venta).to.be.a('number').and.to.be.at.least(0);",
+									"    pm.expect(item.precio_proveedor).to.be.a('number').and.to.be.at.least(0);",
+									"  });",
+									"});",
+									"",
+									"pm.test(\"Reviews is present and is null\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    responseData.forEach(function(product) {",
+									"        pm.expect(product.reviews).to.not.be.undefined;",
+									"        pm.expect(product.reviews).to.be.null;",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"GamaNavigation is present and is null\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    responseData.forEach(function(product) {",
+									"        pm.expect(product.gamaNavigation).to.not.be.undefined;",
+									"        pm.expect(product.gamaNavigation).to.be.null;",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Productos",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Productos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Producto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Response status code is 200 or 404', function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    pm.test(\"Content type is application/json\", function () {",
+									"        pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"    });",
+									"",
+									"    pm.test(\"Codigo_producto is a non-negative integer\", function () {",
+									"        const responseData = pm.response.json();",
+									"        ",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData.codigo_producto).to.be.a('number').and.to.satisfy((val) => val >= 0, \"Codigo_producto should be a non-negative integer\");",
+									"    });",
+									"",
+									"    pm.test(\"Nombre should be a non-empty string\", function () {",
+									"        const responseData = pm.response.json();",
+									"        ",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData.nombre).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Nombre should not be empty\");",
+									"    });",
+									"",
+									"    pm.test(\"Reviews array is present\", function () {",
+									"        const responseData = pm.response.json();",
+									"        ",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData.reviews).to.be.an('array');",
+									"    });",
+									"",
+									"    pm.test(\"GamaNavigation is present and has expected elements\", function () {",
+									"        const responseData = pm.response.json();",
+									"    ",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData.gamaNavigation).to.be.an('object');",
+									"        pm.expect(responseData.gamaNavigation).to.have.property('gama');",
+									"        pm.expect(responseData.gamaNavigation).to.have.property('descripcion_texto');",
+									"        pm.expect(responseData.gamaNavigation).to.have.property('descripcion_html');",
+									"        pm.expect(responseData.gamaNavigation).to.have.property('imagen');",
+									"        pm.expect(responseData.gamaNavigation).to.have.property('productos');",
+									"        ",
+									"        // productos must be an array with 1 null value",
+									"        pm.expect(responseData.gamaNavigation.productos).to.be.an('array');",
+									"        pm.expect(responseData.gamaNavigation.productos).to.have.lengthOf(1, \"The 'productos' array should contain one item\");",
+									"        pm.expect(responseData.gamaNavigation.productos[0]).to.be.null;",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Productos/:productID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Productos",
+								":productID"
+							],
+							"variable": [
+								{
+									"key": "productID",
+									"value": "{{productID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Producto",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Check response based on role\", function () { \r",
+									"    // Get the token from the collection authorization\r",
+									"    const bearerToken = pm.collectionVariables.get('bearer-token');\r",
+									"\r",
+									"    const token = bearerToken.split('.')[1];\r",
+									"    const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"    // Check that the token includes the Role claim\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    const roles = payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"];\r",
+									"\r",
+									"    if (roles.includes('Admin')) {\r",
+									"        pm.expect(pm.response.code).to.be.oneOf([204, 404]);\r",
+									"    } else {\r",
+									"        pm.expect(pm.response.code).to.eql(403);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"codigo_producto\": 132,\n    \"nombre\": \"Abelia Floribunda\",\n    \"gama\": \"Ornamentales\",\n    \"dimensiones\": \"35-45\",\n    \"proveedor\": \"El Oasis\",\n    \"descripcion\": \"Planta ornamental perenne, flores rosadas, aromáticas, atractiva para polinizadores.\",\n    \"cantidad_en_stock\": 100,\n    \"precio_venta\": 5.00,\n    \"precio_proveedor\": 2.50\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Productos/:productID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Productos",
+								":productID"
+							],
+							"variable": [
+								{
+									"key": "productID",
+									"value": "{{productID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reviews",
+			"item": [
+				{
+					"name": "Get ProductReviews",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {",
+									"    pm.expect(pm.response.code).to.equal(200);",
+									"});",
+									"",
+									"pm.test(\"Content-Type is application/json\", function () {",
+									"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"});",
+									"",
+									"pm.test(\"Validate the review object\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    pm.expect(responseData).to.be.an('array').that.is.not.empty;",
+									"    responseData.forEach(function(review) {",
+									"        pm.expect(review).to.be.an('object');",
+									"        pm.expect(review).to.have.property('reviewId');",
+									"        pm.expect(review).to.have.property('title');",
+									"        pm.expect(review).to.have.property('description');",
+									"        pm.expect(review).to.have.property('stars');",
+									"        pm.expect(review).to.have.property('userId');",
+									"        pm.expect(review).to.have.property('productId');",
+									"        pm.expect(review).to.have.property('product');",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Title is a non-empty string\", function () {",
+									"  const responseData = pm.response.json();",
+									"  ",
+									"  responseData.forEach(function(review) {",
+									"    pm.expect(review.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+									"  });",
+									"});",
+									"",
+									"pm.test(\"Stars is a number between 1 and 5\", function () {",
+									"    const responseData = pm.response.json();",
+									"    ",
+									"    responseData.forEach(function(review) {",
+									"        pm.expect(review.stars).to.be.a('number').within(1, 5);",
+									"    });",
+									"});",
+									"",
+									"pm.test(\"Product is present and is null\", function () {",
+									"    const responseData = pm.response.json();",
+									"",
+									"    responseData.forEach(function(review) {",
+									"        pm.expect(review.product).to.not.be.undefined;",
+									"        pm.expect(review.product).to.be.null;",
+									"    });",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Reviews/ProductReviews/:productID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Reviews",
+								"ProductReviews",
+								":productID"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "productID",
+									"value": "{{productID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test('Response status code is 200 or 404', function () {",
+									"    pm.expect(pm.response.code).to.be.oneOf([200, 404]);",
+									"});",
+									"",
+									"if (pm.response.code === 200) {",
+									"    pm.test(\"Response Content-Type is application/json\", function () {",
+									"        pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+									"    });",
+									"",
+									"    pm.test(\"Validate the response schema for reviewId, title, description, stars, userId, productId, and product attributes\", function () {",
+									"        const responseData = pm.response.json();",
+									"        ",
+									"        pm.expect(responseData).to.be.an('object');",
+									"        pm.expect(responseData.reviewId).to.exist.and.to.be.a('number');",
+									"        pm.expect(responseData.title).to.exist.and.to.be.a('string');",
+									"        pm.expect(responseData.description).to.exist.and.to.be.a('string');",
+									"        pm.expect(responseData.stars).to.exist.and.to.be.a('number');",
+									"        pm.expect(responseData.productId).to.exist.and.to.be.a('number');",
+									"        pm.expect(responseData.product).to.exist.and.to.be.an('object');",
+									"        pm.expect(responseData.product.codigo_producto).to.be.a('number').greaterThanOrEqual(0);",
+									"        pm.expect(responseData.product.nombre).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"        pm.expect(responseData.product.gama).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+									"        pm.expect(responseData.product.dimensiones).to.be.a('string');",
+									"        pm.expect(responseData.product.proveedor).to.be.a('string');",
+									"        pm.expect(responseData.product.descripcion).to.be.a('string');",
+									"        pm.expect(responseData.product.cantidad_en_stock).to.be.a('number').greaterThanOrEqual(0);",
+									"        pm.expect(responseData.product.precio_venta).to.be.a('number').greaterThanOrEqual(0);",
+									"        pm.expect(responseData.product.precio_proveedor).to.be.a('number').greaterThanOrEqual(0);",
+									"        pm.expect(responseData.product.gamaNavigation).to.be.null;",
+									"        pm.expect(responseData.product.reviews).to.have.lengthOf(1, \"The 'productos' array should contain one item\");",
+									"        pm.expect(responseData.product.reviews[0]).to.be.null;",
+									"",
+									"        // userId exists but can be null",
+									"        pm.expect(responseData.userId).to.satisfy(function(value) {",
+									"            return value === null || typeof value === 'string';",
+									"        });",
+									"    });",
+									"}"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Reviews/:reviewID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Reviews",
+								":reviewID"
+							],
+							"variable": [
+								{
+									"key": "reviewID",
+									"value": "{{reviewID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Get the token from the collection authorization\r",
+									"const bearerToken = pm.collectionVariables.get('bearer-token');\r",
+									"\r",
+									"const token = bearerToken.split('.')[1];\r",
+									"const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"// Check that the token includes the Role claim\r",
+									"pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"const roles = payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"];\r",
+									"\r",
+									"if (!roles.includes('Admin') && !roles.includes('Premium')) {\r",
+									"    pm.test(\"Response status code is 403\", function () {\r",
+									"        pm.expect(pm.response.code).to.equal(403);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"\r",
+									"if (roles.includes('Admin') || roles.includes('Premium')) {\r",
+									"    pm.test(\"Response status code is 201\", function () {\r",
+									"        pm.expect(pm.response.code).to.equal(201);\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"Response has the required fields\", function () {\r",
+									"            const responseData = pm.response.json();\r",
+									"\r",
+									"            pm.expect(responseData).to.be.an('object');\r",
+									"            pm.expect(responseData.reviewId).to.exist;\r",
+									"            pm.expect(responseData.title).to.exist;\r",
+									"            pm.expect(responseData.description).to.exist;\r",
+									"            pm.expect(responseData.stars).to.exist;\r",
+									"            pm.expect(responseData.userId).to.exist;\r",
+									"            pm.expect(responseData.productId).to.exist;\r",
+									"            pm.expect(responseData.product).to.be.null;\r",
+									"    });\r",
+									"\r",
+									"    pm.test(\"Title and description are non-empty strings\", function () {\r",
+									"        const responseData = pm.response.json();\r",
+									"        \r",
+									"        pm.expect(responseData).to.be.an('object');\r",
+									"        pm.expect(responseData.title).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");\r",
+									"        pm.expect(responseData.description).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Description should not be empty\");\r",
+									"    });\r",
+									"\r",
+									"\r",
+									"    pm.test(\"Stars is a non-negative integer\", function () {\r",
+									"        const responseData = pm.response.json();\r",
+									"\r",
+									"        pm.expect(responseData.stars).to.be.a('number');\r",
+									"        pm.expect(responseData.stars).to.be.at.least(0);\r",
+									"    });\r",
+									"}\r",
+									"\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Flores hermosas\",\n    \"description\": \"Flores preciosas, pero requiere bastante atención.\",\n    \"stars\": 3,\n    \"productId\": 132\n}"
+						},
+						"url": "https://{{host}}:{{port}}/api/Reviews"
+					},
+					"response": []
+				},
+				{
+					"name": "Edit Review",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status is 204 or 401 for Admin or Premium user\", function () {\r",
+									"    // Get the token from the collection authorization\r",
+									"    const bearerToken = pm.collectionVariables.get('bearer-token');\r",
+									"\r",
+									"    const token = bearerToken.split('.')[1];\r",
+									"    const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"    // Check that the token includes the Role claim\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    const roles = payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"];\r",
+									"\r",
+									"    if (roles.includes('Admin') || roles.includes('Premium')) {\r",
+									"        pm.expect(pm.response.code).to.be.oneOf([204, 401]);\r",
+									"    } else {\r",
+									"        pm.expect(pm.response.code).to.eql(403);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"title\": \"Preciosas\",\n    \"description\": \"Requiere bastante atención.\",\n    \"stars\": 2,\n    \"productId\": 132\n}"
+						},
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Reviews/:reviewID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Reviews",
+								":reviewID"
+							],
+							"variable": [
+								{
+									"key": "reviewID",
+									"value": "{{reviewID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Review",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status based on user role\", function () {\r",
+									"    // Get the token from the collection authorization\r",
+									"    const bearerToken = pm.collectionVariables.get('bearer-token');\r",
+									"\r",
+									"    const token = bearerToken.split('.')[1];\r",
+									"    const payload = JSON.parse(atob(token));\r",
+									"\r",
+									"    // Check that the token includes the Role claim\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    const roles = payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"];\r",
+									"\r",
+									"    if (roles.includes('Admin')) {\r",
+									"        pm.expect(pm.response.code).to.eql(204);\r",
+									"    } else if (roles.includes('Premium')) {\r",
+									"        pm.expect(pm.response.code).to.be.oneOf([204, 401]);\r",
+									"    } else {\r",
+									"        pm.expect(pm.response.code).to.eql(403);\r",
+									"    }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://{{host}}:{{port}}/api/Reviews/:reviewID",
+							"protocol": "https",
+							"host": [
+								"{{host}}"
+							],
+							"port": "{{port}}",
+							"path": [
+								"api",
+								"Reviews",
+								":reviewID"
+							],
+							"variable": [
+								{
+									"key": "reviewID",
+									"value": "{{reviewID}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": {
+			"token": "{{bearer-token}}"
+		}
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "localhost",
+			"type": "default"
+		},
+		{
+			"key": "port",
+			"value": "7087",
+			"type": "default"
+		},
+		{
+			"key": "bearer-token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "useremail",
+			"value": "newuser@jardin.com",
+			"type": "string"
+		},
+		{
+			"key": "userpassword",
+			"value": "Asdf1234!",
+			"type": "string"
+		},
+		{
+			"key": "gamaID",
+			"value": "Aromaticas",
+			"type": "string"
+		},
+		{
+			"key": "productID",
+			"value": "132",
+			"type": "string"
+		},
+		{
+			"key": "reviewID",
+			"value": "3",
+			"type": "string"
+		}
+	]
+}
