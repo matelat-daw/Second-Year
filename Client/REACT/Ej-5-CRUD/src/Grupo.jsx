@@ -1,6 +1,8 @@
 import React from "react";
+import { useState } from 'react';
 import { useParams } from "react-router-dom";
-// const grupos = ["A", "B"];
+import FrmAlumnos from "./FrmAlumnos";
+export const grupos = ["A", "B"];
 
 const alumnos = [
     {grupo: "A", nombre: "Juan"},
@@ -12,6 +14,12 @@ const alumnos = [
 
 export default function Grupo()
 {
+    const onClickHandle = () => {
+        setOpen(true);
+      };
+
+    const [open, setOpen] = useState(false);
+    console.log({open});
     // const parametros = useParams();
     const {letra} = useParams();
     return (
@@ -24,6 +32,8 @@ export default function Grupo()
             </li>)} */}
             {alumnos.filter(alumno => alumno.grupo == letra).map((alumno, i) => <li key={i}>{alumno.nombre}</li>)}
         </ul>
+        <button onClick={onClickHandle}>Agregar Alumno</button>
+        <FrmAlumnos open={false} />
     </>
     )
 }
