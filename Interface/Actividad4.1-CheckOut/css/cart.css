@@ -1,5 +1,13 @@
 main
 {
+    input[type=number] { 
+        -moz-appearance: textfield;
+        appearance: textfield;
+        margin: 0;
+        border-radius: 10px;
+        border: none;
+    }
+
     #discount
     {
         font-size: small;
@@ -20,9 +28,17 @@ main
         border-radius: 10px;
     }
 
+    .round
+    {
+        border: none;
+        border-radius: 40%;
+        width: 24px;
+    }
+
     .danger
     {
         background-color: red;
+        color: white;
         width: 100px;
         height: 42px;
         font-weight: bolder;
