@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{../fragments/head::head}"></head>
+<br><br><br>
+<nav th:replace="~{../fragments/top::menu}"></nav>
+<br>
+    <h1>Bienvenido {name}</h1>
+    <h3 th:text="{id}"></h3>
+    <h3 th:text="{name}"></h3>
+    <h3 th:text="{age}"></h3>
+<footer th:replace="~{../fragments/footer::footer}"></footer>

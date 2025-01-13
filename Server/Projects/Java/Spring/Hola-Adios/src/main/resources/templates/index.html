@@ -8,7 +8,10 @@
     <title>Bienvenida</title>
 </head>
 <body>
-    <div th:replace="~{fragments/side::menu}"></div>
-    <h1 th:text="${hola}"></h1>
+    <header th:replace="~{../fragments/top :: menu}"></header>
+    <br>
+    <h1>Bienvenido a la WEB de Pruebas de JAVA Spring</h1>
+    <br>
+    <h2 th:text="${hola}"></h2>
 </body>
 </html>

@@ -1,0 +1,15 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{../fragments/head::head}"></head>
+<br><br><br>
+<nav th:replace="~{../fragments/top::menu}"></nav>
+<br>
+<h1 th:text="'Te Saludamos ' + ${greeting.name}"/>
+<p th:text="'ID: ' + ${greeting.id}" />
+<p th:text="'Edad: ' + ${greeting.age}" />
+<p th:text="'Nombre: ' + ${greeting.name}" />
+<a href="/greeting">Envía Otra Salutación</a>
+
+<h3 th:each="i: ${#numbers.sequence( 0, 4)}" th:text="${greeting.name}"></h3>
+
+<footer th:replace="~{../fragments/footer::footer}"></footer>

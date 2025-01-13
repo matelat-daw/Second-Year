@@ -1,23 +1,33 @@
 package com.futureprogams.Usuario_Edad.Controllers;
 
+import com.futureprogams.Usuario_Edad.Models.Greetings;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class MainController {
     @GetMapping("/")
-    public String usurios(@PathVariable String id, Model model)
+    public String saluda()
     {
-
         return "index";
     }
 
-    @GetMapping("/saludame")
-    public String syaHellow(@RequestParam(value = "name", required = false));
+    @GetMapping("/felicita/{id}")
+    public String hola(@PathVariable String id, @RequestParam(value = "age", name = "name") String age, String name)
     {
-        return true;
+        return "/felicita";
+    }
+
+    @GetMapping("/greeting")
+    public String greetingForm(Model model) {
+        model.addAttribute("greeting", new Greetings());
+        return "greeting";
+    }
+
+    @PostMapping("/greeting")
+    public String greetingSubmit(@ModelAttribute Greetings greeting, Model model) {
+        model.addAttribute("greeting", greeting);
+        return "result";
     }
 }

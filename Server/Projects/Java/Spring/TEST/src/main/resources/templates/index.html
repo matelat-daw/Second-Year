@@ -1,10 +1,10 @@
 <!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{../fragments/head::head}"></head>
-<br><br><br>
-<nav th:replace="~{../fragments/top::menu}"></nav>
-<br>
-    <h1>Te Damos la Bienvenida</h1>
+    <br><br><br>
+    <nav th:replace="~{../fragments/top::menu}"></nav>
     <br>
-    <h3>Selecciona una Acción en el Menú</h3>
+    <h1>Bienvenido a la WEB de Pruebas de JAVA Spring</h1>
+    <br>
+    <h2 th:text="${hola}"></h2>
 <footer th:replace="~{../fragments/footer::footer}"></footer>

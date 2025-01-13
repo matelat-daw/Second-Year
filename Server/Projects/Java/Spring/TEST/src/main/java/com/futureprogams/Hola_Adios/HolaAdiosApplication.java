@@ -1,12 +1,12 @@
-package com.futureprogams.Usuario_Edad;
+package com.futureprogams.Hola_Adios;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UsuarioEdadApplication {
+public class HolaAdiosApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UsuarioEdadApplication.class, args);
+		SpringApplication.run(HolaAdiosApplication.class, args);
 	}
 }
