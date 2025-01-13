@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{../fragments/head::head}"></head>
+<br><br><br>
+<nav th:replace="~{../fragments/top::menu}"></nav>
+<br>
+<h1>Formulario de Datos</h1>
+<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+    <fieldset>
+        <legend>Datos Personales</legend>
+            <input id="id" type="text" th:field="*{id}" /><label for="id"> &nbsp;&nbsp;Id</label>
+            <br><br>
+            <input id="age" type="text" th:field="*{age}" /><label for="age"> &nbsp;&nbsp;Edad</label>
+            <br><br>
+            <input id="name" type="text" th:field="*{name}" /><label for="name"> &nbsp;&nbsp;Nombre</label>
+            <br><br>
+            <input type="submit" value="Enviar" class="btn btn-success btn-lg"/>
+    </fieldset>
+</form>
+<footer th:replace="~{../fragments/footer::footer}"></footer>
