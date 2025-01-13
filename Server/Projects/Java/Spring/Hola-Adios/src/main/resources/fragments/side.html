@@ -5,10 +5,12 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Paso de Datos en Spring</title>
+    <title>Document</title>
 </head>
 <body>
-<h1 th:text="${saludo}">Hola Nomás</h1>
- <!--<h1>Hola Chavales</h1>-->
+    <nav th:fragment="menu">
+        <a href="/">Inicio (Saludo)</a>
+        <a href="despedida">Despedida</a>
+    </nav>
 </body>
 </html>
