@@ -32,11 +32,11 @@ function prometer4Clicks()
     return promesa;
 }
 
-function iniciarPromesa4Clicks()
+async function iniciarPromesa4Clicks()
 {
     html += "1)-. Iniciar Promesa de Hacer 4 Clicks.<br>";
     result.innerHTML = html;
-    promesa4CLicks = prometer4Clicks()
+    promesa4CLicks = await prometer4Clicks()
     .then(respuesta=>result.innerHTML = html)
     .catch(respuesta=>result.innerHTML = html)
 }
@@ -70,11 +70,11 @@ function prometer4Teclas()
     return promesa;
 }
 
-function iniciarPromesa4Teclas()
+async function iniciarPromesa4Teclas()
 {
     html += "4)-. Iniciar Promesa de Pulsar 4 Teclas.<br>";
     result.innerHTML = html;
-    promesa4Teclas = prometer4Teclas()
+    promesa4Teclas = await prometer4Teclas()
     .then(respuesta=>result.innerHTML = html)
     .catch(respuesta=>result.innerHTML = html)
 }
