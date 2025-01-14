@@ -36,7 +36,7 @@ async function iniciarPromesa4Clicks()
 {
     html += "1)-. Iniciar Promesa de Hacer 4 Clicks.<br>";
     result.innerHTML = html;
-    promesa4CLicks = await prometer4Clicks()
+    promesa4Clicks = await prometer4Clicks()
     .then(respuesta=>result.innerHTML = html)
     .catch(respuesta=>result.innerHTML = html)
 }
