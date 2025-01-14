@@ -38,10 +38,9 @@ let resultado = 0;
 async function promesaCuentaKilometros(name){    
     let promesa = new Promise (function(llamarAlThen, llamarAlCatch){
             function contar(){
-                if (deportistas.some(deportista => deportista.nombre == name))
+                let deportista = deportistas.find(deportista => deportista.nombre === name);
+                if (deportista)
                 {
-                    let deportista = deportistas.find(deportista => deportista.nombre === name);
-
                     contador = deportista.participaEn.reduce((kilometros, deportista) => kilometros + deportista.distanciaKm, 0);
 
                     llamarAlThen(contador);
