@@ -6,7 +6,7 @@ let programadores=[
    ['C','JS', 'Java']},
     {nombre: 'Pedro', apellido1: 'Abad', apellido2: 'García', edad: 24, experiencia: 15, lenguajes:
    ['Python','JS', 'Java','C++']}
-   ]
+   ];
 
 export function ejercicio1 (programadores){
     let resultado;

@@ -1,3 +1,7 @@
+const DOM = {
+    result: document.getElementById("result")
+}
+
 let deportistas=[
     {nombre: 'Antonio', apellido1: 'García', apellido2: 'González', sexo: 'H', edad:25, equipo: 'Trotamundos',
                 participaEn:[ {carrera: 'ochoKm',tiempoEnSegundos: 1855, distanciaKm: 8},
@@ -25,19 +29,21 @@ let deportistas=[
                             ]}
 ];
 
-let contador=0;
+let html = "";
+let contador = 0;
 const MAX = 4;
-let resultado=0;
+let resultado = 0;
 
 // CREAR promesa
 async function promesaCuentaKilometros(name){    
-    let promesa=new Promise (function(llamarAlThen, llamarAlCatch){
+    let promesa = new Promise (function(llamarAlThen, llamarAlCatch){
             function contar(){
                 if (deportistas.some(deportista => deportista.nombre == name))
                 {
-                    console.log("El Deportista Está.");
-                    contador += deportistas.filter(corredor => corredor.nombre == name).reduce((kilometros, corredor) => kilometros + corredor.participaEn.distanciaKm, 0);
-                    console.log("El Contador marca: " + contador);
+                    let deportista = deportistas.find(deportista => deportista.nombre === name);
+
+                    contador = deportista.participaEn.reduce((kilometros, deportista) => kilometros + deportista.distanciaKm, 0);
+
                     llamarAlThen(contador);
                 }
                 else
@@ -50,12 +56,16 @@ async function promesaCuentaKilometros(name){
 
 await promesaCuentaKilometros("Juan").then(nuevoValor=>{
     resultado += nuevoValor;
-    console.log(`1. El valor del contador es ${nuevoValor}`)
+    html += `1. Los Kilómetros Recorridos por Juan son: ${nuevoValor}<br>`;
+    html += `El Resultado Parcial es: ${resultado}<br><br>`;
+    result.innerHTML = html;
 })
 .catch(error=>console.log(error));
 
 await promesaCuentaKilometros("Carmen").then(nuevoValor=>{
     resultado += nuevoValor;
-    console.log(`2. El valor del contador es ${nuevoValor}`)
+    html += `2. Los Kilómetros Recorridos por Carmen son: ${nuevoValor}<br>`;
+    html += `El Resultado Final de Ambos Corredores es: ${resultado}<br>`;
+    result.innerHTML = html;
 })
 .catch(error=>console.log(error));
