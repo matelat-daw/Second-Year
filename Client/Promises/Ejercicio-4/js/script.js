@@ -47,7 +47,7 @@ async function promesaCuentaKilometros(name){
                     llamarAlThen(contador);
                 }
                 else
-                    llamarAlCatch("Parece que ese Deportista no Existe.");
+                    llamarAlCatch(html += `Parece que el Deportista ${name} no Existe.<br><br>`);
             }
             setTimeout(contar, 4000);
     })
@@ -59,13 +59,11 @@ await promesaCuentaKilometros("Juan").then(nuevoValor=>{
     html += `1. Los Kilómetros Recorridos por Juan son: ${nuevoValor}<br>`;
     html += `El Resultado Parcial es: ${resultado}<br><br>`;
     result.innerHTML = html;
-})
-.catch(error=>console.log(error));
+}).catch(error=>result.innerHTML = error);
 
 await promesaCuentaKilometros("Carmen").then(nuevoValor=>{
     resultado += nuevoValor;
     html += `2. Los Kilómetros Recorridos por Carmen son: ${nuevoValor}<br>`;
     html += `El Resultado Final de Ambos Corredores es: ${resultado}<br>`;
     result.innerHTML = html;
-})
-.catch(error=>console.log(error));
+}).catch(error=>result.innerHTML = error);
