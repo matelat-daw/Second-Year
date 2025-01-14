@@ -4,7 +4,8 @@ const DOM2 = {
     to_pay: document.getElementById("to_pay"),
     discount: document.getElementById("discount"),
     qtty: document.querySelectorAll("input"),
-    label: document.querySelectorAll("label")
+    label: document.querySelectorAll("label"),
+    button: document.querySelectorAll("button")
 }
 
 const imgs = ["../img/fresa.webp", "../img/limon.webp", "../img/piña.jpg", "../img/manga.webp"]; // Path a la Imágenes de los Artículos del Carro.
