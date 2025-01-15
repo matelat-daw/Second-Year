@@ -2,9 +2,30 @@ const DOM = {
     result: document.getElementById("result"),
     result2: document.getElementById("result2"),
     result3: document.getElementById("result3"),
-    result2: document.getElementById("result2"),
-    result3: document.getElementById("result3"),
-    resultError: document.getElementById("resultError")
+    result4: document.getElementById("result4"),
+    result5: document.getElementById("result5"),
+    resultError: document.getElementById("resultError"),
+    name: document.getElementById("name"),
+    grupo: document.getElementById("grupo"),
+    hidden: document.getElementById("hidden")
+}
+
+function unhide()
+{
+    DOM.hidden.style.display = "block";
+}
+
+function checkForm()
+{
+    if (DOM.name != "" && DOM.grupo != "")
+    {
+        crudCreate();
+    }
+    else
+    {
+        alert("Te Dejaste Algún Campo en Blanco.");
+    }
+    return false;
 }
 
 function crudRead()
@@ -16,8 +37,8 @@ function crudRead()
 function crudCreate()
 {
     let datosCreate = {
-        nombre: "Pedro",
-        grupo: "A"
+        nombre: DOM.name.value,
+        grupo: DOM.grupo.value
     }
     fetch("http://localhost:3000/alumnos", {
         method: "POST",
@@ -27,7 +48,8 @@ function crudCreate()
         },
     }).then(res => res.json())
     .catch(error => resultError.innerHTML = "Error al Crear: " + error)
-    .then(response => result2.innerHTML = "Se ha Creado el Alumno : " + JSON.stringify(response))
+    .then(response => result2.innerHTML = "Se ha Creado el Alumno : " + JSON.stringify(response));
+    crudRead();
 }
 
 function crudUpdate()
@@ -44,7 +66,7 @@ function crudUpdate()
         },
     }).then(res => res.json())
     .catch(error => resultError.innerHTML = "Error al Actalizar: " + error)
-    then( response => result3.innerHTML = "Se ha Actualizado el Usaurio: " + response)
+    .then( response => result3.innerHTML = "Se ha Actualizado el Usaurio: " + response)
 }
 
 function crudDelete()

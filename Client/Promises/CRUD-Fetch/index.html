@@ -4,10 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD con Promesas</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>CRUD de Alumnos con Server Local</h1>
     <br><br>
+    <button id="activa_create" onclick="unhide()">Activa Crear un Alumno</button>
+    <br><br>
+    <div id="hidden">
+        <form method="post" onsubmit="return checkForm(Event)">
+            <input id="name" type="text">
+            <label for="name"> Nombre</label>
+            <br><br>
+            <select id="grupo">
+                <option value="">Selecciona un Grupo</option>
+                <option value="A">Grupo A</option>
+                <option value="B">Grupo B</option>
+            </select>
+            <label for="grupo"> Grupo</label>
+            <br><br>
+            <input type="submit" value="Agregar Alumno">
+        </form>
+    </div>
     <h3 id="result"></h3>
     <br>
     <h3 id="result2"></h3>
@@ -22,7 +40,7 @@
     <script src="js/script.js"></script>
     <!-- <script>crudCreate()</script> -->
     <!-- <script>crudRead()</script> -->
-    <script>crudUpdate()</script>
+    <!-- <script>crudUpdate()</script> -->
      <!-- <script>crudDelete()</script> -->
      <script>crudRead()</script>
 </body>
