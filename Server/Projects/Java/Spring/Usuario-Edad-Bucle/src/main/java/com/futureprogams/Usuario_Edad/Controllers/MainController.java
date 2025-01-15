@@ -8,25 +8,22 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 public class MainController {
     @GetMapping("/")
-    public String saluda()
+    public String saluda(Model model)
     {
+        model.addAttribute("title", "Página Pricipal");
         return "index";
-    }
-
-    @GetMapping("/felicita/{id}")
-    public String hola(@PathVariable String id, @RequestParam(value = "age", name = "name") String age, String name)
-    {
-        return "/felicita";
     }
 
     @GetMapping("/greeting")
     public String greetingForm(Model model) {
+        model.addAttribute("title", "Formulario pra Saludar");
         model.addAttribute("greeting", new Greetings());
         return "greeting";
     }
 
     @PostMapping("/greeting")
     public String greetingSubmit(@ModelAttribute Greetings greeting, Model model) {
+        model.addAttribute("title", "Página de Saludo");
         model.addAttribute("greeting", greeting);
         return "result";
     }

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{../fragments/head::head}"></head>
+<br><br><br>
+<nav th:replace="~{../fragments/top::menu}"></nav>
+<br>
+<h1 th:text="'Hoy el Usuario ' + ${greeting.name} + ' con ID: ' + ${greeting.id} + ' Cumple ' + ${greeting.age} + ' Años'"></h1>
+<br><br>
+<ul>
+    <li th:each="i: ${#numbers.sequence(1, greeting.age)}"><a href="/greeting" th:text="${i} + ') Felicidades ' + ${greeting.name}"></a></li>
+</ul>
+<footer th:replace="~{../fragments/footer::footer}"></footer>

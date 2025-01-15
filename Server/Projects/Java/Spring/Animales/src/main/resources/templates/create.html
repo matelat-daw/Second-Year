@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head th:replace="~{../fragments/head::head}"></head>
 <br><br><br>
 <nav th:replace="~{../fragments/top::menu}"></nav>
@@ -7,12 +7,13 @@
 <h1>Formulario de Datos</h1>
 <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
     <fieldset>
-        <legend>Datos Personales</legend>
-            <input id="id" type="text" th:field="*{id}" required/><label for="id"> &nbsp;&nbsp;Id</label>
+        <legend>Datos del Animal</legend>
+            <input type="hidden" name="id" value="${id}">
+            <input id="name" type="text" th:field="*{name}"  required/><label for="name"> &nbsp;&nbsp;Nombre</label>
             <br><br>
             <input id="age" type="text" th:field="*{age}"  required/><label for="age"> &nbsp;&nbsp;Edad</label>
             <br><br>
-            <input id="name" type="text" th:field="*{name}"  required/><label for="name"> &nbsp;&nbsp;Nombre</label>
+            <input id="extinct" type="checkbox" th:field="*{extinct}" /><label for="extinct"> &nbsp;&nbsp;Estinguido</label>
             <br><br>
             <input type="submit" value="Enviar" class="btn btn-success btn-lg"/>
     </fieldset>
