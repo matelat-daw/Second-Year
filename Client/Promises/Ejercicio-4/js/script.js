@@ -31,7 +31,6 @@ let deportistas=[
 
 let html = "";
 let contador = 0;
-const MAX = 4;
 let resultado = 0;
 
 // CREAR promesa
