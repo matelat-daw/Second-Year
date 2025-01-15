@@ -5,10 +5,10 @@
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
 <h1>Formulario de Datos</h1>
-<form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+<form action="#" th:action="@{/animal/create}" th:object="${animal}" method="post">
     <fieldset>
         <legend>Datos del Animal</legend>
-            <input type="hidden" name="id" value="${id}">
+            <!--<input type="hidden" name="id" value="1">-->
             <input id="name" type="text" th:field="*{name}"  required/><label for="name"> &nbsp;&nbsp;Nombre</label>
             <br><br>
             <input id="age" type="text" th:field="*{age}"  required/><label for="age"> &nbsp;&nbsp;Edad</label>
