@@ -1,6 +1,6 @@
 package com.futureprograms.Animales.Controllers;
 
-import com.futureprograms.Animales.Models.Animales;
+import com.futureprograms.Animales.Models.Animal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,16 +15,16 @@ public class MainController {
     }
 
     @GetMapping("/create")
-    public String greetingForm(Model model) {
+    public String createForm(Model model) {
         model.addAttribute("title", "Formulario pra Agregar un Animal");
-        model.addAttribute("create", new Animales());
+        model.addAttribute("animal", new Animal());
         return "create";
     }
 
     @PostMapping("/create")
-    public String greetingSubmit(@ModelAttribute Animales animal, Model model) {
-        model.addAttribute("title", "Página de Saludo");
-        model.addAttribute("create", animal);
+    public String createSubmit(@ModelAttribute("animal") Animal animal, Model model) {
+        model.addAttribute("title", "Página para Ver los Animales");
+        model.addAttribute("animal", animal);
         return "result";
     }
 }

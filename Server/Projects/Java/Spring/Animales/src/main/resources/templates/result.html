@@ -4,9 +4,9 @@
 <br><br><br>
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
-<h1 th:text="'Hoy el Usuario ' + ${greeting.name} + ' con ID: ' + ${greeting.id} + ' Cumple ' + ${greeting.age} + ' Años'"></h1>
+<h1 th:text="'Hoy el Animal ' + ${animal.name} + ' Cumple ' + ${animal.age} + ' Años'"></h1>
 <br><br>
 <ul>
-    <li th:each="i: ${#numbers.sequence(1, greeting.age)}"><a href="/greeting" th:text="${i} + ') Felicidades ' + ${greeting.name}"></a></li>
+    <li th:each="i: ${#numbers.sequence(1, animal.age)}"><a href="/create" th:text="${i} + ') Felicidades ' + ${animal.name}"></a></li>
 </ul>
 <footer th:replace="~{../fragments/footer::footer}"></footer>
