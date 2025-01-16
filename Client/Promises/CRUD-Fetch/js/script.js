@@ -17,7 +17,7 @@ function unhide()
 
 function checkForm()
 {
-    if (DOM.name != "" && DOM.grupo != "")
+    if (DOM.name.value != "" && DOM.grupo.value != "")
     {
         crudCreate();
     }
