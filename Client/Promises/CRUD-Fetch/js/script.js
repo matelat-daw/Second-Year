@@ -20,6 +20,7 @@ function checkForm()
     if (DOM.name.value != "" && DOM.grupo.value != "")
     {
         crudCreate();
+        DOM.hidden.style.display = "none";
     }
     else
     {
@@ -32,6 +33,7 @@ function crudRead()
 {
     fetch("http://localhost:3000/alumnos").then(respuesta => respuesta.json())
                                         .then(jsonData => result.innerHTML = JSON.stringify(jsonData));
+    crudRead();
 }
 
 function crudCreate()
