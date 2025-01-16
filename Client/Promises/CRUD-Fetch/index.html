@@ -5,25 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD con Promesas</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <h1>CRUD de Alumnos con Server Local</h1>
     <br><br>
-    <button id="activa_create" onclick="unhide()">Activa Crear un Alumno</button>
+    <button onclick="crudRead()">Ver Lista de Alumnos</button>
     <br><br>
-    <div id="hidden">
-        <form method="post" onsubmit="return checkForm(Event)">
+    <div>
+        <form method="post" onsubmit="checkForm(event)">
+            <input id="id" type="text">
+            <label for="id"> Nombre</label>
+            <br><br>
             <input id="name" type="text">
             <label for="name"> Nombre</label>
             <br><br>
             <select id="grupo">
                 <option value="">Selecciona un Grupo</option>
-                <option value="A">Grupo A</option>
-                <option value="B">Grupo B</option>
+                <!-- <option value="A">Grupo A</option>
+                <option value="B">Grupo B</option> -->
             </select>
             <label for="grupo"> Grupo</label>
             <br><br>
-            <input type="submit" value="Agregar Alumno">
+            <input id="create" type="submit" value="Agregar Alumno" class="btn btn-success btn-lg">
+            <input id="update" type="submit" value="Actulizar Alumno" class="btn btn-primary btn-lg">
+            <input id="delete" type="submit" value="Eliminar Alumno" class="btn btn-danger btn-lg">
         </form>
     </div>
     <h3 id="result"></h3>
@@ -34,14 +40,7 @@
     <br>
     <h3 id="result4"></h3>
     <br>
-    <h3 id="result5"></h3>
-    <br>
     <h2 id="resultError"></h2>
     <script src="js/script.js"></script>
-    <!-- <script>crudCreate()</script> -->
-    <!-- <script>crudRead()</script> -->
-    <!-- <script>crudUpdate()</script> -->
-     <!-- <script>crudDelete()</script> -->
-     <script>crudRead()</script>
 </body>
 </html>
