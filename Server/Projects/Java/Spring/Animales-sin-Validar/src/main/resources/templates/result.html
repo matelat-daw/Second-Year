@@ -1,26 +1,12 @@
 <!doctype html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{../fragments/head::head}"></head>
 <br><br><br>
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
 <h1 th:text="'Hoy el Animal ' + ${animal.name} + ' Cumple ' + ${animal.age} + ' Años'"></h1>
 <br><br>
-<!--<ul>
+<ul>
     <li th:each="i: ${#numbers.sequence(1, animal.age)}"><a href="/create" th:text="${i} + ') Felicidades ' + ${animal.name}"></a></li>
-</ul>-->
-<table>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Vida Media</th>
-        <th>Está Extinguido</th>
-    </tr>
-    <tr th:each="a: ${animal}">
-        <td th:text="${a.id}"></td>
-        <td th:text="${a.name}"></td>
-        <td th:text="${a.age}"></td>
-        <td th:text="${a.extinct}"></td>
-    </tr>
-</table>
+</ul>
 <footer th:replace="~{../fragments/footer::footer}"></footer>
