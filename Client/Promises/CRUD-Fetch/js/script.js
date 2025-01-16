@@ -9,7 +9,23 @@ const DOM = {
     hidden: document.getElementById("hidden")
 }
 
-DOM.grupo.option.value = fetch("http://localhost:3000/grupos")
+// DOM.grupo.option.value = fetch("http://localhost:3000/grupos")
+
+document.addEventListener("DOMContentLoaded", () => {
+    // let options = [];
+    fetch("http://localhost:3000/grupos").then(respuesta => respuesta.json())
+        .then(options => populateSelect(options))
+  });
+
+function populateSelect(options)
+{
+    options.forEach(item, i => {
+        console.log(item);
+        let option = createElement("option");
+        option.value = item[i].grupo;
+        DOM.grupo.add(option);
+    });
+}
 
 function unhide()
 {
