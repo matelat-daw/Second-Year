@@ -1,5 +1,7 @@
 Así debe quedar Program.cs para API:
 
+var builder = WebApplication.CreateBuilder(args);
+
 builder.Services.AddDbContext<JardineriaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Jardineria") ?? throw new InvalidOperationException("Connection string 'Jardineria' not found."))); // Base de datos de Productos/Articulos.
 
 builder.Services.AddDbContext<CesarContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CesarUsers") ?? throw new InvalidOperationException("Connection string 'CesarUsers' not found."))); // Base de Datos de Usuarios
@@ -134,7 +136,7 @@ update-database -Context GameStoreContext
 
 Se Crea el Contexto de Usuarios, la Clase es:
 
-public class CesarContext(DbContextOptions<CesarContext> options) : IdentityDbContext<JardinUser>(options)// Usa IdentityDbContext<IdentityUser> que es la Identity Estandar, si se Hace la base de Datos Personalizada como en este Caso se usa el Nombre del Modelo de los Usuarios que es JardinUser, el Modelo JardinUser extiende la Clase IdentityUser.
+public class CesarContext(DbContextOptions<CesarContext> options) : IdentityDbContext<JardinUser>(options)// Usa IdentityDbContext que es la Identity Estandar, si se Hace la base de Datos Personalizada como en este Caso se usa el Nombre del Modelo de los Usuarios que es JardinUser, el Modelo JardinUser extiende la Clase IdentityUser así: IdentityDbContext<JardinUser>.
 {
 	protected override void OnModelCreating(ModelBuilder modelBuilder)
 	{
@@ -150,8 +152,45 @@ update-database -Context CesarUsersContext
 
 Si solo Hubiera una Base de Datos con Identity, el Único Contexto tiene que Extender IdentityDbContext<IdentityUser>
 
+El Modelo para el Login:
+
+using System.ComponentModel.DataAnnotations;
+
+namespace Jardineria.Models
+{
+    public class Login
+    {
+        [Required(ErrorMessage = "Campo Requerido."), Display(Name = "E-mail"), StringLength(24, MinimumLength = 6, ErrorMessage = "El E-mail Debe Tener al Menos {1} Caracteres.")]
+        public string Email { get; set; }
+        public string Password { get; set; } = "Asdf1234!";
+    }
+}
+
+Y para el Register:
+
+using System.ComponentModel.DataAnnotations;
+
+namespace Jardineria.Models
+{
+    public class Register
+    {
+        [Required(ErrorMessage = "El Campo E-mail es Obligatorio."), Display(Name = "E-mail")]
+        public string? Email { get; set; }
+        [Required(ErrorMessage = "El Campo Contraseña es Obligatorio."), Display(Name = "Contraseña")]
+        public string? Password { get; set; }
+        [Required(ErrorMessage = "El Campo Nombre Completo es Obligatorio."), Display(Name = "Nombre Completo"), StringLength(64, MinimumLength = 10, ErrorMessage = "El Nombre del Usuario Debe Tener al Menos {2} Caracteres.")]
+        public string? FullName { get; set; }
+        [Required(ErrorMessage = "El Campo Dirección es Obligatorio.")]
+        public string? Address { get; set; }
+        [Required(ErrorMessage = "El Campo Código Postal es Obligatorio."), RegularExpression(@"^\d{5}$")]
+        public string? PostalCode { get; set; }
+        [Required(ErrorMessage = "El Campo Teléfono es Obligatorio."), RegularExpression(@"^\d{9}$")]
+        public string? Phone { get; set; }
+    }
+}
+
 Hay que crear el controlador para login y register y posiblemente upgrade de usuarios de basic a premiun y eso:
-ç
+
 AuthContrroller:
 
 using Microsoft.AspNetCore.Mvc;
