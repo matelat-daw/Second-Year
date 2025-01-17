@@ -1,22 +1,23 @@
 package com.futureprograms.Animales.Models;
 
 public class Animal {
-    private String id;
+    /*private String id;*/
+    @NotBlank
     private String name;
-    private String averageLife;
-    private Boolean isExtinct;
+    private String age;
+    private Boolean extinct;
 
-    public void setExtinct(Boolean extinct) {this.isExtinct = extinct;}
+    public void setExtinct(Boolean extinct) {this.extinct = extinct;}
 
-    public Boolean getExtinct() {return isExtinct;}
+    public Boolean getExtinct() {return extinct;}
 
-    public String getId() {
+    /*public String getId() {
         return id;
     }
 
     public void setId(String id) {
         this.id = id;
-    }
+    }*/
 
     public String getName() {
         return name;
@@ -27,10 +28,10 @@ public class Animal {
     }
 
     public String getAge() {
-        return averageLife;
+        return age;
     }
 
     public void setAge(String age) {
-        this.averageLife = age;
+        this.age = age;
     }
 }
