@@ -4,23 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CRUD con Promesas</title>
-    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <h1>CRUD de Alumnos con Server Local</h1>
     <br><br>
-    <button onclick="crudRead()">Ver Lista de Alumnos</button>
-    <br><br>
     <div id="userData">
         <table id="table">
-            
         </table>
     </div>
+    <br><br>
     <div>
         <form method="post" onsubmit="checkForm(event)">
-            <input id="id" type="text">
-            <label for="id"> Nombre</label>
+            <input id="id" type="number">
+            <label for="id"> ID</label>
             <br><br>
             <input id="name" type="text">
             <label for="name"> Nombre</label>
@@ -35,13 +33,6 @@
             <input id="delete" type="submit" value="Eliminar Alumno" class="btn btn-danger btn-lg">
         </form>
     </div>
-    <h3 id="result"></h3>
-    <br>
-    <h3 id="result2"></h3>
-    <br>
-    <h3 id="result3"></h3>
-    <br>
-    <h3 id="result4"></h3>
     <br>
     <h2 id="resultError"></h2>
     <script src="js/script.js"></script>

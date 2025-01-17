@@ -1,19 +1,17 @@
 const DOM = {
-    result: document.getElementById("result"),
-    result2: document.getElementById("result2"),
-    result3: document.getElementById("result3"),
-    result4: document.getElementById("result4"),
     resultError: document.getElementById("resultError"),
     table: document.getElementById("table"),
+    create: document.getElementById("create"),
+    update: document.getElementById("update"),
+    delete: document.getElementById("delete"),
+    id: document.getElementById("id"),
     name: document.getElementById("name"),
     grupo: document.getElementById("grupo"),
     hidden: document.getElementById("hidden")
 }
 
-// DOM.grupo.option.value = fetch("http://localhost:3000/grupos")
-
 document.addEventListener("DOMContentLoaded", () => {
-    // let options = [];
+    crudRead();
     fetch("http://localhost:3000/grupos").then(respuesta => respuesta.json())
         .then(options => populateSelect(options))
   });
@@ -36,16 +34,51 @@ function unhide()
 function checkForm(e)
 {
     e.preventDefault();
-    if (DOM.name.value != "" && DOM.grupo.value != "")
+    if (e.target == DOM.create)
     {
-        crudCreate();
-        DOM.hidden.style.display = "none";
+        console.log("Presioné: " + DOM.create.value);
+        verify("create");
+    }
+    else if (e.target == DOM.update)
+    {
+        console.log("Presioné: " + DOM.update.value);
+        verify("update")
     }
     else
     {
-        alert("Te Dejaste Algún Campo en Blanco.");
+        if (DOM.id.value != null)
+            crudDelete(DOM.id.value)
     }
+    
     return false;
+}
+
+function verify(what)
+{
+    if (what == "create")
+    {
+        if (DOM.id.value == null && DOM.name.value != "" && DOM.grupo.value != "")
+        {
+            crudCreate();
+            DOM.hidden.style.display = "none";
+        }
+        else
+        {
+            alert("Te Dejaste Algún Campo en Blanco.");
+        }
+    }
+    else
+    {
+        if (DOM.id.value != null && DOM.name.value != "" && DOM.grupo.value != "")
+        {
+            crudCreate();
+            DOM.hidden.style.display = "none";
+        }
+        else
+        {
+            alert("Te Dejaste Algún Campo en Blanco.");
+        }
+    }
 }
 
 async function crudRead()
@@ -56,7 +89,13 @@ async function crudRead()
 
 function drawTable(data)
 {
+    let head = "<thead><tr><th>ID</th><th>Nombre</th><th>Grupo</th></tr></thead>";
+    let body = "";
+    data.map(alumno => {
+        body += "<tr><td>" + alumno.id + "</td><td>" + alumno.nombre + "</td><td>" + alumno.grupo + "</td></tr>";
+    });
 
+    table.innerHTML = head.concat(body);
 }
 
 function crudCreate()
@@ -73,7 +112,7 @@ function crudCreate()
         },
     }).then(res => res.json())
     .catch(error => resultError.innerHTML = "Error al Crear: " + error)
-    .then(response => result2.innerHTML = "Se ha Creado el Alumno : " + JSON.stringify(response));
+    // .then(response => result2.innerHTML = "Se ha Creado el Alumno : " + JSON.stringify(response));
 }
 
 function crudUpdate(id)
@@ -90,7 +129,7 @@ function crudUpdate(id)
         },
     }).then(res => res.json())
     .catch(error => resultError.innerHTML = "Error al Actualizar: " + error)
-    .then( response => result3.innerHTML = "Se ha Actualizado el Usaurio: " + response)
+    // .then( response => result3.innerHTML = "Se ha Actualizado el Usaurio: " + response)
 }
 
 function crudDelete(id)
@@ -99,6 +138,6 @@ function crudDelete(id)
         method: "DELETE"
         
     }).then(res => res.json)
-    .catch(error => resultError.innerHTML = "Error al Intentar Eliminar: " + error)
-    .then(respuesta => result4.innerHTML = "Se ha Eliminado el Alumno.")
+    .catch(error => resultError.innerHTML = "Error al Intentar Eliminar. Parece que esa ID de Alumno no Existe." + error)
+    // .then(respuesta => result4.innerHTML = "Se ha Eliminado el Alumno.")
 }
