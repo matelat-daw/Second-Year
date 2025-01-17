@@ -12,6 +12,11 @@
     <br><br>
     <button onclick="crudRead()">Ver Lista de Alumnos</button>
     <br><br>
+    <div id="userData">
+        <table id="table">
+            
+        </table>
+    </div>
     <div>
         <form method="post" onsubmit="checkForm(event)">
             <input id="id" type="text">
@@ -22,8 +27,6 @@
             <br><br>
             <select id="grupo">
                 <option value="">Selecciona un Grupo</option>
-                <!-- <option value="A">Grupo A</option>
-                <option value="B">Grupo B</option> -->
             </select>
             <label for="grupo"> Grupo</label>
             <br><br>

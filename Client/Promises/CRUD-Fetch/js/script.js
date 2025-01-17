@@ -4,6 +4,7 @@ const DOM = {
     result3: document.getElementById("result3"),
     result4: document.getElementById("result4"),
     resultError: document.getElementById("resultError"),
+    table: document.getElementById("table"),
     name: document.getElementById("name"),
     grupo: document.getElementById("grupo"),
     hidden: document.getElementById("hidden")
@@ -19,12 +20,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function populateSelect(options)
 {
-    options.forEach(item, i => {
-        console.log(item);
-        let option = createElement("option");
-        option.value = item[i].grupo;
+    options.map(grupo => {
+        let option = document.createElement("option");
+        option.text = grupo.grupo;
+        option.value = grupo.grupo;
         DOM.grupo.add(option);
-    });
+      });
 }
 
 function unhide()
@@ -47,10 +48,15 @@ function checkForm(e)
     return false;
 }
 
-function crudRead()
+async function crudRead()
 {
-    fetch("http://localhost:3000/alumnos").then(respuesta => respuesta.json())
-                                        .then(jsonData => result.innerHTML = JSON.stringify(jsonData));
+    await fetch("http://localhost:3000/alumnos").then(respuesta => respuesta.json())
+                                        .then(jsonData => drawTable(jsonData));
+}
+
+function drawTable(data)
+{
+
 }
 
 function crudCreate()
