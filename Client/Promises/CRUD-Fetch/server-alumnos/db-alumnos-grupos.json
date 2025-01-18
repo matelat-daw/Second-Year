@@ -1,24 +1,14 @@
 {
   "alumnos": [
     {
-      "id": 3,
-      "grupo": "A",
-      "nombre": "Juana"
-    },
-    {
       "nombre": "César Matelat",
       "grupo": "B",
       "id": 6
     },
     {
-      "nombre": "Otro",
+      "nombre": "Otro Más",
       "grupo": "B",
       "id": 7
-    },
-    {
-      "nombre": "Pepepo",
-      "grupo": "A",
-      "id": 8
     },
     {
       "nombre": "Osvaldo Borneo",
@@ -29,6 +19,16 @@
       "nombre": "Dale Caña",
       "grupo": "B",
       "id": 10
+    },
+    {
+      "nombre": "Pepe Gómez",
+      "grupo": "A",
+      "id": 11
+    },
+    {
+      "nombre": "Juán Pepepo",
+      "grupo": "A",
+      "id": 12
     }
   ],
   "grupos": [
