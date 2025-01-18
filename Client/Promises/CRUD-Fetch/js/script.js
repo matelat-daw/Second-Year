@@ -1,8 +1,5 @@
 const DOM = {
-    table: document.getElementById("table"),
-    create: document.getElementById("create"),
-    update: document.getElementById("update"),
-    delete: document.getElementById("delete"),
+    tableBody: document.getElementById("tableBody"),
     id: document.getElementById("id"),
     nombre: document.getElementById("nombre"),
     grupo: document.getElementById("grupo"),
@@ -26,15 +23,15 @@ function populateSelect(options) // Rellena las Opciones del Select al Cargar la
 {
     options.map(grupo => {
         let option = document.createElement("option"); // Creo una Option para el Select.
-        option.text = "Grupo: " + grupo.grupo; // Le Asigno el Grupo al Texto para Mostrar.
-        option.value = grupo.grupo; // Asigno al Valor de Option el Grupo.
-        DOM.grupo.add(option); // Agrego el Option al Select con ID grupo.
+        option.text = "Grupo: " + grupo.grupo; // Asigno el Texto para Mostrar.
+        option.value = grupo.grupo; // Asigno al Valor.
+        DOM.grupo.add(option); // Agrego la Option al Select con ID grupo.
       });
 }
 
-function checkForm(e) // Al Pulsar Cualquier de los Botónes Llama a este Método y le Pasa el Evento.
+function checkForm() // Al Pulsar el Botón Agregar Alumno Llama a este Método.
 {
-    if (DOM.id.value == "") // Verifico los Campos del Formulario, Si la ID Está Vacia.
+    if (DOM.id.value == "") // Verifico el Campo ID del Formulario, Si Está Vacio.
     {
         if (DOM.nombre.value != "" && DOM.grupo.value != "") //  Verifico si los Campos Nombre y Grupo Tienen Datos
         {
@@ -47,26 +44,25 @@ function checkForm(e) // Al Pulsar Cualquier de los Botónes Llama a este Métod
     }
     else // Si No.
     {
-        toast(1, "Crear Alumno:", "Para Crear un Alumno Deja el Campo ID en Blanco. Para Actualizar los Datos de un Alumno Pulsa en el Botón Actualizar Alumno. Gracias"); // Mensaje de Error.
+        toast(1, "Crear Alumno:", "Para Crear un Alumno Deja el Campo ID en Blanco. Para Actualizar los Datos de un Alumno Pulsa en el Botón Actualizar. Gracias"); // Mensaje de Error.
     }
 }
 
 async function crudRead()
 {
     await fetch("http://localhost:3000/alumnos").then(respuesta => respuesta.json())
-                                                .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error" + respuesta))
-                                                .then(jsonData => drawTable(jsonData)); // Después de Leer los Datos del Servidor, Llamo a la función drawTable, Pasandole por Parametro los Datos.
+            .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error" + respuesta))
+            .then(jsonData => drawTable(jsonData)); // Después de Leer los Datos del Servidor, Llamo a la función drawTable, Pasandole por Parametro los Datos.
 }
 
 function drawTable(data) // Dibuja la Tabla con los Datos del Servidor.
 {
-    let head = "<thead><tr><th>ID</th><th>Nombre</th><th>Grupo</th><th>Acciones</th></tr></thead>";
-    let body = "";
+    let lista = "";
     data.map(alumno => {
-        body += `<tr><td> ${alumno.id} </td><td> ${alumno.nombre} </td><td> ${alumno.grupo} </td><td><input id="update" type="button" onclick="populateForm(${alumno.id}, '${alumno.nombre}', '${alumno.grupo}')" value="Actulizar Alumno" class="btn btn-primary">&nbsp;<input id="delete" type="button" onclick="deleteAlumno('Se Eliminara un Alumno', 'Estás Seguro que Quieres Elimiar el Alumno ${alumno.nombre} con ID ${alumno.id}', ${alumno.id})" value="Eliminar Alumno" class="btn btn-danger"></td></tr>`;
+        lista += `<tr><td> ${alumno.id} </td><td> ${alumno.nombre} </td><td> ${alumno.grupo} </td><td><input id="update" type="button" onclick="populateForm(${alumno.id}, '${alumno.nombre}', '${alumno.grupo}')" value="Actualizar" class="btn btn-primary">&nbsp;<input id="delete" type="button" onclick="deleteAlumno('Eliminar Alumno', 'Estás Seguro que Quieres Elimiar el Alumno ${alumno.nombre} con ID ${alumno.id}', ${alumno.id})" value="Eliminar" class="btn btn-danger"></td></tr>`;
     });
 
-    table.innerHTML = head.concat(body);
+    tableBody.innerHTML = lista;
 }
 
 function populateForm(id, nombre, grupo)
@@ -104,19 +100,26 @@ function crudCreate()
 
 function crudUpdate(id)
 {
-    datosUpdate = {
-        nombre: DOM.nombre.value,
-        grupo: DOM.grupo.value
+    if (DOM.nombre.value != "" && DOM.grupo.value != "")
+    {
+        datosUpdate = {
+            nombre: DOM.nombre.value,
+            grupo: DOM.grupo.value
+        }
+        fetch("http://localhost:3000/alumnos/" + id, {
+            method: "PATCH",
+            body: JSON.stringify(datosUpdate),
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(res => res.json())
+        .catch(error => toast(2, "Error al Actualizar:", "Parece que No Hay Conexión con el Servidor. " + error))
+        .then(responce => formClean());
     }
-    fetch("http://localhost:3000/alumnos/" + id, {
-        method: "PATCH",
-        body: JSON.stringify(datosUpdate),
-        headers: {
-            "Content-Type": "application/json"
-        },
-    }).then(res => res.json())
-    .catch(error => toast(2, "Error al Actualizar:", "Parece que No Hay Conexión con el Servidor. " + error))
-    .then(responce => formClean());
+    else
+    {
+        toast(1, "Faltan Datos:", "¿Te Dejaste Algún Campo en Blanco? Verifica que Hayas Rellenado Todos los Datos"); // Mensaje de Error.
+    }
 }
 
 function crudDelete(id)

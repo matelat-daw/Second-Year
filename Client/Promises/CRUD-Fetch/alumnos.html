@@ -57,25 +57,40 @@
             <a href="index.html"><span>Inicio</span></a>&nbsp;&nbsp;<span class="here">Base de Dartos de Alumnos</span>&nbsp;&nbsp;<span>Quienes Somos</span>&nbsp;&nbsp;<span>Misión, Visión y Valores</span>&nbsp;&nbsp;<span>Contacto</span>
         </div>
     </nav>
-    <!-- <input id="create" type="button" onclick="checkForm(event)" value="Agregar Alumno" class="btn btn-success btn-lg"> -->
-    <input id="create" type="button" onclick="checkForm()" value="Agregar Alumno" class="btn btn-success btn-lg">
+    <input type="button" onclick="checkForm()" value="Agregar Alumno" class="btn btn-success btn-lg">
     <hr>
     <div id="userData">
-        <table id="table" class="table">
+        <table class="table">
+            <thead><tr><th>ID</th><th>Nombre</th><th>Grupo</th><th>Acciones</th></tr></thead>
+            <tbody id="tableBody"></tbody>
         </table>
     </div>
-    <br><br>
+    <h4>Para Agregar un Alumno Rellena Solo los Campos Nombre y Grupo y Haz Click en el Botón Agregar Alumno</h4>
+    <br>
     <div class="form">
-        <input id="id" type="number">
-        <label for="id"> ID</label>
-        <br><br>
-        <input id="nombre" type="text">
-        <label for="nombre"> Nombre</label>
-        <br><br>
-        <select id="grupo">
-            <option value="">Selecciona un Grupo</option>
-        </select>
-        <label for="grupo"> Grupo</label>
+        <form>
+            <div>
+                <label for="id"> ID</label>
+                <br>
+                <input id="id" type="text" readonly>
+            </div>
+            <br>
+            <div>
+                <label for="nombre"> Nombre</label>
+                <br>
+                <input id="nombre" type="text" required>
+                <span id="name" class="span">Rellena este Campo Por Favor.</span>
+            </div>
+            <br>
+            <div>
+                <label for="grupo"> Grupo</label>
+                <br>
+                <select id="grupo" required>
+                    <option value="">Selecciona un Grupo</option>
+                </select>
+                <span id="group" class="span">Rellena este Campo Por Favor.</span>
+            </div>
+        </form>
         <br><br>
         <div id="updateIt">
             <input type="button" value="Actualizar" onclick="crudUpdate(DOM.id.value)" class="btn btn-primary btn-lg">

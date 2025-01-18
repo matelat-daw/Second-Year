@@ -1,4 +1,4 @@
-*
+body
 {
     margin: 5px;
 }
@@ -46,4 +46,16 @@ img
 .form
 {
     margin-left: 25%;
+}
+
+.span
+{
+    display: none;
+}
+
+input:invalid + #name, select:invalid + #group
+{
+    display: block;
+    font-size: small;
+    color: salmon;
 }

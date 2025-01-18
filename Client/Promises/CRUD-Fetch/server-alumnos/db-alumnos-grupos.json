@@ -1,29 +1,19 @@
 {
   "alumnos": [
     {
-      "nombre": "César Matelat",
+      "nombre": "Ana Beléna",
       "grupo": "A",
-      "id": 6
+      "id": 19
     },
     {
-      "nombre": "Osvaldo Borneo",
-      "grupo": "A",
-      "id": 9
-    },
-    {
-      "nombre": "Pepe Gómez",
+      "nombre": "Diego Maradona",
       "grupo": "B",
-      "id": 11
+      "id": 21
     },
     {
-      "nombre": "Juán Pepepo",
-      "grupo": "A",
-      "id": 12
-    },
-    {
-      "nombre": "Pedro Suárez",
-      "grupo": "A",
-      "id": 14
+      "nombre": "Otro Alumno",
+      "grupo": "B",
+      "id": 22
     }
   ],
   "grupos": [
