@@ -1,28 +1,13 @@
 {
   "alumnos": [
     {
-      "id": 1,
-      "grupo": "A",
-      "nombre": "Juan"
-    },
-    {
-      "id": 2,
-      "grupo": "A",
-      "nombre": "Eva"
-    },
-    {
       "id": 3,
-      "grupo": "B",
-      "nombre": "Ana"
-    },
-    {
-      "id": 5,
-      "grupo": "B",
-      "nombre": "Antonio"
-    },
-    {
-      "nombre": "César",
       "grupo": "A",
+      "nombre": "Juana"
+    },
+    {
+      "nombre": "César Matelat",
+      "grupo": "B",
       "id": 6
     },
     {
@@ -34,6 +19,16 @@
       "nombre": "Pepepo",
       "grupo": "A",
       "id": 8
+    },
+    {
+      "nombre": "Osvaldo Borneo",
+      "grupo": "A",
+      "id": 9
+    },
+    {
+      "nombre": "Dale Caña",
+      "grupo": "B",
+      "id": 10
     }
   ],
   "grupos": [
