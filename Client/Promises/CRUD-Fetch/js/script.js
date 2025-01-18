@@ -15,12 +15,12 @@ const DOM = {
     update: document.getElementById("updateIt")
 }
 
-// document.addEventListener("DOMContentLoaded", () => { // Listener que es Llamado Cuando se Carga el DOM
+document.addEventListener("DOMContentLoaded", () => { // Listener que es Llamado Cuando se Carga el DOM
     crudRead();
     fetch("http://localhost:3000/grupos").then(respuesta => respuesta.json())
         .then(grupos => populateSelect(grupos))
         .catch(error => toast(2, "ERROR:", "Ha Ocurrido el Error: " + error)); // Este fetch Solicita el Objeto Grupos al Servidor, y si Todo es Correcto le pasa el Objeto con los Grupos a la Función populateSelect(grupos).
-//   });
+  });
 
 function populateSelect(options) // Rellena las Opciones del Select al Cargar la Página, Recibe el Objeto con los Grupos.
 {
@@ -34,26 +34,6 @@ function populateSelect(options) // Rellena las Opciones del Select al Cargar la
 
 function checkForm(e) // Al Pulsar Cualquier de los Botónes Llama a este Método y le Pasa el Evento.
 {
-    // if (e.target == DOM.create) // Si se Pulsó el Botón Create.
-    // {
-    //     verify("create"); // Llama al Método Verify Pasandole Como Parámetro la string create.
-    // }
-    // else if (e.target == DOM.update) // Si no, Si El botón Pulsado es Update.
-    // {
-    //     verify("update"); // Llama al Método Verify Pasandole Como Parámetro la string update.
-    // }
-    // else // Si no se Pulso Ninguno de los Botones Anteriores, se Pulso Delete.
-    // {
-    //     if (DOM.id.value != "") // Verifico si el Campo ID NO está Vacio.
-    //     {
-    //         deleteAlumno("Se Eliminara un Alumno:", "Estas Seguro que Quieres Eliminar el Usuario con ID: " + DOM.id.value); // Muestra el Diálogo de Confirmación Para Eliminar, se Puede Cancelar o Acaptar.
-    //     }
-    //     else // Si el Campo Está Vacio.
-    //     {
-    //         toast(1, "Falta la ID:", "Para Eliminar un Alumno Debes Pasar su ID. Verifica que Hayas Rellenado el Campo ID. Gracias"); // Mensaje de Errorr.
-    //     }
-    // }
-
     if (DOM.id.value == "") // Verifico los Campos del Formulario, Si la ID Está Vacia.
     {
         if (DOM.nombre.value != "" && DOM.grupo.value != "") //  Verifico si los Campos Nombre y Grupo Tienen Datos
@@ -67,42 +47,9 @@ function checkForm(e) // Al Pulsar Cualquier de los Botónes Llama a este Métod
     }
     else // Si No.
     {
-        toast(1, "Actualizar Datos:", "Escribiste una ID. Para Actualizar los Datos de un Alumno Pulsa en el Botón Actualizar Alumno. Gracias"); // Mensaje de Error.
+        toast(1, "Crear Alumno:", "Para Crear un Alumno Deja el Campo ID en Blanco. Para Actualizar los Datos de un Alumno Pulsa en el Botón Actualizar Alumno. Gracias"); // Mensaje de Error.
     }
 }
-
-// function verify(what) // Método para Verificar si se Pulsó Create o Update, Recibe como Parámetro una String
-// {
-//     if (what == "create") // Si la String Recivida es create.
-//     {
-//         if (DOM.id.value == "") // Verifico los Campos del Formulario, Si la ID Está Vacia.
-//         {
-//             if (DOM.nombre.value != "" && DOM.grupo.value != "") //  Verifico si los Campos Nombre y Grupo Tienen Datos
-//             {
-//                 crudCreate(); // Llamo al Método crudCreate().
-//             }
-//             else // Si No.
-//             {
-//                 toast(1, "Faltan Datos:", "¿Te Dejaste Algún Campo en Blanco? Verifica que Hayas Rellenado Todos los Datos"); // Mensaje de Error.
-//             }
-//         }
-//         else // Si No.
-//         {
-//             toast(1, "Actualizas Datos:", "Escribiste una ID, ¿Tal Vez Estés Intentando Actualizar un Alumno? Verifica si Has Pulsado el Botón Correcto. Gracias"); // Mensaje de Error.
-//         }
-//     }
-//     else // Si la String Recibida no es create(es update).
-//     {
-//         if (DOM.id.value != "" && DOM.nombre.value != "" && DOM.grupo.value != "") // Verifico los Campos del Formulario, Si Todos los Campos Tienen Datos.
-//         {
-//             crudUpdate(DOM.id.value); // Llamo al Método crudUpdate, Pasandole Como Parametro la ID del Campo id del Formulario.
-//         }
-//         else // Si No.
-//         {
-//             toast(1, "Faltan Datos:", "¿Te Dejaste Algún Campo en Blanco?. Verifica que Hayas Rellenado Todos los Datos. Gracias"); // Mensaje de Error.
-//         }
-//     }
-// }
 
 async function crudRead()
 {
