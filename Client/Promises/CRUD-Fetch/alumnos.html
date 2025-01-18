@@ -51,13 +51,14 @@
   </div>
 </div>
     <h1>CRUD de Alumnos con Server Local</h1>
-    <br><br>
+    <br>
     <nav>
         <div class="tabs">
             <a href="index.html"><span>Inicio</span></a>&nbsp;&nbsp;<span class="here">Base de Dartos de Alumnos</span>&nbsp;&nbsp;<span>Quienes Somos</span>&nbsp;&nbsp;<span>Misión, Visión y Valores</span>&nbsp;&nbsp;<span>Contacto</span>
         </div>
     </nav>
-    <input id="create" type="button" onclick="checkForm(event)" value="Agregar Alumno" class="btn btn-success btn-lg">
+    <!-- <input id="create" type="button" onclick="checkForm(event)" value="Agregar Alumno" class="btn btn-success btn-lg"> -->
+    <input id="create" type="button" onclick="checkForm()" value="Agregar Alumno" class="btn btn-success btn-lg">
     <hr>
     <div id="userData">
         <table id="table" class="table">
@@ -76,7 +77,10 @@
         </select>
         <label for="grupo"> Grupo</label>
         <br><br>
-        <input id="updateIt" type="button" value="Actualizar" onclick="crudUpdate(DOM.id.value)" class="btn btn-secondary btn-lg">
+        <div id="updateIt">
+            <input type="button" value="Actualizar" onclick="crudUpdate(DOM.id.value)" class="btn btn-primary btn-lg">
+            <input type="button" value="Cancelar" onclick="formClean()" class="btn btn-info btn-lg">
+        </div>
     </div>
     <br>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

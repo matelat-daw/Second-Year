@@ -34,59 +34,75 @@ function populateSelect(options) // Rellena las Opciones del Select al Cargar la
 
 function checkForm(e) // Al Pulsar Cualquier de los Botónes Llama a este Método y le Pasa el Evento.
 {
-    if (e.target == DOM.create) // Si se Pulsó el Botón Create.
+    // if (e.target == DOM.create) // Si se Pulsó el Botón Create.
+    // {
+    //     verify("create"); // Llama al Método Verify Pasandole Como Parámetro la string create.
+    // }
+    // else if (e.target == DOM.update) // Si no, Si El botón Pulsado es Update.
+    // {
+    //     verify("update"); // Llama al Método Verify Pasandole Como Parámetro la string update.
+    // }
+    // else // Si no se Pulso Ninguno de los Botones Anteriores, se Pulso Delete.
+    // {
+    //     if (DOM.id.value != "") // Verifico si el Campo ID NO está Vacio.
+    //     {
+    //         deleteAlumno("Se Eliminara un Alumno:", "Estas Seguro que Quieres Eliminar el Usuario con ID: " + DOM.id.value); // Muestra el Diálogo de Confirmación Para Eliminar, se Puede Cancelar o Acaptar.
+    //     }
+    //     else // Si el Campo Está Vacio.
+    //     {
+    //         toast(1, "Falta la ID:", "Para Eliminar un Alumno Debes Pasar su ID. Verifica que Hayas Rellenado el Campo ID. Gracias"); // Mensaje de Errorr.
+    //     }
+    // }
+
+    if (DOM.id.value == "") // Verifico los Campos del Formulario, Si la ID Está Vacia.
     {
-        verify("create"); // Llama al Método Verify Pasandole Como Parámetro la string create.
-    }
-    else if (e.target == DOM.update) // Si no, Si El botón Pulsado es Update.
-    {
-        verify("update"); // Llama al Método Verify Pasandole Como Parámetro la string update.
-    }
-    else // Si no se Pulso Ninguno de los Botones Anteriores, se Pulso Delete.
-    {
-        if (DOM.id.value != "") // Verifico si el Campo ID NO está Vacio.
+        if (DOM.nombre.value != "" && DOM.grupo.value != "") //  Verifico si los Campos Nombre y Grupo Tienen Datos
         {
-            deleteAlumno("Se Eliminara un Alumno:", "Estas Seguro que Quieres Eliminar el Usuario con ID: " + DOM.id.value); // Muestra el Diálogo de Confirmación Para Eliminar, se Puede Cancelar o Acaptar.
+            crudCreate(); // Llamo al Método crudCreate().
         }
-        else // Si el Campo Está Vacio.
+        else // Si No.
         {
-            toast(1, "Faltan la ID:", "Para Eliminar un Alumno Debes Pasar su ID. Verifica que Hayas Rellenado el Campo ID. Gracias"); // Mensaje de Errorr.
+            toast(1, "Faltan Datos:", "¿Te Dejaste Algún Campo en Blanco? Verifica que Hayas Rellenado Todos los Datos"); // Mensaje de Error.
         }
+    }
+    else // Si No.
+    {
+        toast(1, "Actualizar Datos:", "Escribiste una ID. Para Actualizar los Datos de un Alumno Pulsa en el Botón Actualizar Alumno. Gracias"); // Mensaje de Error.
     }
 }
 
-function verify(what) // Método para Verificar si se Pulsó Create o Update, Recibe como Parámetro una String
-{
-    if (what == "create") // Si la String Recivida es create.
-    {
-        if (DOM.id.value == "") // Verifico los Campos del Formulario, Si la ID Está Vacia.
-        {
-            if (DOM.nombre.value != "" && DOM.grupo.value != "") //  Verifico si los Campos Nombre y Grupo Tienen Datos
-            {
-                crudCreate(); // Llamo al Método crudCreate().
-            }
-            else // Si No.
-            {
-                toast(1, "Falta Datos:", "¿Te Dejaste Algún Campo en Blanco? Verifica que Hayas Rellenado Todos los Datos"); // Mensaje de Error.
-            }
-        }
-        else // Si No.
-        {
-            toast(1, "Actualizas Datos:", "Escribiste una ID, ¿Tal Vez Estés Intentando Actualizar un Alumno? Verifica si Has Pulsado el Botón Correcto. Gracias"); // Mensaje de Error.
-        }
-    }
-    else // Si la String Recibida no es create(es update).
-    {
-        if (DOM.id.value != "" && DOM.nombre.value != "" && DOM.grupo.value != "") // Verifico los Campos del Formulario, Si Todos los Campos Tienen Datos.
-        {
-            crudUpdate(DOM.id.value); // Llamo al Método crudUpdate, Pasandole Como Parametro la ID del Campo id del Formulario.
-        }
-        else // Si No.
-        {
-            toast(1, "Faltan Datos:", "¿Te Dejaste Algún Campo en Blanco?. Verifica que Hayas Rellenado Todos los Datos. Gracias"); // Mensaje de Error.
-        }
-    }
-}
+// function verify(what) // Método para Verificar si se Pulsó Create o Update, Recibe como Parámetro una String
+// {
+//     if (what == "create") // Si la String Recivida es create.
+//     {
+//         if (DOM.id.value == "") // Verifico los Campos del Formulario, Si la ID Está Vacia.
+//         {
+//             if (DOM.nombre.value != "" && DOM.grupo.value != "") //  Verifico si los Campos Nombre y Grupo Tienen Datos
+//             {
+//                 crudCreate(); // Llamo al Método crudCreate().
+//             }
+//             else // Si No.
+//             {
+//                 toast(1, "Faltan Datos:", "¿Te Dejaste Algún Campo en Blanco? Verifica que Hayas Rellenado Todos los Datos"); // Mensaje de Error.
+//             }
+//         }
+//         else // Si No.
+//         {
+//             toast(1, "Actualizas Datos:", "Escribiste una ID, ¿Tal Vez Estés Intentando Actualizar un Alumno? Verifica si Has Pulsado el Botón Correcto. Gracias"); // Mensaje de Error.
+//         }
+//     }
+//     else // Si la String Recibida no es create(es update).
+//     {
+//         if (DOM.id.value != "" && DOM.nombre.value != "" && DOM.grupo.value != "") // Verifico los Campos del Formulario, Si Todos los Campos Tienen Datos.
+//         {
+//             crudUpdate(DOM.id.value); // Llamo al Método crudUpdate, Pasandole Como Parametro la ID del Campo id del Formulario.
+//         }
+//         else // Si No.
+//         {
+//             toast(1, "Faltan Datos:", "¿Te Dejaste Algún Campo en Blanco?. Verifica que Hayas Rellenado Todos los Datos. Gracias"); // Mensaje de Error.
+//         }
+//     }
+// }
 
 async function crudRead()
 {
@@ -100,7 +116,7 @@ function drawTable(data) // Dibuja la Tabla con los Datos del Servidor.
     let head = "<thead><tr><th>ID</th><th>Nombre</th><th>Grupo</th><th>Acciones</th></tr></thead>";
     let body = "";
     data.map(alumno => {
-        body += `<tr><td> ${alumno.id} </td><td> ${alumno.nombre} </td><td> ${alumno.grupo} </td><td><input id="update" type="button" onclick="populateForm(${alumno.id}, '${alumno.nombre}', '${alumno.grupo}')" value="Actulizar Alumno" class="btn btn-primary">&nbsp;<input id="delete" type="button" onclick="crudDelete(${alumno.id})" value="Eliminar Alumno" class="btn btn-danger"></td></tr>`;
+        body += `<tr><td> ${alumno.id} </td><td> ${alumno.nombre} </td><td> ${alumno.grupo} </td><td><input id="update" type="button" onclick="populateForm(${alumno.id}, '${alumno.nombre}', '${alumno.grupo}')" value="Actulizar Alumno" class="btn btn-primary">&nbsp;<input id="delete" type="button" onclick="deleteAlumno('Se Eliminara un Alumno', 'Estás Seguro que Quieres Elimiar el Alumno ${alumno.nombre} con ID ${alumno.id}', ${alumno.id})" value="Eliminar Alumno" class="btn btn-danger"></td></tr>`;
     });
 
     table.innerHTML = head.concat(body);
@@ -119,6 +135,7 @@ function formClean()
     DOM.id.value = "";
     DOM.nombre.value = "";
     DOM.grupo.value = "";
+    DOM.update.style.display = "none";
 }
 
 function crudCreate()
@@ -135,7 +152,6 @@ function crudCreate()
         },
     }).then(res => res.json())
     .catch(error => toast(2, "", "Error al Crear: " + error))
-    // .then(response1 => toast(0, "Alumno Nuevo:", "Se Ha Agregado un Nuevo Alumno a la Base de Datos." + response1))
     .then(responce => formClean());
 }
 
@@ -152,9 +168,8 @@ function crudUpdate(id)
             "Content-Type": "application/json"
         },
     }).then(res => res.json())
-    .catch(error => resultError.innerHTML = "Error al Actualizar: " + error)
+    .catch(error => toast(2, "Error al Actualizar:", "Parece que No Hay Conexión con el Servidor. " + error))
     .then(responce => formClean());
-    // .then( response => console.log("Se ha Actualizado el Usaurio: " + response))
 }
 
 function crudDelete(id)
@@ -163,9 +178,8 @@ function crudDelete(id)
         method: "DELETE"
         
     }).then(res => res.json)
-    .catch(error => toast(2, "La ID No Existe", "Error al Intentar Eliminar. Parece que esa ID de Alumno no es Valida."))
-    // .catch(error => resultError.innerHTML = "Error al Intentar Eliminar. Parece que esa ID de Alumno no Existe." + error)
-    .then(respuesta => toast(0, "Alumno Eliminado:", "Se Ha Eliminado el Alumno con ID: " + id))
+    .catch(error => toast(2, "Error al Eliminar", "Parece que No Hay Conexión con el Servidor. " + error))
+    .then(responce => formClean())
 }
 
 function toast(warn, ttl, msg) // Función para mostrar el Dialogo con los mensajes de alerta, recibe, Código, Título y Mensaje.
@@ -190,8 +204,9 @@ function toast(warn, ttl, msg) // Función para mostrar el Dialogo con los mensa
     DOM.alerta.click(); // Lo hago aparecer pulsando el botón con ID alerta.
 }
 
-function deleteAlumno(ttl, msg)
+function deleteAlumno(ttl, msg, id)
 {
+    DOM.id.value = id;
     DOM.titleDelete.innerHTML = ttl; // Muestro los mensajes en el diálogo.
     DOM.messageDelete.innerHTML = msg;
     DOM.alertaDelete.click(); // Lo hago aparecer pulsando el botón con ID alertaDelete.

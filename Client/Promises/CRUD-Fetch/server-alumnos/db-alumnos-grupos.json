@@ -2,13 +2,8 @@
   "alumnos": [
     {
       "nombre": "César Matelat",
-      "grupo": "B",
+      "grupo": "A",
       "id": 6
-    },
-    {
-      "nombre": "Otro Más",
-      "grupo": "B",
-      "id": 7
     },
     {
       "nombre": "Osvaldo Borneo",
@@ -16,19 +11,24 @@
       "id": 9
     },
     {
-      "nombre": "Dale Caña",
-      "grupo": "B",
-      "id": 10
-    },
-    {
       "nombre": "Pepe Gómez",
-      "grupo": "A",
+      "grupo": "B",
       "id": 11
     },
     {
       "nombre": "Juán Pepepo",
       "grupo": "A",
       "id": 12
+    },
+    {
+      "nombre": "Opera Mostro",
+      "grupo": "B",
+      "id": 13
+    },
+    {
+      "nombre": "Pedro Suárez",
+      "grupo": "A",
+      "id": 14
     }
   ],
   "grupos": [
