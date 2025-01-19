@@ -9,18 +9,21 @@
 <!--<ul>
     <li th:each="i: ${#numbers.sequence(1, animal.age)}"><a href="/create" th:text="${i} + ') Felicidades ' + ${animal.name}"></a></li>
 </ul>-->
+<button  class="btn btn-success" onclick="window.open('/create')">Agrega Animal</button>
 <table>
     <tr>
         <th>ID</th>
         <th>Nombre</th>
         <th>Vida Media</th>
         <th>Está Extinguido</th>
+        <th>Acciones</th>
     </tr>
     <tr th:each="a: ${animal}">
         <td th:text="${a.id}"></td>
         <td th:text="${a.name}"></td>
         <td th:text="${a.age}"></td>
         <td th:text="${a.extinct}"></td>
+        <td><button class="btn btn-secondary">Actualizar</button>&nbsp;&nbsp;<button class="btn btn-danger">Eliminar</button></td>
     </tr>
 </table>
 <footer th:replace="~{../fragments/footer::footer}"></footer>
