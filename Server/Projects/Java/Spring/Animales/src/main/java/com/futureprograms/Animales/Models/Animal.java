@@ -1,7 +1,6 @@
 package com.futureprograms.Animales.Models;
 
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
 
@@ -15,7 +14,16 @@ public class Animal {
     private String averageLife;
     private Boolean isExtinct;
 
-    @NotBlank
+    public Animal(){}
+
+    public Animal(String id, String name, String age, boolean isExticnt)
+    {
+        setId(id);
+        setName(name);
+        setAge(age);
+        setExtinct(isExticnt);
+    }
+
     public String getId() {
         return id;
     }
@@ -24,7 +32,7 @@ public class Animal {
         this.id = id;
     }
 
-    public String getName() {
+     public String getName() {
         return name;
     }
 

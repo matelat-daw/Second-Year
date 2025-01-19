@@ -7,21 +7,25 @@ import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class MainController {
 
-    /*private final AnimalService as;
+    private final AnimalService as;
 
     public MainController(AnimalService as)
     {
         this.as = as;
-    }*/
+    }
 
     @GetMapping("/")
     public String index(Model model)
     {
         model.addAttribute("title", "Página Pricipal");
-        return "index";
+        List<Animal> animales = as.listaAnimales();
+        /*return "index";*/
+        return "result";
     }
 
     @GetMapping("/create")
@@ -33,8 +37,9 @@ public class MainController {
 
     @PostMapping("/create")
     public String createSubmit(@Validated @ModelAttribute("animal") Animal animal, Model model) {
+        as.animalCreate(animal);
         model.addAttribute("title", "Página para Ver los Animales");
-        model.addAttribute("animal", animal);
+        /*model.addAttribute("animal", animal);*/
         return "result";
     }
 }

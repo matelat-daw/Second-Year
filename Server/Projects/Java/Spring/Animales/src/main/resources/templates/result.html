@@ -4,13 +4,10 @@
 <br><br><br>
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
-<h1 th:text="'Hoy el Animal ' + ${animal.name} + ' Cumple ' + ${animal.age} + ' Años'"></h1>
+<!--<h1 th:text="'El Animal ' + ${animal.getName()} + ' Vien en Promedio ' + ${animal.getAge()} + ' Años'"></h1>-->
 <br><br>
-<!--<ul>
-    <li th:each="i: ${#numbers.sequence(1, animal.age)}"><a href="/create" th:text="${i} + ') Felicidades ' + ${animal.name}"></a></li>
-</ul>-->
 <button  class="btn btn-success" onclick="window.open('/create')">Agrega Animal</button>
-<table>
+<table class="table">
     <tr>
         <th>ID</th>
         <th>Nombre</th>
@@ -18,12 +15,14 @@
         <th>Está Extinguido</th>
         <th>Acciones</th>
     </tr>
-    <tr th:each="a: ${animal}">
-        <td th:text="${a.id}"></td>
-        <td th:text="${a.name}"></td>
-        <td th:text="${a.age}"></td>
-        <td th:text="${a.extinct}"></td>
-        <td><button class="btn btn-secondary">Actualizar</button>&nbsp;&nbsp;<button class="btn btn-danger">Eliminar</button></td>
-    </tr>
+    <th:block th:each="a: ${animal}">
+        <tr>
+            <td th:text="${a.getId()}"></td>
+            <td th:text="${a.getName()}"></td>
+            <td th:text="${a.getAge()}"></td>
+            <td th:text="${a.getExtinct()}"></td>
+            <td><button class="btn btn-secondary">Actualizar</button>&nbsp;&nbsp;<button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+    </th:block>
 </table>
 <footer th:replace="~{../fragments/footer::footer}"></footer>

@@ -1,16 +1,20 @@
 package com.futureprograms.Animales.Services;
 
 import com.futureprograms.Animales.Models.Animal;
+import org.springframework.stereotype.Service;
+import java.util.*;
 
-import java.util.List;
-
+@Service
 public class AnimalService {
-    private List<Animal> animales;
+    private static List<Animal> animales;
+    static {
+        animales = new ArrayList<>();
+        animales.add(new Animal("1", "perro", "15", false));
+    }
 
     public List<Animal> listaAnimales()
     {
-        List<Animal> animals = null;
-        return animals;
+        return animales;
     }
 
     public Animal animalId(int id)
@@ -21,7 +25,7 @@ public class AnimalService {
 
     public void animalCreate(Animal animal)
     {
-        animal = null;
+        animales.add(animal);
     }
 
     public Animal animalUpdate(int id)
