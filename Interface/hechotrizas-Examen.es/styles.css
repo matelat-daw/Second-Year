@@ -1,0 +1,198 @@
+/* Estilo general */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 10px;
+  line-height: 1.6;
+  color: #050;
+  background-color: #dfd;
+  display: grid;
+  grid-template-areas:
+    "head head head head"
+    "nav nav nav nav"
+    "aside main main main"
+    "footer footer footer footer";
+  grid-template-columns: 1fr 6fr;
+
+  width: 80%;
+
+  margin: 0 auto;
+  box-shadow: 2px 2px 10px #777;
+}
+
+/* Encabezado */
+header {
+  background-color: #050;
+  color: #fff;
+  text-align: center;
+  padding: 1rem 0;
+  grid-area: head;
+}
+
+header h1 {
+  margin: 0;
+}
+
+header p {
+  font-size: 16pt;
+}
+
+/* Barra de navegación */
+nav {
+  background-color: #4a4;
+  color: #fff;
+  grid-area: nav;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 1rem;
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  transition: background 0.3s;
+}
+
+nav a:hover {
+  background-color: #050;
+}
+
+/* Contenedor principal */
+
+/* Barra lateral */
+aside {
+  background-color: #aca;
+  grid-area: aside;
+}
+
+aside h2 {
+  margin-top: 0;
+}
+
+aside ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+  justify-content: space-around;
+}
+
+aside li {
+  margin: 0 1rem;
+  border: 1px solid #050;
+  margin: 1rem 0;
+  padding: 0 0.5rem;
+}
+
+aside a {
+  color: #050;
+  text-decoration: none;
+}
+
+aside a:hover {
+  text-decoration: underline;
+}
+
+/* Contenido principal */
+main {
+  flex: 3;
+  grid-area: main;
+}
+
+/* Sección de catálogo */
+section#catalogo {
+  margin-top: 1rem;
+}
+
+.lista-productos {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 1.5rem;
+  padding: 0.5rem;
+}
+
+.producto {
+  background-color: #fff;
+  border: 1px solid #4a4;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.producto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  height: 200px;
+}
+
+.producto h3 {
+  margin: 0.5rem 0;
+}
+
+.producto p {
+  font-weight: bold;
+  color: #000;
+}
+
+
+.producto .nombre {
+  font-weight: bold;
+}
+
+.producto .descripcion {
+  font-size: 10pt;
+}
+
+.producto .valoracion {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-around;
+}
+
+.producto .valoraciones {
+  font-size: 8pt;
+  color: #4a4;
+}
+
+/* Pie de página */
+footer {
+  background-color: #050;
+  color: #dfd;
+  padding: 1rem;
+  grid-area: footer;
+  font-size: 0.8rem;
+  display: flex;
+  flex-direction: column;
+
+}
+
+footer p {
+  margin: 0;
+}
+
+footer ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+footer > div > p
+{
+  display: flex;
+  justify-content: center;
+}

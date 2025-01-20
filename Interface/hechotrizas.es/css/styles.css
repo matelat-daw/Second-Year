@@ -1,6 +1,6 @@
 /* Estilo general */
 body {
-  font-family: 'Oswald', Arial, sans-serif;
+  font-family: 'Pridi', 'Sora', Arial, sans-serif;
   margin: 0;
   padding: 10px;
   line-height: 1.6;
@@ -199,6 +199,21 @@ footer ul {
   font-weight: normal;
 }
 
+.invert
+{
+  color: var(--color-texto);
+}
+
+.soraFont
+{
+  font-family: 'Sora';
+}
+
+.pridiFont
+{
+  font-family: 'Pridi';
+}
+
 @media screen and (min-width: 900px)
 {
     body
@@ -208,6 +223,7 @@ footer ul {
         "nav nav nav nav"
         "aside main main main"
         "footer footer footer footer";
+
     }
     aside ul
     {
