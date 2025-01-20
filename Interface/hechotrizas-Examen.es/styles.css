@@ -1,18 +1,17 @@
 /* Estilo general */
 body {
-  font-family: 'Oswald', Arial, sans-serif;
+  font-family: Arial, sans-serif;
   margin: 0;
   padding: 10px;
   line-height: 1.6;
-  background-color: var(--color-fondo);
+  color: #050;
+  background-color: #dfd;
   display: grid;
-    grid-template-areas:
+  grid-template-areas:
     "head head head head"
     "nav nav nav nav"
-    "aside aside aside aside"
-    "main main main main"
+    "aside main main main"
     "footer footer footer footer";
-
   grid-template-columns: 1fr 6fr;
 
   width: 80%;
@@ -23,8 +22,8 @@ body {
 
 /* Encabezado */
 header {
-  background-color: var(--color-header_back);
-  color: var(--color-header);
+  background-color: #050;
+  color: #fff;
   text-align: center;
   padding: 1rem 0;
   grid-area: head;
@@ -38,16 +37,10 @@ header p {
   font-size: 16pt;
 }
 
-.double
-{
-    font-size: 2em;
-    color: var(--color-texto);
-}
-
 /* Barra de navegación */
 nav {
-  background-color: var(--color-nav_back);
-  color: var(--color-header);
+  background-color: #4a4;
+  color: #fff;
   grid-area: nav;
 }
 
@@ -64,22 +57,21 @@ nav li {
 }
 
 nav a {
-  color: var(--color-header);
+  color: #fff;
   text-decoration: none;
   display: block;
   transition: background 0.3s;
 }
 
 nav a:hover {
-  background-color: var(--color-header_back);
+  background-color: #050;
 }
 
 /* Contenedor principal */
 
 /* Barra lateral */
 aside {
-  background-color: var(--color-aside_back);
-  color: var(--color-texto);
+  background-color: #aca;
   grid-area: aside;
 }
 
@@ -92,19 +84,20 @@ aside ul {
   margin: 0;
   padding: 0;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   padding: 0 0.5rem;
   justify-content: space-around;
 }
 
 aside li {
   margin: 0 1rem;
+  border: 1px solid #050;
   margin: 1rem 0;
   padding: 0 0.5rem;
 }
 
 aside a {
-  color: var(--color-texto);
+  color: #050;
   text-decoration: none;
 }
 
@@ -125,13 +118,13 @@ section#catalogo {
 
 .lista-productos {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 1.5rem;
   padding: 0.5rem;
 }
 
 .producto {
-  background-color: var(--color-header);
+  background-color: #fff;
   border: 1px solid #4a4;
   border-radius: 5px;
   padding: 1rem;
@@ -152,7 +145,7 @@ section#catalogo {
 
 .producto p {
   font-weight: bold;
-  color: var(--color-texto);
+  color: #000;
 }
 
 
@@ -172,13 +165,13 @@ section#catalogo {
 
 .producto .valoraciones {
   font-size: 8pt;
-  color: var(--color-nav_back);
+  color: #4a4;
 }
 
 /* Pie de página */
 footer {
-  background-color: var(--color-header_back);
-  color: var(--color-header);
+  background-color: #050;
+  color: #dfd;
   padding: 1rem;
   grid-area: footer;
   font-size: 0.8rem;
@@ -189,66 +182,11 @@ footer {
 
 footer p {
   margin: 0;
-  font-weight: bold;
 }
 
 footer ul {
   list-style-type: none;
-  margin: 0.2em;
+  margin: 0;
   padding: 0;
   font-weight: normal;
-}
-
-@media screen and (min-width: 900px)
-{
-    body
-    {
-        grid-template-areas:
-        "head head head head"
-        "nav nav nav nav"
-        "aside main main main"
-        "footer footer footer footer";
-    }
-    aside ul
-    {
-        flex-direction: column;
-    }
-
-    aside li
-    {
-        border: 1px solid var(--color-header_back);
-    }
-
-    .lista-productos
-    {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-    }
-
-    footer
-    {
-        padding: 1rem;
-        grid-area: footer;
-        font-size: 0.8rem;
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        .center
-        {
-            text-align: center;
-        }
-    }
-
-    footer ul>li
-    {
-        margin: .5em;
-    }
-}
-
-@media screen and (min-width: 1300px)
-{
-    .lista-productos
-    {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 1fr;
-    }
 }
