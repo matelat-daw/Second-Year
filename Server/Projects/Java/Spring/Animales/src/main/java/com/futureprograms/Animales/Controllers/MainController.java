@@ -24,6 +24,7 @@ public class MainController {
     {
         model.addAttribute("title", "Página Pricipal");
         List<Animal> animales = as.listaAnimales();
+        model.addAttribute("animal", animales);
         /*return "index";*/
         return "result";
     }
