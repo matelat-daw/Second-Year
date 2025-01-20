@@ -190,3 +190,9 @@ footer ul {
   padding: 0;
   font-weight: normal;
 }
+
+footer > div > p
+{
+  display: flex;
+  justify-content: center;
+}
