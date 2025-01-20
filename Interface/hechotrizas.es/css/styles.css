@@ -1,6 +1,6 @@
 /* Estilo general */
 body {
-  font-family: 'Prindi', 'Sora', Arial, sans-serif;
+  font-family: 'Pridi', 'Sora', Arial, sans-serif;
   margin: 0;
   padding: 10px;
   line-height: 1.6;
@@ -46,7 +46,6 @@ header p {
 
 /* Barra de navegación */
 nav {
-  font-family: "Sora";
   background-color: var(--color-nav_back);
   color: var(--color-header);
   grid-area: nav;
@@ -79,7 +78,6 @@ nav a:hover {
 
 /* Barra lateral */
 aside {
-  font-family: "Sora";
   background-color: var(--color-aside_back);
   color: var(--color-texto);
   grid-area: aside;
@@ -199,6 +197,21 @@ footer ul {
   margin: 0.2em;
   padding: 0;
   font-weight: normal;
+}
+
+.invert
+{
+  color: var(--color-texto);
+}
+
+.soraFont
+{
+  font-family: 'Sora';
+}
+
+.pridiFont
+{
+  font-family: 'Pridi';
 }
 
 @media screen and (min-width: 900px)
