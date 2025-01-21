@@ -1,7 +1,7 @@
-package com.futureprograms.Animales.Controllers;
+package com.futureprograms.AnimalDB.Controllers;
 
-import com.futureprograms.Animales.Models.Animal;
-import com.futureprograms.Animales.Services.AnimalService;
+import com.futureprograms.AnimalDB.Models.Animal;
+import com.futureprograms.AnimalDB.Services.AnimalService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
