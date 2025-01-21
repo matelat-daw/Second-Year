@@ -33,7 +33,7 @@ export function ejercicio3 (programadores){
     let resultado;
     /*  Suma Total de años de experiencia de los programadores mayor que 24 años*/
     resultado = programadores.filter(programador => programador.edad > 24)
-                            .reduce((experienciaTotal,programador) => experienciaTotal + programador.experiencia, 0);
+                            .reduce((experienciaTotal, programador) => experienciaTotal + programador.experiencia, 0);
     return resultado;
 }
 
