@@ -16,6 +16,7 @@ export default function Contenedor() {
         // setPersona((personas)=>[...personas, persona]); // Mi solución.
         personas.push(persona);
         setNumPersonas(personas.length); // Solución del Profesor, Asigna a la variable numPersonas el tamaño del array personas y se actualiza el estado.
+        console.log(numPersonas);
     }
     console.log(personas);
     return (
