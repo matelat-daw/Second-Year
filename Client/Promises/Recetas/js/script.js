@@ -17,7 +17,7 @@ function bucleMostrar_forEach(urlImgs){
     .then(blob => blobImg=blob);
     // Crear los elementos
     console.log(urlImg)
-    crearElementos (blobImg)
+    blobImg.filter(img => img.cuisine == "Italian").map(img => crearElementos(img.image));
     })
 }
 
@@ -29,6 +29,7 @@ function crearElementos (blobImg)
     div.appendChild(img);
     document.body.appendChild(div);
     img.src = URL.createObjectURL(blobImg);
+    flex.appendChild(div);
 }
 
 function toast(warn, ttl, msg) // Función para mostrar el Dialogo con los mensajes de alerta, recibe, Código, Título y Mensaje.
