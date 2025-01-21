@@ -41,6 +41,6 @@ public class MainController {
         as.animalCreate(animal);
         model.addAttribute("title", "Página para Ver los Animales");
         /*model.addAttribute("animal", animal);*/
-        return "result";
+        return "redirect:/result";
     }
 }

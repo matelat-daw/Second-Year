@@ -96,6 +96,12 @@ body
     a
     {
         border-radius: 5px;
+        transition: .5s;
+    }
+
+    .header:hover
+    {
+        border: 1px solid black;
     }
 
     #btn-transfer
@@ -137,6 +143,12 @@ body
     color: var(--color-a);
     margin: .5em 0;
     text-decoration: none;
+    transition: .5s;
+}
+
+.nav-link:hover
+{
+    background-color: rgba(80, 80, 80, .5);
 }
 
 .double
