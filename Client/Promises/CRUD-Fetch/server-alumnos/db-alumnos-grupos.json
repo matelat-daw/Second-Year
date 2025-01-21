@@ -6,14 +6,19 @@
       "id": 19
     },
     {
-      "nombre": "Diego Maradona",
-      "grupo": "B",
-      "id": 21
-    },
-    {
       "nombre": "Otro Alumno",
       "grupo": "B",
       "id": 22
+    },
+    {
+      "nombre": "José Pérez",
+      "grupo": "A",
+      "id": 23
+    },
+    {
+      "nombre": "kk",
+      "grupo": "B",
+      "id": 24
     }
   ],
   "grupos": [
