@@ -12,12 +12,12 @@ const DOM = {
     update: document.getElementById("updateIt")
 }
 
-document.addEventListener("DOMContentLoaded", () => { // Listener que es Llamado Cuando se Carga el DOM
+// document.addEventListener("DOMContentLoaded", () => { // Listener que es Llamado Cuando se Carga el DOM
     crudRead();
     fetch("http://localhost:3000/grupos").then(respuesta => respuesta.json())
         .then(grupos => populateSelect(grupos))
         .catch(error => toast(2, "ERROR:", "Ha Ocurrido el Error: " + error)); // Este fetch Solicita el Objeto Grupos al Servidor, y si Todo es Correcto le pasa el Objeto con los Grupos a la Función populateSelect(grupos).
-  });
+//   });
 
 function populateSelect(options) // Rellena las Opciones del Select al Cargar la Página, Recibe el Objeto con los Grupos.
 {

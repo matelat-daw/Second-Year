@@ -6,19 +6,19 @@
       "id": 19
     },
     {
-      "nombre": "Otro Alumno",
+      "nombre": "Diego Pérez",
       "grupo": "B",
       "id": 22
     },
     {
-      "nombre": "José Pérez",
+      "nombre": "César Matelat",
       "grupo": "A",
-      "id": 23
+      "id": 25
     },
     {
-      "nombre": "kk",
-      "grupo": "B",
-      "id": 24
+      "nombre": "Fernando González",
+      "grupo": "A",
+      "id": 26
     }
   ],
   "grupos": [
