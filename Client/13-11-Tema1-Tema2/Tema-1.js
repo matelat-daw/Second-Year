@@ -23,7 +23,7 @@ let numberCollection = [1, 2, 3, 4 ,5];
 
 numberCollection.includes(3); // Devuelve true si contiene el número.
 
-h.repeat(2); // Repute 2 veces la cadena.
+h.repeat(2); // Repite 2 veces la cadena.
 
 h.replace("la", "al"); // Reemplaza el texto "la" en la cadena por el Texto "al".
 
@@ -43,7 +43,7 @@ let dias = " lun mar mié ";
 let array = dias.split(" "); // Devuelve un Array con 5 posiciones: "" "lun", "mar", "mié" y "".
 dias.trim(); // Quita los espacion de delante y detrás.
 dias.trim().split(" "); // Devuelve un array con tres posiciones, hace el trim de los espacios y deja "lun", "mar", "mié".
-dias.trim().split(" ").join(", "); // Vuelva a poner todso en una string con los tres datos separados por ", ".
+dias.trim().split(" ").join(", "); // Vuelva a poner todo en una string con los tres datos separados por ", ".
 
 
 let persona1={};

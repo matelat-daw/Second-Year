@@ -6,19 +6,22 @@ async function crudRead()
 {
     await fetch("http://localhost:3000/recetas").then(respuesta => respuesta.json())
             .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error" + respuesta))
-            .then(jsonData => bucleMostrar_forEach(jsonData)); // Después de Leer los Datos del Servidor, Llamo a la función drawTable, Pasandole por Parametro los Datos.
+            .then(jsonData => getImages(jsonData)); // Después de Leer los Datos del Servidor, Llamo a la función bucleMostrar_forEach, Pasandole por Parametro los Datos.
 }
 
-function bucleMostrar_forEach(urlImgs){
-    urlImgs.forEach(async urlImg => {
+function getImages(jsonData)
+{
+    jsonData.filter(tipo => tipo.cuisine == "Italian").map(tipo => blobConverter(tipo.image));
+}
+
+async function blobConverter(urlImg){
+    console.log(urlImg);
     let blobImg;
     await fetch(urlImg)
     .then(res => res.blob())
     .then(blob => blobImg=blob);
     // Crear los elementos
-    console.log(urlImg)
-    blobImg.filter(img => img.cuisine == "Italian").map(img => crearElementos(img.image));
-    })
+    crearElementos(blobImg);
 }
 
 function crearElementos (blobImg)
