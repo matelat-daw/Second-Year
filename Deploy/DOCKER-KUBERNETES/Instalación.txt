@@ -1,0 +1,207 @@
+DESPLIEGUE INSTALACION DESDE 0 DE DOCKER y KUBERNETES
+
+WEB: https://docs.docker.com/engine/install/ubuntu/
+
+Copiar y pegar en la cosola los comandos:
+
+# Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+
+Se Instalará el Repositorio de Docker.
+
+Con el Comando:
+
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+Se Instala Docker.
+
+Para Verificar que todo está bien se ejecuta la imagen Hola Mundo:
+
+sudo docker run hello-world
+
+No la Encuentra localmente entonces la descarga del repositorio de Docker y muestra un mensaje que está funcionando correctamente.
+
+Con: docker version
+Vemos la Versión de Docker.
+
+
+Para Instalar MiniKube: WEB: https://minikube.sigs.k8s.io/docs/start/?arch=%2Flinux%2Fx86-64%2Fstable%2Fbinary+download
+
+curl -LO https://github.com/kubernetes/minikube/releases/latest/download/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube && rm minikube-linux-amd64
+
+Al instalarlo hay que ejecutarlo con el comando:
+
+minikube start
+
+Da error ya que Docker se Instaló como root, y hay que agregar tu usuario al Grupo Docker copiando la parte del texto del mensaje:
+
+sudo usermod -aG docker $USER && newgrp docker
+
+Al volver a ejecutar:
+
+minikube start
+
+Arranca el minikube
+
+Cuando termina de arrancar informa que está Configurado para Usar el espacio de nombres default.
+
+Es Necesario Instalar kubectl para conectar con minikube se agrega el repositorio con el comando:
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+Y Después:
+
+sudo snap install kubectl --classic
+
+Para Instalarlo
+
+
+Para Crear un Espacio de Nombres es conveniente generar un fichero de configuración yaml:
+
+ownnamespace.yaml
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: cesar					# Este es tu nombre de Usuario
+---
+apiVersion: v1
+
+kind: ResourceQuota
+metadata:
+  name: compute-resources
+  namespace: cesar				# Este es tu nombre de Usuario
+spec:
+  hard:
+    pods: "3"
+    limits.cpu: "2"
+    limits.memory: 1Gi
+    requests.cpu: "2"
+    requests.memory: 1Gi
+
+Y se Aplican los Cambios:
+
+kubectl apply -f ownnamespace.yaml
+
+NOTA: Este Espacio de Nombres Tiene Quota (2 Núcleos del Procesador y 1 GByte de Memoria)
+
+
+Para Crear un Dockerfile Personalizado para un Proyecto Propio(Nota que no usamos sudo, lo creamos como el usuario del sistema sin privilegios de root en el Directorio del Usuario: /home/USERNAME/project_USERNAME, en mi caso /home/cesar/project_cesar):
+
+touch Dockerfile
+
+nano Dockerfile
+
+El Dockerfile contiene las Siguientes Líneas:
+
+# Desde la Siguiente Imagen
+FROM 192.168.233.101:5000/php:8.4-apache-bookworm
+
+# Copia tu Web al Directorio del Servidor Apache
+COPY ./web /var/www/html
+
+# Sirve http en el Puerto 80
+EXPOSE 80
+
+
+Hay que Subir el Dockerfile a Docker HUB (Hay que Registrarse como Usuario)
+
+Primero se Ejecuta el Comando:
+
+docker build -t nombre_de_usuario/nombre_del_repositorio .
+
+Donde nombre_de_usuario es tu nombre de usuario de Docker y nombre_del_repositorio el nombre del repositorio donde se almacenará la imagen del Dockerfile.
+
+docker build -t orions68/homerepository . (En mi caso)
+
+Despues de un rato termina con el proceso y hay que loguearse en Docker, hay dos formas:
+
+1)-. docker login -u nombre_de_usuario
+
+Nos pide la Contraseña.
+
+2)-. docker login: Consola:
+
+cesar@matelat:~/project_cesar$ docker login
+
+USING WEB-BASED LOGIN
+To sign in with credentials on the command line, use 'docker login -u <username>'
+
+Your one-time device confirmation code is: TJRP-TSFV
+Press ENTER to open your browser or submit your device code here: https://login.docker.com/activate
+
+Waiting for authentication in the browser…
+WARNING! Your password will be stored unencrypted in /home/cesar/.docker/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credential-stores
+
+Login Succeeded
+cesar@matelat:~/project_cesar$
+
+Copian y Pegan la URL para Validarse:
+
+https://login.docker.com/activate
+
+Se abre una WEB que Solicita un Código.
+
+Copian el Código de la Consola: TJRP-TSFV
+
+Y lo Pegan en Formulario en la Página Anterior.
+
+Les Pide Confirmación y al Aceptar en la Consola Sale el Mensaje: Login Succeeded y Devuelve el Promt.
+
+Después de Loguearse hay que Ejecutar el Comando:
+
+docker push nombre_de_usuario/nombre_del_repositorio
+
+En mi Caso(Esta vez sin el . al Final):
+
+docker push orions68/homerepository
+
+
+
+Es conveniente Crear un Deployment Para Cualquier Tipo de Configuración Incluso si se va a Usar Solo un POD:
+
+cat > deployment.yaml << END
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: php-deployment
+  namespace: cesar
+  labels:
+    app: php
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: php
+  template:
+    metadata:
+      labels:
+        app: php
+    spec:
+      containers:
+      - name: php
+        imagePullPolicy: IfNotPresent
+        image: php:8.4-apache-bookworm
+        ports:
+        - containerPort: 80
+END
+
+Y lo Aplico con el Comando:
+
+kubectl apply -f deployment.yaml
+
