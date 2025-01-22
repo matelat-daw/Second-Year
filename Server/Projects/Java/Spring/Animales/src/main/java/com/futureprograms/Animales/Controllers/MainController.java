@@ -24,9 +24,8 @@ public class MainController {
     {
         model.addAttribute("title", "Página Pricipal");
         List<Animal> animales = as.listaAnimales();
-        model.addAttribute("animal", animales);
-        /*return "index";*/
-        return "result";
+        model.addAttribute("animales", as.listaAnimales());
+        return "index";
     }
 
     @GetMapping("/create")
@@ -40,7 +39,7 @@ public class MainController {
     public String createSubmit(@Validated @ModelAttribute("animal") Animal animal, Model model) {
         as.animalCreate(animal);
         model.addAttribute("title", "Página para Ver los Animales");
-        /*model.addAttribute("animal", animal);*/
-        return "redirect:/result";
+        model.addAttribute("animales", as.listaAnimales());
+        return "index";
     }
 }

@@ -8,7 +8,7 @@
 <form action="#" th:action="@{/create}" th:object="${animal}" method="post">
     <fieldset>
         <legend>Datos del Animal</legend>
-            <input id="id" type="hidden" th:field="*{id}" required />
+            <input id="id" type="hidden" th:field="*{id}" value="${Id}" required />
             <br><br>
             <input id="name" type="text" th:field="*{name}" required/><label for="name"> &nbsp;&nbsp;Nombre</label>
             <br><br>

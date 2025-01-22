@@ -5,8 +5,26 @@
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
     <h1>Te Damos la Bienvenida</h1>
-    <br>
-    <h3>Selecciona una Acción en el Menú</h3>
-    <br><br>
-    <a type="button" class="btn btn-primary btn-lg" href="/create">Agrega un Animal</a>
+    <button  class="btn btn-success" onclick="window.open('/create')">Agrega Animal</button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Vida Media</th>
+            <th>Está Extinguido</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <th:block th:each="a: ${animales}">
+            <tr>
+                <td th:text="${a.getId()}">...</td>
+                <td th:text="${a.getName()}">...</td>
+                <td th:text="${a.getAge()}">...</td>
+                <td th:text="${a.getExtinct()}">...</td>
+                <td><button class="btn btn-primary">Detalles</button>&nbsp;&nbsp;<button class="btn btn-secondary">Actualizar</button>&nbsp;&nbsp;<button class="btn btn-danger">Eliminar</button></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
 <footer th:replace="~{../fragments/footer::footer}"></footer>
