@@ -1,4 +1,4 @@
-import * as ejercicios from './Patrick.js';
+import * as ejercicios from './functions.js';
 
 let deportistas=[
   {nombre: 'Antonio', apellido1: 'García', apellido2: 'González', sexo: 'H', edad:25, equipo: 'Trotamundos',
