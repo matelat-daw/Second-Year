@@ -27,7 +27,9 @@ public class AnimalService {
 
     public void animalCreate(Animal animal)
     {
-        animales.add(animal);
+        animal.setId(Id);
+        Animal newAnimal = new Animal(animal.getId(), animal.getName(), animal.getAge(), animal.getExtinct());
+        animales.add(newAnimal);
         Id = String.valueOf(Integer.valueOf(Id) + 1);
         System.out.println(Id);
     }
