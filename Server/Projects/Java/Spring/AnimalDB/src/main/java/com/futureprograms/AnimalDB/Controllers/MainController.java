@@ -23,7 +23,7 @@ public class MainController {
     public String index(Model model)
     {
         model.addAttribute("title", "Página Pricipal");
-        List<Animal> animales = as.listaAnimales();
+        List<Animal> animales = as.getList();
         model.addAttribute("animal", animales);
         /*return "index";*/
         return "result";

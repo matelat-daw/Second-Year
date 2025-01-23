@@ -1,14 +1,16 @@
 package com.futureprograms.AnimalDB.Models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
-import jdk.jfr.Enabled;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
+@Table(name="Animales")
+
 public class Animal {
-    private String id;
+    private Integer id;
     @NotBlank
     @Size(min = 3, max = 15)
     private String name;
@@ -19,7 +21,7 @@ public class Animal {
 
     public Animal(){}
 
-    public Animal(String id, String name, String age, boolean isExticnt)
+    public Animal(Integer id, String name, String age, boolean isExticnt)
     {
         setId(id);
         setName(name);
@@ -27,11 +29,11 @@ public class Animal {
         setExtinct(isExticnt);
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

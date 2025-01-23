@@ -23,14 +23,14 @@ public class MainController {
     public String index(Model model)
     {
         model.addAttribute("title", "Página Pricipal");
-        List<Animal> animales = as.listaAnimales();
-        model.addAttribute("animales", as.listaAnimales());
+        List<Animal> animales = as.getList();
+        model.addAttribute("animales", as.getList());
         return "index";
     }
 
     @GetMapping("/create")
     public String createForm(Model model) {
-        model.addAttribute("title", "Formulario pra Agregar un Animal");
+        model.addAttribute("title", "Formulario para Agregar un Animal");
         model.addAttribute("animal", new Animal());
         return "create";
     }
@@ -39,7 +39,21 @@ public class MainController {
     public String createSubmit(@Validated @ModelAttribute("animal") Animal animal, Model model) {
         as.animalCreate(animal);
         model.addAttribute("title", "Página para Ver los Animales");
-        model.addAttribute("animales", as.listaAnimales());
+        model.addAttribute("animales", as.getList());
+        return "index";
+    }
+
+    @GetMapping("/details/{id}")
+    public String animalDetails(@RequestParam("id") Integer id, Model model)
+    {
+        model.addAttribute("title", "Detalles de un Animal");
+        return "redirect:create/id";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String animalDelete(@RequestParam("id") int id)
+    {
+        as.animalDelete(id);
         return "index";
     }
 }

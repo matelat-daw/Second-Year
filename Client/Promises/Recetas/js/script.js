@@ -6,7 +6,7 @@ async function crudRead()
 {
     await fetch("http://localhost:3000/recetas").then(respuesta => respuesta.json())
             .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error" + respuesta))
-            .then(jsonData => getImages(jsonData)); // Después de Leer los Datos del Servidor, Llamo a la función bucleMostrar_forEach, Pasandole por Parametro los Datos.
+            .then(jsonData => getImages(jsonData)); // Después de Leer los Datos del Servidor, Llamo a la función getImages(jsonData), Pasandole por Parametro los Datos.
 }
 
 function getImages(jsonData)
@@ -30,9 +30,9 @@ function crearElementos (blobImg)
     div = document.createElement("div");
     img = document.createElement("img");
     div.appendChild(img);
-    document.body.appendChild(div);
+    // document.body.appendChild(div);
     img.src = URL.createObjectURL(blobImg);
-    flex.appendChild(div);
+    DOM.flex.appendChild(div);
 }
 
 function toast(warn, ttl, msg) // Función para mostrar el Dialogo con los mensajes de alerta, recibe, Código, Título y Mensaje.
