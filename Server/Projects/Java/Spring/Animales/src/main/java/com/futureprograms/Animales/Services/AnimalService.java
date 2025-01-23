@@ -1,20 +1,20 @@
 package com.futureprograms.Animales.Services;
 
 import com.futureprograms.Animales.Models.Animal;
-import com.sun.tools.jconsole.JConsoleContext;
 import org.springframework.stereotype.Service;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 public class AnimalService {
     private static List<Animal> animales;
     static {
         animales = new ArrayList<>();
-        animales.add(new Animal("1", "perro", "15", false));
+        animales.add(new Animal(1, "perro", "15", false));
     }
-    public static String Id = String.valueOf((animales.size() + 1));
+    public static Integer Id = animales.size() + 1;
 
-    public List<Animal> listaAnimales()
+    public List<Animal> getList()
     {
         return animales;
     }
@@ -30,18 +30,26 @@ public class AnimalService {
         animal.setId(Id);
         Animal newAnimal = new Animal(animal.getId(), animal.getName(), animal.getAge(), animal.getExtinct());
         animales.add(newAnimal);
-        Id = String.valueOf(Integer.valueOf(Id) + 1);
+        Id++;
         System.out.println(Id);
     }
 
     public Animal animalUpdate(int id)
     {
-        Animal animal = null;
-        return animal;
+        Animal editAnimal = null;
+        for(Animal animal : getList())
+        {
+            if(animal.getId().equals(id))
+            {
+                editAnimal = animal;
+            }
+        }
+        return editAnimal;
     }
 
     public void animalDelete(int id)
     {
-        Animal animal = null;
+        int index = animales.indexOf(id);
+        animales.remove(index);
     }
 }
