@@ -3,7 +3,6 @@ package com.futureprograms.Animales.Services;
 import com.futureprograms.Animales.Models.Animal;
 import org.springframework.stereotype.Service;
 import java.util.*;
-import java.util.stream.Collectors;
 
 @Service
 public class AnimalService {
@@ -19,10 +18,10 @@ public class AnimalService {
         return animales;
     }
 
-    public Animal animalId(int id)
+    public List<Animal> animalId(int id)
     {
-        Animal animal = null;
-        return animal;
+        return null;
+        /*return animal = animales.indexOf(id);*/
     }
 
     public void animalCreate(Animal animal)
@@ -49,7 +48,6 @@ public class AnimalService {
 
     public void animalDelete(int id)
     {
-        int index = animales.indexOf(id);
-        animales.remove(index);
+        animales.remove((Integer) id);
     }
 }

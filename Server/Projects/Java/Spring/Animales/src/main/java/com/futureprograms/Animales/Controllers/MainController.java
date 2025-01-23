@@ -2,6 +2,7 @@ package com.futureprograms.Animales.Controllers;
 
 import com.futureprograms.Animales.Models.Animal;
 import com.futureprograms.Animales.Services.AnimalService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
@@ -12,6 +13,7 @@ import java.util.List;
 @Controller
 public class MainController {
 
+    @Autowired
     private final AnimalService as;
 
     public MainController(AnimalService as)
@@ -44,16 +46,39 @@ public class MainController {
     }
 
     @GetMapping("/details/{id}")
-    public String animalDetails(@RequestParam("id") Integer id, Model model)
+    public String animalDetails(@PathVariable("id") Integer id, Model model)
     {
         model.addAttribute("title", "Detalles de un Animal");
-        return "redirect:create/id";
+        model.addAttribute("animal", as.animalId(id));
+        return "details";
+    }
+
+    @GetMapping("/update/{id}")
+    public String showUpdateForm(@PathVariable("id") int id, Model model) {
+        Animal animal = as.animalUpdate(id);
+        model.addAttribute("animal", animal);
+        return "create";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateAnimal(@Validated @PathVariable("id") int id, @ModelAttribute("animal") Animal animal) {
+        Animal existingAnimal = as.animalUpdate(id);
+        existingAnimal.setName(animal.getName());
+        existingAnimal.setAge(animal.getAge());
+        existingAnimal.setExtinct(animal.getExtinct());
+        return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
+    public String deleteAnimal(@PathVariable("id") int id) {
+        as.animalDelete(id);
+        return "redirect:/";
+    }
+
+    /*@GetMapping("/delete/{id}")
     public String animalDelete(@RequestParam("id") int id)
     {
         as.animalDelete(id);
-        return "index";
-    }
+        return "redirect:/";
+    }*/
 }

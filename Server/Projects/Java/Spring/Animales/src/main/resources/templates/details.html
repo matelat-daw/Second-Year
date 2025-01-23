@@ -1,10 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{../fragments/head::head}"></head>
+<br><br><br>
+<nav th:replace="~{../fragments/top::menu}"></nav>
+<br>
+<h1>Detalles del Animal</h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Vida Media</th>
+        <th>Está Extinguido</th>
+    </tr>
+    </thead>
+    <th:block th:each="a: ${animal}">
+        <tr>
+            <td th:text="${a.getId()}">...</td>
+            <td th:text="${a.getName()}">...</td>
+            <td th:text="${a.getAge()}">...</td>
+            <td th:text="${a.getExtinct()}">...</td>
+        </tr>
+    </th:block>
+    </tbody>
+</table>
+<footer th:replace="~{../fragments/footer::footer}"></footer>
