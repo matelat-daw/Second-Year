@@ -2,25 +2,17 @@ package com.futureprograms.Animales.Controllers;
 
 import com.futureprograms.Animales.Models.Animal;
 import com.futureprograms.Animales.Repositories.AnimalInterface;
-import com.futureprograms.Animales.Services.AnimalService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
 public class MainController {
-
-    /*@Autowired*/
-    /*private final AnimalService as;*/
     private final AnimalInterface ai;
 
-    public MainController(AnimalService as, AnimalInterface ai)
+    public MainController(AnimalInterface ai)
     {
-        //*this.as = as;*/
         this.ai = ai;
     }
 
@@ -28,7 +20,6 @@ public class MainController {
     public String index(Model model)
     {
         model.addAttribute("title", "Página Pricipal");
-        List<Animal> animales = ai.getList();
         model.addAttribute("animales", ai.getList());
         return "index";
     }
@@ -49,7 +40,7 @@ public class MainController {
     }
 
     @GetMapping("/details/{id}")
-    public String animalDetails(@PathVariable("id") Integer id, Model model)
+    public String animalDetails(@PathVariable("id") int id, Model model)
     {
         model.addAttribute("title", "Detalles de un Animal");
         model.addAttribute("animal", ai.animalDetails(id));
@@ -59,14 +50,13 @@ public class MainController {
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable("id") int id, Model model) {
         model.addAttribute("title", "Actualización de un Animal");
-        /*Animal animal = ai.animalUpdate(id);*/
-        model.addAttribute("animal", model);
+        model.addAttribute("animal", ai.animalDetails(id));
         return "update";
     }
 
     @PostMapping("/update")
     public String updateAnimal(@Validated @ModelAttribute("animal") Animal animal) {
-        Animal existingAnimal = ai.animalUpdate(animal.getId());
+        Animal existingAnimal = ai.animalUpdate(animal.getId(), animal);
         existingAnimal.setName(animal.getName());
         existingAnimal.setAge(animal.getAge());
         existingAnimal.setExtinct(animal.getExtinct());
@@ -78,11 +68,4 @@ public class MainController {
         ai.animalDelete(id);
         return "redirect:/";
     }
-
-    /*@GetMapping("/delete/{id}")
-    public String animalDelete(@RequestParam("id") int id)
-    {
-        as.animalDelete(id);
-        return "redirect:/";
-    }*/
 }

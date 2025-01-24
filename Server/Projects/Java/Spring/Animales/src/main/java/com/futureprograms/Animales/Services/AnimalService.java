@@ -7,7 +7,7 @@ import java.util.*;
 
 @Service
 public class AnimalService implements AnimalInterface {
-    private static List<Animal> animales;
+    private static final List<Animal> animales;
     static {
         animales = new ArrayList<>();
         animales.add(new Animal(1, "Perro", "15", false));
@@ -46,35 +46,20 @@ public class AnimalService implements AnimalInterface {
         Id++;
     }
 
-    /*public Animal animalUpdate(int id)
-    {
-        Animal editAnimal = null;
-        for(Animal animal : getList())
-        {
-            if(animal.getId().equals(id))
-            {
-                editAnimal = animal;
+    public Animal animalUpdate(int id, Animal updatedAnimal) {
+        for (int i = 0; i < animales.size(); i++) {
+            Animal currentAnimal = animales.get(i);
+            if (currentAnimal.getId() == id) { // Encuentra el animal por ID
+                animales.set(i, updatedAnimal); // Actualiza el animal en la posición correcta
+                return updatedAnimal; // Devuelve el animal actualizado
             }
         }
-        return editAnimal;
-    }*/
-
-    public Animal animalUpdate(int id) {
-        for (Animal animal : animales) {
-            if (animal.getId() == id) { // Buscar por ID
-                // Actualizar los campos del animal encontrado
-                animal.setName(updatedAnimal.getName());
-                animal.setAge(updatedAnimal.getAge());
-                animal.setExtinct(updatedAnimal.getExtinct());
-                return animal; // Retornar el animal actualizado
-            }
-        }
-        return null; // Retornar null si no hay animal con ese ID
+        throw new NoSuchElementException("No animal found with id: " + id);
     }
 
     public void animalDelete(int id)
     {
-        int index = 0;
+        /*int index = 0;
         for(Animal animal : animales) {
             if(id == animal.getId())
             {
@@ -82,6 +67,10 @@ public class AnimalService implements AnimalInterface {
                 break;
             }
             index++;
-        }
+        }*/
+
+        animales.stream()
+                .filter(animal -> animal.getId() == id)
+                .findFirst().ifPresent(animales::remove);
     }
 }

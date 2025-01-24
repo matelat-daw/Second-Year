@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head th:replace="~{../fragments/head::head}"></head>
+<head th:replace="~{../fragments/head::head}"><title></title></head>
 <br><br><br>
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
@@ -17,6 +17,7 @@
                 <th>Acciones</th>
             </tr>
             </thead>
+            <tbody>
             <th:block th:each="a: ${animales}">
                 <tr>
                     <td th:text="${a.getId()}"></td>
