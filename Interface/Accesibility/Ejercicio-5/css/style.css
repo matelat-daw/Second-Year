@@ -1,12 +1,12 @@
-img
+/* img
 {
     width: 60%;
     padding: 10px;
-}
+} */
 
 .background
 {
-    background-image: url('../imgs/logo.webp');
+    background-image: url('../media/imgs/logo.webp');
     background-repeat: no-repeat;
 }
 
@@ -24,7 +24,6 @@ img
 {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* width: 85%; */
 }
 
 /* CSS de Header, Nav, Aside y Main */
@@ -123,6 +122,20 @@ body
     {
         display: none;
     }
+    
+    .photo > img
+    {
+        float: right;
+        object-fit: cover;
+        width: 25%;
+        border: 1px solid black;
+        border-radius: 40%;
+      }
+
+      p
+      {
+        padding: 10px;
+      }
 }
 
 /* Estilos de Header. */
