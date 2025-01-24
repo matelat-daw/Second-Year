@@ -1,6 +1,7 @@
 package com.futureprograms.Animales.Controllers;
 
 import com.futureprograms.Animales.Models.Animal;
+import com.futureprograms.Animales.Repositories.AnimalInterface;
 import com.futureprograms.Animales.Services.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,18 +16,20 @@ public class MainController {
 
     @Autowired
     private final AnimalService as;
+    private final AnimalInterface ai;
 
-    public MainController(AnimalService as)
+    public MainController(AnimalService as, AnimalInterface ai)
     {
         this.as = as;
+        this.ai = ai;
     }
 
     @GetMapping("/")
     public String index(Model model)
     {
         model.addAttribute("title", "Página Pricipal");
-        List<Animal> animales = as.getList();
-        model.addAttribute("animales", as.getList());
+        List<Animal> animales = ai.getList();
+        model.addAttribute("animales", ai.getList());
         return "index";
     }
 
@@ -41,7 +44,7 @@ public class MainController {
     public String createSubmit(@Validated @ModelAttribute("animal") Animal animal, Model model) {
         as.animalCreate(animal);
         model.addAttribute("title", "Página para Ver los Animales");
-        model.addAttribute("animales", as.getList());
+        model.addAttribute("animales", ai.getList());
         return "index";
     }
 
@@ -49,20 +52,20 @@ public class MainController {
     public String animalDetails(@PathVariable("id") Integer id, Model model)
     {
         model.addAttribute("title", "Detalles de un Animal");
-        model.addAttribute("animal", as.animalId(id));
+        model.addAttribute("animal", ai.animalDetails(id));
         return "details";
     }
 
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable("id") int id, Model model) {
-        Animal animal = as.animalUpdate(id);
+        Animal animal = ai.animalUpdate(id);
         model.addAttribute("animal", animal);
-        return "create";
+        return "update";
     }
 
     @PostMapping("/update/{id}")
     public String updateAnimal(@Validated @PathVariable("id") int id, @ModelAttribute("animal") Animal animal) {
-        Animal existingAnimal = as.animalUpdate(id);
+        Animal existingAnimal = ai.animalUpdate(id);
         existingAnimal.setName(animal.getName());
         existingAnimal.setAge(animal.getAge());
         existingAnimal.setExtinct(animal.getExtinct());
@@ -71,7 +74,7 @@ public class MainController {
 
     @GetMapping("/delete/{id}")
     public String deleteAnimal(@PathVariable("id") int id) {
-        as.animalDelete(id);
+        ai.animalDelete(id);
         return "redirect:/";
     }
 

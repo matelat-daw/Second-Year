@@ -5,23 +5,10 @@
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
 <h1>Detalles del Animal</h1>
-<table class="table">
-    <thead>
-    <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Vida Media</th>
-        <th>Está Extinguido</th>
-    </tr>
-    </thead>
-    <th:block th:each="a: ${animal}">
-        <tr>
-            <td th:text="${a.getId()}">...</td>
-            <td th:text="${a.getName()}">...</td>
-            <td th:text="${a.getAge()}">...</td>
-            <td th:text="${a.getExtinct()}">...</td>
-        </tr>
-    </th:block>
-    </tbody>
-</table>
+<ul>
+    <li th:utext="'ID: ' + '<b>' + ${animal.getId()} + '</b>'"></li>
+    <li th:utext="'Nombre: ' + '<b>' + ${animal.getName()} + '</b>'"></li>
+    <li th:utext="'Años de Vida: ' + '<b>' + ${animal.getAge()} + '</b>'"></li>
+    <li th:utext="'Está Extinguido: ' + '<b>' + ${animal.getExtinct()} + '</b>'"></li>
+</ul>
 <footer th:replace="~{../fragments/footer::footer}"></footer>

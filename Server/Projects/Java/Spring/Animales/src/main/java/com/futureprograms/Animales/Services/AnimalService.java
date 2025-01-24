@@ -1,11 +1,12 @@
 package com.futureprograms.Animales.Services;
 
 import com.futureprograms.Animales.Models.Animal;
+import com.futureprograms.Animales.Repositories.AnimalInterface;
 import org.springframework.stereotype.Service;
 import java.util.*;
 
 @Service
-public class AnimalService {
+public class AnimalService implements AnimalInterface {
     private static List<Animal> animales;
     static {
         animales = new ArrayList<>();
@@ -18,10 +19,17 @@ public class AnimalService {
         return animales;
     }
 
-    public List<Animal> animalId(int id)
+    public Animal animalDetails(int id)
     {
+        int index = 0;
+        for(Animal animal : animales) {
+            if(id == animal.getId())
+            {
+                return animal;
+            }
+            index++;
+        }
         return null;
-        /*return animal = animales.indexOf(id);*/
     }
 
     public void animalCreate(Animal animal)
@@ -30,7 +38,6 @@ public class AnimalService {
         Animal newAnimal = new Animal(animal.getId(), animal.getName(), animal.getAge(), animal.getExtinct());
         animales.add(newAnimal);
         Id++;
-        System.out.println(Id);
     }
 
     public Animal animalUpdate(int id)
@@ -48,6 +55,14 @@ public class AnimalService {
 
     public void animalDelete(int id)
     {
-        animales.remove((Integer) id);
+        int index = 0;
+        for(Animal animal : animales) {
+            if(id == animal.getId())
+            {
+                animales.remove(index);
+                break;
+            }
+            index++;
+        }
     }
 }
