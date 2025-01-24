@@ -5,7 +5,7 @@
 <nav th:replace="~{../fragments/top::menu}"></nav>
 <br>
 <h1>Actualizar Datos de Animal</h1>
-<form action="#" th:action="@{/update/id}" th:object="${animal}" method="post">
+<form action="#" th:action="@{/update/*{id}" th:object="${animal}" method="post">
     <fieldset>
         <legend>Datos del Animal</legend>
         <input id="name" type="text" th:field="*{name}" required/><label for="name"> &nbsp;&nbsp;Nombre</label>

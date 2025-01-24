@@ -9,6 +9,12 @@
     <li th:utext="'ID: ' + '<b>' + ${animal.getId()} + '</b>'"></li>
     <li th:utext="'Nombre: ' + '<b>' + ${animal.getName()} + '</b>'"></li>
     <li th:utext="'Años de Vida: ' + '<b>' + ${animal.getAge()} + '</b>'"></li>
-    <li th:utext="'Está Extinguido: ' + '<b>' + ${animal.getExtinct()} + '</b>'"></li>
+    <!--<li th:if="${animal.getExtinct()}" th:utext="'Está Extinguido: ' + '<b>' + ${animal.getExtinct()} + '</b>'"></li>-->
+
+    <li th:if="${!animal.getExtinct()}" th:utext="'Está Extinguido: ' + '<b>NO</b>'"></li>
+
+    <!--<li th:unless="${animal.getExtinct()}" th:utext="'Está Extinguido: ' + '<b>' + ${animal.getExtinct()} + '</b>'"></li>-->
+
+    <li th:unless="${!animal.getExtinct()}" th:utext="'Está Extinguido: ' + '<b>Está Extinguido</b>'"></li>
 </ul>
 <footer th:replace="~{../fragments/footer::footer}"></footer>
