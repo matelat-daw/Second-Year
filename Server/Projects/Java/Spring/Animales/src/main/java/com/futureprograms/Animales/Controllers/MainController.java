@@ -14,13 +14,13 @@ import java.util.List;
 @Controller
 public class MainController {
 
-    @Autowired
-    private final AnimalService as;
+    /*@Autowired*/
+    /*private final AnimalService as;*/
     private final AnimalInterface ai;
 
     public MainController(AnimalService as, AnimalInterface ai)
     {
-        this.as = as;
+        //*this.as = as;*/
         this.ai = ai;
     }
 
@@ -42,7 +42,7 @@ public class MainController {
 
     @PostMapping("/create")
     public String createSubmit(@Validated @ModelAttribute("animal") Animal animal, Model model) {
-        as.animalCreate(animal);
+        ai.animalCreate(animal);
         model.addAttribute("title", "Página para Ver los Animales");
         model.addAttribute("animales", ai.getList());
         return "index";
@@ -58,14 +58,15 @@ public class MainController {
 
     @GetMapping("/update/{id}")
     public String showUpdateForm(@PathVariable("id") int id, Model model) {
-        Animal animal = ai.animalUpdate(id);
-        model.addAttribute("animal", animal);
+        model.addAttribute("title", "Actualización de un Animal");
+        /*Animal animal = ai.animalUpdate(id);*/
+        model.addAttribute("animal", model);
         return "update";
     }
 
-    @PostMapping("/update/{id}")
-    public String updateAnimal(@Validated @PathVariable("id") int id, @ModelAttribute("animal") Animal animal) {
-        Animal existingAnimal = ai.animalUpdate(id);
+    @PostMapping("/update")
+    public String updateAnimal(@Validated @ModelAttribute("animal") Animal animal) {
+        Animal existingAnimal = ai.animalUpdate(animal.getId());
         existingAnimal.setName(animal.getName());
         existingAnimal.setAge(animal.getAge());
         existingAnimal.setExtinct(animal.getExtinct());

@@ -10,7 +10,7 @@ public class AnimalService implements AnimalInterface {
     private static List<Animal> animales;
     static {
         animales = new ArrayList<>();
-        animales.add(new Animal(1, "perro", "15", false));
+        animales.add(new Animal(1, "Perro", "15", false));
     }
     public static Integer Id = animales.size() + 1;
 
@@ -21,7 +21,7 @@ public class AnimalService implements AnimalInterface {
 
     public Animal animalDetails(int id)
     {
-        int index = 0;
+        /*int index = 0;
         for(Animal animal : animales) {
             if(id == animal.getId())
             {
@@ -29,7 +29,13 @@ public class AnimalService implements AnimalInterface {
             }
             index++;
         }
-        return null;
+        return null;*/
+
+        return animales.stream()
+                .filter(animal -> animal.getId() == id)
+                .findFirst()
+                .orElse(null);
+
     }
 
     public void animalCreate(Animal animal)
@@ -40,7 +46,7 @@ public class AnimalService implements AnimalInterface {
         Id++;
     }
 
-    public Animal animalUpdate(int id)
+    /*public Animal animalUpdate(int id)
     {
         Animal editAnimal = null;
         for(Animal animal : getList())
@@ -51,6 +57,19 @@ public class AnimalService implements AnimalInterface {
             }
         }
         return editAnimal;
+    }*/
+
+    public Animal animalUpdate(int id) {
+        for (Animal animal : animales) {
+            if (animal.getId() == id) { // Buscar por ID
+                // Actualizar los campos del animal encontrado
+                animal.setName(updatedAnimal.getName());
+                animal.setAge(updatedAnimal.getAge());
+                animal.setExtinct(updatedAnimal.getExtinct());
+                return animal; // Retornar el animal actualizado
+            }
+        }
+        return null; // Retornar null si no hay animal con ese ID
     }
 
     public void animalDelete(int id)
