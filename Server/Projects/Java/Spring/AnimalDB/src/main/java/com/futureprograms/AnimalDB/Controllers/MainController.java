@@ -1,46 +1,42 @@
 package com.futureprograms.AnimalDB.Controllers;
 
 import com.futureprograms.AnimalDB.Models.Animal;
-import com.futureprograms.AnimalDB.Services.AnimalService;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
+import com.futureprograms.AnimalDB.Services.AnimalServiceDB;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+@RestController
+@RequestMapping("/animals")
 public class MainController {
 
-    private final AnimalService as;
+    @Autowired
+    private AnimalServiceDB animalService;
 
-    public MainController(AnimalService as)
-    {
-        this.as = as;
+    @GetMapping
+    public List<Animal> getAllAnimals() {
+        return animalService.getList();
     }
 
-    @GetMapping("/")
-    public String index(Model model)
-    {
-        model.addAttribute("title", "Página Pricipal");
-        List<Animal> animales = as.getList();
-        model.addAttribute("animal", animales);
-        /*return "index";*/
-        return "result";
+    @GetMapping("/{id}")
+    public Animal getAnimal(@PathVariable int id) {
+        return animalService.animalDetails(id);
     }
 
-    @GetMapping("/create")
-    public String createForm(Model model) {
-        model.addAttribute("title", "Formulario pra Agregar un Animal");
-        model.addAttribute("animal", new Animal());
-        return "create";
+    @PostMapping
+    public void createAnimal(@RequestBody Animal animal) {
+        animalService.save(animal);
     }
 
-    @PostMapping("/create")
-    public String createSubmit(@Validated @ModelAttribute("animal") Animal animal, Model model) {
-        as.animalCreate(animal);
-        model.addAttribute("title", "Página para Ver los Animales");
-        /*model.addAttribute("animal", animal);*/
-        return "redirect:/result";
+    @PutMapping("/{id}")
+    public Animal updateAnimal(@PathVariable int id, @RequestBody Animal updatedAnimal) {
+        return animalService.animalUpdate(id, updatedAnimal);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteAnimal(@PathVariable int id) {
+        /*animalService.animalDelete(id);*/
+        animalService.deleteById(id);
     }
 }

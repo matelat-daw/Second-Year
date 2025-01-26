@@ -2,35 +2,40 @@ package com.futureprograms.AnimalDB.Services;
 
 import com.futureprograms.AnimalDB.Models.Animal;
 import com.futureprograms.AnimalDB.Repositories.AnimalInterface;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
+import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.FluentQuery;
 import org.springframework.stereotype.Service;
 import java.util.*;
+import java.util.function.Function;
 
 @Primary
 @Service
 public class AnimalServiceDB {
 
-    @Qualifier("animalInterface")
-    @Autowired
-    private AnimalInterface animalRepository;
+    /*@Qualifier("animalInterface")
+    @Autowired*/
+    private AnimalInterface animalInterface;
 
     public List<Animal> getList() {
-        return animalRepository.findAll(); // Recupera todos los animales
+        return animalInterface.findAll(); // Recupera todos los animales
     }
 
     public Animal animalDetails(int id) {
-        return animalRepository.findById(id)
+        return animalInterface.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Animal no encontrado con id: " + id)); // Busca por ID
     }
 
-    public void animalCreate(Animal animal) {
-        animalRepository.save(animal); // Guarda el nuevo animal en la base de datos
+    public Animal save(Animal animal) {
+        animalInterface.save(animal); // Guarda el nuevo animal en la base de datos
+        return animal;
     }
 
     public Animal animalUpdate(int id, Animal updatedAnimal) {
-        Animal existingAnimal = animalRepository.findById(id)
+        Animal existingAnimal = animalInterface.findById(id)
                 .orElseThrow(() -> new NoSuchElementException("Animal no encontrado con id: " + id));
 
         // Actualiza los campos del animal existente
@@ -38,10 +43,14 @@ public class AnimalServiceDB {
         existingAnimal.setAge(updatedAnimal.getAge());
         existingAnimal.setExtinct(updatedAnimal.getExtinct());
 
-        return animalRepository.save(existingAnimal); // Guarda los cambios
+        return animalInterface.save(existingAnimal); // Guarda los cambios
     }
 
-    public void animalDelete(int id) {
-        animalRepository.deleteById(id); // Elimina el animal por ID
+    /*public void animalDelete(int id) {
+        animalInterface.deleteById(id); // Elimina el animal por ID
+    }*/
+
+    public void deleteById(int id) {
+        animalInterface.deleteById(id); // Elimina el animal por ID
     }
 }

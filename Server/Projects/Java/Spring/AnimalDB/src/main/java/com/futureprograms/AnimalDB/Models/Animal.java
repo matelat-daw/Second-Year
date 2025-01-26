@@ -1,6 +1,7 @@
 package com.futureprograms.AnimalDB.Models;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
@@ -10,6 +11,7 @@ import org.hibernate.validator.constraints.Range;
 @Table(name="Animales")
 
 public class Animal {
+    @Id
     private Integer id;
     @NotBlank
     @Size(min = 3, max = 15)
