@@ -1,0 +1,30 @@
+Ubuntu Server: 192.168.1.88 (Bridged)
+
+sudo apt update
+
+sudo apt upgrade
+
+
+Instalación de Bind9:
+
+sudo apt install bind9
+
+sudo apt install nginx
+
+Instalación de un Certificado Interno (Genérico):
+
+sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/private/localcert.key -out /etc/ssl/certs/localcert.pem
+
+Después de Configurar el Sitio en sites-avalaible:
+
+Se copia default al sitio con nuestro nombre.
+
+cp default fp.conf
+
+Se Crea el Directorio del Sitio en:
+
+/var/wwww
+
+Hay que Hacer Disponible el Sitio Creando un Enlace Simbólico Desde el Directorio sites-available al Directorio siters-enabled: 
+
+sudo ln -s /etc/nginx/sites-available/fp.conf /etc/nginx/sites-enabled/fp.conf

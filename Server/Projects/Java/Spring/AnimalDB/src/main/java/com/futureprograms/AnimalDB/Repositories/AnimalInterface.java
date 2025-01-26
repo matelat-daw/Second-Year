@@ -6,11 +6,8 @@ import java.util.List;
 
 public interface AnimalInterface extends JpaRepository<Animal, Integer>
 {
-    /*List<Animal> getList();*/
     List<Animal> findAll();
-    Animal animalDetails(int id);
-    <S extends Animal> S save(S entity);
-    Animal animalUpdate(int id, Animal animal);
-    /*void animalDelete(int id);*/
+    Animal findById(int id);
+    Animal save(Animal animal);
     void deleteById(int id);
 }

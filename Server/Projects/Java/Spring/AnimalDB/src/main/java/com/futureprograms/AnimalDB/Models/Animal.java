@@ -8,7 +8,7 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
 
 @Entity
-@Table(name="Animales")
+@Table(name="animales")
 
 public class Animal {
     @Id
@@ -18,17 +18,17 @@ public class Animal {
     private String name;
     @NotBlank
     @Range(min = 0, max = 600)
-    private String averageLife;
-    private Boolean isExtinct;
+    private Integer average_life;
+    private Boolean is_extinct;
 
     public Animal(){}
 
-    public Animal(Integer id, String name, String age, boolean isExticnt)
+    public Animal(Integer id, String name, Integer age, boolean is_exticnt)
     {
         setId(id);
         setName(name);
         setAge(age);
-        setExtinct(isExticnt);
+        setExtinct(is_exticnt);
     }
 
     public Integer getId() {
@@ -47,15 +47,15 @@ public class Animal {
         this.name = name;
     }
 
-    public String getAge() {
-        return averageLife;
+    public Integer getAge() {
+        return average_life;
     }
 
-    public void setAge(String age) {
-        this.averageLife = age;
+    public void setAge(Integer age) {
+        this.average_life = age;
     }
 
-    public void setExtinct(Boolean extinct) {this.isExtinct = extinct;}
+    public void setExtinct(Boolean extinct) {this.is_extinct = extinct;}
 
-    public Boolean getExtinct() {return isExtinct;}
+    public Boolean getExtinct() {return is_extinct;}
 }

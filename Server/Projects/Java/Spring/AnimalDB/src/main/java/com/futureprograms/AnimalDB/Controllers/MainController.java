@@ -1,42 +1,89 @@
 package com.futureprograms.AnimalDB.Controllers;
 
 import com.futureprograms.AnimalDB.Models.Animal;
+import com.futureprograms.AnimalDB.Repositories.AnimalInterface;
 import com.futureprograms.AnimalDB.Services.AnimalServiceDB;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/animals")
 public class MainController {
 
-    @Autowired
-    private AnimalServiceDB animalService;
+    private AnimalServiceDB as;
+    private AnimalInterface ai;
 
-    @GetMapping
-    public List<Animal> getAllAnimals() {
-        return animalService.getList();
+    public MainController(AnimalInterface ai, AnimalServiceDB as)
+    {
+        this.as = as;
+        this.ai = ai;
     }
 
-    @GetMapping("/{id}")
-    public Animal getAnimal(@PathVariable int id) {
-        return animalService.animalDetails(id);
+    @GetMapping("index")
+    public String index(Model model) {
+        model.addAttribute("title", "Página Pricipal");
+        model.addAttribute("animales", ai.findAll());
+        return "index";
     }
 
-    @PostMapping
-    public void createAnimal(@RequestBody Animal animal) {
-        animalService.save(animal);
+    /*@GetMapping("/{id}")
+    public Animal findById(@PathVariable int id) {
+        return ai.findById(id);
+    }*/
+
+    @GetMapping("/create")
+    public String createForm(Model model) {
+        model.addAttribute("title", "Formulario para Agregar un Animal");
+        model.addAttribute("animal", new Animal());
+        return "create";
     }
 
-    @PutMapping("/{id}")
-    public Animal updateAnimal(@PathVariable int id, @RequestBody Animal updatedAnimal) {
-        return animalService.animalUpdate(id, updatedAnimal);
+    @PostMapping("/create")
+    public String createSubmit(@Validated @ModelAttribute("animal") Animal animal, Model model) {
+        ai.save(animal);
+        model.addAttribute("title", "Página para Ver los Animales");
+        model.addAttribute("animales", ai.findAll());
+        return "index";
+    }
+
+    @GetMapping("/details/{id}")
+    public String animalDetails(@PathVariable("id") int id, Model model)
+    {
+        model.addAttribute("title", "Detalles de un Animal");
+        model.addAttribute("animal", ai.findById(id));
+        return "details";
+    }
+
+    @GetMapping("/update/{id}")
+    public String showUpdateForm(@PathVariable("id") int id, Model model) {
+        model.addAttribute("title", "Actualización de un Animal");
+        model.addAttribute("animal", ai.findById(id));
+        return "update";
+    }
+
+    @PostMapping("/update")
+    public String updateAnimal(@Validated @ModelAttribute("animal") Animal animal) {
+        Animal existingAnimal = as.animalUpdate(animal.getId(), animal);
+        existingAnimal.setName(animal.getName());
+        existingAnimal.setAge(animal.getAge());
+        existingAnimal.setExtinct(animal.getExtinct());
+        return "redirect:/";
+    }
+
+    @GetMapping("/delete/{id}")
+    public String deleteAnimal(@PathVariable("id") int id) {
+        ai.deleteById(id);
+        return "redirect:/";
+    }
+
+    /*@PutMapping("/{id}")
+    public Animal findById(@PathVariable int id, @RequestBody Animal updatedAnimal) {
+        return as.animalUpdate(id, updatedAnimal);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteAnimal(@PathVariable int id) {
-        /*animalService.animalDelete(id);*/
-        animalService.deleteById(id);
-    }
+    public void deleteById(@PathVariable int id) {
+        ai.deleteById(id);
+    }*/
 }
