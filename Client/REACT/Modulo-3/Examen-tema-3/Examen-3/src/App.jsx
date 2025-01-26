@@ -20,15 +20,19 @@ export default function Deportistas({deportistas}) {
   };
 
   return (
+    <>
     <ul>
       {
-        Deportista.map(({nombre: nom, apellido1: ap1, apellido2: ap2}, i) => (
+        // Deportista.map(({nombre: nom, apellido1: ap1, apellido2: ap2}, i) => (
+            Deportista.map(({deportista}, i) => (
           <li key={i}>
-            {nom} {ap1} {ap2}
-          </li> 
+            {deportista.nombre} {deportista.apellido1} {deportista.apellido2}
+          </li>
         ))
       }
       <button type="button" onClick={mayusMinus}>Pasar a mayusculas/minusculas</button>
+      <script>console.log(Deportista);</script>
     </ul>
+    </>
   ) 
 }
