@@ -9,13 +9,13 @@ const DOM = {
     phone: document.getElementById("phone"),
     cp: document.getElementById("cp"),
     year: document.getElementById("year"),
-    document: document.getElementById("document"),
+    doc: document.getElementById("doc"), // Elemento select
     dni: document.getElementById("dni"),
     par: document.getElementById("par"),
     emp: document.getElementById("emp"),
     account: document.getElementById("account_required"),
-    title: document.getElementById("title"), // Elemento small.
-    desc: document.getElementById("desc"), // Elemeto small.
+    title: document.getElementById("title"),
+    desc: document.getElementById("desc"),
     tit: document.getElementById("tit"), // Elemento input.
     des: document.getElementById("des"), // Elemento textarea.
     music: document.getElementById("music"),
@@ -38,11 +38,11 @@ const ERROR = {
     cp_error: document.getElementById("cp_error"),
     doc_error: document.getElementById("doc_error"),
     dni_error: document.getElementById("dni_error"),
-    account_error: document.getElementById("account_error"),
-    anio_error: document.getElementById("anio_error"),
-    hobby_error: document.getElementById("hobby_error"),
-    title_error: document.getElementById("title_error"),
-    desc_error: document.getElementById("desc_error")
+    account_error: document.getElementById("account_required_error"),
+    year_error: document.getElementById("year_error"),
+    hobby_error: document.getElementById("hobby_required_error"),
+    tit_error: document.getElementById("tit_error"),
+    des_error: document.getElementById("des_error")
 };
 
 let error;
@@ -57,7 +57,7 @@ function checkErrors()
         switch(key)
         {
             case "username_error":
-                if (DOM.username.validationMessage != "")
+                if (DOM.username.validationMessage)
                 {
                     element.innerHTML = DOM.username.validationMessage;
                     error = true;
@@ -68,7 +68,7 @@ function checkErrors()
                 }
                 break;
             case "pass_error":
-                if (DOM.pass.validationMessage != "")
+                if (DOM.pass.validationMessage)
                 {
                     element.innerHTML = DOM.pass.validationMessage;
                     error = true;
@@ -79,7 +79,7 @@ function checkErrors()
                 }
                 break;
             case "userdata_error":
-                if (DOM.userdata.validationMessage != "")
+                if (DOM.userdata.validationMessage)
                 {
                     element.innerHTML = DOM.userdata.validationMessage;
                     error = true;
@@ -90,7 +90,7 @@ function checkErrors()
                 }
                 break;
             case "surname_error":
-                if (DOM.surname.validationMessage != "")
+                if (DOM.surname.validationMessage)
                 {
                     element.innerHTML = DOM.surname.validationMessage;
                     error = true;
@@ -101,7 +101,7 @@ function checkErrors()
                 }
                 break;
             case "phone_error":
-                if (DOM.phone.validationMessage != "")
+                if (DOM.phone.validationMessage)
                 {
                     element.innerHTML = DOM.phone.validationMessage;
                     error = true;
@@ -112,7 +112,7 @@ function checkErrors()
                 }
                 break;
             case "cp_error":
-                if (DOM.cp.validationMessage != "")
+                if (DOM.cp.validationMessage)
                 {
                     element.innerHTML = DOM.cp.validationMessage;
                     error = true;
@@ -123,9 +123,9 @@ function checkErrors()
                 }
                 break;
             case "doc_error":
-                if (DOM.document.validationMessage != "")
+                if (DOM.doc.validationMessage)
                 {
-                    element.innerHTML = DOM.document.validationMessage;
+                    element.innerHTML = DOM.doc.validationMessage;
                     error = true;
                 }
                 else
@@ -141,7 +141,7 @@ function checkErrors()
                 }
                 else
                 {
-                    if (DOM.dni.validationMessage != "")
+                    if (DOM.dni.validationMessage)
                     {
                         element.innerHTML = DOM.dni.validationMessage;
                         error = true;
@@ -163,8 +163,8 @@ function checkErrors()
                     element.innerHTML = "";
                 }
                 break;
-            case "anio_error":
-                if (DOM.year.validationMessage != "")
+            case "year_error":
+                if (DOM.year.validationMessage)
                 {
                     element.innerHTML = DOM.year.validationMessage;
                     error = true;
@@ -174,8 +174,8 @@ function checkErrors()
                     element.innerHTML = "";
                 }
                 break;
-            case "title_error":
-                if (DOM.tit.validationMessage != "")
+            case "tit_error":
+                if (DOM.tit.validationMessage)
                 {
                     element.innerHTML = DOM.tit.validationMessage;
                     error = true;
@@ -185,8 +185,8 @@ function checkErrors()
                     element.innerHTML = "";
                 }
                 break;
-            case "desc_error":
-                if (DOM.des.validationMessage != "")
+            case "des_error":
+                if (DOM.des.validationMessage)
                 {
                     element.innerHTML = DOM.des.validationMessage;
                     error = true;
@@ -239,52 +239,29 @@ DOM.check.addEventListener("click", function()
     togglePass(DOM.pass, DOM.check)
 });
 
-DOM.document.addEventListener("change", () =>
+DOM.doc.addEventListener("change", () =>
 {
-    enableDNI(DOM.document, DOM.dni)
+    enableDNI(DOM.doc, DOM.dni)
 });
 
-// DOM.form.addEventListener("submit", (e) =>
-// {
-//     error = checkErrors();
-//     if (error)
-//     {
+// DOM.form.addEventListener("submit", (e) => {
+//     if (checkErrors()) {
 //         e.preventDefault();
-//         checkErrors();
-//     }
-//     else
+//     } else if (!verify(DOM.dni.value)){
+//         e.preventDefault();
+//     } else if (hobbies.length <= 1) {
+//         e.preventDefault();
+//     } else
 //     {
-//         let result = verify(DOM.dni.value);
-//         if (!result) // Verifica si el DNI es Correcto.
-//         {
-//             e.preventDefault();
-//         }
-//         else
-//         {
-//             if (hobbies.length <= 1) // Verifica si no se Seleccionó Más de 1 Hobby.
-//             {
-//                 e.preventDefault();
-//             }
-//             else // Si se Selecionó Más de 1.
-//             {
-//                 DOM.aficiones.value = hobbies.join(", ");
-//             }
-//         }
+//         DOM.aficiones.value = hobbies.join(", ");
 //     }
 // });
 
 DOM.form.addEventListener("submit", (e) => {
-    if (checkErrors()) {
-        console.log('error');
+    if (checkErrors() || !verify(DOM.dni.value) || hobbies.length <= 1) {
         e.preventDefault();
-    } else if (!verify(DOM.dni.value)){
-        e.preventDefault();
-    } else if (hobbies.length > 1) {
+    } else {
         DOM.aficiones.value = hobbies.join(", ");
-        console.log('error');
-    } else
-    {
-        e.preventDefault();
     }
 });
 
@@ -311,84 +288,6 @@ DOM.checkboxes.forEach(checkbox => {
         }
     });
 });
-
-// DOM.music.addEventListener("click", () =>
-// {
-//     if (DOM.music.checked) // Si el Checkbox music Está Chequeado.
-//     {
-//         hobbies.push(DOM.music.value); // Lo Agrega al Array.
-//     }
-//     else // Si se Deselecciona.
-//     {
-//         fixHobbies(DOM.music.value); // Llama a la Función fixHobbies Pasandole el Valor del Checkbox por Parametro.
-//     }
-//     checkHobbies();
-// });
-
-// DOM.handmade.addEventListener("click", () =>
-// {
-//     if (DOM.handmade.checked)
-//     {
-//         hobbies.push(DOM.handmade.value);
-//     }
-//     else
-//     {
-//         fixHobbies(DOM.handmade.value);
-//     }
-//     checkHobbies();
-// });
-
-// DOM.sport.addEventListener("click", () =>
-// {
-//     if (DOM.sport.checked)
-//     {
-//         hobbies.push(DOM.sport.value);
-//     }
-//     else
-//     {
-//         fixHobbies(DOM.sport.value);
-//     }
-//     checkHobbies();
-// });
-
-// DOM.art.addEventListener("click", () =>
-// {
-//     if (DOM.art.checked)
-//     {
-//         hobbies.push(DOM.art.value);
-//     }
-//     else
-//     {
-//         fixHobbies(DOM.art.value);
-//     }
-//     checkHobbies();
-// });
-
-// DOM.games.addEventListener("click", () =>
-// {
-//     if (DOM.games.checked)
-//     {
-//         hobbies.push(DOM.games.value);
-//     }
-//     else
-//     {
-//         fixHobbies(DOM.games.value);
-//     }
-//     checkHobbies();
-// });
-
-// DOM.lecture.addEventListener("click", () =>
-// {
-//     if (DOM.lecture.checked)
-//     {
-//         hobbies.push(DOM.lecture.value)
-//     }
-//     else
-//     {
-//         fixHobbies(DOM.lecture.value);
-//     }
-//     checkHobbies();
-// });
 
 function fixHobbies(hobby) // Función fixHobbies Recibe el Valor del Input Type Checkbox.
 {

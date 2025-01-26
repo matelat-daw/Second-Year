@@ -9,7 +9,7 @@ const DOM = {
     phone: document.getElementById("phone"),
     cp: document.getElementById("cp"),
     year: document.getElementById("year"),
-    document: document.getElementById("document"),
+    doc: document.getElementById("doc"),
     dni: document.getElementById("dni"),
     par: document.getElementById("par"),
     emp: document.getElementById("emp"),
@@ -38,22 +38,55 @@ const ERROR = {
     cp_error: document.getElementById("cp_error"),
     doc_error: document.getElementById("doc_error"),
     dni_error: document.getElementById("dni_error"),
-    account_error: document.getElementById("account_error"),
-    anio_error: document.getElementById("anio_error"),
+    account_error: document.getElementById("account_required_error"),
+    year_error: document.getElementById("year_error"),
     hobby_error: document.getElementById("hobby_error"),
-    title_error: document.getElementById("title_error"),
-    desc_error: document.getElementById("desc_error")
+    tit_error: document.getElementById("tit_error"),
+    des_error: document.getElementById("des_error")
 };
 
 let error;
 checkErrors();
+
+// function checkErrors() {
+//     error = false;
+//     Object.keys(ERROR).forEach(key => {
+//         const errorElement = ERROR[key];
+//         const domElement = DOM[key.replace('_error', '')];
+//         if (domElement) {
+//             if (domElement.validationMessage) {
+//                 errorElement.innerHTML = domElement.validationMessage;
+//                 error = true;
+//             } else {
+//                 errorElement.innerHTML = "";
+//             }
+//         } else if (key === "account_required_error" && key === "hobby_error") {
+//             if (DOM[key.replace('_error', '')].style.visibility !== "hidden") {
+//                 errorElement.innerHTML = DOM[key.replace('_error', '')].innerHTML;
+//                 error = true;
+//             } else {
+//                 errorElement.innerHTML = "";
+//             }
+//         }
+//     });
+//     return error;
+// }
 
 function checkErrors() {
     error = false;
     Object.keys(ERROR).forEach(key => {
         const element = ERROR[key];
         const domElement = DOM[key.replace('_error', '')];
-        if (domElement) {
+        console.log(domElement.id);
+        if (domElement.id == "account_required" || domElement.id == "hobby_required") {
+            if (domElement.style.visibility === "visible") {
+                element.innerHTML = "Completa este Campo";
+                error = true;
+            } else {
+                element.innerHTML = "";
+            }
+        }
+        else if (domElement) {
             if (domElement.validationMessage) {
                 element.innerHTML = domElement.validationMessage;
                 error = true;
@@ -94,8 +127,8 @@ DOM.check.addEventListener("click", () => {
     togglePass(DOM.pass, DOM.check);
 });
 
-DOM.document.addEventListener("change", () => {
-    enableDNI(DOM.document, DOM.dni);
+DOM.doc.addEventListener("change", () => {
+    enableDNI(DOM.doc, DOM.dni);
 });
 
 DOM.form.addEventListener("submit", (e) => {

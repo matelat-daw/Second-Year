@@ -9,7 +9,7 @@ const DOM = {
     phone: document.getElementById("phone"),
     cp: document.getElementById("cp"),
     year: document.getElementById("year"),
-    document: document.getElementById("document"),
+    doc: document.getElementById("doc"),
     dni: document.getElementById("dni"),
     par: document.getElementById("par"),
     emp: document.getElementById("emp"),
@@ -39,10 +39,10 @@ const ERROR = {
     doc_error: document.getElementById("doc_error"),
     dni_error: document.getElementById("dni_error"),
     account_error: document.getElementById("account_error"),
-    anio_error: document.getElementById("anio_error"),
+    year_error: document.getElementById("year_error"),
     hobby_error: document.getElementById("hobby_error"),
-    title_error: document.getElementById("title_error"),
-    desc_error: document.getElementById("desc_error")
+    tit_error: document.getElementById("title_error"),
+    des_error: document.getElementById("desc_error")
 };
 
 let error;
@@ -127,9 +127,9 @@ function checkErrors()
                 }
                 break;
             case "doc_error":
-                if (DOM.document.validationMessage != "")
+                if (DOM.doc.validationMessage != "")
                 {
-                    doc_error.innerHTML = DOM.document.validationMessage;
+                    doc_error.innerHTML = DOM.doc.validationMessage;
                     error = true;
                 }
                 else
@@ -170,15 +170,15 @@ function checkErrors()
                     error = false;
                 }
                 break;
-            case "anio_error":
+            case "year_error":
                 if (DOM.year.validationMessage != "")
                 {
-                    anio_error.innerHTML = DOM.year.validationMessage;
+                    year_error.innerHTML = DOM.year.validationMessage;
                     error = true;
                 }
                 else
                 {
-                    anio_error.innerHTML = "";
+                    year_error.innerHTML = "";
                     error = false;
                 }
                 break;
@@ -254,9 +254,9 @@ DOM.check.addEventListener("click", function()
     togglePass(DOM.pass, DOM.check)
 });
 
-DOM.document.addEventListener("change", () =>
+DOM.doc.addEventListener("change", () =>
 {
-    enableDNI(DOM.document, DOM.dni)
+    enableDNI(DOM.doc, DOM.dni)
 });
 
 DOM.form.addEventListener("submit", (e) =>

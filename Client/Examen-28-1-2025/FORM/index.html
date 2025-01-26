@@ -57,8 +57,8 @@
                         </div>
                         <div class="container-3col">
                             <div class="width-33">
-                                <label for="document">DNI/NIE</label>
-                                <select id="document" class="aside" name="TipoDocumento" required>
+                                <label for="doc">DNI/NIE</label>
+                                <select id="doc" class="aside" name="TipoDocumento" required>
                                     <option value="">...</option>
                                     <option value="DNI">DNI</option>
                                     <option value="NIE">NIE</option>
@@ -68,7 +68,7 @@
                                 <span id="dni_required">El D.N.I. es Obligatorio</span>
                             </div>
                             <div class="width-33 m-left">
-                                <label for="account">Crear Cuenta Como:</label>
+                                <label>Crear Cuenta Como:</label>
                                 <div class="aside">
                                     <input id="par" class="aside" type="radio" name="CuentaComo" value="particular" required><label for="par" class="aside">Particular</label>
                                     <input id="emp" class="aside" type="radio" name="CuentaComo" value="empresa"><label for="emp" class="aside">Empresa</label>
@@ -157,11 +157,11 @@
             <div><span class="error">Código Postal: </span><p id="cp_error"></p></div>
             <div><span class="error">Tipo de Documento: </span><p id="doc_error"></p></div>
             <div><span class="error">DNI/NIE: </span><p id="dni_error"></p></div>
-            <div><span class="error">Cuenta: </span><p id="account_error"></p></div>
-            <div><span class="error">Año de Nacimiento: </span><p id="anio_error"></p></div>
-            <div><span class="error">Aficiones: </span><p id="hobby_error"></p></div>
-            <div><span class="error">Título: </span><p id="title_error"></p></div>
-            <div><span class="error">Descripción: </span><p id="desc_error"></p></div>
+            <div><span class="error">Cuenta: </span><p id="account_required_error"></p></div>
+            <div><span class="error">Año de Nacimiento: </span><p id="year_error"></p></div>
+            <div><span class="error">Aficiones: </span><p id="hobby_required_error"></p></div>
+            <div><span class="error">Título: </span><p id="tit_error"></p></div>
+            <div><span class="error">Descripción: </span><p id="des_error"></p></div>
         </div>
     </div>
     <!-- <script src="js/main.js" type="module"></script> -->
