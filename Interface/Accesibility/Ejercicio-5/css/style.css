@@ -124,6 +124,18 @@ body
     {
         padding: 10px;
     }
+
+    img, video, iframe {
+        padding: 50px;
+        transition: transform .5s;
+        width: 80%;
+        margin: 0 auto;
+      }
+      
+      img:hover, video:hover, iframe:hover {
+        z-index: 1;
+        transform: scale(1.1);
+      }
 }
 
 /* Estilos de Header. */
