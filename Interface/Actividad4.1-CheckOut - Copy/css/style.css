@@ -80,6 +80,11 @@ body
         text-align: center;
     }
 
+    h3
+    {
+        margin: 0;
+    }
+
     span
     {
         font-size: .80em; /* Reduce el tamaño de la fuente de los span al 80% */
