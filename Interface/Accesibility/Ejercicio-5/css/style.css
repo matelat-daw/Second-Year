@@ -1,18 +1,11 @@
-/* img
-{
-    width: 60%;
-    padding: 10px;
-} */
-
-.background
-{
-    background-image: url('../media/imgs/logo.webp');
-    background-repeat: no-repeat;
-}
-
 .nomargin
 {
     margin: 0;
+}
+
+#about, #history
+{
+    padding: 10px;
 }
 
 .center
@@ -98,11 +91,6 @@ body
         transition: .5s;
     }
 
-    .header:hover
-    {
-        border: 1px solid black;
-    }
-
     #btn-transfer
     {
         border: 1px solid blue;
@@ -130,12 +118,12 @@ body
         width: 25%;
         border: 1px solid black;
         border-radius: 40%;
-      }
+    }
 
-      p
-      {
+    p
+    {
         padding: 10px;
-      }
+    }
 }
 
 /* Estilos de Header. */
@@ -147,11 +135,10 @@ body
 
 .big-letter
 {
-    background-color: rgba(80, 80, 80, .5);
     font-size: 2.6em;
 }
 
-.nav-link
+a, .nav-link
 {
     color: var(--color-a);
     margin: .5em 0;
@@ -159,14 +146,14 @@ body
     transition: .5s;
 }
 
-.nav-link:hover
+a:hover, .nav-link:hover
 {
-    background-color: rgba(80, 80, 80, .5);
+    background-color: var(--color-hover);
 }
 
 .double
 {
-    font-size: 2em;
+    font-size: 2.6em;
     color: var(--color-texto);
 }
 
