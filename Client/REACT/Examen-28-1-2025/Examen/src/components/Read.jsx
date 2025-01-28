@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { getAllItems } from '../services/Service';
+import { getAlumnos } from '../services/Service';
 import { useNavigate } from 'react-router-dom';
 
 const Read = () => {
@@ -8,7 +8,7 @@ const Read = () => {
 
   useEffect(() => {
     const fetchItems = async () => {
-      const data = await getAllItems();
+      const data = await getAlumnos();
       setItems(data);
     };
     fetchItems();
@@ -19,11 +19,11 @@ const Read = () => {
       <h2>Lista de Alumnos</h2>
       <table>
         <thead>
-            <tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Acciones</th></tr>
+            <tr><th>ID</th><th>Nombre</th><th>Grupo</th><th>Acciones</th></tr>
         </thead>
         <tbody>
                 {alumnos.map((alumno) => (
-                    <tr key={alumno.id}><td>{alumno.id}</td><td>{alumno.name}</td><td>{alumno.description}</td><td><button onClick={ (e) => navegar(`/Update/${alumno.id}`)}>Actualizar</button>&nbsp;&nbsp;<button onClick={(e)=> navegar(`/delete/${alumno.id}`)}>Eliminar</button></td></tr>
+                    <tr key={alumno.id}><td>{alumno.id}</td><td>{alumno.name}</td><td>{alumno.grupo}</td><td><button onClick={ (e) => navegar(`/Update/${alumno.id}`)}>Actualizar</button>&nbsp;&nbsp;<button onClick={(e)=> navegar(`/delete/${alumno.id}`)}>Eliminar</button></td></tr>
                 ))}
         </tbody>
       </table>
