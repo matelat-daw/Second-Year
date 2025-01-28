@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getAllItems, updateItem } from '../services/Service';
+import { getAlumnos, updateAlumno } from '../services/Service';
 
 const Update = () => {
-  const [formData, setFormData] = useState({ name: '', description: '' });
+  const [formData, setFormData] = useState({ name: '', grupo: '' });
   const { id } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchItem = async () => {
-      const alumnos = await getAllItems();
+      const alumnos = await getAlumnos();
       const alumno = alumnos.find((alumno) => alumno.id === parseInt(id));
       if (alumno)
       {
@@ -29,7 +29,7 @@ const Update = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await updateItem(parseInt(id), formData);
+    await updateAlumno(parseInt(id), formData);
     navigate('/read');
   };
 
@@ -39,7 +39,7 @@ const Update = () => {
       <form onSubmit={handleSubmit}>
         <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Nombre" />
         <br /><br />
-        <textarea name="description" value={formData.description} onChange={handleChange} placeholder="Descripción" />
+        <textarea name="description" value={formData.grupo} onChange={handleChange} placeholder="Descripción" />
         <br /><br />
         <button type="submit">Actualizar</button>
       </form>

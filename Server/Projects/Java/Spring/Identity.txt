@@ -1,0 +1,121 @@
+Interface:
+
+@Repository
+public interface AnimalRepository extends JpaRepository<Animal, Long> {
+}
+
+
+Servicio:
+
+@Service
+public class AnimalService {
+    
+    @Autowired
+    private AnimalRepository animalRepository;
+    
+    public List<Animal> findAll() {
+        return animalRepository.findAll();
+    }
+    
+    public Animal save(Animal animal) {
+        return animalRepository.save(animal);
+    }
+    
+    // Otros métodos según necesidad
+}
+
+
+Controlador:
+
+@RestController
+@RequestMapping("/api")
+public class AnimalController {
+    
+    @Autowired
+    private AnimalService animalService;
+    
+    @GetMapping("/animals")
+    public List<Animal> getAllAnimals() {
+        return animalService.findAll();
+    }
+    
+    @PostMapping("/animals")
+    public Animal createAnimal(@RequestBody Animal animal) {
+        return animalService.save(animal);
+    }
+    
+    // Otros endpoints según necesidad
+}
+
+
+Modelo User:
+
+@Entity
+public class User {
+    
+    @Id
+    private Long id;
+    
+    private String username;
+    private String password;
+    
+    @ManyToMany
+    private List<Role> roles = new ArrayList<>();
+}
+
+
+Modelo Roles:
+
+@Entity
+public class Role {
+    
+    @Id
+    private Long id;
+    
+    private String name;
+    
+    // Getters y setters
+}
+
+
+Security:
+
+@Configuration
+@EnableSecurity
+public class SecurityConfig extends WebSecurityConfigurerAdapter {
+    
+    @Autowired
+    private UserDetailsService userDetailsService;
+    
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+            .antMatchers("/api/**").authenticated();
+    }
+}
+
+
+Servicio Usuarios:
+
+@Service
+public class UserService implements UserDetailsService {
+    
+    @Autowired
+    private UserRepository userRepository;
+    
+    public void createNewUser(User user) {
+        userRepository.save(user);
+    }
+    
+    @Override
+    public User loadUserByUsername(String username) throws UsernameNotFoundException {
+        return userRepository.findByUsername(username);
+    }
+}
+
+
+Conexión con la Base de Datos (application.properties):
+
+spring.datasource.url=jdbc:mysql://localhost:3306/animales
+spring.datasource.username=root
+spring.datasource.password= 
