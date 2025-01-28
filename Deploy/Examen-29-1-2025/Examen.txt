@@ -92,7 +92,7 @@ SSLEngine On
 SSLCertificateFile /etc/ssl/certs/matelat.pem 
 SSLCertificateKeyFile /etc/ssl/private/matelat.key
 
-Se Agrega el certificado al fichero de configuración del sitio.
+Se Agrega el certificado al fichero de configuración del sitio (Apache2).
 
 El fichero se ve así:
 
@@ -117,3 +117,38 @@ ErrorLog ${APACHE_LOG_DIR}/error.log
 CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
+
+Creación de un Usuario y su Home:
+
+sudo adduser simba20 --home /home/moodle.simba20.examen --shell /sbin/nologin
+
+sudo adduser nala20 --home /home/www.nala20.examen --shell /sbin/nologin
+
+
+Configuración Nginx:
+
+server { 
+	listen 80; 
+	listen [::]:80; 
+	root /home/moodle.simba20.examen/moodle; 
+	#Add index.php to the list if you are using PHP 
+	moodle.html; 
+	server_name moodle.simba20.examen; 
+	location / { 
+	# First attempt to serve request as file, then 
+	# as directory, then fall back to displaying a 404. 
+	try_files $uri Şuri/ =404; 
+	} 
+	return 301 https://$host$request_uri; 
+} 
+	server { 
+	listen 443 ssl; 
+	server_name moodle.simba20.examen; 
+	ssl_certificate /etc/ssl/certs/vsftpd.pem; 
+	ssl_certificate_key /etc/ssl/private/vsftpd.key; 
+	root/home/moodle.simba20.examen/moodle; 
+	moodle.html; 
+	location / { 
+	try_files $uri Şuri/ =404; 
+	} 
+}
