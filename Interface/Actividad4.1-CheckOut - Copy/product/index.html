@@ -13,7 +13,7 @@
 </head>
 <body class="light"> <!-- Por Defecto el body Tiene la Clase light, Inicia en Modo Claro. -->
     <header>
-        <div><img src="../img/fruta.webp" alt="Logo de la Empresa Frutas del Mundo" class="logo-size"></div>
+        <div><img src="../media/imgs/fruta.webp" alt="Logo de la Empresa Frutas del Mundo" class="logo-size"></div>
         <div>
             <h1 class="big-letter">Frutas del Mundo</h1>
         </div>
@@ -24,21 +24,21 @@
                 <a href="#" class="nav-link sort"><p>Me Registro</p></a>
             </div>
             <div>
-                <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double" aria-label="Cambia a Tema Claro"></i></a>
-                <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double" aria-label="Cambia a Tema Oscuro"></i></a>
+                <a href="javascript:changeStyle('light', 'user')"><i id="lightMode" class="bi bi-brightness-high double nav-link" aria-label="Cambia a Tema Claro"></i></a>
+                <a href="javascript:changeStyle('dark', 'user')"><i id="darkMode" class="bi bi-moon-stars double nav-link" aria-label="Cambia a Tema Oscuro"></i></a>
             </div>
             <div>
-                <button onclick="changeSize('down')" class="double equal" aria-label="Disminuye el Tamaño de la Letra">-f</button>
-                <button onclick="changeSize('up')" class="double equal" aria-label="Aumenta el Tamaño de la Letra">F+</button>
+                <button onclick="changeSize('down')" class="double equal nav-link" aria-label="Disminuye el Tamaño de la Letra">-f</button>
+                <button onclick="changeSize('up')" class="double equal nav-link" aria-label="Aumenta el Tamaño de la Letra">F+</button>
             </div>
             <div>
-                <button onclick="checkout('../cart/index.html')" class="double equal"><i class="bi bi-cart-check-fill"></i><span class="xsmall">CheckOut</span></button>
+                <button onclick="checkout('../cart/index.html')" class="double equal nav-link"><i class="bi bi-cart-check-fill"></i><span class="xsmall">CheckOut</span></button>
             </div>
         </div>
     </header>
     <div class="container">
         <nav id="nav"> <!-- La id se usa para Mostrar Ocultar el Elemento. -->
-            <a href="../index.html" class="nav-link sort">Página del Procduto</a>
+            <a href="../index.html" class="nav-link sort">Página de Inicio</a>
             <p><strong>Nuestro Catálogo</strong></p>
             <a href="../catalog/index.html" class="nav-link sort">Frutas de Cercanias</a>
             <a href="../catalog/index.html" class="nav-link sort">Frutas de Temporada</a>
@@ -66,7 +66,7 @@
         </aside>
         <main>
             <div class="main">
-                <img id="article" src="../img/kiwi.jpg" alt="Un Kiwi, La Mejor Fruta" class="article">
+                <img id="article" src="../media/imgs/kiwi.jpg" alt="Un Kiwi, La Mejor Fruta" class="article">
                 <article>
                     <h2>Nuestro Producto Estrella</h2>
                     <p>El Kiwi es tu Mejor Opción, si buscas la mejor fruta</p>
@@ -105,11 +105,11 @@
             <div>
                 <p>Acerca de Nosotros</p>
                 <ul>
-                    <li><a href="about/index.html">Quienes somos</a></li>
-                    <li><a href="about/index.html">Nuetra Mision, Vision y Valores</a></li>
-                    <li><a href="about/index.html">Responsabilidad y compromiso Social</a></li>
-                    <li><a href="about/index.html">Nuestras Tiendas</a></li>
-                    <li><a href="about/index.html">Tienda Online, Registrate para Comprar</a></li>
+                    <li><a href="../about/index.html">Quienes somos</a></li>
+                    <li><a href="../about/index.html">Nuetra Mision, Vision y Valores</a></li>
+                    <li><a href="../about/index.html">Responsabilidad y compromiso Social</a></li>
+                    <li><a href="../about/index.html">Nuestras Tiendas</a></li>
+                    <li><a href="../about/index.html">Tienda Online, Registrate para Comprar</a></li>
                 </ul>
             </div>
         </div>

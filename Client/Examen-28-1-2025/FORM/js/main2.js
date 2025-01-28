@@ -244,19 +244,6 @@ DOM.doc.addEventListener("change", () =>
     enableDNI(DOM.doc, DOM.dni)
 });
 
-// DOM.form.addEventListener("submit", (e) => {
-//     if (checkErrors()) {
-//         e.preventDefault();
-//     } else if (!verify(DOM.dni.value)){
-//         e.preventDefault();
-//     } else if (hobbies.length <= 1) {
-//         e.preventDefault();
-//     } else
-//     {
-//         DOM.aficiones.value = hobbies.join(", ");
-//     }
-// });
-
 DOM.form.addEventListener("submit", (e) => {
     if (checkErrors() || !verify(DOM.dni.value) || hobbies.length <= 1) {
         e.preventDefault();

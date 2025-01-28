@@ -1,6 +1,6 @@
-.nomargin
+.left-margin
 {
-    margin: 0;
+    margin-left: 48px;
 }
 
 #about, #history
@@ -51,7 +51,7 @@ body
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: space-around;
         justify-items: center;
         padding: .3em;
         background-color: var(--color-header_back);
@@ -131,7 +131,7 @@ body
     }
 
     img, video, iframe {
-        padding: 50px;
+        padding: 20px;
         transition: transform .5s;
         width: 80%;
         margin: 0 auto;
