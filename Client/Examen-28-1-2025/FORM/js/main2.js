@@ -265,7 +265,7 @@ let hobbies = []; // Array de Aficiones, Contendrá las Aficiones Seleccionadas 
 
 DOM.checkboxes.forEach(checkbox => {
     checkbox.addEventListener("click", () => {
-        if (checkbox.id != DOM.check) {
+        if (checkbox.id != DOM.check.id) {
             if (checkbox.checked) {
                 hobbies.push(checkbox.value);
             } else {
