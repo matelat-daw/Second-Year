@@ -152,3 +152,14 @@ server {
 	try_files $uri Şuri/ =404; 
 	} 
 }
+
+Editar PAM.D, crear los directorios del usuario y cambiar los permisos.
+
+sudo nano /etc/pam.d/vsftpd.virtual 
+
+sudo mkdir /home/vftp/simba20 
+sudo mkdir /home/vftp/s
+sudo mkdir /home/vftp/s 
+sudo mkdir /home/vftp/simba20/uploads 
+sudo chmod 770 /home/vftp/simba20/uploads 
+sudo chmod a-w/home/vftp/simba20
