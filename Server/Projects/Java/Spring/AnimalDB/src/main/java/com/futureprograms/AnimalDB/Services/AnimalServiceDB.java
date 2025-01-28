@@ -9,7 +9,11 @@ import java.util.*;
 @Primary
 @Service
 public class AnimalServiceDB {
-    private AnimalInterface ai;
+    private final AnimalInterface ai;
+
+    public AnimalServiceDB(AnimalInterface ai) {
+        this.ai = ai;
+    }
 
     private static List<Animal> animales;
     /*static {

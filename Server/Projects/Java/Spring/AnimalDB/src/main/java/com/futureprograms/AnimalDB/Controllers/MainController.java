@@ -27,11 +27,6 @@ public class MainController {
         return "index";
     }
 
-    /*@GetMapping("/{id}")
-    public Animal findById(@PathVariable int id) {
-        return ai.findById(id);
-    }*/
-
     @GetMapping("/create")
     public String createForm(Model model) {
         model.addAttribute("title", "Formulario para Agregar un Animal");
@@ -76,14 +71,4 @@ public class MainController {
         ai.deleteById(id);
         return "redirect:/";
     }
-
-    /*@PutMapping("/{id}")
-    public Animal findById(@PathVariable int id, @RequestBody Animal updatedAnimal) {
-        return as.animalUpdate(id, updatedAnimal);
-    }
-
-    @DeleteMapping("/{id}")
-    public void deleteById(@PathVariable int id) {
-        ai.deleteById(id);
-    }*/
 }
