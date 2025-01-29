@@ -118,11 +118,18 @@ CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
 
-Creación de un Usuario y su Home:
+Creación de un Usuario, su Home y Permisos:
 
 sudo adduser simba20 --home /home/moodle.simba20.examen --shell /sbin/nologin
 
 sudo adduser nala20 --home /home/www.nala20.examen --shell /sbin/nologin
+
+sudo chmod a-w /home/moodle.simba20.examen 
+sudo chmod a-w /home/www.nala20.examen 
+sudo mkdir /home/moodle.simba20.examen/moodle 
+sudo chown simba20:simba20 /home/moodle.simba20.examen/moodle 
+sudo mkdir /home/www.nala20.examen/www 
+sudo chown nala20:nala20 /home/www.nala20.examen/www
 
 
 Configuración Nginx:
@@ -157,9 +164,9 @@ Editar PAM.D, crear los directorios del usuario y cambiar los permisos.
 
 sudo nano /etc/pam.d/vsftpd.virtual 
 
-sudo mkdir /home/vftp/simba20 
-sudo mkdir /home/vftp/s
-sudo mkdir /home/vftp/s 
+sudo mkdir /home/vftp 
+sudo mkdir /home/vftp/simba20
+sudo mkdir /home/vftp/sayali20
 sudo mkdir /home/vftp/simba20/uploads 
 sudo chmod 770 /home/vftp/simba20/uploads 
-sudo chmod a-w/home/vftp/simba20
+sudo chmod a-w /home/vftp/simba20
