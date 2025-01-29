@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{../fragments/head::head}"><title></title></head>
+<br><br><br>
+<nav th:replace="~{../fragments/top::menu}"></nav>
+<br>
+<h1>Te Damos la Bienvenida</h1>
+<div class="container-fluid pt-3">
+    <button  class="btn btn-success" onclick="window.open('/create')">Agrega Animal&nbsp;<i class="bi bi-plus-circle"></i></button>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Contraseña</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="p: ${prueba}">
+            <tr>
+                <td th:text="${p.getId()}"></td>
+                <td th:text="${p.getName()}"></td>
+                <td th:text="${p.getEmail()}"></td>
+                <td th:text="${a.getPassword()}"></td>
+                <td><a class="btn btn-primary" th:href="@{/details/{id}(id=${p.getId()})}">Detalles&nbsp;<i class="bi bi-info-circle"></i></a>&nbsp;&nbsp;<a class="btn btn-secondary" th:href="@{/update/{id}(id=${p.getId()})}">Actualizar&nbsp;<i class="bi bi-arrow-up-square"></i></a>&nbsp;&nbsp;<a class="btn btn-danger" th:href="@{/delete/{id}(id=${p.getId()})}">Eliminar&nbsp;<i class="bi bi-x-circle"></i></a></td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+<footer th:replace="~{../fragments/footer::footer}"></footer>

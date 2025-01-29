@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="~{../fragments/head::head}"><title></title></head>
+<br><br><br>
+<nav th:replace="~{../fragments/top::menu}"></nav>
+<br>
+<h1>Entrada de Usuario</h1>
+<form action="#" th:action="@{/list}" method="post">
+    <fieldset>
+        <legend>Datos del Animal</legend>
+        <input id="username" name="username" type="text" required/><label for="username"> &nbsp;&nbsp;Nombre</label>
+        <br><br>
+        <input id="password" name="password" type="text" required/><label for="password"> &nbsp;&nbsp;Edad</label>
+        <br><br>
+        <input type="submit" value="Enviar" class="btn btn-success btn-lg"/>
+    </fieldset>
+</form>
+<footer th:replace="~{../fragments/footer::footer}"></footer>
