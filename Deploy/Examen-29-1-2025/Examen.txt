@@ -7,6 +7,27 @@ sudo apt upgrade
 
 Instalación de Bind9:
 
+Configuración de zonas Master y Slave:
+
+zone "sitio.edu"
+{
+        type master;
+        file "/etc/bind/db.sitio.edu";
+};
+
+zone "1.168.192.in-addr.arpa"
+{
+        type master;
+        file "/etc/bind/db.1.168.192";
+};
+
+zone "futureprograms.com"
+{
+        type slave;
+        file "/var/cache/bind/db.fp";
+        masters {192.168.1.88;};
+};
+
 sudo apt install bind9
 
 sudo apt install nginx
