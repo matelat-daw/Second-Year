@@ -1,4 +1,4 @@
-import toast from './js/script.js'
+import toast from './js/script.js';
 
 // let alumnos = [
 //     { id: 1, nombre: 'Juan', grupo: 'A' },
@@ -7,7 +7,7 @@ import toast from './js/script.js'
 // ];
 
 let alumnos2 = await fetch("http://localhost:3000/alumnos").then(respuesta => respuesta.json())
-                .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error" + respuesta))
+                .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error: " + respuesta))
                 // .then(respuesta => toast(0, "Todo Ha Ido Bien:", "Se han cargado los Datos del Servidor." + respuesta))
 
 const grupos = ["A", "B"];
@@ -15,7 +15,10 @@ const grupos = ["A", "B"];
 // Obtener todos los alumnos
 export const getAlumnos = async () => {
     try {
-      return alumnos2;
+      // return alumnos2;
+      return await fetch("http://localhost:3000/alumnos").then(respuesta => respuesta.json())
+                .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error: " + respuesta))
+                // .then(data => toast(0, "Todo Ha Ido Bien:", "Se han cargado los Datos del Servidor." + data));
     } catch (error) {
       console.error('Error fetching items:', error);
     }

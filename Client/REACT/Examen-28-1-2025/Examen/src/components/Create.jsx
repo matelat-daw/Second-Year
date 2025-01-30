@@ -42,7 +42,7 @@ const Create = () => {
         </select>
 
         <br /><br />
-        <button type="submit">Create</button>
+        <button type="submit" className='btn btn-success'>Create</button>
       </form>
     </div>
   );
