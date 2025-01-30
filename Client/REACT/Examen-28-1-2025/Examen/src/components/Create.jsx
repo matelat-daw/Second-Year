@@ -36,7 +36,7 @@ const Create = () => {
         <br /><br /> */}
 
         {/* <label htmlFor="grupo">Grupo:</label> */}
-        <select name="grupo" id="grupo" placeholder="Grupo" required>
+        <select name="grupo" id="grupo" placeholder="Grupo" onChange={handleChange} required>
             <option value={""}>Selecciona un Grupo</option>
             { grupos.map( (grupo, i) => <option key={`${i}+${grupo}`} value={grupo}>Grupo: {grupo}</option>)}
         </select>
