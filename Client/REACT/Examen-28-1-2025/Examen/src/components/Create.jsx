@@ -30,7 +30,7 @@ const Create = () => {
     <div>
       <h2>Create Item</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Nombre" required />
+        <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" required />
         <br /><br />
         {/* <input name="grupo" value={formData.grupo} onChange={handleChange} placeholder="Grupo" />
         <br /><br /> */}
