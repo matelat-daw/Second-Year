@@ -1,6 +1,6 @@
 package com.futureprograms.EjemploDB.Services;
 
-import com.futureprograms.EjemploDB.Models.Prueba;
+import com.futureprograms.EjemploDB.Models.Users;
 import com.futureprograms.EjemploDB.Repositories.PruebaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.User;
@@ -17,7 +17,7 @@ public class PruebaUserDetailsService implements UserDetailsService
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Prueba prueba = pruebaRepository.findByEmail(username)
+        Users prueba = pruebaRepository.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("Usuario no encontrado: " + username));
         return User.builder()
                 .username(prueba.getEmail())
