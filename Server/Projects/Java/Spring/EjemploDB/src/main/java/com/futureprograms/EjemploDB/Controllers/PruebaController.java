@@ -1,37 +1,37 @@
 package com.futureprograms.EjemploDB.Controllers;
 
-import com.futureprograms.EjemploDB.Models.Prueba;
-import com.futureprograms.EjemploDB.Services.PruebaService;
+import com.futureprograms.EjemploDB.Models.Users;
+import com.futureprograms.EjemploDB.Services.UsersService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/pruebas")
+@RequestMapping("/pruebas")
 public class PruebaController {
     @Autowired
-    private PruebaService pruebaService;
+    private UsersService pruebaService;
 
     @GetMapping
-    public List<Prueba> getAll() {
+    public List<Users> getAll() {
         return pruebaService.findAll();
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Prueba> getById(@PathVariable Long id) {
+    public ResponseEntity<Users> getById(@PathVariable Long id) {
         return pruebaService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
-    public Prueba create(@RequestBody Prueba prueba) {
+    public Users create(@RequestBody Users prueba) {
         return pruebaService.save(prueba);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Prueba> update(@PathVariable Long id, @RequestBody Prueba prueba) {
+    public ResponseEntity<Users> update(@PathVariable Long id, @RequestBody Users prueba) {
         return pruebaService.findById(id).map(existing -> {
             prueba.setId(id);
             return ResponseEntity.ok(pruebaService.save(prueba));

@@ -1,6 +1,6 @@
 package com.futureprograms.EjemploDB.Controllers;
 
-import com.futureprograms.EjemploDB.Services.PruebaUserDetailsService;
+import com.futureprograms.EjemploDB.Services.UserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AuthController {
     @Autowired
-    PruebaUserDetailsService puds;
+    UserDetailsService puds;
 
     @GetMapping("/login")
     public String login() {

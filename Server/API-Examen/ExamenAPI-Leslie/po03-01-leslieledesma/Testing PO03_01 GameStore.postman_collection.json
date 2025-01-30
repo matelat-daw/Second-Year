@@ -1,0 +1,1467 @@
+{
+	"info": {
+		"_postman_id": "411d45c9-889a-41ba-883c-67a296fe6b85",
+		"name": "Testing PO03_01 GameStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31027032"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login Admin User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"adminUserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify that the response contains a valid JWT token\", function () {\r",
+									"  const responseData = pm.response.text();\r",
+									"  \r",
+									"  pm.expect(responseData).to.include(\"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\");\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Token structure is valid\", function () {\r",
+									"    const token = pm.response.text();\r",
+									"    const parts = token.split(\".\");\r",
+									"    \r",
+									"    pm.expect(parts).to.have.lengthOf(3, \"Token should have 3 parts\");\r",
+									"    pm.expect(parts[0]).to.exist.and.to.not.be.empty;\r",
+									"    pm.expect(parts[1]).to.exist.and.to.not.be.empty;\r",
+									"    pm.expect(parts[2]).to.exist.and.to.not.be.empty;\r",
+									"});\r",
+									"\r",
+									"var payload =\"\";\r",
+									"\r",
+									"pm.test(\"Verify that the access token contains the expected claims\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload).to.have.property(\"jti\");\r",
+									"    pm.expect(payload).to.have.property(\"iat\");\r",
+									"    pm.expect(payload).to.have.property(\"sub\");\r",
+									"    pm.expect(payload).to.have.property(\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\");\r",
+									"    pm.expect(payload).to.have.property(\"exp\");\r",
+									"    pm.expect(payload).to.have.property(\"aud\");\r",
+									"});\r",
+									"\r",
+									"console.log(payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"]);\r",
+									"\r",
+									"pm.test(\"Admin user has Admin role\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"]).to.equal(\"Admin\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Sub claim contains user email\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"sub\"]).to.equal(\"admin@gamestore.com\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Token Audience is 'GameStoreClient'\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"aud\"]).to.equal(\"GameStoreClient\");\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Token Issuer has required value\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"iss\"]).to.equal(\"2DAWA\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"admin@gamestore.com\",\r\n  \"password\": \"Qwer123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register New User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"newUserEmailTest\", pm.variables.replaceIn('{{$randomEmail}}'));\r",
+									"pm.collectionVariables.set(\"userFullNameTest\", pm.variables.replaceIn('{{$randomFullName}}'))\r",
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"El código de respuesta es 201\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{newUserEmailTest}}\",\r\n  \"password\": \"{{userPassTest}}\",\r\n  \"fullName\": \"{{userFullNameTest}}\",\r\n  \"isActive\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/Register",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"Register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login New User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"newUserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"New user Role is 'Comercial'\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"]).to.equal(\"Comercial\");\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"{{newUserEmailTest}}\",\r\n  \"password\": \"Qwer123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Comercial1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"comercial1UserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Comercial1 user Role is 'Comercial'\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"]).to.equal(\"Comercial\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"comercial1@gamestore.com\",\r\n  \"password\": \"Qwer123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/Login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login Comercial2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"comercial2UserToken\", pm.response.text());\r",
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Comercial1 user Role is 'Comercial'\", function () {\r",
+									"    const responseData = pm.response.text();\r",
+									"    const token = responseData.split('.')[1];\r",
+									"    payload = JSON.parse(atob(token));\r",
+									"  \r",
+									"    pm.expect(payload[\"http://schemas.microsoft.com/ws/2008/06/identity/claims/role\"]).to.equal(\"Comercial\");\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"comercial2@gamestore.com\",\r\n  \"password\": \"Qwer123!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/Login",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"Login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedidos",
+			"item": [
+				{
+					"name": "New Pedido C1",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial1UserToken\"));\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Fixed ReferenceError by defining the variable 'responseData'\r",
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"  pm.collectionVariables.set(\"newPedidoId\", pm.response.json().id);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"    const requiredFields = [\"id\", \"amount\", \"address\", \"gameId\", \"game\", \"comercialId\"];\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    requiredFields.forEach(function (field) {\r",
+									"        pm.expect(responseData).to.have.property(field);\r",
+									"    });\r",
+									"    pm.collectionVariables.set(\"comercial1Id\", responseData.comercialId);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Game Field is null\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData.game).to.be.null;\r",
+									"});\r",
+									"\r",
+									"pm.test(\"UserId Field is a non empty string\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData.comercialId).to.not.be.null;\r",
+									"    pm.expect(responseData.comercialId).to.be.a('string');\r",
+									"    pm.expect(responseData.comercialId.length).to.equal(36);\r",
+									"    \r",
+									"});\r",
+									"\r",
+									"var pedido1 = {\r",
+									"    \"amount\": 4,\r",
+									"    \"address\": \"Calle Menor 5\",\r",
+									"    \"gameId\": 2\r",
+									"}\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Pedidos\";\r",
+									"\r",
+									"const postRequest = {\r",
+									"  url: url,\r",
+									"  method: 'POST',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"adminUserToken\"),\r",
+									"      'Content-Type': 'application/json'\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: 'raw',\r",
+									"    raw: JSON.stringify(pedido1)\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('With no comercial user token response status code is 403', () => {\r",
+									"        pm.expect(response).to.have.property('code', 403);\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});\r",
+									"\r",
+									"//VALIDAR MODELO A CREAR\r",
+									"\r",
+									"var review2 = {\r",
+									"    \"amount\": 11,\r",
+									"    \"address\": \"Cal\",\r",
+									"    \"gameId\": 2\r",
+									"}\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Pedidos\";\r",
+									"\r",
+									"const postRequest2 = {\r",
+									"  url: url,\r",
+									"  method: 'POST',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"comercial1UserToken\"),\r",
+									"      'Content-Type': 'application/json'\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: 'raw',\r",
+									"    raw: JSON.stringify(review2)\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest2, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('Invalid Pedido Model can not be created', () => {\r",
+									"        pm.expect(response).to.have.property('code', 400);\r",
+									"    });\r",
+									"\r",
+									"    pm.test('All Pedido fields are validated', () => {\r",
+									"        const requiredFields = [\"Amount\", \"Address\"];\r",
+									"        console.log(response);\r",
+									"        const responseData = response.json();\r",
+									"\r",
+									"        pm.expect(responseData.errors).to.be.an('object');\r",
+									"        requiredFields.forEach(function (field) {\r",
+									"            pm.expect(responseData.errors).to.have.property(field);\r",
+									"        });\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 10,\r\n  \"address\": \"Calle Mayor 7\",\r\n  \"gameId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Pedido C2",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial2UserToken\"));\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Fixed ReferenceError by defining the variable 'responseData'\r",
+									"pm.test(\"Response status code is 201\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 5,\r\n  \"address\": \"Calle del Medio 7\",\r\n  \"gameId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Comercial Pedidos",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial1UserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Response is an array with at least one element\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    pm.expect(responseData).to.have.lengthOf.at.least(1);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Each element in the response has the required fields\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    responseData.forEach(function (element) {\r",
+									"        pm.expect(element).to.have.property('id');\r",
+									"        pm.expect(element).to.have.property('amount');\r",
+									"        pm.expect(element).to.have.property('address');\r",
+									"        pm.expect(element).to.have.property('gameId');\r",
+									"        pm.expect(element).to.have.property('comercialId');\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"All Pedidos are from the Comercial1 user\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    responseData.forEach(function (element) {\r",
+									"        pm.expect(element.comercialId).to.be.equal(pm.collectionVariables.get(\"comercial1Id\"));\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos/ComercialPedidos/:comercialEmail",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos",
+								"ComercialPedidos",
+								":comercialEmail"
+							],
+							"variable": [
+								{
+									"key": "comercialEmail",
+									"value": "comercial1@gamestore.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Pedido",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"  pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Response has the required fields\", function () {\r",
+									"    const requiredFields = [\"id\", \"amount\", \"address\", \"gameId\", \"game\", \"comercialId\"];\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('object');\r",
+									"    requiredFields.forEach(function (field) {\r",
+									"        pm.expect(responseData).to.have.property(field);\r",
+									"    });\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Validate the 'Game' field\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.game).to.be.an('object');\r",
+									"    pm.expect(responseData.game).to.be.not.null;\r",
+									"});\r",
+									"\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Pedidos/\"+pm.collectionVariables.get(\"newPedidoId\");\r",
+									"\r",
+									"const postRequest = {\r",
+									"  url: url,\r",
+									"  method: 'Get',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"comercial1UserToken\"),\r",
+									"      'Content-Type': 'application/json'\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('With no admin user token response status code is 403', () => {\r",
+									"        pm.expect(response).to.have.property('code', 403);\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});\r",
+									"\r",
+									"const postRequest2 = {\r",
+									"  url: url,\r",
+									"  method: 'Get',\r",
+									"  header: {\r",
+									"      'Content-Type': 'application/json'\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest2, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('With no authenticated user token response status code is 401', () => {\r",
+									"        pm.expect(response).to.have.property('code', 401);\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos/:id",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{newPedidoId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Pedido",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"randomAddres\", pm.variables.replaceIn('{{$randomStreetAddress}}'));\r",
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Pedidos/\"+pm.collectionVariables.get(\"newPedidoId\");\r",
+									"\r",
+									"const requestData1 = {\r",
+									"  url: url,\r",
+									"  method: 'GET',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"adminUserToken\")\r",
+									"  }\r",
+									"};\r",
+									"\r",
+									"pm.sendRequest(requestData1, (error, response) => {\r",
+									"  if(error){\r",
+									"      console.log(\"hay error\");\r",
+									"  }else{\r",
+									"        console.log(response.json());\r",
+									"        pm.test(\"The 'Address' field has new value\", function () {\r",
+									"            const responseData = response.json();\r",
+									"\r",
+									"            pm.expect(responseData.address).to.be.equal(pm.collectionVariables.get(\"randomAddres\"));\r",
+									"        });\r",
+									"  }\r",
+									"});\r",
+									"\r",
+									"var pedido = {\r",
+									"    \"id\" : 1,\r",
+									"    \"amount\": 4,\r",
+									"    \"address\": \"Calle Menor 5\",\r",
+									"    \"gameId\": 2,\r",
+									"    \"comercialId\": pm.collectionVariables.get(\"comercial1Id\")\r",
+									"}\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Pedidos/\"+pm.collectionVariables.get(\"newPedidoId\");\r",
+									"\r",
+									"const postRequest2 = {\r",
+									"  url: url,\r",
+									"  method: 'PUT',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"comercial1UserToken\"),\r",
+									"      'Content-Type': 'application/json'\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: 'raw',\r",
+									"    raw: JSON.stringify(pedido)\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest2, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('With no admin user token response status code is 403', () => {\r",
+									"        pm.expect(response).to.have.property('code', 403);\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});\r",
+									"\r",
+									"const postRequest3 = {\r",
+									"  url: url,\r",
+									"  method: 'PUT',\r",
+									"  header: {\r",
+									"      'Content-Type': 'application/json'\r",
+									"  },\r",
+									"  body: {\r",
+									"    mode: 'raw',\r",
+									"    raw: JSON.stringify(pedido)\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest3, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('With no user token response status code is 401', () => {\r",
+									"        pm.expect(response).to.have.property('code', 401);\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"id\": {{newPedidoId}},\r\n  \"amount\": 5,\r\n  \"address\": \"{{randomAddres}}\",\r\n  \"gameId\": 1,\r\n  \"comercialId\": \"{{comercial1Id}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos/:id",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{newPedidoId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Pedido Copy",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									"\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Pedidos/\"+pm.collectionVariables.get(\"newPedidoId\");\r",
+									"\r",
+									"const postRequest2 = {\r",
+									"  url: url,\r",
+									"  method: 'DELETE',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"comercial1UserToken\")\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest2, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('With no admin user token response status code is 403', () => {\r",
+									"        pm.expect(response).to.have.property('code', 403);\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});\r",
+									"\r",
+									"const postRequest3 = {\r",
+									"  url: url,\r",
+									"  method: 'DELETE',\r",
+									"  header: {\r",
+									"      'Content-Type': 'application/json'\r",
+									"  }\r",
+									"};\r",
+									"pm.sendRequest(postRequest3, (error, response) => {\r",
+									"  if (error) {\r",
+									"    console.log(error);\r",
+									"  }\r",
+									"  else{\r",
+									"    pm.test('With no user token response status code is 401', () => {\r",
+									"        pm.expect(response).to.have.property('code', 401);\r",
+									"    });\r",
+									"  }\r",
+									"\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos/:id",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "{{newPedidoId}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Pedido Inactive User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"newUserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Innactive comercial obtain 403 when try to create a pedido\", function () {\r",
+									"  pm.response.to.have.status(403);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 2,\r\n  \"address\": \"Calle Cañas 33\",\r\n  \"gameId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change Comercial State",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"adminUserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.expect(pm.response.code).to.equal(200);\r",
+									"});\r",
+									"\r",
+									"var url = \"https://\"+pm.collectionVariables.get(\"Host\")+\":\"+pm.collectionVariables.get(\"Port\")+\"/api/Auth/changeState/comercial3@musicstore.com\";\r",
+									"\r",
+									"const requestData = {\r",
+									"  url: url,\r",
+									"  method: 'GET',\r",
+									"  header: {\r",
+									"      'Authorization' : 'Bearer '+pm.collectionVariables.get(\"comercial1UserToken\")\r",
+									"  }\r",
+									"};\r",
+									"\r",
+									"pm.sendRequest(requestData, (error, response) => {\r",
+									"  if(error){\r",
+									"      console.log(\"hay error\");\r",
+									"  }else{\r",
+									"        console.log(response);\r",
+									"        pm.test(\"No Admin User can not change user state\", function () {\r",
+									"            pm.expect(response.code).to.equal(403);\r",
+									"        });\r",
+									"  }\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Auth/ChangeState/:comercialEmail",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Auth",
+								"ChangeState",
+								":comercialEmail"
+							],
+							"variable": [
+								{
+									"key": "comercialEmail",
+									"value": "{{newUserEmailTest}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Pedido Active User",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"newUserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Active comercial obtain 201 when try to create a pedido\", function () {\r",
+									"  pm.response.to.have.status(201);\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"amount\": 2,\r\n  \"address\": \"Calle Cañas 33\",\r\n  \"gameId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Pedidos",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Pedidos"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Games",
+			"item": [
+				{
+					"name": "Get Games",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.collectionVariables.set(\"bearer-token\", pm.collectionVariables.get(\"comercial1UserToken\"));"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that the response is an array with at least one element\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    pm.expect(responseData.length).to.equal(15);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Verify orther is correct\", function(){\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    pm.expect(responseData[0].id).to.equal(19);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Verify that 'genre' and 'pedidos' properties are present in the response\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData).to.be.an('array');\r",
+									"    responseData.forEach(function (item) {\r",
+									"        pm.expect(item).to.have.property('genre');\r",
+									"        pm.expect(item.genre).is.null;\r",
+									"        pm.expect(item).to.have.property('pedidos');\r",
+									"        pm.expect(item.pedidos).is.not.null;\r",
+									"        pm.expect(item.pedidos.length).is.equal(0);\r",
+									"\r",
+									"    });\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Games",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Games"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Game",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"\r",
+									"pm.test(\"Response status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Validate the pedidos field\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"    \r",
+									"    pm.expect(responseData.pedidos).to.be.an('array');\r",
+									"    pm.expect(responseData.pedidos.length).to.be.at.least(1);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"Genre field is a non empty object\", function () {\r",
+									"    const responseData = pm.response.json();\r",
+									"\r",
+									"    pm.expect(responseData.genre).to.be.an('object');\r",
+									"    pm.expect(responseData.genre).to.not.equal(null);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://{{Host}}:{{Port}}/api/Games/:id",
+							"protocol": "https",
+							"host": [
+								"{{Host}}"
+							],
+							"port": "{{Port}}",
+							"path": [
+								"api",
+								"Games",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{bearer-token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Host",
+			"value": "localhost"
+		},
+		{
+			"key": "Port",
+			"value": "7056"
+		},
+		{
+			"key": "newUserEmailTest",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userFullNameTest",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "userPassTest",
+			"value": "Qwer123!",
+			"type": "string"
+		},
+		{
+			"key": "newUserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "comercial1UserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "comercial2UserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "adminUserToken",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "bearer-token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "comercial1Id",
+			"value": ""
+		},
+		{
+			"key": "newPedidoId",
+			"value": ""
+		},
+		{
+			"key": "randomAddres",
+			"value": ""
+		},
+		{
+			"value": "",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"value": "",
+			"disabled": true
+		}
+	]
+}

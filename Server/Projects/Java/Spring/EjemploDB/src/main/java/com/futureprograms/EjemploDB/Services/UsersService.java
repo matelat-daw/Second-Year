@@ -1,7 +1,7 @@
 package com.futureprograms.EjemploDB.Services;
 
 import com.futureprograms.EjemploDB.Models.Users;
-import com.futureprograms.EjemploDB.Repositories.PruebaRepository;
+import com.futureprograms.EjemploDB.Repositories.UsersRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -9,32 +9,32 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PruebaService {
+public class UsersService {
     @Autowired
-    private PruebaRepository pruebaRepository;
+    private UsersRepository usersRepository;
 
     @Autowired
     private PasswordEncoder passwordEncoder;
 
     public List<Users> findAll() {
-        return pruebaRepository.findAll();
+        return usersRepository.findAll();
     }
 
     public Optional<Users> findById(Long id) {
-        return pruebaRepository.findById(id);
+        return usersRepository.findById(id);
     }
 
     public Users save(Users prueba) {
         // Encriptar la contraseña antes de guardar
         prueba.setPassword(passwordEncoder.encode(prueba.getPassword()));
-        return pruebaRepository.save(prueba);
+        return usersRepository.save(prueba);
     }
 
     public void deleteById(Long id) {
-        pruebaRepository.deleteById(id);
+        usersRepository.deleteById(id);
     }
 
-    public Optional<Users> findByEmail(String email) {
-        return pruebaRepository.findByEmail(email);
+    public Optional<Users> findByUserName(String email) {
+        return usersRepository.findByUsername(email);
     }
 }

@@ -9,7 +9,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @Data
-public class Role {
+public class Roles {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -17,19 +17,19 @@ public class Role {
     @Column(unique = true, nullable = false)
     private String name; // Ejemplo: "ADMIN", "USER"
 
-    /*public Long getId() {
+    public Long getId() {
         return id;
     }
 
     public void setId(Long id) {
         this.id = id;
-    }*/
+    }
 
-    /*public String getName() {
+    public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }*/
+    }
 }
