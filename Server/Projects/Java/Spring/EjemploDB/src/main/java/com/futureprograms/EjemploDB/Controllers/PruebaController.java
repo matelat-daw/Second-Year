@@ -10,7 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/pruebas")
 public class PruebaController {
-    @Autowired
+    /*@Autowired
     private UsersService pruebaService;
 
     @GetMapping
@@ -44,5 +44,5 @@ public class PruebaController {
             pruebaService.deleteById(id);
             return ResponseEntity.noContent().build();
         }).orElse(ResponseEntity.notFound().build());
-    }
+    }*/
 }

@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class AuthController {
     @Autowired
-    UserDetailsService puds;
+    UserDetailsService uds;
 
     @GetMapping("/login")
     public String login() {
         return "login";
     }
 
-    @PostMapping("/login")
+    /*@PostMapping("/login")
     public String list(Model model) {
         model.addAttribute("title", "Lista de Personas");
-        model.addAttribute("prueba", puds.loadUserByUsername(model.asMap().get("username").toString()));
+        model.addAttribute("prueba", uds.loadUserByUsername(model.asMap().get("username").toString()));
         return "list";
-    }
+    }*/
 }
