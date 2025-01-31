@@ -2,7 +2,7 @@ Así debe quedar Program.cs para API:
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddDbContext<JardineriaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("Jardineria") ?? throw new InvalidOperationException("Connection string 'Jardineria' not found."))); // Base de datos de Productos/Articulos.
+builder.Services.AddDbContext<JardineriaContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("XXXXXXXX") ?? throw new InvalidOperationException("Connection string 'XXXXXXXX' not found."))); // Base de datos de Productos/Articulos.
 
 builder.Services.AddDbContext<CesarContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("CesarUsers") ?? throw new InvalidOperationException("Connection string 'CesarUsers' not found."))); // Base de Datos de Usuarios
 

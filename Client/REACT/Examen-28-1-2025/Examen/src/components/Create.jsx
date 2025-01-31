@@ -30,19 +30,19 @@ const Create = () => {
     <div>
       <h2>Create Item</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Nombre" required />
+        <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" required />
         <br /><br />
         {/* <input name="grupo" value={formData.grupo} onChange={handleChange} placeholder="Grupo" />
         <br /><br /> */}
 
         {/* <label htmlFor="grupo">Grupo:</label> */}
-        <select name="grupo" id="grupo" placeholder="Grupo" required>
+        <select name="grupo" id="grupo" placeholder="Grupo" onChange={handleChange} required>
             <option value={""}>Selecciona un Grupo</option>
             { grupos.map( (grupo, i) => <option key={`${i}+${grupo}`} value={grupo}>Grupo: {grupo}</option>)}
         </select>
 
         <br /><br />
-        <button type="submit">Create</button>
+        <button type="submit" className='btn btn-success'>Create</button>
       </form>
     </div>
   );

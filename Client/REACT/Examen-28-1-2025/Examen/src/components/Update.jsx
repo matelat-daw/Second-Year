@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getAlumnos, updateAlumno } from '../services/Service';
+import { getAlumnos, updateAlumno, getGrupos } from '../services/Service';
 
 const Update = () => {
-  const [formData, setFormData] = useState({ name: '', grupo: '' });
+  const [formData, setFormData] = useState({ nombre: '', grupo: '' });
+  const [grupos, setItems] = useState([]);
   const { id } = useParams();
   const navigate = useNavigate();
 
@@ -23,6 +24,14 @@ const Update = () => {
     fetchItem();
   }, [id]);
 
+  useEffect(() => {
+        const fetchItems = async () => {
+          const data = await getGrupos();
+          setItems(data);
+        };
+        fetchItems();
+      }, []);
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -37,9 +46,12 @@ const Update = () => {
     <div>
       <h2>Update Item</h2>
       <form onSubmit={handleSubmit}>
-        <input type="text" name="name" value={formData.name} onChange={handleChange} placeholder="Nombre" />
+        <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" />
         <br /><br />
-        <textarea name="description" value={formData.grupo} onChange={handleChange} placeholder="Descripción" />
+        <select name="grupo" id="grupo" placeholder="Grupo" value={formData.grupo} onChange={handleChange} required>
+            <option value={""}>Selecciona un Grupo</option>
+            { grupos.map( (grupo, i) => <option key={`${i}+${grupo}`} value={grupo}>Grupo: {grupo}</option>)}
+        </select>
         <br /><br />
         <button type="submit">Actualizar</button>
       </form>

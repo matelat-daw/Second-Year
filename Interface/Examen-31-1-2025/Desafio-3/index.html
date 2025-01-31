@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de validación de contraseña</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+
+      span
+      {
+        font-size: small;
+        color: salmon;
+      }
+    }
+
+  </style>
+<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-evagd.js"></script></head>
+<body>
+  <h1>Registro</h1>
+  <form id="registration-form">
+    <label for="password">Contraseña:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+    <span id="num">Debe Contener al menos un Número</span><br>
+    <span id="min">Debe Contener al menos una minúscula</span><br>
+    <span id="may">Debe Contener al menos una Mayuscula</span><br>
+    <span id="sym">Debe Contener al menos un Simbolo</span><br>
+
+
+    <br>
+    <button type="submit"  id="submit-button">Registro</button>
+  </form>
+
+  <script>
+    const pass = document.getElementById("password");
+    const num = document.getElementById("num");
+    const min = document.getElementById("min");
+    const may = document.getElementById("may");
+    const sym = document.getElementById("sym");
+    let ok = false;
+
+    pass.addEventListener("input", () =>
+    {
+      if (pass.value.length < 8)
+      {
+            let char = pass.value[pass.value.length - 1];
+            console.log(char);
+
+            if (typeof char == "number")
+            {
+                num.style.visibility = "hidden";
+            }
+
+            if (typeof char == "string")
+            {
+                if (char.toLowerCase())
+                {
+                    min.style.visibility = "hidden";
+                }
+                if (char.toUpperCase())
+                {
+                    may.style.visibility = "hidden";
+                }
+            }
+        }   
+    });
+  </script>
+</body>
+</html>
