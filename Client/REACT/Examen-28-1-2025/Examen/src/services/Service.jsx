@@ -15,10 +15,7 @@ const grupos = ["A", "B"];
 // Obtener todos los alumnos
 export const getAlumnos = async () => {
     try {
-      // return alumnos2;
-      return await fetch("http://localhost:3000/alumnos").then(respuesta => respuesta.json())
-                .catch(respuesta => toast(2, "Error de Conexión", "Lo Siento No hay Conexión con el Servidor. Asegurate de que el Servidor está en Ejecución. Error: " + respuesta))
-                // .then(data => toast(0, "Todo Ha Ido Bien:", "Se han cargado los Datos del Servidor." + data));
+      return alumnos2;
     } catch (error) {
       console.error('Error fetching items:', error);
     }

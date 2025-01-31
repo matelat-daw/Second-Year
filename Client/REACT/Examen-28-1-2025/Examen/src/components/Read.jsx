@@ -23,7 +23,7 @@ const Read = () => {
             <tr><th>ID</th><th>Nombre</th><th>Grupo</th><th>Acciones</th></tr>
         </thead>
         <tbody>
-        <script>{toast(0, "SÍ: ", "Se Han Cargado los Datos.")}</script>
+        {/* <script>{toast(0, "SÍ: ", "Se Han Cargado los Datos.")}</script> */}
                 {alumnos.map((alumno) => (
                     <tr key={alumno.id}><td>{alumno.id}</td><td>{alumno.nombre}</td><td>{alumno.grupo}</td><td><button onClick={ (e) => navegar(`/Update/${alumno.id}`)} className='btn btn-primary'>Actualizar</button>&nbsp;&nbsp;<button onClick={(e)=> navegar(`/delete/${alumno.id}`)} className='btn btn-danger'>Eliminar</button></td></tr>
                 ))}
