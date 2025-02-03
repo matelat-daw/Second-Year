@@ -10,7 +10,6 @@
         --color-button_back: #474747;
         --color-button: wheat;
         --color-a: #fff;
-        --color-hover: #333;
         --color-footer_back: #505050;
         --color-footer: white;
     }
@@ -27,7 +26,6 @@
     --color-button_back: #474747;
     --color-button: wheat;
     --color-a: #fff;
-    --color-hover: #333;
     --color-footer_back: #505050;
     --color-footer: white;
 }
@@ -42,7 +40,6 @@
     --color-button_back: #0000f2;
     --color-button: wheat;
     --color-a: #000;
-    --color-hover: #80a9db;
     --color-footer_back: #08a4ff;
     --color-footer: #000;
 }
