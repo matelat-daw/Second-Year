@@ -1,3 +1,24 @@
+.left-margin
+{
+    margin-left: 48px;
+}
+
+#about, #history
+{
+    padding: 10px;
+}
+
+.center
+{
+    text-align: center;
+}
+
+.grid-2col
+{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
 /* CSS de Header, Nav, Aside y Main */
 @font-face
 {
@@ -59,6 +80,11 @@ body
         text-align: center;
     }
 
+    h3
+    {
+        margin: 0;
+    }
+
     span
     {
         font-size: .80em; /* Reduce el tamaño de la fuente de los span al 80% */
@@ -67,6 +93,7 @@ body
     a
     {
         border-radius: 5px;
+        transition: .5s;
     }
 
     #btn-transfer
@@ -88,6 +115,32 @@ body
     {
         display: none;
     }
+    
+    .photo > img
+    {
+        float: right;
+        object-fit: cover;
+        width: 25%;
+        border: 1px solid black;
+        border-radius: 40%;
+    }
+
+    p
+    {
+        padding: 10px;
+    }
+
+    img, video, iframe {
+        padding: 20px;
+        transition: transform .5s;
+        width: 80%;
+        margin: 0 auto;
+      }
+      
+      /* img:hover, video:hover, iframe:hover {
+        z-index: 1;
+        transform: scale(1.1);
+      } */
 }
 
 /* Estilos de Header. */
@@ -102,16 +155,29 @@ body
     font-size: 2.6em;
 }
 
-.nav-link
+a
+{
+    text-decoration: none;
+    color: var(--color-a);
+    margin: .5em 0;
+}
+
+/* a, .nav-link
 {
     color: var(--color-a);
     margin: .5em 0;
     text-decoration: none;
+    transition: .5s;
 }
+
+a:hover, .nav-link:hover
+{
+    background-color: var(--color-hover);
+} */
 
 .double
 {
-    font-size: 2em;
+    font-size: 2.6em;
     color: var(--color-texto);
 }
 

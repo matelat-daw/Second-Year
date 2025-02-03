@@ -42,7 +42,7 @@ function styleIt(style)
     if (style == "dark")
     {
         if (DOM.article != null)
-            DOM.article.src = "../img/kiwi-dark.jpg";
+            DOM.article.src = "../media/imgs/kiwi-dark.webp";
         DOM.light.style.display = "block";
         DOM.dark.style.display = "none";
         DOM.body.className = style;
@@ -50,7 +50,7 @@ function styleIt(style)
     else
     {
         if (DOM.article != null)
-            DOM.article.src = "../img/kiwi.jpg";
+            DOM.article.src = "../media/imgs/kiwi.webp";
         DOM.dark.style.display = "block";
         DOM.light.style.display = "none";
         DOM.body.className = style;
