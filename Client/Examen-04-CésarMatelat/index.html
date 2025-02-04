@@ -22,8 +22,9 @@
       <p id="error_dni" class="error oculto"></p>
     </div>
     <div class="campo">
-      <input id="mayor-edad" name="mayor-edad" type="checkbox"> 
+      <input id="mayor-edad" type="checkbox"> 
       <label for="mayor-edad">(3) Mayor de edad</label>
+      <input id="edad" type="hidden" name="edad" value="N">
     </div>
     <br><br>
     <div class="campo">
@@ -41,7 +42,7 @@
     </div>
     <div class="campo">
       <label for="select-deportes" class="campo">(6) Seleccionar al menos una actividad deportiva</label>
-      <select id="select-deportes" name="deportes" multiple size="5"  required>
+      <select id="select-deportes" name="deportes" multiple size="5" required>
         <option value="FU">FÚTBOL</option>
         <option value="BA">BALONCESTO</option>
         <option value="TE">TENIS</option>

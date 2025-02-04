@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { getAlumnos, updateAlumno, getGrupos } from '../services/Service';
+// import { getAlumnos, updateAlumno, getGrupos } from '../services/Service';
+import { getAlumnos, getGrupos } from '../services/Service';
 
 const Update = () => {
   const [formData, setFormData] = useState({ nombre: '', grupo: '' });
@@ -44,7 +45,7 @@ const Update = () => {
 
   return (
     <div>
-      <h2>Update Item</h2>
+      <h2>Actualizar Alumno</h2>
       <form onSubmit={handleSubmit}>
         <input type="text" name="nombre" value={formData.nombre} onChange={handleChange} placeholder="Nombre" />
         <br /><br />

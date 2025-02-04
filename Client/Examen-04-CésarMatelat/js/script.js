@@ -7,7 +7,8 @@ const DOM = {
     sexo: document.getElementById("sexo"),
     cod_postal: document.getElementById("cod-postal"),
     deportes: document.getElementById("select-deportes"),
-    sports: document.querySelectorAll("options")
+    sports: document.querySelectorAll("options"),
+    edad: document.getElementById("edad")
 }
 
 const ERROR = {
@@ -85,17 +86,20 @@ let sports = []; // Array de Aficiones, Contendrá las Aficiones Seleccionadas d
 
 function checkSports() // Función Para Verificar la Cantidad de Aficiones que se Han Añadido.
 {
-    DOM.deportes.forEach(option => {
+    Object.values(DOM.deportes.options).forEach(option => {
         option.addEventListener("click", () => {
             if (option.selected) {
+                console.log(option.value);
                 sports.push(option.value);
-            } else {
+                console.log(sports);
+            }
+            else {
                 fixSports(option.value);
             }
             checkSports();
         });
     });
-    if (sports.length >= 1) // Si en el Array Hay Más de 1.
+    if (sports.length >= 1) // Si en el Array Hay 1 o Más.
     {
         DOM.error_deportes.style.visibility = "hidden"; // Oculta el Mensaje Selecciona al Menos 2 Aficiones.
     }
@@ -111,19 +115,19 @@ function fixSports(sport) // Función fixHobbies Recibe el Valor del Input Type 
     sports.splice(index, 1); // Lo Elimina del Array.
 }
 
-DOM.mayor_edad.addEventListener("click", function()
-{
-    if (DOM.mayor_edad.checked)
-    {
-        DOM.mayor_edad.value = "S";
-    }
-    else
-    {
-        DOM.mayor_edad.disabled;
-        DOM.mayor_edad.checked;
-        DOM.mayor_edad.value = "N";
-    }
-});
+// DOM.mayor_edad.addEventListener("click", function()
+// {
+//     if (DOM.mayor_edad.checked)
+//     {
+//         DOM.mayor_edad.value = "S";
+//     }
+//     else
+//     {
+//         DOM.mayor_edad.disabled;
+//         DOM.mayor_edad.checked;
+//         DOM.mayor_edad.value = "N";
+//     }
+// });
 
 DOM.deportes.addEventListener("click", () => {
     checkSports();
@@ -137,6 +141,14 @@ DOM.form.addEventListener("submit", (e) => {
     if (checkErrors()) {
         e.preventDefault();
     } else {
+        if (DOM.mayor_edad.checked)
+        {
+            DOM.edad.value = "S";
+        }
+        else
+        {
+            DOM.edad.value = "N";
+        }
         DOM.sports.value = sports.join(", ");
     }
 });
