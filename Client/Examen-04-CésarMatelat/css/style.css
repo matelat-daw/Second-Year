@@ -1,0 +1,17 @@
+input:invalid, select:invalid /* Si el campo es requerido y aun está vacío pone un borde color salmon a los campos. */
+{
+    border: 1px solid red;
+}
+
+input:invalid + #error_nombre, input:invalid + #error_dni, input:invalid + #error_cod-postal, input:invalid + #error_deportes
+{
+    visibility: visible;
+    font-size: small;
+    color: salmon;
+    display: block;
+}
+
+p
+{
+    visibility: hidden;
+}

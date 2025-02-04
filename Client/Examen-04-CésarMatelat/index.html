@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1">
+  <title>Solicitud de actividades deportivas</title>
+  <link rel="stylesheet" href="./css/style.css">
+
+<link rel="stylesheet" type="text/css" href="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.css"/><script  type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cookieconsent.min.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/cookies/cauce_cookie.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-base.js"></script><script type="text/javascript" src="https://www3.gobiernodecanarias.org/educacion/cau_ce/estadisticasweb/scripts/piwik-evagd.js"></script></head>
+<body>
+<form action="https://www.w3schools.com/action_page.php" id="frmsolicitud" novalidate>
+  <fieldset>
+    <legend>Solicitud de actividades deportivas</legend>
+    <div class="campo">
+        <label class="campo" for="nombre">(1) Nombre completo</label>
+        <input type="text" id="nombre" name="nombre" required/>
+        <p id="error_nombre" class="error oculto"></p>
+    </div>
+    <div class="campo">
+      <label class="campo" for="dni">(2) Dni</label>
+      <input type="text" id="dni" name="dni" required />
+      <p id="error_dni" class="error oculto"></p>
+    </div>
+    <div class="campo">
+      <input id="mayor-edad" name="mayor-edad" type="checkbox"> 
+      <label for="mayor-edad">(3) Mayor de edad</label>
+    </div>
+    <br><br>
+    <div class="campo">
+        <label class="campo">(4) Sexo</label>
+        <input type="radio" id="sexoH" name="sexo" checked  value="H"/>
+        <label for="sexoH">Hombre</label>  
+        <input type="radio" id="sexoM" name="sexo" value="M"/>
+        <label for="sexoM">Mujer</label>
+    </div>
+    <br><br>
+    <div class="campo">
+      <label class="campo" for="cod-postal">(5) Código postal</label>
+      <input type="text" id="cod-postal" name="cod-postal" min="38000" max="38999" pattern="[0-9]{5}" required />
+      <p id="error_cod-postal" class="error oculto"></p>
+    </div>
+    <div class="campo">
+      <label for="select-deportes" class="campo">(6) Seleccionar al menos una actividad deportiva</label>
+      <select id="select-deportes" name="deportes" multiple size="5"  required>
+        <option value="FU">FÚTBOL</option>
+        <option value="BA">BALONCESTO</option>
+        <option value="TE">TENIS</option>
+        <option value="VO">VOLEIVOL</option>
+        <option value="WA">WATERPOLO</option>
+      </select>
+      <p id="error_deportes" class="error oculto"></p>
+      <input type="hidden" name="options">
+    </div>
+    </fieldset>
+    <input id="submit" type="submit" value="Enviar">
+</form>
+<script  src="./js/script.js"></script>
+</body>
+</html>
