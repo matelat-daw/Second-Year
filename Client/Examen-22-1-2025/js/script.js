@@ -150,7 +150,7 @@ function Ejercicio01_5Llamada(id, nombre)
 
 // Examen Tema 2:
 
-function Ejercicio02_1()
+function Ejercicio02_1(arrayRecetas)
 {
     // let ingeredientes = arrayRecetas.map(receta => receta.ingredientes);
     // console.log(ingeredientes);
@@ -163,9 +163,9 @@ function Ejercicio02_1()
     //     ));
     //     console.log(receta);
 
-    let recetas = arrayRecetas.filter(receta => receta.tipoCocina == "Italian")
+    // let recetas = arrayRecetas.filter(receta => receta.tipoCocina == "Italian")
 
-    let result = recetas.filter(receta => receta.ingredientes.every(ingrediente => !ingrediente.toLowerCase().includes("garlic")));
+    let result = arrayRecetas.filter(receta => receta.ingredientes.every(ingrediente => !ingrediente.toLowerCase().includes("garlic")));
 
     console.log(result);
 
@@ -177,6 +177,15 @@ function Ejercicio02_2Llamada(arrayRecetas, tipoCocina)
     let i = 0;
     let resultado = tipoCocina.forEach(tipo => arrayRecetas.map(receta => receta.tipoCocina == tipo).reduce(contador => contador++));
     console.log(resultado);
+
+    return tipoCocina.map(tipo => {
+        const totalRecetas = arrayRecetas.filter(receta =>
+            receta.tipoCocina.toLowerCase() === tipo.toLowerCase()).length;
+        return {
+            tipoCocina: tipo.toUpperCase() + tipo.slice(1).toLowerCase(),
+            totalRecetas
+        };
+    });
 }
 
 function Ejercicio02_3Llamada(arrayRecetas, calorias, tipoCocina)
