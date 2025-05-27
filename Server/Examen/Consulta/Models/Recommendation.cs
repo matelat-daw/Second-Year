@@ -18,9 +18,9 @@ namespace PO02_01.Models
         [StringLength(100, MinimumLength = 5, ErrorMessage = "La descripción debe tener entre {2} y {1} caracteres. ")]
         public string Description { get; set; }
 
-        public int SerieId { get; set; }
+        public int SeriesId { get; set; }
 
         [DisplayName("Serie")]
-        public Serie? Serie { get; set; }
+        public Series? Series { get; set; }
     }
 }

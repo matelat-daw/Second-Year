@@ -60,3 +60,7 @@ C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\refint\List of
 C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.pdb
 C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\List of Objects.genruntimeconfig.cache
 C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\ref\List of Objects.dll
+C:\Server\www\DAW\Server\Pruebas\List of Objects\bin\Debug\net8.0\List of Objects.staticwebassets.endpoints.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets\msbuild.List of Objects.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Server\www\DAW\Server\Pruebas\List of Objects\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

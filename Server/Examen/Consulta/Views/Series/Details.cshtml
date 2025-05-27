@@ -1,4 +1,4 @@
-﻿@model PO02_01.Models.Serie
+﻿@model PO02_01.Models.Series
 
 @{
     ViewData["Title"] = "Detalles - Serie";
@@ -57,7 +57,7 @@
         }
         @if (User.IsInRole("Admin"))
         {
-            <a asp-controller="Recommendations" asp-action="Create" asp-route-SerieID="@Model.SeriesID" class="btn btn-success">Nueva recomendación</a>
+            <a asp-controller="Recommendations" asp-action="Create" asp-route-id="@Model.SeriesID" class="btn btn-success">Nueva recomendación</a>
         }
     }
 </div>

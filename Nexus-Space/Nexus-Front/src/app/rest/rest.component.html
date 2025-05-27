@@ -1,0 +1,38 @@
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
+
+<h2>Posts Table</h2>
+
+<table>
+  <tr>
+    <th>Nombre</th>
+    <th>Apellido 1</th>
+    <th>Apellido 2</th>
+    <th>E-mail</th>
+    <th>Nacimiento</th>
+  </tr>
+  <tr *ngFor="let post of posts">
+    <td>{{post.name}}</td>
+    <td>{{post.surname1}}</td>
+    <td>{{post.surname2}}</td>
+    <td>{{post.email}}</td>
+    <td>{{post.bday}}</td>
+
+  </tr>
+
+</table>

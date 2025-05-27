@@ -32,3 +32,7 @@ c:\Server\www\DAW\Server\ASP.NET\Catalog\obj\Debug\net8.0\refint\Catalog.dll
 c:\Server\www\DAW\Server\ASP.NET\Catalog\obj\Debug\net8.0\Catalog.pdb
 c:\Server\www\DAW\Server\ASP.NET\Catalog\obj\Debug\net8.0\Catalog.genruntimeconfig.cache
 c:\Server\www\DAW\Server\ASP.NET\Catalog\obj\Debug\net8.0\ref\Catalog.dll
+C:\Server\www\DAW\Server\ASP.NET\Catalog\bin\Debug\net8.0\Catalog.staticwebassets.endpoints.json
+C:\Server\www\DAW\Server\ASP.NET\Catalog\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Server\www\DAW\Server\ASP.NET\Catalog\obj\Debug\net8.0\staticwebassets\msbuild.Catalog.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Server\www\DAW\Server\ASP.NET\Catalog\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

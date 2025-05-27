@@ -1,11 +1,12 @@
 {
   "Version": 1,
-  "Hash": "ZsmjoMq/gEHgl6n1fo9lOlk/1FZ6ZGcDbTvHrZgjqcU=",
+  "Hash": "YBT0PuuzkNsUy8CuK0LbTOA9EGck7AGVtDZfjh8dzPY=",
   "Source": "Catalog",
   "BasePath": "_content/Catalog",
   "Mode": "Default",
   "ManifestType": "Build",
   "ReferencedProjectsConfiguration": [],
   "DiscoveryPatterns": [],
-  "Assets": []
+  "Assets": [],
+  "Endpoints": []
 }

@@ -20,11 +20,11 @@ public partial class SeriesContext : DbContext
 
     public virtual DbSet<Genre> Genres { get; set; }
 
-    public virtual DbSet<Serie> Series { get; set; }
+    public virtual DbSet<Series> Series { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<Serie>().ToTable("Series", t => t.ExcludeFromMigrations());
+        modelBuilder.Entity<Series>().ToTable("Series", t => t.ExcludeFromMigrations());
         modelBuilder.Entity<Genre>().ToTable("Genre", t => t.ExcludeFromMigrations());
 
         modelBuilder.Entity<Genre>(entity =>
@@ -32,7 +32,7 @@ public partial class SeriesContext : DbContext
             entity.HasKey(e => e.GenreID).HasName("PK__Genre__0385055E969F89FA");
         });
 
-        modelBuilder.Entity<Serie>(entity =>
+        modelBuilder.Entity<Series>(entity =>
         {
             entity.HasKey(e => e.SeriesID).HasName("PK__Series__F3A1C10165AABB29");
 
@@ -64,7 +64,7 @@ public partial class SeriesContext : DbContext
                     Id = id++,
                     Title = fields[0],
                     Description = fields[1],
-                    SerieId = int.Parse(fields[2])
+                    SeriesId = int.Parse(fields[2])
                 };
                 examples.Add(example);
             }

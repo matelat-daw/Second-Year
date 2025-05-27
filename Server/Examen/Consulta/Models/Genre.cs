@@ -22,5 +22,5 @@ public partial class Genre
 
     [DisplayName("Series del género")]
     [InverseProperty("Genre")]
-    public virtual ICollection<Serie> Series { get; set; } = new List<Serie>();
+    public virtual ICollection<Series> Series { get; set; } = new List<Series>();
 }

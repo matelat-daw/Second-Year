@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PO02_01.Data;
 using PO02_01.Models;
@@ -13,19 +8,13 @@ namespace PO02_01.Controllers
 {
     [Authorize]
     
-    public class RecommendationsController : Controller
+    public class RecommendationsController(SeriesContext context) : Controller
     {
-        private readonly SeriesContext _context;
-
-        public RecommendationsController(SeriesContext context)
-        {
-            _context = context;
-        }
 
         // GET: Recommendations
         public async Task<IActionResult> Index()
         {
-            var seriesContext = _context.Recommendation.Include(r => r.Serie);
+            var seriesContext = context.Recommendation.Include(r => r.Series);
             return View(await seriesContext.ToListAsync());
         }
 
@@ -38,8 +27,8 @@ namespace PO02_01.Controllers
                 return NotFound();
             }
 
-            var recommendation = await _context.Recommendation
-                .Include(r => r.Serie)
+            var recommendation = await context.Recommendation
+                .Include(r => r.Series)
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (recommendation == null)
             {
@@ -51,9 +40,9 @@ namespace PO02_01.Controllers
 
         // GET: Recommendations/Create
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(int SerieID)
+        public async Task<IActionResult> Create(int id)
         {
-            ViewData["Serie"] = await _context.Series.FirstOrDefaultAsync(s => s.SeriesID == SerieID);
+            ViewData["Serie"] = await context.Series.FirstOrDefaultAsync(s => s.SeriesID == id);
             return View();
         }
 
@@ -61,21 +50,16 @@ namespace PO02_01.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(int SerieID, [Bind("Id,Title,Description,SerieId")] Recommendation recommendation)
+        public async Task<IActionResult> Create(int id, [Bind("Title, Description, SeriesId")] Recommendation recommendation)
         {
-            ViewData["Serie"] = await _context.Series.FirstOrDefaultAsync(s => s.SeriesID == SerieID);
+            ViewData["Serie"] = await context.Series.FirstOrDefaultAsync(s => s.SeriesID == id);
             if (ModelState.IsValid)
             {
-                _context.Add(recommendation);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Series", new { Id = SerieID });
+                context.Add(recommendation);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Details", "Series", new { Id = id });
             }
             return View(recommendation);
-        }
-
-        private bool RecommendationExists(int id)
-        {
-            return _context.Recommendation.Any(e => e.Id == id);
         }
     }
 }

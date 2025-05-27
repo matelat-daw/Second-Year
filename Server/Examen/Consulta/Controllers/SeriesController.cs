@@ -12,19 +12,13 @@ using PO02_01.Models;
 namespace PO02_01.Controllers
 {
     [Authorize]
-    public class SeriesController : Controller
+    public class SeriesController(SeriesContext context) : Controller
     {
-        private readonly SeriesContext _context;
-
-        public SeriesController(SeriesContext context)
-        {
-            _context = context;
-        }
 
         // GET: Series
         public async Task<IActionResult> Index()
         {
-            var seriesContext = _context.Series.Include(s => s.Genre);
+            var seriesContext = context.Series.Include(s => s.Genre);
             return View(await seriesContext
                 .OrderBy(s => s.SeriesName)
                 .ToListAsync());
@@ -38,7 +32,7 @@ namespace PO02_01.Controllers
                 return NotFound();
             }
 
-            var serie = await _context.Series
+            var serie = await context.Series
                 .Include(s => s.Genre)
                 .Include(s => s.Recommendations)
                 .FirstOrDefaultAsync(m => m.SeriesID == id);
@@ -52,9 +46,9 @@ namespace PO02_01.Controllers
 
         [Authorize(Roles = "Admin")]
         // GET: Series/Create
-        public async Task<IActionResult> Create(int? GenreID)
+        public async Task<IActionResult> Create(int? id)
         {
-            ViewData["Genre"] = await _context.Genres.FirstOrDefaultAsync(s => s.GenreID == GenreID);
+            ViewData["Genre"] = await context.Genres.FirstOrDefaultAsync(s => s.GenreID == id);
             return View();
         }
 
@@ -62,21 +56,28 @@ namespace PO02_01.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [Authorize(Roles = "Admin")]
-        public async Task<IActionResult> Create(int? GenreID,[Bind("SeriesID,SeriesName,ReleaseDate,Description,GenreID")] Serie serie)
+        //public async Task<IActionResult> Create(int? id,[Bind("SeriesID, SeriesName, ReleaseDate, Description, GenreID")] Series serie)
+        //{
+        //    ViewData["Genre"] = await context.Genres.FirstOrDefaultAsync(g => g.GenreID == id);
+        //    if (ModelState.IsValid)
+        //    {
+        //        context.Add(serie);
+        //        await context.SaveChangesAsync();
+        //        return RedirectToAction("Details", "Genres", new { Id = id });
+        //    }
+        //    return View(serie);
+        //}
+
+        public async Task<IActionResult> Create(int? id, [Bind("SeriesName, ReleaseDate, Description, GenreID")] Series serie)
         {
-            ViewData["Genre"] = await _context.Genres.FirstOrDefaultAsync(g => g.GenreID == GenreID);
+            ViewData["Genre"] = await context.Genres.FirstOrDefaultAsync(g => g.GenreID == id);
             if (ModelState.IsValid)
             {
-                _context.Add(serie);
-                await _context.SaveChangesAsync();
-                return RedirectToAction("Details", "Genres", new { Id = GenreID });
+                context.Add(serie);
+                await context.SaveChangesAsync();
+                return RedirectToAction("Details", "Genres", new { Id = id });
             }
             return View(serie);
-        }
-
-        private bool SerieExists(int id)
-        {
-            return _context.Series.Any(e => e.SeriesID == id);
         }
     }
 }

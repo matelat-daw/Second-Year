@@ -27,7 +27,7 @@
     </ul>
     @if (User.IsInRole("Admin"))
     {
-        <a asp-controller="Series" asp-action="Create" asp-route-GenreID="@Model.GenreID" class="btn btn-success">Nueva serie</a>
+        <a asp-controller="Series" asp-action="Create" asp-route-id="@Model.GenreID" class="btn btn-success">Nueva serie</a>
     }
 </div>
 <div>
